@@ -11,42 +11,42 @@ using YouTong.WebSite.Codes;
 
 namespace YouTong.WebSite.Activities.Disney
 {
-	public partial class Expo : PageBase
-	{
-		public ActivityJoined ActivityJoined;
+    public partial class Expo : PageBase
+    {
+        public ActivityJoined ActivityJoined;
 
-		protected void Page_Load(object sender, EventArgs e)
-		{
-			if (!this.IsPostBack)
-			{
-				if (!this.IsAnonymous)
-				{
-					this.ActivityJoined = xUtFactory.ActivityJoinedService.GetActivityJoined(UtConfig.DisneyExpoActivityID, this.User.ID);
-				}
-			}
-		}
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!this.IsPostBack)
+            {
+                if (!this.IsAnonymous)
+                {
+                    this.ActivityJoined = xUtFactory.ActivityJoinedService.GetActivityJoined(UtConfig.DisneyExpoActivityID, this.User.ID);
+                }
+            }
+        }
 
-		protected void BtnSignIn_Click(object sender, EventArgs e)
-		{
-			try
-			{
-				var username = RequestObject.ToString("User_UserName");
-				var password = RequestObject.ToString("User_Password");
+        protected void BtnSignIn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var username = RequestObject.ToString("User_UserName");
+                var password = RequestObject.ToString("User_Password");
 
-				this.SignIn(username, password, false);
+                this.SignIn(username, password, false);
 
-				Response.Redirect("Expo.aspx");
-			}
-			catch
-			{
-				this.LiInfo.Text = "用户名或密码错误";
-			}
-		}
+                Response.Redirect("Expo.aspx");
+            }
+            catch
+            {
+                this.LiInfo.Text = "用户名或密码错误";
+            }
+        }
 
-		protected Child GetFirstChild()
-		{
-			var childs = UtFactory.Instance.ChildService.GetChildsByParent(this.User.ID);
-			return childs.Count == 0 ? null : childs[0];
-		}
-	}
+        protected Child GetFirstChild()
+        {
+            var childs = UtFactory.Instance.ChildService.GetChildsByParent(this.User.ID);
+            return childs.Count == 0 ? new Child() : childs[0];
+        }
+    }
 }
