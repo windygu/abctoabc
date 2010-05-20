@@ -1,0 +1,75 @@
+﻿
+/*list.html的css*/
+.list{
+	width: 861px;
+	margin: 0 auto;
+}
+.list h2{
+	width: 861px;
+	height: 50px;
+	background: transparent url(../images/zpbackground.gif) scroll 0 0;
+}
+.list h2 span{
+	padding: 22px 0 0 60px;
+	display: block;
+}
+.list h2 span a{
+	text-align: left;
+	text-decoration: none;
+	padding: 0 5px;
+	color: #595757;
+}
+.list span a:hover, .list span a.choose{
+	color:#549DBF;
+	text-align:left;
+	text-decoration:none;;
+}
+.mainlist{
+	width: 861px;
+	margin: 0 auto;
+	padding: 15px 0 25px 0;
+}
+.listleft{
+	width: 635px;
+	float: left;
+	overflow: hidden;
+	text-align: left;
+}
+.listright{
+	width: 198px;
+	float: left;
+	overflow: hidden;
+	text-align: left;
+}
+.zuopin_top{
+
+}
+.zupianji{
+	width: 210px;
+	float: left;
+}
+.zuopinmeta{
+	width: 410px;
+	float: left;
+	padding-left: 15px;
+}
+.fl{
+	float:left;
+}
+.clearfix{
+	display: block;
+}
+.yrating li.on {
+	background-position:0 0;
+}
+.yrating li {
+	height:31px;
+	width:30px;
+}
+.yrating li, .grating li {
+	background:url("../images/star.jpg") no-repeat scroll 0 0 transparent;
+	float:left;
+	overflow:hidden;
+}
+
+/********************************************************************/

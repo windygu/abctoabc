@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<bcaster autoPlayTime="10">
+	<item item_url="/_Resources/images/disneybj.jpg" link="http://www.no1child.com/activities/disney/expo.aspx" itemtitle="">
+	</item>
+	<item item_url="/_Resources/images/disneysh.jpg" link="http://old.no1child.com/expo" itemtitle="">
+	</item>
+	<item item_url="/_Resources/images/20100517-3M.jpg" link="http://old.no1child.com/3m/" itemtitle="">
+	</item>
+	<item item_url="/_Resources/images/20100517-奇异果.jpg" link="http://www.babytree.com/promo/paint2010/" itemtitle="">
+	</item>
+	<item item_url="/_Resources/images/20100517-凯思立580206.jpg" link="http://old.no1child.com/health/" itemtitle="">
+	</item>
+	<!--<item item_url="/_Resources/images/xiaomote.jpg" link="http://no1child.goodbaby.com/" itemtitle="">
+  </item>-->
+</bcaster>

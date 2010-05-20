@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>无标题页</title>
+    <script src="../../js/jquery-1.4.1.min.js" type="text/javascript"></script>
+
+    <script src="tudou.js" type="text/javascript"></script>
+
+    <script>
+    function AddInfo(msg){
+        jQuery("#info").val(msg+"\n"+jQuery("#info").val());
+    }
+    
+    
+    //上传演示
+    function tudou_dododo(){
+        Tudou_VideoCreate({
+            callUploading:tudou_uploading,
+            callProcessing:tudou_processing,
+            callFail:tudou_fail,
+            callTimeout:tudou_timeout,
+            callFinish:tudou_finish,
+            iframeName:"fileUpiframe",
+            form:jQuery('#formOne')
+        });
+    }
+    
+        
+            
+            //上传中
+            function tudou_uploading(msg){
+                jQuery("#qingkuang").html("正在上传...请勿关闭或者刷新浏览器" + msg.progress + "%;  文件大小：约" +parseInt(msg.filesize / 1024/1024 )+ "MB");
+            }
+            
+            //上传完毕正在转码
+            function tudou_processing(msg){
+                jQuery("#qingkuang").html("上传完毕，正在转码....请勿关闭或者刷新浏览器" + msg.progress + "%;  文件大小：约" +parseInt(msg.filesize / 1024/1024 )+ "MB");
+                           
+            }
+            
+            //上传或转码失败, 一般是因为上传的视频格式比较罕见或格式错误
+            function tudou_fail(msg){
+                jQuery("#qingkuang").html("上传或转码失败, 一般是因为上传的视频格式比较罕见或格式错误。");
+                           
+            }
+            
+            //用户中途取消上传或用户的网络中途中断
+             function tudou_timeout(msg){
+                jQuery("#qingkuang").html("用户中途取消上传或用户的网络中途中断。");
+                           
+            }
+            
+            //上传完成，转码成功
+            function tudou_finish(item){
+                jQuery("#qingkuang").html("上传完成");
+                AddInfo("播放的flash地址:"+item.outerPlayerUrl);   
+                AddInfo("小图片:"+item.picUrl);                 
+            }
+    
+       
+    //=========================================================  
+    //获取视频信息的 代码演示。   详细可以看 js文件的说明   
+    function dealSinglePaly(item){
+                AddInfo(item.itemUrl);
+            }  
+            
+    //Tudou_GetSinglePlay(233451,dealSinglePaly)  
+    //========================================================= 
+    </script>
+
+</head>
+<body>
+    <iframe src="" name="fileUpiframe" style="display: none"></iframe>
+    <form id="formOne" method="post" enctype="multipart/form-data">
+        <div>
+            <input type="file" id="myFile" name="myFile" class="qunziinput" />
+        </div>
+    </form>
+    <input type="button" value="确认上传" class="button1" id="btnUpload" onclick="return tudou_dododo()">
+    <div>
+        进度描述：<span id="qingkuang"></span>
+    </div>
+    <textarea style="width: 100%; display: block;" rows="10" id="info">
+    
+    </textarea>
+</body>
+</html>
