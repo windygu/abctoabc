@@ -1,0 +1,579 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Itfort</name>
+    </assembly>
+    <members>
+        <member name="T:Itfort.Web.RequestObject">
+            <summary>
+            请求数据和对象直接的转换操作
+            </summary>
+        </member>
+        <member name="M:Itfort.Web.RequestObject.ToString(System.String)">
+            <summary>
+            从Request中返回参数值转化成String
+            </summary>
+            <param name="paramName">参数名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Web.RequestObject.FormToString(System.String)">
+            <summary>
+            从Request中返回参数值转化成String
+            </summary>
+            <param name="paramName">参数名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Web.RequestObject.ToInt32(System.String)">
+            <summary>
+            从Request中返回参数值转化成Int32
+            </summary>
+            <param name="paramName">参数名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Web.RequestObject.ToInt32List(System.String)">
+            <summary>
+            从Request中返回参数值转化成Int32列表
+            </summary>
+            <param name="paramName">参数名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Web.RequestObject.ToInt64(System.String)">
+            <summary>
+            从Request中返回参数值转化成Int64
+            </summary>
+            <param name="paramName">参数名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Web.RequestObject.ToDecimal(System.String)">
+            <summary>
+            从Request中返回参数值成Decimal
+            </summary>
+            <param name="paramName">参数名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Web.RequestObject.ToDateTime(System.String)">
+            <summary>
+            从Request中返回参数值成DateTime
+            </summary>
+            <param name="paramName">参数名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Web.RequestObject.ToGuid(System.String)">
+            <summary>
+            从Request中返回参数值成GUID
+            </summary>
+            <param name="paramName">参数名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Web.RequestObject.ToNullableGuid(System.String)">
+            <summary>
+            从Request中返回参数值成可空GUID
+            </summary>
+            <param name="paramName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Web.RequestObject.ToGuidList(System.String)">
+            <summary>
+            从Request中返回参数值成GUID集合
+            </summary>
+            <param name="paramName">参数名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Web.RequestObject.ToBoolean(System.String)">
+            <summary>
+            从Request中返回参数值成Boolean
+            </summary>
+            <param name="paramName">参数名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Web.RequestObject.ToBoolean(System.String,System.Boolean)">
+            <summary>
+            从Request中返回参数值成Boolean
+            </summary>
+            <param name="paramName">参数名</param>
+            <param name="defaultValue">默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Web.Binder.ObjectBuilder.Bind(System.Collections.Specialized.NameValueCollection,System.String)">
+            <summary>
+            将值绑定到目标对象的属性上，并返回一个绑定之后的目标对象
+            </summary>
+            <param name="values">以键值对存储的值</param>
+            <param name="prefix">表示键前缀，键由前缀+属性名称构成。</param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Web.Binder.ObjectBuilder.BindProperty(System.Object,System.Reflection.PropertyInfo,System.String)">
+            <summary>
+            将指定值绑定到指定对象的指定属性上
+            </summary>
+            <param name="obj">指定对象</param>
+            <param name="property">指定属性</param>
+            <param name="value">指定值</param>
+        </member>
+        <member name="P:Itfort.Web.Binder.ObjectBuilder.ObjectType">
+            <summary>
+            需要被构建的对象的类型
+            </summary>
+        </member>
+        <member name="M:Itfort.ImageHelper.Scale(System.Drawing.Image,System.Drawing.Size)">
+            <summary>
+            缩略图，按高度和宽度来缩略
+            </summary>
+            <param name="image">原图</param>
+            <param name="size">大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.ImageHelper.Scale(System.Drawing.Image,System.Int32)">
+            <summary>
+            缩略图，按倍数来缩略
+            </summary>
+            <param name="image">原图</param>
+            <param name="multiple">放大或缩小的倍数，负数表示缩小，正数表示放大</param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.ImageHelper.ScaleFixWidth(System.Drawing.Image,System.Int32)">
+            <summary>
+            固定宽度缩略
+            </summary>
+            <param name="image"></param>
+            <param name="width"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.ImageHelper.ScaleFixHeight(System.Drawing.Image,System.Int32)">
+            <summary>
+            固定高度缩略
+            </summary>
+            <param name="image"></param>
+            <param name="height"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.ImageHelper.ScaleCut(System.Drawing.Image,System.Int32,System.Int32)">
+            <summary>
+            裁减缩略，根据固定的高度和宽度
+            </summary>
+            <param name="image"></param>
+            <param name="width"></param>
+            <param name="heigth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.ImageHelper.MakeThumbnail(System.String,System.String,System.Int32,System.Int32,System.String)">
+            <summary>
+            生成缩略图
+            </summary>
+            <param name="originalImagePath">源图路径（物理路径）</param>
+            <param name="thumbnailPath">缩略图路径（物理路径）</param>
+            <param name="width">缩略图宽度</param>
+            <param name="height">缩略图高度</param>
+            <param name="mode">生成缩略图的方式</param>    
+        </member>
+        <member name="M:Itfort.ImageHelper.Makewater(System.Drawing.Image,System.String,System.Drawing.Point)">
+            <summary>
+            打水印，在某一点
+            </summary>
+            <param name="image"></param>
+            <param name="waterImagePath"></param>
+            <param name="p"></param>
+        </member>
+        <member name="M:Itfort.ImageHelper.SaveQuality(System.Drawing.Image,System.String)">
+            <summary>
+            高质量保存
+            </summary>
+            <param name="image"></param>
+            <param name="path"></param>
+        </member>
+        <member name="T:Itfort.Web.HtmlPager">
+            <summary>
+            Html分页
+            </summary>
+        </member>
+        <member name="F:Itfort.Web.HtmlPager._TotalRecordCount">
+            <summary>
+            总记录数
+            </summary>
+        </member>
+        <member name="P:Itfort.Web.HtmlPager.PageCount">
+            <summary>
+            分页总页数
+            </summary>
+        </member>
+        <member name="P:Itfort.Web.HtmlPager.PageIndex">
+            <summary>
+            当前索引页
+            </summary>
+        </member>
+        <member name="P:Itfort.Web.HtmlPager.ShowGotoPage">
+            <summary>
+            显示转到某页
+            </summary>
+        </member>
+        <member name="P:Itfort.Web.HtmlPager.ShowRecordInfo">
+            <summary>
+            显示记录数
+            </summary>
+        </member>
+        <member name="T:Itfort.Web.BasePage">
+            <summary>
+            带有常用功能的Web页面。
+            </summary>
+        </member>
+        <member name="M:Itfort.Web.BasePage.JsWrite(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="jsCode"></param>
+        </member>
+        <member name="M:Itfort.Web.BasePage.JsAlert(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="T:Itfort.Web.VerifyCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Itfort.Web.VerifyCode.OnInit(System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="T:Itfort.Web.VerifyCodeAction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Itfort.Web.VerifyCodeAction.Prefix">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Itfort.Web.VerifyCodeAction.LoginKey">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Itfort.Web.VerifyCodeAction.RegisterKey">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Itfort.Web.VerifyCodeAction.SetLogin(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:Itfort.Web.VerifyCodeAction.GetLogin">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Web.VerifyCodeAction.SetRegister(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:Itfort.Web.VerifyCodeAction.GetRegister">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Web.VerifyCodeAction.SetVerifyCode(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Itfort.Web.VerifyCodeAction.GetVerifyCode(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Web.VerifyCodeAction.Validate(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.WebControls.HtmlEditor.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            呈现在客户端时生成的代码 
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:Itfort.Web.Binder.ConverterFactory.ConvertTo``1(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            将NameValueCollection中的值转换成对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="nvc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Web.Binder.ConverterFactory.ConvertTo``1(System.Collections.Specialized.NameValueCollection,System.String)">
+            <summary>
+            将NameValueCollection中的值转换成对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="nvc"></param>
+            <param name="prefix"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Itfort.Utils">
+            <summary>
+            通用类
+            </summary>
+        </member>
+        <member name="M:Itfort.Utils.HtmlEncode(System.String)">
+            <summary>
+            返回 HTML 字符串的编码结果
+            </summary>
+            <param name="str">字符串</param>
+            <returns>编码结果</returns>
+        </member>
+        <member name="M:Itfort.Utils.HtmlEncodeNewLineToBR(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Utils.HtmlEncodeNewLineToP(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Utils.HtmlDecode(System.String)">
+            <summary>
+            返回 HTML 字符串的解码结果
+            </summary>
+            <param name="str">字符串</param>
+            <returns>解码结果</returns>
+        </member>
+        <member name="M:Itfort.Utils.HtmlDecodeReplaceBR(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Utils.HtmlDecodeReplaceP(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Utils.UrlEncode(System.String)">
+            <summary>
+            返回 URL 字符串的编码结果
+            </summary>
+            <param name="str">字符串</param>
+            <returns>编码结果</returns>
+        </member>
+        <member name="M:Itfort.Utils.UrlDecode(System.String)">
+            <summary>
+            返回 URL 字符串的编码结果
+            </summary>
+            <param name="str">字符串</param>
+            <returns>解码结果</returns>
+        </member>
+        <member name="M:Itfort.Utils.GetTime">
+            <summary>
+            返回标准时间格式string
+            </summary>
+        </member>
+        <member name="M:Itfort.Utils.GetDateTime">
+            <summary>
+            返回标准时间格式string
+            </summary>
+        </member>
+        <member name="M:Itfort.Utils.GetStringLength(System.String)">
+            <summary>
+            返回字符串真实长度, 1个汉字长度为2
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Utils.WriteCookie(System.String,System.String,System.Int32)">
+            <summary>
+            写cookie值
+            </summary>
+            <param name="strName">名称</param>
+            <param name="strValue">值</param>
+            <param name="strValue">过期时间(分钟)</param>
+        </member>
+        <member name="M:Itfort.Utils.GetCookie(System.String)">
+            <summary>
+            读cookie值
+            </summary>
+            <param name="strName">名称</param>
+            <returns>cookie值</returns>
+        </member>
+        <member name="M:Itfort.Utils.IsIP(System.String)">
+            <summary>
+            是否为ip
+            </summary>
+            <param name="ip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Utils.IsURL(System.String)">
+            <summary>
+            检测是否是正确的Url
+            </summary>
+            <param name="strUrl">要验证的Url</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:Itfort.Utils.IsSafeSqlString(System.String)">
+            <summary>
+            检测是否有Sql危险字符
+            </summary>
+            <param name="str">要判断字符串</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:Itfort.Utils.IsSafeUserInfoString(System.String)">
+            <summary>
+            检测是否有危险的可能用于链接的字符串
+            </summary>
+            <param name="str">要判断字符串</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:Itfort.Utils.GetEmailHostName(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="strEmail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Utils.IsEmailFormatValid(System.String)">
+            <summary>
+            验证Email是否合法
+            </summary>
+            <param name="strEmail"></param>
+            <returns>true:有效</returns>
+        </member>
+        <member name="M:Itfort.Utils.IsUserNameFormatValid(System.String)">
+            <summary>
+            验证用户名格式是否正确
+            </summary>
+            <param name="strUserName"></param>
+            <returns>true:有效</returns>
+        </member>
+        <member name="M:Itfort.Utils.IsPasswordComplexEnough(System.String)">
+            <summary>
+            验证密码复杂度
+            </summary>
+            <param name="strPassword"></param>
+            <returns>true:有效</returns>
+        </member>
+        <member name="M:Itfort.Utils.GetMapPath(System.String)">
+            <summary>
+            获得当前绝对路径
+            </summary>
+            <param name="strPath">指定的路径</param>
+            <returns>绝对路径</returns>
+        </member>
+        <member name="M:Itfort.Utils.GetClientIP">
+            <summary>
+            获取客户端IP
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Utils.GetLeftByteString(System.String,System.Int32)">
+            <summary>
+            从左往右获取指定字节数的字符串。
+            </summary>
+            <param name="source">从中提取的目标字符串。</param>
+            <param name="byteLength">需要提取的字节数</param>
+            <returns>返回提取后的字符串。</returns>
+        </member>
+        <member name="M:Itfort.Utils.GetRightByteString(System.String,System.Int32)">
+            <summary>
+            从右往左获取指定字节数的字符串。
+            </summary>
+            <param name="source">从中提取的目标字符串。</param>
+            <param name="byteLength">需要提取的字节数</param>
+            <returns>返回提取后的字符串。</returns>
+        </member>
+        <member name="M:Itfort.Utils.CutRight(System.String,System.Int32)">
+            <summary>
+            右边截断
+            </summary>
+            <param name="str"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Utils.CutRight(System.String,System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <param name="length"></param>
+            <param name="cutStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Utils.CutMiddle(System.String,System.Int32)">
+            <summary>
+            中间截断
+            </summary>
+            <param name="str"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Utils.CutMiddle(System.String,System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <param name="length"></param>
+            <param name="cutStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Utils.CutRightDecodeReplaceBR(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Itfort.Encrypt">
+            <summary>
+            加密解密类
+            </summary>
+        </member>
+        <member name="M:Itfort.Encrypt.GetMD5Hash(System.String)">
+            <summary>
+            获取MD5哈希值
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Encrypt.EncryptUTF8String(System.String,System.String)">
+            <summary>
+            对称加密，加密字符串（UTF-8编码）
+            </summary>
+            <param name="strText">需加密的字符串</param>
+            <param name="key">密匙</param>
+            <returns></returns>
+        </member>
+        <member name="M:Itfort.Encrypt.DecryptUTF8String(System.String,System.String)">
+            <summary>
+            对称加密，解密字符串（UTF-8编码）
+            </summary>
+            <param name="strText">需解密的字符串</param>
+            <param name="key">密匙</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

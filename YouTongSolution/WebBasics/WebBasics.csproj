@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9FD4ECA5-B4B3-421C-9FCE-D1545AB530C2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebBasics</RootNamespace>
+    <AssemblyName>WebBasics</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\WebBasics.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Itfort, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Itfort.dll</HintPath>
+    </Reference>
+    <Reference Include="MySoft.Data, Version=2.7.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\MySoft.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cms\AnyFileService.cs" />
+    <Compile Include="Cms\ArticleService.cs" />
+    <Compile Include="Cms\ChannelService.cs" />
+    <Compile Include="Cms\CmsService.cs" />
+    <Compile Include="Cms\Common\BusinessBase.cs" />
+    <Compile Include="Cms\Common\CmsFactory.cs" />
+    <Compile Include="Cms\Common\IAnyFileService.cs" />
+    <Compile Include="Cms\Common\IArticleService.cs" />
+    <Compile Include="Cms\Common\IChannelService.cs" />
+    <Compile Include="Cms\Common\ICmsService.cs" />
+    <Compile Include="Cms\Data\DbAnyFile.cs" />
+    <Compile Include="Cms\Data\DbArticle.cs" />
+    <Compile Include="Cms\Data\DbChannel.cs" />
+    <Compile Include="Cms\Data\DbCommon.cs" />
+    <Compile Include="Cms\Model\AnyFile.cs" />
+    <Compile Include="Cms\Model\AnyFileType.cs" />
+    <Compile Include="Cms\Model\Article.cs" />
+    <Compile Include="Cms\Model\Channel.cs" />
+    <Compile Include="Member\Common\BusinessBase.cs" />
+    <Compile Include="Member\Common\IUserService.cs" />
+    <Compile Include="Member\Common\MemberFactory.cs" />
+    <Compile Include="Member\Data\DbCommon.cs" />
+    <Compile Include="Member\Data\DbUser.cs" />
+    <Compile Include="Member\Model\User.cs" />
+    <Compile Include="Member\UserService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\Comb.cs" />
+    <Compile Include="Utilities\MD5Hasher.cs" />
+    <Compile Include="Utilities\MySoftExtension.cs" />
+    <Compile Include="Utilities\WbUtility.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
