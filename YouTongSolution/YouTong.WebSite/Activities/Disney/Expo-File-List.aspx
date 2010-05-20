@@ -37,9 +37,7 @@
 					<div class="tab tab00">
 						<ul class="nav">
 							<li>
-								<a class='<%=(FileType==1?"choose":"")%>' href="javascript:switchTab(1)"><span>照片</span></a></li>
-							<li>
-								<a class='<%=(FileType==2?"choose":"")%>' href="javascript:switchTab(2)"><span>视频</span></a></li>
+								<a class='choose' href="javascript:void(0);"><span><%=TypeName %></span></a></li>
 						</ul>
 					</div>
 					<div class="clear">
