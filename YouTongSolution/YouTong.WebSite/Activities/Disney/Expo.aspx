@@ -83,7 +83,7 @@
 								<% { %>
 								<% if (this.ActivityJoined != null) %>
 								<% { %>
-								你已经参与过该活动，活动编号：disneyexpo_<%=this.ActivityJoined.Number.ToString()%>
+								你已经参与过该活动，活动编号：disneyexpo_<%=this.ActivityJoined.Number.ToString()%>&nbsp;&nbsp;&nbsp;<a href="http://www.no1child.com/activities/disney/disneyext/index.html">再浏览活动网站</a>
 								<% } %>
 								<% else %>
 								<% { %>
@@ -129,7 +129,7 @@
 						</tr>
 						<tr>
 							<td class="mr_t2">
-								优童网用户无需注册，请直接登录
+								优童网用户无需<a title="注册" href="http://www.no1child.com/Member/Register.aspx">注册</a>，请直接登录
 							</td>
 						</tr>
 					</table>
@@ -164,7 +164,7 @@
 								<td class="mr_t4" colspan="2">
 									<% if (this.ActivityJoined != null) %>
 									<% { %>
-									你已经参与过该活动<br />活动编号：disneyexpo_<%=this.ActivityJoined.Number.ToString()%>
+									你已经参与过该活动<br />活动编号：disneyexpo_<%=this.ActivityJoined.Number.ToString()%><br /><a href="http://www.no1child.com/activities/disney/disneyext/index.html">再浏览活动网站</a>
 									<% } %>
 								</td>
 							</tr>
