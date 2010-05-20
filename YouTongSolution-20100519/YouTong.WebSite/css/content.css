@@ -1,0 +1,305 @@
+﻿@import url(init.css);
+
+/*content.css 头部和尾部的css*/
+.clear{
+	height: 0px;
+	font-size: 0px;
+	overflow: hidden;
+	clear: both;
+	line-height: 0px;
+}
+
+body{
+	background: #a6ce39;
+	font-size: 12px;
+	color: #000;
+	font-family: "宋体";
+	text-align: left;
+}
+
+#container{
+	width: 980px;
+	margin: 0 auto;
+	height: auto;
+}
+/*header.css*/
+.header{
+	width: 980px;
+	height: auto;
+	overflow:hidden;
+	padding: 0px;
+	margin: 0px;
+}
+.header .head{
+	width: 960px;
+	height: 77px;
+	overflow:hidden;
+	background: #fff;
+	margin: 0 auto;
+}
+
+.header .logo{
+	padding:4px 0 0 42px;
+	width: 437px;
+	height: 77px;
+	float: left;
+}
+.header .text{
+	float: right;
+	font-size: 12px;
+	padding: 53px 13px 0 0 ;
+} 
+.header .text p{
+	color: #4996bb;
+	float: left;
+	padding:0 5px 0 0;
+}
+.header .text p span{
+	font-weight: bold;
+}
+.header .text a{
+	color: #000;
+	text-decoration: none;
+	float: left;
+	margin: 0 3px;
+}
+.header .menu{
+	background: transparent url(../images/headbg.gif) scroll no-repeat 0 0;
+	height: 55px;
+	width: 980px;
+	overflow: hidden;
+	font-size: 15px;
+	font-family: "微软雅黑";
+}	
+.header .menu ul{
+	width: 620px;
+	padding: 7px 0 0 42px;
+	float: left;
+	overflow: hidden;
+}
+.header .menu ul li{
+	list-style: none;
+	display: block;
+	float: left;
+	padding: 0 1px;
+}
+.header .menu ul li a{
+	display: block;
+	text-decoration: none;
+	color: #fff;
+	width:74px;
+	height: 42px;
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
+}
+.header .menu ul li a:hover, .header .menu ul li a.choose{
+	display: block;
+	text-decoration: none;
+	color: #7c940a;
+	background: transparent url(../images/menubg.jpg) scroll no-repeat 0 0;
+	width:74px;
+	height: 42px;
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
+}
+.header .menu ul li a span{
+	display: block;
+	padding: 10px 0 0 0;
+	*padding: 12px 0 0 0;
+	font-size: 15px;
+}
+/*seach*/
+.seach{
+	padding: 6px 25px 0 0;
+	*padding: 5px 25px 0 0 ;
+	float: right;
+	width: 290px;
+	overflow: hidden;
+	font-family: "宋体";
+	margin: 7px 0 0 0;
+	text-align: right;
+	overflow: hidden;
+}
+.seach .input01{
+	border:1px solid #788d16;
+	font-size:12px;
+	padding:2px 3px 0 3px;
+	width:141px;
+	margin:4px 0;
+	color: #cccccc;
+	height: 16px;
+}
+.seach .select01{
+	border:1px solid #788d16;
+	font-size:12px;
+	padding:2px 3px 0 3px;
+	margin:4px 0;
+	color: #cccccc;
+}
+.seach .button01{
+	margin-bottom: 4px; 
+	background: #f3f2ed;
+	border:1px solid #000;
+	width:40px;
+	height: 18px;
+	font-size: 12px;
+	font-family: "宋体";
+	padding: 1px 0 0 0\9;
+	*padding: 1px 0 0 0;
+}
+.content{
+	width: 960px;
+	margin: 0 auto;
+	background: #fff;
+	padding:10px 0 50px 0;
+}
+.content .main{
+	width: 900px;
+	background: #fff;
+	padding:0px;
+	margin: 0 0 0 40px;
+}
+.erjinav{
+	background:none repeat scroll 0 0 #FFFFFF;
+	margin:0 0 0 50px;
+	padding:0;
+	width:900px;
+	margin-bottom: 10px;
+}
+.erjinav a{
+	padding: 0 3px;
+	text-decoration: none;
+	color: #000;
+}
+.erjinav a:hover, .erjinav a.choose{
+	padding: 0 3px;
+	text-decoration: none;
+	color:#4996BB;
+}
+/*********************************************/
+
+/*.fhzlogo的css*/
+.hzlogo{
+	width:925px;
+	border: 1px solid #acd146;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding-top: 30px;
+	background: #fff;
+	text-align: left;
+}
+.hzlogo .zhengfu{
+	width: 855px;
+	margin: 0 auto;
+	padding: 0;
+}
+.hzlogo .zhengfu p{
+	color: #667e26;
+	font-size: 16px;
+	font-weight: bold;
+	font-family: "微软雅黑";
+	float: left;
+	padding: 15px 0 0 0;
+}
+.hzlogo .zhengfu ul{
+	float: left;
+}
+.hzlogo .zhengfu ul li{
+	list-style: none;
+	display: block;
+	float: left;
+	padding: 0 8px;
+
+}
+.hzlogo .zhengfu ul li a{
+	display: block;
+	float: left;
+	text-decoration: none;
+}
+.hzlogo .hezuo{
+	width: 855px;
+	margin: 0 auto;
+	padding: 20px 0 20px 0;
+}
+.hzlogo .hezuo p{
+	color: #667e26;
+	font-size: 13px;
+	font-weight: bold;
+	font-family: "微软雅黑";
+	float: left;
+	padding: 15px 0 0 0;
+}
+.hzlogo .hezuo ul{
+	float: left;
+}
+.hzlogo .hezuo ul li{
+	list-style: none;
+	display: block;
+	float: left;
+	padding: 0 8px;
+
+}
+.hzlogo .hezuo ul li a{
+	display: block;
+	float: left;
+}
+/****************************************************************/
+
+/*.footer的css*/
+.footer{
+	width: 960px;
+	margin: 0 auto;
+	padding: 15px 0;
+	color: #000;
+	font-size: 12px;
+}
+.footer .footer_main{
+	width: 960px;
+	margin: 0 auto;
+	border-bottom: 1px solid #000;
+	padding: 10px 0 10px 0;
+}
+.footer ul{
+	text-align: center;
+	width: 400px;
+	margin: 0 auto;
+}
+.footer ul li{
+	list-style: none;
+	display: block;
+	float: left;
+	padding: 0 3px;
+}
+.footer ul li a{
+	display: block;
+	float: left;
+	color: #000;
+	font-size: 12px;
+	text-decoration: none;
+}
+.footer p{
+	text-align: center;
+	width: 400px;
+	margin: 0 auto;
+	padding: 10px 0 20px 0;
+}
+
+/**************************************************/
+
+input.error {
+	border: 1px solid red;
+	width: auto;
+}
+label.error {
+	background: url("../images/unchecked.gif") no-repeat 0px -5px;
+	padding-left: 20px;
+	margin-left: .3em;
+	color: Red;
+}
+label.valid {
+	background: url("../images/checked.gif") no-repeat 0px -5px;
+	display: block;
+}
