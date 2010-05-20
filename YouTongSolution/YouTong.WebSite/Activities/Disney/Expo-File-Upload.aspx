@@ -22,7 +22,7 @@
 				if ($("#File_FileType").val() == "1") {
 					uploadImage();
 				}
-				else if ($("#File_FileType") == "2") {
+				else if ($("#File_FileType").val() == "2") {
 					uploadVideo();
 				}
 				else {
