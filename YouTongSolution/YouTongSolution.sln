@@ -1,0 +1,96 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YouTong.WebSite", "YouTong.WebSite\YouTong.WebSite.csproj", "{826F0698-C54E-45DD-8D05-82F269760234}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YouTong.WebAdmin", "YouTong.WebAdmin\YouTong.WebAdmin.csproj", "{5E68F71A-EF77-4291-9F60-286B64C380DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YouTong", "YouTong\YouTong.csproj", "{9B4E4B7D-480B-4A2C-A084-139BD6428BEC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "References", "References", "{AC0CB8D1-A15C-46AF-BD53-CBB43E626ACA}"
+	ProjectSection(SolutionItems) = preProject
+		References\Itfort.dll = References\Itfort.dll
+		References\Itfort.XML = References\Itfort.XML
+		References\MySoft.Data.dll = References\MySoft.Data.dll
+		References\MySoft.Data.XML = References\MySoft.Data.XML
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{937BFFAE-940E-4D87-84D5-C45A45265945}"
+	ProjectSection(SolutionItems) = preProject
+		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
+		YouTongSolution.vsmdi = YouTongSolution.vsmdi
+		YouTongSolution1.vsmdi = YouTongSolution1.vsmdi
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C145108E-11F0-4BF0-B1BA-2C1A8D2C80E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBasics", "WebBasics\WebBasics.csproj", "{9FD4ECA5-B4B3-421C-9FCE-D1545AB530C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBasics.Tests", "WebBasics.Tests\WebBasics.Tests.csproj", "{38BC49D6-F4F5-4786-AD91-577F7D6AA0A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBasics.WinForm", "WebBasics.WinForms\WebBasics.WinForm.csproj", "{15A47E89-98EA-41E5-851A-F1EAFE74ECCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBasics.WebAdmin", "WebBasics.WebAdmin\WebBasics.WebAdmin.csproj", "{D7EC9549-5377-4FC3-A30C-931E174B5971}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{E3800908-A9D4-4193-B73C-6FB2CDC9AA7D}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\优童网@数据字典.xls = Docs\优童网@数据字典.xls
+		Docs\关于优童网API调用说明.docx = Docs\关于优童网API调用说明.docx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "执行过程", "执行过程", "{FAA9AD70-C983-46FB-947C-38D43F36C2A0}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\执行过程\内容遗漏和补缺.docx = Docs\执行过程\内容遗漏和补缺.docx
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = YouTongSolution1.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{826F0698-C54E-45DD-8D05-82F269760234}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{826F0698-C54E-45DD-8D05-82F269760234}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{826F0698-C54E-45DD-8D05-82F269760234}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{826F0698-C54E-45DD-8D05-82F269760234}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E68F71A-EF77-4291-9F60-286B64C380DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E68F71A-EF77-4291-9F60-286B64C380DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E68F71A-EF77-4291-9F60-286B64C380DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E68F71A-EF77-4291-9F60-286B64C380DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B4E4B7D-480B-4A2C-A084-139BD6428BEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B4E4B7D-480B-4A2C-A084-139BD6428BEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B4E4B7D-480B-4A2C-A084-139BD6428BEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B4E4B7D-480B-4A2C-A084-139BD6428BEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FD4ECA5-B4B3-421C-9FCE-D1545AB530C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FD4ECA5-B4B3-421C-9FCE-D1545AB530C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FD4ECA5-B4B3-421C-9FCE-D1545AB530C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FD4ECA5-B4B3-421C-9FCE-D1545AB530C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38BC49D6-F4F5-4786-AD91-577F7D6AA0A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38BC49D6-F4F5-4786-AD91-577F7D6AA0A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38BC49D6-F4F5-4786-AD91-577F7D6AA0A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38BC49D6-F4F5-4786-AD91-577F7D6AA0A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15A47E89-98EA-41E5-851A-F1EAFE74ECCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15A47E89-98EA-41E5-851A-F1EAFE74ECCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15A47E89-98EA-41E5-851A-F1EAFE74ECCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15A47E89-98EA-41E5-851A-F1EAFE74ECCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7EC9549-5377-4FC3-A30C-931E174B5971}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7EC9549-5377-4FC3-A30C-931E174B5971}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7EC9549-5377-4FC3-A30C-931E174B5971}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7EC9549-5377-4FC3-A30C-931E174B5971}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{38BC49D6-F4F5-4786-AD91-577F7D6AA0A5} = {C145108E-11F0-4BF0-B1BA-2C1A8D2C80E2}
+		{15A47E89-98EA-41E5-851A-F1EAFE74ECCD} = {C145108E-11F0-4BF0-B1BA-2C1A8D2C80E2}
+		{FAA9AD70-C983-46FB-947C-38D43F36C2A0} = {E3800908-A9D4-4193-B73C-6FB2CDC9AA7D}
+	EndGlobalSection
+EndGlobal
