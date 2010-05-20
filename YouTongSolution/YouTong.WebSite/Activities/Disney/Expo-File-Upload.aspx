@@ -209,7 +209,7 @@
 						</tbody>
 					</table>
 				</div>
-				<div id="FinshPanel">
+				<div id="FinshPanel" style="display: none">
 					<h1>
 						上传成功
 					</h1>
