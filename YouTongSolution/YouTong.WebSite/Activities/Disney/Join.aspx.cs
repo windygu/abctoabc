@@ -30,6 +30,7 @@ namespace YouTong.WebSite.Activities.Disney
 						joined.ActivityID = UtConfig.DisneyExpoActivityID;
 						joined.UserID = this.User.ID;
 						xUtFactory.ActivityJoinedService.AddActivityJoined(joined);
+                        Response.Redirect("http://www.no1child.com/activities/disney/disneyext/index.html");
 					}
 				}
 				else

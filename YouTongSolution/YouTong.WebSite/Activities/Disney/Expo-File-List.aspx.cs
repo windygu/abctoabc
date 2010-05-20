@@ -38,6 +38,9 @@ namespace YouTong.WebSite.Activities.Disney
 					this.FileType = (int)AnyFileType.Photo;
 					channelID = UtConfig.CameraChannelID;
 					break;
+                default:
+                    TypeName = "其它";
+                    break;
 			}
 			if (this.FileType != 2) this.FileType = 1;
 

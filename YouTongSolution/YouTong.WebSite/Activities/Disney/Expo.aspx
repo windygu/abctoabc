@@ -83,7 +83,7 @@
 								<% { %>
 								<% if (this.ActivityJoined != null) %>
 								<% { %>
-								你已经参与过该活动
+								你已经参与过该活动，活动编号：disneyexpo_<%=this.ActivityJoined.Number.ToString()%>
 								<% } %>
 								<% else %>
 								<% { %>
@@ -164,7 +164,7 @@
 								<td class="mr_t4" colspan="2">
 									<% if (this.ActivityJoined != null) %>
 									<% { %>
-									你已经参与过该活动
+									你已经参与过该活动<br />活动编号：disneyexpo_<%=this.ActivityJoined.Number.ToString()%>
 									<% } %>
 								</td>
 							</tr>
