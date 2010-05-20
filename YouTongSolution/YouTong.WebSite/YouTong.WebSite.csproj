@@ -771,6 +771,10 @@
     <None Include="images\Thumbs.db" />
     <Content Include="Activities\Disney\Expo-File-List.aspx" />
     <Content Include="Activities\Disney\Expo-File-Upload.aspx" />
+    <Content Include="Activities\Disney\flash\Expo.swf" />
+    <Content Include="Activities\Disney\flash\Expo_child5.swf" />
+    <Content Include="Activities\Disney\flash\Expo_student5.swf" />
+    <Content Include="Activities\Disney\flash\main.swf" />
     <Content Include="Activities\Disney\images\top1.jpg" />
     <Content Include="Activities\Disney\images\北京活动banner.jpg" />
     <Content Include="Datas\AreaJson.aspx" />
