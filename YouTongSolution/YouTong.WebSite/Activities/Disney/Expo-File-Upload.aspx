@@ -19,10 +19,10 @@
 
 		$(function() {
 			$("#BtnOK").click(function() {
-				if ($("#File_Type_1").attr("checked")) {
+				if ($("#File_FileType").val() == "1") {
 					uploadImage();
 				}
-				else if ($("#File_Type_2").attr("checked")) {
+				else if ($("#File_FileType") == "2") {
 					uploadVideo();
 				}
 				else {
@@ -111,11 +111,9 @@
 	<form id="form1" runat="server" enctype="multipart/form-data">
 	<div id="container">
 		<ut:WebHeader ID="WebHeader" runat="server" />
-		
-				
 		<div class="content">
-		<div style="text-align:center; margin-bottom:10px; margin-top:10px;"><img  src="images/北京活动banner.jpg" /></div>
-		
+			<div style="text-align: center; margin-bottom: 10px; margin-top: 10px;">
+				<img src="images/北京活动banner.jpg" /></div>
 			<div class="jindu">
 				<div class="jindublock01">
 					<a class="title" href="#">上传作品</a>
@@ -125,15 +123,6 @@
 					</div>
 					<table width="100%" cellspacing="0" cellpadding="0" border="0" class="sctable">
 						<tbody>
-							<tr>
-								<td class="textright">
-									选择上传类别：
-								</td>
-								<td>
-									<span>
-										<input id="File_Type_1" type="radio" name="File_Type" value="1" checked="checked" />图片</span><span><input id="File_Type_2" type="radio" name="File_Type" value="2" />视频</span>
-								</td>
-							</tr>
 							<tr>
 								<td class="textright" width="25%">
 									选择上传文件：
@@ -172,8 +161,7 @@
 									才艺类别：
 								</td>
 								<td>
-									<asp:DropDownList ID="File_ChannelID" runat="server" CssClass="select001">
-									</asp:DropDownList>
+									<%= this.TypeName %>
 								</td>
 							</tr>
 							<tr>
@@ -220,6 +208,8 @@
 		</div>
 		<ut:WebFooter ID="WebFooter" runat="server" />
 	</div>
+	<asp:HiddenField ID="File_FileType" runat="server" />
+	<asp:HiddenField ID="File_ChannelID" runat="server" />
 	<asp:HiddenField ID="File_From" runat="server" />
 	<asp:HiddenField ID="File_FileUrl" runat="server" />
 	<asp:HiddenField ID="File_ThumbnailUrl" runat="server" />

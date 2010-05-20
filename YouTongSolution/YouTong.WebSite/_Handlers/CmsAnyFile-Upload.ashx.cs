@@ -79,7 +79,7 @@ namespace YouTong.WebSite._Handlers
 
 				CmsFactory.Instance.AnyFileService.AddAnyFile(anyFile);
 			}
-			catch (Exception ex)
+			catch
 			{
 				success = false;
 			}
