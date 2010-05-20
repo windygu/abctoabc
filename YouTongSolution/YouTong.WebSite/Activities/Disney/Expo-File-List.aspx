@@ -26,7 +26,11 @@
 		<div style="text-align:center; margin-bottom:10px; margin-top:10px;"><img  src="images/北京活动banner.jpg" /></div>
 		
 			<div class="erjinav">
+			    <a href="Expo-File-Upload.aspx?type=huihua">上传绘画</a>
+			    <a href="Expo-File-Upload.aspx?type=sheying">上传摄影</a>
+			    <a href="Expo-File-Upload.aspx?type=shexiang">上传摄像</a>
 			</div>
+			<div class="erjinav">			    
 			<div class="zuopinbianji">
 				<div class="longblock01">
 					<a class="title" href="#">活动影像列表</a>
@@ -60,11 +64,11 @@
 									<% } %>
 									<div class="zuopin">
 										<div class="listleft">
-											<a href="Works-Detail.aspx?id=<%# Eval("ID") %>" class="zuopinbg">
+											<a href="/Childs/Works-Detail.aspx?id=<%# Eval("ID") %>" class="zuopinbg">
 												<img width="100" height="75" border="0" src="<%# Eval("ThumbnailUrl") %>" alt=""></a>
 										</div>
 										<div class="zpxinxi">
-											<a href='Works-Detail.aspx?id=<%# Eval("ID") %>' class="zpmclan">
+											<a href='/Childs/Works-Detail.aspx?id=<%# Eval("ID") %>' class="zpmclan">
 												<%# Eval("Title") %></a>
 											<p class="renqisc0">
 												<span>人气：<em>131</em></span></p>
