@@ -37,12 +37,21 @@
 			$("#FormPanel").hide();
 			$("#FinshPanel").show();
 
-			var html = "<h1>上传成功!</h1>"
-			html += "<img src='" + thumbnailUrl + "' />";
-			$("#FinshPanel").html(html);
+			$("#FinshPanel img").attr("src", thumbnailUrl);
+			$("#toViewWorks").attr("href", "/childs/works-detail.aspx?id=" + id);
+
 		}
 		function imageUploadFailure(msg) {
 			alert(msg);
+		}
+
+		function videoUploadSuccess(id, fileUrl, thumbnailUrl) {
+			$("#FormPanel").hide();
+			$("#FinshPanel").show();
+
+			$("#FinshPanel img").attr("src", thumbnailUrl);
+			$("#toViewWorks").attr("href", "/childs/works-detail.aspx?id=" + id);
+
 		}
 
 		function uploadImage() {
@@ -200,7 +209,14 @@
 						</tbody>
 					</table>
 				</div>
-				<div id="FinshPanel" style="display: none">
+				<div id="FinshPanel">
+					<h1>
+						上传成功
+					</h1>
+					<img src='' width="200px" height="200px" alt="上传成功" />
+					<a href="Expo-File-Upload.aspx?type=<%= Type %>">继续上传</a>
+					<a href="" id="toViewWorks" target="_blank">查看作品</a>
+					<a href="Expo-File-List.aspx?type=<%= Type %>">返回列表</a>
 				</div>
 				<div class="jindublock03">
 				</div>

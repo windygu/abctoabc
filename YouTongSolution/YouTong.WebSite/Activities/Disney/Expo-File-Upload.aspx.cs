@@ -14,6 +14,7 @@ namespace YouTong.WebSite.Activities.Disney
 	public partial class Expo_File_Upload : PageAuth
 	{
 		public Int32 FileType;
+		public String Type;
 		public String TypeName;
 		public Guid ChannelID;
 
@@ -21,8 +22,8 @@ namespace YouTong.WebSite.Activities.Disney
 		{
 			if (!this.IsPostBack)
 			{
-				string type = RequestObject.ToString("type");
-				switch (type)
+				Type = RequestObject.ToString("type");
+				switch (Type)
 				{
 					case "huihua"://绘画
 						TypeName = "绘画";
@@ -57,9 +58,8 @@ namespace YouTong.WebSite.Activities.Disney
 				file.FileType = (Byte)AnyFileType.Video;
 				xCmsFactory.AnyFileService.AddAnyFile(file);
 
-				var html = "<h1>上传成功!</h1>";
-				html += "<img src='" + file.ThumbnailUrl + "' />";
-				this.JsWrite("$(function(){$('#FormPanel').hide();$('#FinshPanel').show();$('#FinshPanel').html(\"" + html + "\");})");
+				var js = "$(function(){videoUploadSuccess('" + file.ID + "', '" + file.FileUrl + "', '" + file.ThumbnailUrl + "')})";
+				this.JsWrite(js);
 			}
 		}
 	}
