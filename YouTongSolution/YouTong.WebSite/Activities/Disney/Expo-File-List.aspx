@@ -25,10 +25,13 @@
 		<div class="content">
 		<div style="text-align:center; margin-bottom:10px; margin-top:10px;"><img  src="images/北京活动banner.jpg" /></div>
 		
-			<div class="erjinav">
-			    <a href="Expo-File-Upload.aspx?type=huihua">上传绘画</a>
+			<div class="erjinav" style="text-align: center;">
+			    <input type="button" value="上传绘画" onclick="window.open('Expo-File-Upload.aspx?type=huihua');"/>
+			    <input type="button" value="上传摄影"  onclick="window.open('Expo-File-Upload.aspx?type=sheying');"/>
+			    <input type="button" value="上传摄像"  onclick="window.open('Expo-File-Upload.aspx?type=shexiang');"/>
+			    <%--<a href="Expo-File-Upload.aspx?type=huihua">上传绘画</a>
 			    <a href="Expo-File-Upload.aspx?type=sheying">上传摄影</a>
-			    <a href="Expo-File-Upload.aspx?type=shexiang">上传摄像</a>
+			    <a href="Expo-File-Upload.aspx?type=shexiang">上传摄像</a>--%>
 			</div>
 			<div class="erjinav">			    
 			<div class="zuopinbianji">
