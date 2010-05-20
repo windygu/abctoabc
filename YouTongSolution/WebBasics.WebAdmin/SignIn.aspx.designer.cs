@@ -8,19 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebBasics.WebAdmin.Cms.Articles {
+namespace YouTong.WebAdmin {
     
     
-    public partial class ArticleList {
-        
-        /// <summary>
-        /// Head1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
+    public partial class SignIn {
         
         /// <summary>
         /// form1 控件。
@@ -32,48 +23,30 @@ namespace WebBasics.WebAdmin.Cms.Articles {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Repeater1 控件。
+        /// User_UserName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater Repeater1;
+        protected global::System.Web.UI.WebControls.TextBox User_UserName;
         
         /// <summary>
-        /// BtnBatchDelete 控件。
+        /// User_Password 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnBatchDelete;
+        protected global::System.Web.UI.WebControls.TextBox User_Password;
         
         /// <summary>
-        /// Hp 控件。
+        /// BtnOK 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal Hp;
-        
-        /// <summary>
-        /// HfArticleID 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HfArticleID;
-        
-        /// <summary>
-        /// BtnSingleDelete 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSingleDelete;
+        protected global::System.Web.UI.WebControls.Button BtnOK;
     }
 }

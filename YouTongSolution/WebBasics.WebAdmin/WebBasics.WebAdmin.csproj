@@ -511,6 +511,7 @@
     <Content Include="Resources\js\jquery-1.4.1.min.js" />
     <Content Include="Resources\js\jquery.form-2.24.js" />
     <Content Include="Resources\js\jquery.validate-1.5.2.min.js" />
+    <Content Include="SignIn.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -626,6 +627,13 @@
       <DependentUpon>FrameTop.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SignIn.aspx.cs">
+      <DependentUpon>SignIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SignIn.aspx.designer.cs">
+      <DependentUpon>SignIn.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Cms\Resources\ckeditor\.htaccess" />
