@@ -9,6 +9,13 @@
 <body>
 	<form id="form1" runat="server">
 	<div>
+	<object width="480" height="360">
+		<param name="movie" value="flash/main.swf" />
+		<param name="allowFullScreen" value="true" />
+		<param name="allowscriptaccess" value="always" />
+		<param name="wmode" value="opaque"></param>
+		<embed src="flash/main.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" width="480" height="360"></embed>
+	</object>
 	</div>
 	</form>
 </body>
