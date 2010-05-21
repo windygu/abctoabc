@@ -5,12 +5,12 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Itfort.Web;
-using YouTong.Model;
 using YouTong.Common;
+using YouTong.Model;
 
 namespace YouTong.WebAdmin.Activities
 {
-	public partial class Joined_List : PageAuth
+	public partial class Joined2_List : PageAuth
 	{
 		public Guid ActivityID;
 		public Activity Activity;
@@ -22,14 +22,11 @@ namespace YouTong.WebAdmin.Activities
 
 			this.ActivityID = RequestObject.ToGuid("activityid");
 			this.Activity = UtFactory.Instance.ActivityService.GetActivity(this.ActivityID);
-			
-			var list = UtFactory.Instance.ActivityJoinedService.GetActivityJoineds(this.ActivityID, _PageIndex, _PageSize);
-			
-			this.Repeater1.DataSource = list;
-			this.DataBind();
-			int rowCount = UtFactory.Instance.ActivityJoinedService.GetActivityJoinedCount(this.ActivityID);
 
-			String baseUrl = "Joined-List.aspx?activityid={0}&page={1}&size={2}";
+			this.Repeater1.DataSource = UtFactory.Instance.ActivityJoined2Service.GetActivityJoined2s(this.ActivityID, _PageIndex, _PageSize);
+			this.DataBind();
+			int rowCount = UtFactory.Instance.ActivityJoined2Service.GetDeletedActivityJoined2Count(this.ActivityID);
+			String baseUrl = "Joined2-List.aspx?activityid={0}&page={1}&size={2}";
 			baseUrl = String.Format(baseUrl, this.ActivityID, "($ID)", _PageSize);
 			HtmlPager hp = new HtmlPager(baseUrl, _PageIndex, rowCount, _PageSize, 10);
 

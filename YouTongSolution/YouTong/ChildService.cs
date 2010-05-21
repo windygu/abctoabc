@@ -63,6 +63,11 @@ namespace YouTong
 			return dbChild.GetChildsByParent(parentId);
 		}
 
+		public IList<Child> GetChildsByParent(params Guid[] parentIds)
+		{
+			return dbChild.GetChildsByParent(parentIds);
+		}
+
 		public IList<Child> GetChilds(int pageIndex, int pageSize)
 		{
 			return dbChild.GetChilds(pageIndex, pageSize);

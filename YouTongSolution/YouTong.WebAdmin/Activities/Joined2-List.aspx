@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Activity-List.aspx.cs" Inherits="YouTong.WebAdmin.Activities.Activity_List" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Joined2-List.aspx.cs" Inherits="YouTong.WebAdmin.Activities.Joined2_List" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -20,7 +20,7 @@
 		<a href="#">后台管理</a>
 		&gt;
 		<a href="#">活动管理</a>
-		&gt; 活动列表
+		&gt; 参与列表
 		<div class="titright">
 		</div>
 	</div>
@@ -29,47 +29,57 @@
 	<div class="seach">
 		<div class="seachleft">
 		</div>
-		关键字：<input name="" type="text" class="myinput" />&nbsp;&nbsp;&nbsp;<input name="" type="button" class="btn2word" value="查 询" />
+		<%= this.ActivityID %>
 	</div>
 	<div class="space">
 	</div>
 	<table cellpadding="0" cellspacing="0" width="100%" class="mytab">
 		<tr>
 			<td class="titab" style="width: 20px">
-				<input name="" type="checkbox" value="" />
+				活动编号
 			</td>
 			<td class="titab">
-				名称
-			</td>
-			<td class="titab" style="width: 150px">
-				前缀
-			</td>
-			<td class="titab" style="width: 150px">
-				添加时间
+				电子邮箱
 			</td>
 			<td class="titab" style="width: 100px">
-				操作
+				孩子姓名
+			</td>
+			<td class="titab" style="width: 100px">
+				出生年月
+			</td>
+			<td class="titab" style="width: 100px">
+				家长姓名
+			</td>
+			<td class="titab" style="width: 100px">
+				电话
+			</td>
+			<td class="titab" style="width: 100px">
+				参与时间
 			</td>
 		</tr>
 		<asp:Repeater ID="Repeater1" runat="server">
 			<ItemTemplate>
 				<tr>
 					<td>
-						<input name="" type="checkbox" value="" />
+						<%# Eval("Number") %>
 					</td>
 					<td>
-						<%# Eval("Name") %>
+						<%# DataCache.GetUser((Guid)Eval("UserID"))!=null ? DataCache.GetUser((Guid)Eval("UserID")).Email : "" %>
 					</td>
 					<td>
-						<%# Eval("Prefix") %>
+						<%# DataCache.GetChild((Guid)Eval("UserID")) != null ? DataCache.GetChild((Guid)Eval("UserID")).Name : ""%>
 					</td>
 					<td>
-						<%# Eval("AddTime", "{0:yyyy:MM:dd HH:mm:ss}") %>
+						<%# DataCache.GetChild((Guid)Eval("UserID")) != null ? DataCache.GetChild((Guid)Eval("UserID")).Birthday.ToString("yyyy-MM-dd") : ""%>
 					</td>
 					<td>
-						<a href="Joined-List.aspx?activityid=<%# Eval("ID") %>">参与情况</a>
-						<a href="Joined2-List.aspx?activityid=<%# Eval("ID") %>">参与情况2</a>
-						<a href="Activity-Update.aspx?id=<%# Eval("ID") %>">修改</a>
+						<%# DataCache.GetUser((Guid)Eval("UserID")) !=null ? DataCache.GetUser((Guid)Eval("UserID")).Name : "" %>
+					</td>
+					<td>
+						<%# DataCache.GetUser((Guid)Eval("UserID")) !=null ? DataCache.GetUser((Guid)Eval("UserID")).Mobile : "" %>
+					</td>
+					<td>
+						<%# Eval("AddTime") %>
 					</td>
 				</tr>
 			</ItemTemplate>

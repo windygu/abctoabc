@@ -43,6 +43,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "执行过程", "执行过�
 		Docs\执行过程\内容遗漏和补缺.docx = Docs\执行过程\内容遗漏和补缺.docx
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YouTong.WebCache", "YouTong.WebCache\YouTong.WebCache.csproj", "{50AC3217-9640-41F8-ADB9-C5AB42E7714B}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -84,6 +86,10 @@ Global
 		{D7EC9549-5377-4FC3-A30C-931E174B5971}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7EC9549-5377-4FC3-A30C-931E174B5971}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7EC9549-5377-4FC3-A30C-931E174B5971}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50AC3217-9640-41F8-ADB9-C5AB42E7714B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50AC3217-9640-41F8-ADB9-C5AB42E7714B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50AC3217-9640-41F8-ADB9-C5AB42E7714B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50AC3217-9640-41F8-ADB9-C5AB42E7714B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

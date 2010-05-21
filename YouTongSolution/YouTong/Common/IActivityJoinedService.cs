@@ -78,7 +78,7 @@ namespace YouTong.Common
 		/// <param name="pageIndex">当前索引页</param>
 		/// <param name="pageSize">每页记录数</param>
 		/// <returns>返回活动参与实体列表</returns>
-		IList<ActivityJoined> GetActivityJoineds(Int32 pageIndex, Int32 pageSize);
+		IList<ActivityJoined> GetActivityJoineds(Guid activityId, Int32 pageIndex, Int32 pageSize);
 
 		/// <summary>
 		/// 获取已删除活动参与列表
@@ -86,7 +86,7 @@ namespace YouTong.Common
 		/// <param name="pageIndex">当前索引页</param>
 		/// <param name="pageSize">每页记录数</param>
 		/// <returns>返回已删除活动参与实体列表</returns>
-		IList<ActivityJoined> GetDeletedActivities(Int32 pageIndex, Int32 pageSize);
+		IList<ActivityJoined> GetDeletedActivities(Guid activityId, Int32 pageIndex, Int32 pageSize);
 
 		/// <summary>
 		/// 获取活动参与记录条数

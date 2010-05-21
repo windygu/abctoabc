@@ -62,12 +62,12 @@ namespace YouTong
 			return dbActivityJoined.GetAllActivities();
 		}
 
-		public IList<ActivityJoined> GetActivityJoineds(int pageIndex, int pageSize)
+		public IList<ActivityJoined> GetActivityJoineds(Guid activityId, int pageIndex, int pageSize)
 		{
 			return dbActivityJoined.GetActivities(pageIndex, pageSize);
 		}
 
-		public IList<ActivityJoined> GetDeletedActivities(int pageIndex, int pageSize)
+		public IList<ActivityJoined> GetDeletedActivities(Guid activityId, int pageIndex, int pageSize)
 		{
 			return dbActivityJoined.GetDeletedActivities(pageIndex, pageSize);
 		}

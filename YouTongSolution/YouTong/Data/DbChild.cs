@@ -133,6 +133,18 @@ namespace YouTong.Data
 		}
 
 		/// <summary>
+		/// 获取孩子，根据指定家长编号
+		/// </summary>
+		/// <param name="parentIds"></param>
+		/// <returns>返回孩子实体列表</returns>
+		public IList<Child> GetChildsByParent(params Guid[] parentIds)
+		{
+			var where = this.NotDeleted && Child._.ParentID.In(parentIds);
+
+			return dbSession.From<Child>().Where(where).ToList();
+		}
+
+		/// <summary>
 		/// 获取孩子列表
 		/// </summary>
 		/// <param name="pageIndex">当前索引页</param>

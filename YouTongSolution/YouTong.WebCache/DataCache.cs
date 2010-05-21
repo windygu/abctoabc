@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Caching;
 using WebBasics.Member.Common;
 using WebBasics.Member.Model;
-using YouTong.Model;
 using YouTong.Common;
+using YouTong.Model;
 
-namespace YouTong.WebSite.Codes
+namespace YouTong.WebCache
 {
 	public class DataCache
 	{
@@ -34,6 +34,13 @@ namespace YouTong.WebSite.Codes
 			return (User)obj;
 		}
 
+		public static void AddToCache(User user)
+		{
+			var key = "user_" + user.ID;
+
+			HttpRuntime.Cache.Insert(key, user, null, Cache.NoAbsoluteExpiration, new TimeSpan(0, 10, 0));
+		}
+
 		public static Child GetChild(Guid userId)
 		{
 			var key = "child_" + userId;
@@ -51,7 +58,7 @@ namespace YouTong.WebSite.Codes
 				else
 				{
 					child = new Child();
-					HttpRuntime.Cache.Insert(key, child, null, Cache.NoAbsoluteExpiration, new TimeSpan(0, 5, 0));
+
 					return child;
 				}
 			}

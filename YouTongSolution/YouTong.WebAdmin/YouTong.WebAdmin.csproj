@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{5E68F71A-EF77-4291-9F60-286B64C380DF}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -20,7 +20,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\YouTong.WebAdmin.XML</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -66,6 +67,7 @@
     <Content Include="Activities\Activity-Left.aspx" />
     <Content Include="Activities\Activity-List.aspx" />
     <Content Include="Activities\Joined-List.aspx" />
+    <Content Include="Activities\Joined2-List.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Frame-Top.aspx" />
     <Content Include="Resources\ckeditor\adapters\jquery.js" />
@@ -321,6 +323,13 @@
     <Compile Include="Activities\Joined-List.aspx.designer.cs">
       <DependentUpon>Joined-List.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Activities\Joined2-List.aspx.cs">
+      <DependentUpon>Joined2-List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Activities\Joined2-List.aspx.designer.cs">
+      <DependentUpon>Joined2-List.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Codes\PageAuth.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -348,6 +357,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\YouTong.WebCache\YouTong.WebCache.csproj">
+      <Project>{50AC3217-9640-41F8-ADB9-C5AB42E7714B}</Project>
+      <Name>YouTong.WebCache</Name>
+    </ProjectReference>
     <ProjectReference Include="..\YouTong\YouTong.csproj">
       <Project>{9B4E4B7D-480B-4A2C-A084-139BD6428BEC}</Project>
       <Name>YouTong</Name>
@@ -383,6 +396,9 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
