@@ -84,7 +84,7 @@
 							会员动态:</p>
 						<ol>
 							<li>
-								<a href="http://demo.no1child.com/news/news-detail.aspx?id=19017a9d-8a76-f3ac-134f-7fdf3e43b40d" target="_blank" style="color: Red;">新网站注册提示</a></li>
+								<a href="http://demo.no1child.com/news/news-detail.aspx?id=a2007d9d-0ca1-51a5-5152-22371743bfa0" target="_blank" style="color: Red;">新网站注册提示</a></li>
 						</ol>
 						<div class="ziti">
 							<p>
@@ -611,7 +611,7 @@
 						<div class="duanblock3">
 						</div>
 					</div>
-					<div class="douxiucang">
+					<div class="douxiucang" style="text-align:right;">
 					    <a href="http://old.no1child.com/expo/newave" target="_blank">
 					        <img src="../_Resources/images/Ad/绿光右侧广告.jpg" alt="绿光"  />
 					    </a>
