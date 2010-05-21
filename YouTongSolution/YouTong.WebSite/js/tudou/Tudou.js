@@ -140,6 +140,8 @@
                                      clearInterval(tudouInterval);
                                  }
                              }
+                             else if(msg.progress == undefined || msg.status == "fail")
+                                config.callFail(msg);
                          });
                      }, 1000);
 

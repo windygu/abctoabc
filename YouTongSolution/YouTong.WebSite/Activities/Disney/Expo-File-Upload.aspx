@@ -128,7 +128,7 @@
 					<a class="title" href="#">上传作品</a>
 				</div>
 				<div class="jindublock02" id="FormPanel">
-					<div id="qingkuang">
+					<div id="qingkuang" style="margin-left:15px;">
 					</div>
 					<table width="100%" cellspacing="0" cellpadding="0" border="0" class="sctable">
 						<tbody>
