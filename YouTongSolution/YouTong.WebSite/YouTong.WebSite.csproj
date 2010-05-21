@@ -118,7 +118,6 @@
     <Content Include="images\dianpingbg.gif" />
     <Content Include="images\di_27.gif" />
     <Content Include="images\dlkbg.gif" />
-    <Content Include="images\dl_btn.gif" />
     <Content Include="images\donghuaimg01.gif" />
     <Content Include="images\donghuaimg02.gif" />
     <Content Include="images\donghuaimg03.gif" />
@@ -775,6 +774,7 @@
     <Content Include="Activities\Disney\flash\Expo_child5.swf" />
     <Content Include="Activities\Disney\flash\Expo_student5.swf" />
     <Content Include="Activities\Disney\flash\main.swf" />
+    <Content Include="Activities\Disney\images\bg8.jpg" />
     <Content Include="Activities\Disney\images\top1.jpg" />
     <Content Include="Activities\Disney\images\北京活动banner.jpg" />
     <Content Include="Datas\AreaJson.aspx" />
@@ -784,6 +784,7 @@
     <Content Include="images\child%283%29.jpg" />
     <Content Include="images\child%284%29.jpg" />
     <Content Include="images\child%285%29.jpg" />
+    <Content Include="images\dl_btn.gif" />
     <Content Include="Jianshezhong.aspx" />
     <Content Include="Member\Info-Face.aspx" />
     <Content Include="Member\Register-Completed.aspx" />
@@ -806,7 +807,6 @@
     <Content Include="Activities\Disney\images\bg6.gif" />
     <Content Include="Activities\Disney\images\bg7.gif" />
     <Content Include="Activities\Disney\images\bg8.gif" />
-    <Content Include="Activities\Disney\images\bg8.jpg" />
     <Content Include="Activities\Disney\images\biaoshi.gif" />
     <Content Include="Activities\Disney\images\btn1.gif" />
     <Content Include="Activities\Disney\images\btn2.gif" />
