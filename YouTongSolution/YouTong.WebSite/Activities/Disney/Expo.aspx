@@ -33,12 +33,10 @@
 			
 			<div class="m_left" style="position: absolute;">
 				<div class="disney_box">
-					<div style="float: left; width: 220px; height: 300px;">
-					</div>
-					<div style="width: 386px; float: left;">
-					<p align="left" style="">
+					<div style="margin-left: 8px;">
+					<p>
 						<b style="font-size:12px;">“我爱北京，大家一起赛”2010年北京市少年儿童知识竞赛</b></p>
-					<p style="">
+					<p>
 						“赫赫京都千百年，钟灵毓秀萃龙渊。始由金国迁燕地，及至赤都照蓟川。”</p>
 <p>
    如此气势磅礴的诗句，也只有北京这样的城市才够以匹配。而今，您学习、生活在北京这座城市中，您对北京又有着多少的认知和了解呢？ </p>
