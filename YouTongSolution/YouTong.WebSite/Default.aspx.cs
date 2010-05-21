@@ -44,7 +44,7 @@ namespace YouTong.WebSite
 
 			if (this.StarChild != null)
 			{
-				var starChildWorkses = xCmsFactory.AnyFileService.GetAnyFiles(UtConfig.WorksChannelID, true, this.StarChild.ParentID.Value, null, 1, 6);
+				var starChildWorkses = xCmsFactory.AnyFileService.GetAnyFiles(UtConfig.WorksChannelID, true, this.StarChild.ParentID.Value, null, 1, 4);
 				this.RepeaterStarChildWorks.DataSource = starChildWorkses;
 			}
 
