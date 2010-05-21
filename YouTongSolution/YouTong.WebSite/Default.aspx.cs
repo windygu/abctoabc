@@ -17,14 +17,19 @@ namespace YouTong.WebSite
 		public IList<Channel> WorksCategories;
 		public IList<Channel> MediaCategories;
 		public Child StarChild;
+        public int anyFilesCount;
+        public int registerCount;
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
+            registerCount = WebBasics.Member.UserService.Instance.GetUserCount();
+
 			this.WorksCategories = WorksAction.GetWorksCategories();
 			this.MediaCategories = FamilyMediaAction.GetMediaCategories();
 			this.StarChild = xUtFactory.ChildService.GetChild(UtConfig.StarChildID);
 
 			var workses = xCmsFactory.AnyFileService.GetAnyFiles(UtConfig.WorksChannelID, true, 1, 6);
+            anyFilesCount = xCmsFactory.AnyFileService.GetAnyFileCount(UtConfig.WorksChannelID, true);
 
 			var medias = xCmsFactory.AnyFileService.GetAnyFiles(UtConfig.FamilyMediaChannelID, true, 1, 6);
 			this.RepeaterMedia.DataSource = medias;

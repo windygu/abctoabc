@@ -81,16 +81,16 @@
 					</div>
 					<div class="wenzi">
 						<p>
-							会员动态:</p>
+							网站动态:</p>
 						<ol>
 							<li>
 								<a href="http://demo.no1child.com/news/news-detail.aspx?id=a2007d9d-0ca1-51a5-5152-22371743bfa0" target="_blank" style="color: Red;">新网站注册提示</a></li>
 						</ol>
 						<div class="ziti">
 							<p>
-								已注册优童 <span>58451</span></p>
+								已注册优童 <span><%=registerCount %></span></p>
 							<p>
-								已上传作品 <span>917</span></p>
+								已上传作品 <span><%=anyFilesCount %></span></p>
 						</div>
 						<div class="clear">
 						</div>
