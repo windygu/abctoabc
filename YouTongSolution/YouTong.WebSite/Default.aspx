@@ -91,10 +91,6 @@
 								已注册优童 <span>58451</span></p>
 							<p>
 								已上传作品 <span>917</span></p>
-							<p>
-								班级主页<span>6918</span></p>
-							<p>
-								优童圈 <span>97</span></p>
 						</div>
 						<div class="clear">
 						</div>
@@ -660,8 +656,6 @@
 											<a href="#" class="choose"><span>评分</span></a></li>
 										<li>
 											<a href="#"><span>人气</span></a></li>
-										<li>
-											<a href="#"><span>评论</span></a></li>
 									</ul>
 								</div>
 								<div class="clear">
@@ -703,7 +697,7 @@
 										<li>
 											<a href="#" class="choose"><span>人气</span></a></li>
 										<li>
-											<a href="#"><span>活跃度</span></a></li>
+											<a href="#"><span>关注度</span></a></li>
 									</ul>
 								</div>
 								<div class="clear">

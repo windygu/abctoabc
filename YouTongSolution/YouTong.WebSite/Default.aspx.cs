@@ -24,12 +24,12 @@ namespace YouTong.WebSite
 			this.MediaCategories = FamilyMediaAction.GetMediaCategories();
 			this.StarChild = xUtFactory.ChildService.GetChild(UtConfig.StarChildID);
 
-			var workses = xCmsFactory.AnyFileService.GetAnyFiles(UtConfig.WorksChannelID, true, 1, 4);
+			var workses = xCmsFactory.AnyFileService.GetAnyFiles(UtConfig.WorksChannelID, true, 1, 6);
 
-			var medias = xCmsFactory.AnyFileService.GetAnyFiles(UtConfig.FamilyMediaChannelID, true, 1, 4);
+			var medias = xCmsFactory.AnyFileService.GetAnyFiles(UtConfig.FamilyMediaChannelID, true, 1, 6);
 			this.RepeaterMedia.DataSource = medias;
 
-			var childs = xUtFactory.ChildService.GetChilds(1, 4);
+			var childs = xUtFactory.ChildService.GetChilds(1, 6);
 
 			var douxiuNews = xCmsFactory.ArticleService.GetArticles(UtConfig.DouXiuChannelID, true, 1, 5);
 			this.RepeaterDouXiu.DataSource = douxiuNews;
@@ -44,7 +44,7 @@ namespace YouTong.WebSite
 
 			if (this.StarChild != null)
 			{
-				var starChildWorkses = xCmsFactory.AnyFileService.GetAnyFiles(UtConfig.WorksChannelID, true, this.StarChild.ParentID.Value, null, 1, 4);
+				var starChildWorkses = xCmsFactory.AnyFileService.GetAnyFiles(UtConfig.WorksChannelID, true, this.StarChild.ParentID.Value, null, 1, 6);
 				this.RepeaterStarChildWorks.DataSource = starChildWorkses;
 			}
 
