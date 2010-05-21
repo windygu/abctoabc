@@ -26,7 +26,7 @@
 					uploadVideo();
 				}
 				else {
-					alert("错误");
+					alert("才艺类型不正确");
 				}
 
 				return false;
@@ -106,7 +106,7 @@
 			$("#File_ThumbnailUrl").val(item.picUrl);
 			$("#File_FileName").val(item.id);
 
-			var action = "Expo-File-Upload.aspx?action=video";
+			var action = "Expo-File-Upload.aspx?type=<%= Type %>&action=video";
 			var frm = $("#form1");
 			frm.attr("action", action);
 			frm.removeAttr("target");

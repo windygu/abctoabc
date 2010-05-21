@@ -20,9 +20,10 @@ namespace YouTong.WebSite.Activities.Disney
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			Type = RequestObject.ToString("type");
+
 			if (!this.IsPostBack)
 			{
-				Type = RequestObject.ToString("type");
 				switch (Type)
 				{
 					case "huihua"://绘画
@@ -41,10 +42,12 @@ namespace YouTong.WebSite.Activities.Disney
 						ChannelID = UtConfig.CameraChannelID;
 						break;
 					default:
-						throw new Exception("类型出错");
+						this.Type = "huihua";
+						TypeName = "绘画";
+						this.FileType = (int)AnyFileType.Photo;
+						ChannelID = UtConfig.DrawingChannelID;
+						break;
 				}
-
-				if (this.FileType != 2) this.FileType = 1;
 
 				this.File_ChannelID.Value = this.ChannelID.ToString();
 				this.File_FileType.Value = this.FileType.ToString();
