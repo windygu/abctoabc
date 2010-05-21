@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Itfort.Web;
 
-namespace YouTong.WebAdmin
+namespace WebBasics.WebAdmin
 {
 	public partial class SignIn : BasePage
 	{

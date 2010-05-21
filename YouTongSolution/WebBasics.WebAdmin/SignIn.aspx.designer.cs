@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace YouTong.WebAdmin {
+namespace WebBasics.WebAdmin {
     
     
     public partial class SignIn {
