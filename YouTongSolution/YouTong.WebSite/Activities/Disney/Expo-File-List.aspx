@@ -43,8 +43,9 @@
 					</div>
 					<div class="tab tab00">
 						<ul class="nav">
-							<li>
-								<a class='choose' href="javascript:void(0);"><span><%=TypeName %></span></a></li>
+							<li><a class='<%=(TypeSpell=="huihua"?"choose":"")%>' href="javascript:switchTab('huihua');"><span>绘画</span></a></li>
+							<li><a class='<%=(TypeSpell=="sheying"?"choose":"")%>' href="javascript:switchTab('sheying');"><span>摄影</span></a></li>
+							<li><a class='<%=(TypeSpell=="shexiang"?"choose":"")%>' href="javascript:switchTab('shexiang');"><span>摄像</span></a></li>
 						</ul>
 					</div>
 					<div class="clear">

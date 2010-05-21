@@ -16,12 +16,13 @@ namespace YouTong.WebSite.Activities.Disney
 		public Int32 FileType;
 		public Int32 PageIndex, PageSize;
 		public string TypeName = string.Empty;
+        public string TypeSpell = string.Empty;
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			string type = RequestObject.ToString("type");
+            TypeSpell = RequestObject.ToString("type");
 			Guid channelID = Guid.Empty;
-			switch (type)
+            switch (TypeSpell)
 			{
 				case "huihua"://绘画
 					TypeName = "绘画";
