@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{826F0698-C54E-45DD-8D05-82F269760234}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -405,6 +405,13 @@
     <Compile Include="Activities\Disney\Join.aspx.designer.cs">
       <DependentUpon>Join.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Activities\Join.aspx.cs">
+      <DependentUpon>Join.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Activities\Join.aspx.designer.cs">
+      <DependentUpon>Join.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Blogs\Detail.aspx.cs">
       <DependentUpon>Detail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -777,6 +784,7 @@
     <Content Include="Activities\Disney\images\bg8.jpg" />
     <Content Include="Activities\Disney\images\top1.jpg" />
     <Content Include="Activities\Disney\images\北京活动banner.jpg" />
+    <Content Include="Activities\Join.aspx" />
     <Content Include="Datas\AreaJson.aspx" />
     <Content Include="Datas\SchoolJson.aspx" />
     <Content Include="images\child%281%29.jpg" />
@@ -1130,6 +1138,9 @@
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://local.no1child.com</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

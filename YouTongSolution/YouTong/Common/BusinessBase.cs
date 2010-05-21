@@ -12,5 +12,6 @@ namespace YouTong.Common
 		public DbSchool dbSchool = new DbSchool();
 		public DbActivity dbActivity = new DbActivity();
 		public DbActivityJoined dbActivityJoined = new DbActivityJoined();
+		public DbActivityJoined2 dbActivityJoined2 = new DbActivityJoined2();
 	}
 }
