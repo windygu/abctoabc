@@ -83,7 +83,7 @@
 								<% { %>
 								<% if (this.ActivityJoined != null) %>
 								<% { %>
-								你已经参与过该活动，活动编号：disneyexpo_<%=this.ActivityJoined.Number.ToString()%>&nbsp;&nbsp;&nbsp;<a href="http://www.no1child.com/activities/disney/disneyext/index.html">再浏览活动网站</a>
+								你已经参与过该活动，活动编号：Disney_Beijing_<%=this.ActivityJoined.Number.ToString()%>&nbsp;&nbsp;&nbsp;<a href="http://www.no1child.com/activities/disney/disneyext/index.html">再浏览活动网站</a>
 								<% } %>
 								<% else %>
 								<% { %>
@@ -164,7 +164,7 @@
 								<td class="mr_t4" colspan="2">
 									<% if (this.ActivityJoined != null) %>
 									<% { %>
-									你已经参与过该活动<br />活动编号：disneyexpo_<%=this.ActivityJoined.Number.ToString()%><br /><a href="http://www.no1child.com/activities/disney/disneyext/index.html">再浏览活动网站</a>
+									你已经参与过该活动<br />活动编号：Disney_Beijing_<%=this.ActivityJoined.Number.ToString()%><br /><a href="http://www.no1child.com/activities/disney/disneyext/index.html">再浏览活动网站</a>
 									<% } %>
 								</td>
 							</tr>
