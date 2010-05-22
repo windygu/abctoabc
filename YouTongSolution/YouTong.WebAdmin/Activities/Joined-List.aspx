@@ -38,6 +38,9 @@
 			<td class="titab" style="width: 20px">
 				活动编号
 			</td>
+			<td class="titab" style="width: 20px">
+				参加情况
+			</td>
 			<td class="titab">
 				电子邮箱
 			</td>
@@ -62,6 +65,9 @@
 				<tr>
 					<td>
 						<%# Eval("Number") %>
+					</td>
+					<td>
+						<%# (Byte)Eval("AcceptStatus") == 1 ? "是" : "" %>
 					</td>
 					<td>
 						<%# DataCache.GetUser((Guid)Eval("UserID"))!=null ? DataCache.GetUser((Guid)Eval("UserID")).Email : "" %>
