@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Itfort.Web;
 using YouTong.Model;
 using YouTong.WebSite.Codes;
 
@@ -17,6 +18,8 @@ namespace YouTong.WebSite.Activities.Disney
 		{
 			if (!this.IsPostBack)
 			{
+				var accept = (Byte)RequestObject.ToInt32("accept");
+				if (accept != 1) accept = 0;
 				if (!this.IsAnonymous)
 				{
 					this.ActivityJoined = xUtFactory.ActivityJoinedService.GetActivityJoined(UtConfig.DisneyExpoActivityID, this.User.ID);
@@ -29,8 +32,9 @@ namespace YouTong.WebSite.Activities.Disney
 						var joined = new ActivityJoined();
 						joined.ActivityID = UtConfig.DisneyExpoActivityID;
 						joined.UserID = this.User.ID;
+						joined.AcceptStatus = accept;
 						xUtFactory.ActivityJoinedService.AddActivityJoined(joined);
-                        Response.Redirect("http://www.no1child.com/activities/disney/disneyext/index.html");
+						Response.Redirect("http://www.no1child.com/activities/disney/disneyext/index.html");
 					}
 				}
 				else

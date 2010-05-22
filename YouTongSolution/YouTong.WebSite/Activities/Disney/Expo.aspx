@@ -12,10 +12,10 @@
 	<script type="text/javascript">
 		function join() {
 			if ($("#join_true").attr("checked")) {
-				location = "join.aspx";
+				location = "join.aspx?accept=1";
 			}
 			else {
-				alert("请先同意参加活动");
+				location = "join.aspx?accept=0";
 			}
 		}
 	</script>
@@ -24,26 +24,30 @@
 	<form id="form1" runat="server">
 	<div>
 		<div class="main_container">
-		    <!--<ut:WebHeader ID="WebHeader" runat="server" />-->
+			<!--<ut:WebHeader ID="WebHeader" runat="server" />-->
 			<div class="m_top">
 				<img class="ico1" src="images/ico1.jpg" /><img src="images/top1.jpg" border="0" usemap="#Map" />
-				
-				<div style="text-align:center; margin-bottom:10px; margin-top:10px;"><img  src="images/北京活动banner.jpg" /></div>
-				</div>
-			
+				<div style="text-align: center; margin-bottom: 10px; margin-top: 10px;">
+					<img src="images/北京活动banner.jpg" /></div>
+			</div>
 			<div class="m_left" style="position: absolute;">
 				<div class="disney_box">
 					<div style="margin-left: 8px;">
-					<p>
-						<b style="font-size:12px;">“我爱北京，大家一起赛”2010年北京市少年儿童知识竞赛</b></p>
-					<p>
-						“赫赫京都千百年，钟灵毓秀萃龙渊。始由金国迁燕地，及至赤都照蓟川。”</p>
-<p>
-   如此气势磅礴的诗句，也只有北京这样的城市才够以匹配。而今，您学习、生活在北京这座城市中，您对北京又有着多少的认知和了解呢？ </p>
-     <p>为了加深大家对北京的认知及了解，体现出当今“人文北京，绿色北京”的京城文化，北京市妇女联合会儿童工作部、北京市家庭教育研究会推出了“我爱北京，大家一起赛”主题活动，让大家可以从多方面地了解北京历史的变迁发展过程、城市概况、风土人情以及民风习俗，从而更好地激发大家热爱北京、热爱故乡的情怀。 </p>
-    <p> 相信，您的参与定能更好的描绘出“北海清波浮画舫，香山红叶染霜天。华夏血脉情相系，九州同心亿众欢”这般的美丽画卷。我们更相信，北京有了您赞许和期待，定能屹立于世界之巅！</p>
-<p>
-     我们期待您全家的参与，我们更感谢您和您家人的行动。让我们一起为北京更美好的明天加油、喝彩！</p></div>
+						<p>
+							<b style="font-size: 12px;">“我爱北京，大家一起赛”2010年北京市少年儿童知识竞赛</b></p>
+						<p>
+							“赫赫京都千百年，钟灵毓秀萃龙渊。始由金国迁燕地，及至赤都照蓟川。”</p>
+						<p>
+							如此气势磅礴的诗句，也只有北京这样的城市才够以匹配。而今，您学习、生活在北京这座城市中，您对北京又有着多少的认知和了解呢？
+						</p>
+						<p>
+							为了加深大家对北京的认知及了解，体现出当今“人文北京，绿色北京”的京城文化，北京市妇女联合会儿童工作部、北京市家庭教育研究会推出了“我爱北京，大家一起赛”主题活动，让大家可以从多方面地了解北京历史的变迁发展过程、城市概况、风土人情以及民风习俗，从而更好地激发大家热爱北京、热爱故乡的情怀。
+						</p>
+						<p>
+							相信，您的参与定能更好的描绘出“北海清波浮画舫，香山红叶染霜天。华夏血脉情相系，九州同心亿众欢”这般的美丽画卷。我们更相信，北京有了您赞许和期待，定能屹立于世界之巅！</p>
+						<p>
+							我们期待您全家的参与，我们更感谢您和您家人的行动。让我们一起为北京更美好的明天加油、喝彩！</p>
+					</div>
 					<table border="0" cellspacing="0" cellpadding="0" style="display: block; width: 550px; position: absolute; top: 360px; left: 35px;">
 						<tr>
 							<td>
@@ -63,9 +67,9 @@
 							<td>
 								为了感谢您对活动的支持，我们将邀请您参加“迪士尼英语亲子家庭日活动”。 和您一起激发孩子的学次热情，在欢乐的卡通故事中畅快的学习英语和利礼仪，在独特的亲子互动中体验无限的乐趣，更为世博会做更好的准备。<br />
 								您是否愿意参加?
-								<input type="radio" class="checkbox" name="join" id="join_true" checked="checked" />
+								<input type="radio" name="join" id="join_true" value="1" checked="checked" />
 								愿意
-								<input type="radio" class="checkbox" name="join" id="join_false" />
+								<input type="radio" name="join" id="join_false" value="0" />
 								不愿意
 							</td>
 							<td width="30">
@@ -162,7 +166,9 @@
 								<td class="mr_t4" colspan="2">
 									<% if (this.ActivityJoined != null) %>
 									<% { %>
-									你已经参与过该活动<br />活动编号：Disney_Beijing_<%=this.ActivityJoined.Number.ToString()%><br /><a href="http://www.no1child.com/activities/disney/disneyext/index.html">再浏览活动网站</a>
+									你已经参与过该活动<br />
+									活动编号：Disney_Beijing_<%=this.ActivityJoined.Number.ToString()%><br />
+									<a href="http://www.no1child.com/activities/disney/disneyext/index.html">再浏览活动网站</a>
 									<% } %>
 								</td>
 							</tr>
