@@ -35,6 +35,8 @@ namespace YouTong.Model
 
 		protected Int32 _Number;
 
+		protected Byte _AcceptStatus;
+
 		public Guid ID
 		{
 			get
@@ -126,6 +128,19 @@ namespace YouTong.Model
 			}
 		}
 
+		public Byte AcceptStatus
+		{
+			get
+			{
+				return this._AcceptStatus;
+			}
+			set
+			{
+				this.OnPropertyValueChange(_.AcceptStatus, _AcceptStatus, value);
+				this._AcceptStatus = value;
+			}
+		}
+
 		/// <summary>
 		/// 获取实体对应的表名
 		/// </summary>
@@ -155,7 +170,8 @@ namespace YouTong.Model
                         _.IsDeleted,
                         _.ActivityID,
                         _.UserID,
-                        _.Number};
+                        _.Number,
+                        _.AcceptStatus};
 		}
 
 		/// <summary>
@@ -170,7 +186,8 @@ namespace YouTong.Model
                         this._IsDeleted,
                         this._ActivityID,
                         this._UserID,
-                        this._Number};
+                        this._Number,
+                        this._AcceptStatus};
 		}
 
 		/// <summary>
@@ -205,6 +222,10 @@ namespace YouTong.Model
 			if ((false == reader.IsDBNull(_.Number)))
 			{
 				this._Number = reader.GetInt32(_.Number);
+			}
+			if ((false == reader.IsDBNull(_.AcceptStatus)))
+			{
+				this._AcceptStatus = reader.GetByte(_.AcceptStatus);
 			}
 		}
 
@@ -272,6 +293,11 @@ namespace YouTong.Model
 			/// 字段名：Number - 数据类型：Int32
 			/// </summary>
 			public static Field Number = new Field<ActivityJoined>("Number");
+
+			/// <summary>
+			/// 字段名：AcceptStatus - 数据类型：Byte
+			/// </summary>
+			public static Field AcceptStatus = new Field<ActivityJoined>("AcceptStatus");
 		}
 	}
 }
