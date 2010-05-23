@@ -9,7 +9,7 @@
 <frameset rows="100,*" cols="*" frameborder="no" border="0" framespacing="0">
 	<frame src="FrameTop.aspx" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
 	<frameset cols="173,*" frameborder="no" border="0" framespacing="0">
-		<frame src="" id="leftFrame" name="leftFrame" scrolling="No" noresize="noresize" title="leftFrame" />
+		<frame src="" id="leftFrame" name="leftFrame" noresize="noresize" title="leftFrame" />
 		<frame src="" id="mainFrame" name="mainFrame" title="mainFrame" />
 	</frameset>
 </frameset>
