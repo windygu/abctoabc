@@ -253,6 +253,19 @@ namespace YouTong.Model
 			}
 		}
 
+		public String CurrentSchool
+		{
+			get
+			{
+				return this._CurrentSchool;
+			}
+			set
+			{
+				this.OnPropertyValueChange(_.CurrentSchool, _CurrentSchool, value);
+				this._CurrentSchool = value;
+			}
+		}
+
 		public Int32 CurrentGrade
 		{
 			get
@@ -342,6 +355,7 @@ namespace YouTong.Model
                         _.Popular,
                         _.City,
                         _.Region,
+                        _.CurrentSchool,
                         _.CurrentGrade,
                         _.CurrentClass,
                         _.OldId,
@@ -435,6 +449,10 @@ namespace YouTong.Model
 			if ((false == reader.IsDBNull(_.Region)))
 			{
 				this._Region = reader.GetInt32(_.Region);
+			}
+			if ((false == reader.IsDBNull(_.CurrentSchool)))
+			{
+				this._CurrentSchool = reader.GetString(_.CurrentSchool);
 			}
 			if ((false == reader.IsDBNull(_.CurrentGrade)))
 			{
@@ -553,6 +571,11 @@ namespace YouTong.Model
 			/// 字段名：Region - 数据类型：Int32
 			/// </summary>
 			public static Field Region = new Field<Child>("Region");
+
+			/// <summary>
+			/// 字段名：CurrentSchool - 数据类型：String
+			/// </summary>
+			public static Field CurrentSchool = new Field<Child>("CurrentSchool");
 
 			/// <summary>
 			/// 字段名：CurrentGrade - 数据类型：Int32
