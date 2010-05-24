@@ -28,7 +28,14 @@ namespace YouTong.WebSite
 			this.MediaCategories = FamilyMediaAction.GetMediaCategories();
 			this.StarChild = xUtFactory.ChildService.GetChild(UtConfig.StarChildID);
 
-			var workses = xCmsFactory.AnyFileService.GetAnyFiles(UtConfig.WorksChannelID, true, 1, 6);
+            Guid workGuid = Guid.NewGuid();
+            if (WorksCategories.Count > 0)
+                workGuid = WorksCategories[0].ID;
+            else
+                workGuid = UtConfig.WorksChannelID;
+            //得到第一个分类的作品或所有作品
+            var workses = xCmsFactory.AnyFileService.GetAnyFiles(workGuid, true, 1, 6);
+            //得到所有作品
             anyFilesCount = xCmsFactory.AnyFileService.GetAnyFileCount(UtConfig.WorksChannelID, true);
 
 			var medias = xCmsFactory.AnyFileService.GetAnyFiles(UtConfig.FamilyMediaChannelID, true, 1, 6);
