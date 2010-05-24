@@ -31,16 +31,18 @@ namespace YouTong.WebSite.Activities.Disney
 					break;
 				case "sheying"://摄影
 					TypeName = "摄影";
-					this.FileType = (int)AnyFileType.Video;
+					this.FileType = (int)AnyFileType.Photo;
 					channelID = UtConfig.FilmChannelID;
 					break;
 				case "shexiang"://摄像
 					TypeName = "摄像";
-					this.FileType = (int)AnyFileType.Photo;
+					this.FileType = (int)AnyFileType.Video;
 					channelID = UtConfig.CameraChannelID;
 					break;
                 default:
-                    TypeName = "其它";
+                    TypeName = "绘画";
+                    this.FileType = (int)AnyFileType.Photo;
+                    channelID = UtConfig.DrawingChannelID;
                     break;
 			}
 			if (this.FileType != 2) this.FileType = 1;
