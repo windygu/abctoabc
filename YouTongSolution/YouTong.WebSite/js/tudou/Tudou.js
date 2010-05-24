@@ -125,7 +125,6 @@
 
                      var tudouInterval = setInterval(function() {
                          jQuery.getJSON(queryApi, function(msg) {
-
                              if (msg.progress > 0 && msg.progress < 100) {
                                  config.callUploading(msg);
                              } else if (msg.progress == 100) {
@@ -140,8 +139,10 @@
                                      clearInterval(tudouInterval);
                                  }
                              }
-                             else if(msg.progress == undefined || msg.status == "fail")
+                             else if(msg.progress == undefined && msg.status == "fail"){
                                 config.callFail(msg);
+                                clearInterval(tudouInterval);
+                             }
                          });
                      }, 1000);
 
