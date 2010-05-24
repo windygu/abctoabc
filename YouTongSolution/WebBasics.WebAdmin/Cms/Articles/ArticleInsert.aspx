@@ -16,7 +16,11 @@
 	<div class="tit">
 		<div class="titleft">
 		</div>
-		当前位置： <a href="#">内容管理</a> &gt; <a href="#">文章管理</a> &gt; 添加文章
+		当前位置：
+		<a href="#">内容管理</a>
+		&gt;
+		<a href="#">文章管理</a>
+		&gt; 添加文章
 		<div class="titright">
 		</div>
 	</div>
@@ -49,7 +53,7 @@
 				<script type="text/javascript">
 					CKEDITOR.replace('Article_Body',
 						{
-							toolbarStartupExpanded: false,
+							toolbarStartupExpanded: true,
 							height: 300
 						}
 					);
