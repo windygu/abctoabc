@@ -55,6 +55,10 @@ namespace YouTong.Model
 
 		protected Byte _CurrentClass;
 
+		protected Int32? _OldId;
+
+		protected Int32 _SchoolID;
+
 		public Guid ID
 		{
 			get
@@ -249,19 +253,6 @@ namespace YouTong.Model
 			}
 		}
 
-		public String CurrentSchool
-		{
-			get
-			{
-				return this._CurrentSchool;
-			}
-			set
-			{
-				this.OnPropertyValueChange(_.CurrentSchool, _CurrentSchool, value);
-				this._CurrentSchool = value;
-			}
-		}
-
 		public Int32 CurrentGrade
 		{
 			get
@@ -285,6 +276,32 @@ namespace YouTong.Model
 			{
 				this.OnPropertyValueChange(_.CurrentClass, _CurrentClass, value);
 				this._CurrentClass = value;
+			}
+		}
+
+		public Int32? OldId
+		{
+			get
+			{
+				return this._OldId;
+			}
+			set
+			{
+				this.OnPropertyValueChange(_.OldId, _OldId, value);
+				this._OldId = value;
+			}
+		}
+
+		public Int32 SchoolID
+		{
+			get
+			{
+				return this._SchoolID;
+			}
+			set
+			{
+				this.OnPropertyValueChange(_.SchoolID, _SchoolID, value);
+				this._SchoolID = value;
 			}
 		}
 
@@ -325,9 +342,10 @@ namespace YouTong.Model
                         _.Popular,
                         _.City,
                         _.Region,
-                        _.CurrentSchool,
                         _.CurrentGrade,
-                        _.CurrentClass};
+                        _.CurrentClass,
+                        _.OldId,
+                        _.SchoolID};
 		}
 
 		/// <summary>
@@ -352,7 +370,9 @@ namespace YouTong.Model
                         this._Region,
                         this._CurrentSchool,
                         this._CurrentGrade,
-                        this._CurrentClass};
+                        this._CurrentClass,
+                        this._OldId,
+                        this._SchoolID};
 		}
 
 		/// <summary>
@@ -416,10 +436,6 @@ namespace YouTong.Model
 			{
 				this._Region = reader.GetInt32(_.Region);
 			}
-			if ((false == reader.IsDBNull(_.CurrentSchool)))
-			{
-				this._CurrentSchool = reader.GetString(_.CurrentSchool);
-			}
 			if ((false == reader.IsDBNull(_.CurrentGrade)))
 			{
 				this._CurrentGrade = reader.GetInt32(_.CurrentGrade);
@@ -427,6 +443,14 @@ namespace YouTong.Model
 			if ((false == reader.IsDBNull(_.CurrentClass)))
 			{
 				this._CurrentClass = reader.GetByte(_.CurrentClass);
+			}
+			if ((false == reader.IsDBNull(_.OldId)))
+			{
+				this._OldId = reader.GetInt32(_.OldId);
+			}
+			if ((false == reader.IsDBNull(_.SchoolID)))
+			{
+				this._SchoolID = reader.GetInt32(_.SchoolID);
 			}
 		}
 
@@ -531,11 +555,6 @@ namespace YouTong.Model
 			public static Field Region = new Field<Child>("Region");
 
 			/// <summary>
-			/// 字段名：CurrentSchool - 数据类型：String
-			/// </summary>
-			public static Field CurrentSchool = new Field<Child>("CurrentSchool");
-
-			/// <summary>
 			/// 字段名：CurrentGrade - 数据类型：Int32
 			/// </summary>
 			public static Field CurrentGrade = new Field<Child>("CurrentGrade");
@@ -544,6 +563,16 @@ namespace YouTong.Model
 			/// 字段名：CurrentClass - 数据类型：Byte
 			/// </summary>
 			public static Field CurrentClass = new Field<Child>("CurrentClass");
+
+			/// <summary>
+			/// 字段名：OldId - 数据类型：Nullable`1
+			/// </summary>
+			public static Field OldId = new Field<Child>("OldId");
+
+			/// <summary>
+			/// 字段名：SchoolID - 数据类型：Int32
+			/// </summary>
+			public static Field SchoolID = new Field<Child>("SchoolID");
 		}
 	}
 }
