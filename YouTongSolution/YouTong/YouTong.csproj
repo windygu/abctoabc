@@ -76,6 +76,7 @@
     <Compile Include="Data\DbActivityJoined2.cs" />
     <Compile Include="Data\DbActivity.cs" />
     <Compile Include="Data\DbActivityJoined.cs" />
+    <Compile Include="Data\DbBase.cs" />
     <Compile Include="Data\DbCategory.cs" />
     <Compile Include="Data\DbChild.cs" />
     <Compile Include="Data\DbArea.cs" />

@@ -13,5 +13,7 @@ namespace YouTong.Common
 		public DbActivity dbActivity = new DbActivity();
 		public DbActivityJoined dbActivityJoined = new DbActivityJoined();
 		public DbActivityJoined2 dbActivityJoined2 = new DbActivityJoined2();
+		public DbCategory dbCategory = DbCategory.Instance;
+		public DbInCategory dbInCategory = DbInCategory.Instance;
 	}
 }

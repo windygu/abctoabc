@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using MySoft.Data;
 
 namespace YouTong.Data
 {
-	public class DbInCategory
+	public class DbBase
 	{
-		public static readonly DbInCategory Instance = new DbInCategory();
+		protected DbSession dbSession = new DbSession("ut");
 	}
 }
