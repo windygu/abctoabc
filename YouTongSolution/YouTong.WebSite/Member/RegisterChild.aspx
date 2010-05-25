@@ -51,7 +51,7 @@
 									昵称：
 								</td>
 								<td class="textleft">
-									<asp:TextBox ID="Child_NickName" runat="server" CssClass="input1"></asp:TextBox>
+									<asp:TextBox ID="Child_NikcName" runat="server" CssClass="input1"></asp:TextBox>
 								</td>
 								<td class="textleft">
 									昵称长度1-5位，可由中英文、数字、字符组成
@@ -64,9 +64,9 @@
 									孩子性别：
 								</td>
 								<td class="textleft">
-									<input name="Gender" type="radio" value="1" checked="checked" />
+									<input name="Child_Gender" type="radio" value="1" checked="checked" />
 									男
-									<input name="Gender" type="radio" value="2" />
+									<input name="Child_Gender" type="radio" value="2" />
 									女
 								</td>
 								<td class="textleft">
@@ -89,16 +89,16 @@
 									<em>* </em>目前就读学校：
 								</td>
 								<td class="textleft" colspan="2">
-									<select id="Child_City" class="select1">
+									<select id="Child_City" name="Child_City" class="select1">
 									</select>
-									<select id="Child_Region" class="select1">
+									<select id="Child_Region" name="Child_Region" class="select1">
 									</select>
 									<select id="Child_Level" class="select1">
 										<option value="0">学校类型</option>
 										<option value="1">幼儿园</option>
 										<option value="2">小学</option>
 									</select>
-									<select id="Child_School" class="select1">
+									<select id="Child_SchoolID" name="Child_SchoolID" class="select1">
 									</select>
 								</td>
 							</tr>
@@ -109,23 +109,23 @@
 									<em>* </em>入学年份：
 								</td>
 								<td class="textleft">
-									<select class="select1">
-										<option selected="1996" value="">1996</option>
-										<option selected="1997" value="">1997</option>
-										<option selected="1998" value="">1998</option>
-										<option selected="1999" value="">1999</option>
-										<option selected="2000" value="">2000</option>
-										<option selected="2001" value="">2001</option>
-										<option selected="2002" value="">2002</option>
-										<option selected="2003" value="">2003</option>
-										<option selected="2004" value="">2004</option>
-										<option selected="2005" value="">2005</option>
-										<option selected="2006" value="">2006</option>
-										<option selected="2007" value="">2007</option>
-										<option selected="2008" value="">2008</option>
-										<option selected="2009" value="">2009</option>
-										<option selected="2010" value="">2010</option>
-										<option selected="2011" value="">2011</option>
+									<select id="Child_CurrentGrade" name="Child_CurrentGrade" class="select1">
+										<option value="1996">1996</option>
+										<option value="1997">1997</option>
+										<option value="1998">1998</option>
+										<option value="1999">1999</option>
+										<option value="2000">2000</option>
+										<option value="2001">2001</option>
+										<option value="2002">2002</option>
+										<option value="2003">2003</option>
+										<option value="2004">2004</option>
+										<option value="2005">2005</option>
+										<option value="2006">2006</option>
+										<option value="2007">2007</option>
+										<option value="2008">2008</option>
+										<option value="2009">2009</option>
+										<option value="2010">2010</option>
+										<option value="2011">2011</option>
 									</select>
 								</td>
 								<td class="textleft">
@@ -138,7 +138,7 @@
 									<em>* </em>学校班级：
 								</td>
 								<td class="textleft">
-									<select class="select1">
+									<select id="Child_CurrentClass" name="Child_CurrentClass" class="select1">
 										<option value="1">一班</option>
 										<option value="2">二班</option>
 										<option value="3">三班</option>
@@ -296,12 +296,12 @@
 				var id = $("#Child_Region").val();
 				var level = $(this).val();
 
-				$("#Child_School").empty();
+				$("#Child_SchoolID").empty();
 
 				$.getJSON("/_Handlers/GetSchools.ashx", { region: id, level: level },
 					function(data) {
 						for (var i = 0; i < data.length; i++) {
-							$("<option value='" + data[i].ID + "'>" + data[i].Name + "</option>").appendTo("#Child_School");
+							$("<option value='" + data[i].ID + "'>" + data[i].Name + "</option>").appendTo("#Child_SchoolID");
 						}
 					}
 				 );

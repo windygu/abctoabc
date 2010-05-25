@@ -608,7 +608,7 @@
 						</div>
 					</div>
 					<div class="douxiucang" style="text-align:right;">
-					    <a href="http://old.no1child.com/expo/newave" target="_blank">
+					    <a href="http://old.no1child.com/bbs/showtopic-1073.aspx" target="_blank">
 					        <img src="/images/Image61.jpg" alt="绿光"  />
 					    </a>
 					</div>

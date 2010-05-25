@@ -9,6 +9,10 @@
 	<meta name="description" content="www.no1child.com,优童，越秀越优秀，中国儿童优秀展示平台" />
 	<link href="../css/content.css" type="text/css" rel="stylesheet" />
 	<link href="../css/register.css" type="text/css" rel="stylesheet" />
+	<script src="../js/jquery-1.4.1.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		var CMenu = "default";
+	</script>
 </head>
 <body>
 	<form id="form1" runat="server">
