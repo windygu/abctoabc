@@ -609,7 +609,7 @@
 					</div>
 					<div class="douxiucang" style="text-align:right;">
 					    <a href="http://old.no1child.com/expo/newave" target="_blank">
-					        <img src="../_Resources/images/Ad/绿光右侧广告.jpg" alt="绿光"  />
+					        <img src="/images/Image61.jpg" alt="绿光"  />
 					    </a>
 					</div>
 					
