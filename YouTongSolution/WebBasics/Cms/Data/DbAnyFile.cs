@@ -129,6 +129,18 @@ namespace WebBasics.Cms.Data
 		}
 
 		/// <summary>
+		/// 获取文章
+		/// </summary>
+		/// <param name="ids">文章编号</param>
+		/// <returns></returns>
+		public IList<AnyFile> GetAnyFiles(Guid[] ids)
+		{
+			var where = NotDeleted && AnyFile._.ID.In(ids);
+
+			return dbSession.From<AnyFile>().Where(where).ToList();
+		}
+
+		/// <summary>
 		/// 获取文章列表
 		/// </summary>
 		/// <param name="channelId">频道编号</param>

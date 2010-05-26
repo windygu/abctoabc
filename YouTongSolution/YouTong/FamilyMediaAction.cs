@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using WebBasics.Cms;
 using WebBasics.Cms.Common;
 using WebBasics.Cms.Model;
 using YouTong.Model;
@@ -40,7 +41,9 @@ namespace YouTong
 		/// <returns></returns>
 		public static IList<AnyFile> GetFamilyMediasByUserCategory(Guid categoryId, int pageIndex, int pageSize)
 		{
-			return null;
+			var ids = InCategoryService.Instance.GetEntityIDs(categoryId, pageIndex, pageSize);
+
+			return AnyFileService.Instance.GetAnyFiles(ids.ToArray());
 		}
 	}
 }

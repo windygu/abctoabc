@@ -9,6 +9,8 @@ namespace YouTong
 {
 	public class InCategoryService : BusinessBase, IInCategoryService
 	{
+		public static readonly InCategoryService Instance = new InCategoryService();
+
 		/// <summary>
 		/// 添加分类关系
 		/// </summary>

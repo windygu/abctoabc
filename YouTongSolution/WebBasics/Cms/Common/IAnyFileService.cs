@@ -67,6 +67,13 @@ namespace WebBasics.Cms.Common
 		AnyFile GetAnyFile(Guid id);
 
 		/// <summary>
+		/// 获取文章
+		/// </summary>
+		/// <param name="ids">文章编号</param>
+		/// <returns></returns>
+		IList<AnyFile> GetAnyFiles(Guid[] ids);
+
+		/// <summary>
 		/// 获取文件列表
 		/// </summary>
 		/// <param name="channelId">频道编号</param>

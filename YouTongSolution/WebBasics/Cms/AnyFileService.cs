@@ -90,6 +90,11 @@ namespace WebBasics.Cms
 			return dbAnyFile.GetAnyFile(id);
 		}
 
+		public IList<AnyFile> GetAnyFiles(Guid[] ids)
+		{
+			return dbAnyFile.GetAnyFiles(ids);
+		}
+
 		public IList<AnyFile> GetAnyFiles(Guid channelId, bool recursive, int pageIndex, int pageSize)
 		{
 			return dbAnyFile.GetAnyFiles(channelId, recursive, pageIndex, pageSize);
