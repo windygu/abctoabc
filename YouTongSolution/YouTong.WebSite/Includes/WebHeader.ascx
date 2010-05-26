@@ -36,7 +36,7 @@
 			<li id="Li1">
 				<a href="../Jianshezhong.aspx" title="优童圈"><span>优童圈</span></a></li>
 		    <li id="Li2">
-				<a href="http://old.no1child.com/bbs/index.aspx" title="优童经"><span>优童经</span></a></li>
+				<a href="http://www2.no1child.com/bbs/index.aspx" title="优童经"><span>优童经</span></a></li>
 			<li id="Li3">
 				<a href="../Jianshezhong.aspx" title="优童in品"><span>优童in品</span></a></li>
 			<li id="Li4">

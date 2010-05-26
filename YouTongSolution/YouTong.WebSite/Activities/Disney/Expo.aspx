@@ -217,7 +217,7 @@
 			<area shape="rect" coords="314, 32, 386, 64" href="/Member/MyChild.aspx" />
 			<area shape="rect" coords="423, 31, 494, 64" href="/childs/" />
 			<area shape="rect" coords="529, 33, 603, 63" href="/Jianshezhong.aspx" />
-			<area shape="rect" coords="626, 31, 703, 63" href="http://old.no1child.com/bbs/index.aspx" />
+			<area shape="rect" coords="626, 31, 703, 63" href="http://www2.no1child.com/bbs/index.aspx" />
 			<area shape="rect" coords="736, 31, 811, 61" href="/Jianshezhong.aspx" />
 			<area shape="rect" coords="850, 32, 924, 65" href="/Jianshezhong.aspx" />
 		</map>

@@ -3,7 +3,7 @@
   <div class="footer_main">
     <ul>
       <li>
-        <a href="http://old.no1child.com/about">关于优童</a>
+        <a href="http://www2.no1child.com/about">关于优童</a>
       </li>
       <li>
         <a>|</a>
@@ -15,13 +15,13 @@
         <a>|</a>
       </li>
       <li>
-        <a href="http://old.no1child.com/copyright">版权声明</a>
+        <a href="http://www2.no1child.com/copyright">版权声明</a>
       </li>
       <li>
         <a>|</a>
       </li>
       <li>
-        <a href="http://old.no1child.com/private">关于隐私</a>
+        <a href="http://www2.no1child.com/private">关于隐私</a>
       </li>
       <li>
         <a>|</a>

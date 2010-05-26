@@ -375,7 +375,7 @@
 									</thead>
 									<tr>
 										<td>
-											<a href="http://old.no1child.com/bbs/showtopic-1067.aspx" title="该如何防治小儿暑热的症状？                                               ">该如何防治小儿暑热的症状？ </a>
+											<a href="http://www2.no1child.com/bbs/showtopic-1067.aspx" title="该如何防治小儿暑热的症状？                                               ">该如何防治小儿暑热的症状？ </a>
 										</td>
 										<td>
 											鱼儿游
@@ -389,7 +389,7 @@
 									</tr>
 									<tr>
 										<td>
-											<a href="http://old.no1child.com/bbs/showtopic-1066.aspx" title="中班小朋友，视力0.5和0.6，需不需要看医生啊？？                                  ">中班小朋友，视力0.5和0.6，需不需要看医生啊？？ </a>
+											<a href="http://www2.no1child.com/bbs/showtopic-1066.aspx" title="中班小朋友，视力0.5和0.6，需不需要看医生啊？？                                  ">中班小朋友，视力0.5和0.6，需不需要看医生啊？？ </a>
 										</td>
 										<td>
 											铃语
@@ -403,7 +403,7 @@
 									</tr>
 									<tr>
 										<td>
-											<a href="http://old.no1child.com/bbs/showtopic-1065.aspx" title="汕头市童之梦龙禧幼儿园虐童案                                              ">汕头市童之梦龙禧幼儿园虐童案 </a>
+											<a href="http://www2.no1child.com/bbs/showtopic-1065.aspx" title="汕头市童之梦龙禧幼儿园虐童案                                              ">汕头市童之梦龙禧幼儿园虐童案 </a>
 										</td>
 										<td>
 											虹猫的虹
@@ -417,7 +417,7 @@
 									</tr>
 									<tr>
 										<td>
-											<a href="http://old.no1child.com/bbs/showtopic-1064.aspx" title="为什么孩子喜欢玩捉迷藏？                                                ">为什么孩子喜欢玩捉迷藏？ </a>
+											<a href="http://www2.no1child.com/bbs/showtopic-1064.aspx" title="为什么孩子喜欢玩捉迷藏？                                                ">为什么孩子喜欢玩捉迷藏？ </a>
 										</td>
 										<td>
 											xiaohaqi
@@ -431,7 +431,7 @@
 									</tr>
 									<tr>
 										<td>
-											<a href="http://old.no1child.com/bbs/showtopic-1063.aspx" title="幼儿教育理念之4W1H                                                 ">幼儿教育理念之4W1H </a>
+											<a href="http://www2.no1child.com/bbs/showtopic-1063.aspx" title="幼儿教育理念之4W1H                                                 ">幼儿教育理念之4W1H </a>
 										</td>
 										<td>
 											虹猫的虹
@@ -445,7 +445,7 @@
 									</tr>
 									<tr>
 										<td>
-											<a href="http://old.no1child.com/bbs/showtopic-1062.aspx" title="每日一歌，由今开始                                                   ">每日一歌，由今开始 </a>
+											<a href="http://www2.no1child.com/bbs/showtopic-1062.aspx" title="每日一歌，由今开始                                                   ">每日一歌，由今开始 </a>
 										</td>
 										<td>
 											鱼儿游
@@ -459,7 +459,7 @@
 									</tr>
 									<tr>
 										<td>
-											<a href="http://old.no1child.com/bbs/showtopic-1061.aspx" title="听听于丹的育儿经                                                    ">听听于丹的育儿经 </a>
+											<a href="http://www2.no1child.com/bbs/showtopic-1061.aspx" title="听听于丹的育儿经                                                    ">听听于丹的育儿经 </a>
 										</td>
 										<td>
 											稚子
@@ -473,7 +473,7 @@
 									</tr>
 									<tr>
 										<td>
-											<a href="http://old.no1child.com/bbs/showtopic-1060.aspx" title="培养宝宝用餐好习惯5法则                                                ">培养宝宝用餐好习惯5法则 </a>
+											<a href="http://www2.no1child.com/bbs/showtopic-1060.aspx" title="培养宝宝用餐好习惯5法则                                                ">培养宝宝用餐好习惯5法则 </a>
 										</td>
 										<td>
 											blue sky
@@ -587,7 +587,7 @@
 							<%--<ul class="zuixin">
 							    <li><a href="http://no1child.goodbaby.com/" class="choose">小模特：2009上海市学生艺术单项比赛--少儿模特大赛</a></li>
 							    <li><a href="http://www.no1child.com/disneybj/" class="choose">迪士尼北京 ：我爱北京百万家庭大家一起赛</a></li>
-							    <li><a href="http://old.no1child.com/3m/" class="choose">3M ：小手牵大手 思高好帮手 2010思高杯创意绘画大赛</a></li>
+							    <li><a href="http://www2.no1child.com/3m/" class="choose">3M ：小手牵大手 思高好帮手 2010思高杯创意绘画大赛</a></li>
 							    <li><a href="http://no1child.babytree.com/promo/paint2010/" class="choose">奇异果: 2010年幼儿明信片创意绘画活动</a></li>
 							</ul>--%>
 							<asp:Repeater ID="RepeaterDouXiu" runat="server">
@@ -608,7 +608,7 @@
 						</div>
 					</div>
 					<div class="douxiucang" style="text-align:right;">
-					    <a href="http://old.no1child.com/bbs/showtopic-1073.aspx" target="_blank">
+					    <a href="http://www2.no1child.com/bbs/showtopic-1073.aspx" target="_blank">
 					        <img src="/images/Image61.jpg" alt="绿光"  />
 					    </a>
 					</div>
@@ -622,9 +622,9 @@
 						</div>
 						<div class="duanblock2">
 						    <%--<ul class="zuixin">
-						        <li><a href="http://old.no1child.com/expo/newave" class="choose">绿光世博活动：百万家庭世博志愿服务行动</a></li>
-						        <li><a href="http://old.no1child.com/parent/content/48" class="choose">美职棒: 2010 MLB PLAY BALL！全国青少年棒球联赛展开角逐</a></li>
-						        <li><a href="http://old.no1child.com/health/" class="choose">凯思丽 : 小骨骼，大梦想，凯思立D助成长</a></li>
+						        <li><a href="http://www2.no1child.com/expo/newave" class="choose">绿光世博活动：百万家庭世博志愿服务行动</a></li>
+						        <li><a href="http://www2.no1child.com/parent/content/48" class="choose">美职棒: 2010 MLB PLAY BALL！全国青少年棒球联赛展开角逐</a></li>
+						        <li><a href="http://www2.no1child.com/health/" class="choose">凯思丽 : 小骨骼，大梦想，凯思立D助成长</a></li>
 						    </ul>--%>
 							<asp:Repeater ID="RepeaterHuoDong" runat="server">
 								<HeaderTemplate>
@@ -737,13 +737,13 @@
 						<div class="duanblock2">
 							<ul class="yulepian">
 								<li>
-									<a href="http://old.no1child.com/inter/play/49346073">
+									<a href="http://www2.no1child.com/inter/play/49346073">
 										<img src="http://i01.img.tudou.com/data/imgs/i/049/346/073/p.jpg" width="80" height="50" border="0" alt="火影忍者" /><span>火影忍者</span></a></li>
 								<li>
-									<a href="http://old.no1child.com/inter/play/44011033">
+									<a href="http://www2.no1child.com/inter/play/44011033">
 										<img src="http://i01.img.tudou.com/data/imgs/i/044/011/033/m10.jpg" width="80" height="50" border="0" alt="海底总动员" /><span>海底总动员</span></a></li>
 								<li>
-									<a href="http://old.no1child.com/inter/play/47921604">
+									<a href="http://www2.no1child.com/inter/play/47921604">
 										<img src="http://i01.img.tudou.com/data/imgs/i/047/921/604/p.jpg" width="80" height="50" border="0" alt="天书奇谭" /><span>天书奇谭</span></a></li>
 							</ul>
 							<div class="clear">
