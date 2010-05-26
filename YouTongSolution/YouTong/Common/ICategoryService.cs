@@ -49,5 +49,13 @@ namespace YouTong.Common
 		/// <param name="userId">用户编号</param>
 		/// <returns></returns>
 		IList<Category> GetCategoriesByUser(Guid userId);
+
+		/// <summary>
+		/// 获取用户分类
+		/// </summary>
+		/// <param name="userId">用户编号</param>
+		/// <param name="entity">实体</param>
+		/// <returns></returns>
+		IList<Category> GetCategoriesByUser(Guid userId, string entity);
 	}
 }

@@ -33,6 +33,8 @@ namespace YouTong.Model
 
 		protected Guid _CategoryID;
 
+		protected DateTime _EntityTime;
+
 		public Guid ID
 		{
 			get
@@ -111,6 +113,19 @@ namespace YouTong.Model
 			}
 		}
 
+		public DateTime EntityTime
+		{
+			get
+			{
+				return this._EntityTime;
+			}
+			set
+			{
+				this.OnPropertyValueChange(_.EntityTime, _EntityTime, value);
+				this._EntityTime = value;
+			}
+		}
+
 		/// <summary>
 		/// 获取实体对应的表名
 		/// </summary>
@@ -139,7 +154,8 @@ namespace YouTong.Model
                         _.UpdateTime,
                         _.IsDeleted,
                         _.EntityID,
-                        _.CategoryID};
+                        _.CategoryID,
+                        _.EntityTime};
 		}
 
 		/// <summary>
@@ -153,7 +169,8 @@ namespace YouTong.Model
                         this._UpdateTime,
                         this._IsDeleted,
                         this._EntityID,
-                        this._CategoryID};
+                        this._CategoryID,
+                        this._EntityTime};
 		}
 
 		/// <summary>
@@ -184,6 +201,10 @@ namespace YouTong.Model
 			if ((false == reader.IsDBNull(_.CategoryID)))
 			{
 				this._CategoryID = reader.GetGuid(_.CategoryID);
+			}
+			if ((false == reader.IsDBNull(_.EntityTime)))
+			{
+				this._EntityTime = reader.GetDateTime(_.EntityTime);
 			}
 		}
 
@@ -246,6 +267,11 @@ namespace YouTong.Model
 			/// 字段名：CategoryID - 数据类型：Guid
 			/// </summary>
 			public static Field CategoryID = new Field<InCategory>("CategoryID");
+
+			/// <summary>
+			/// 字段名：EntityTime - 数据类型：DateTime
+			/// </summary>
+			public static Field EntityTime = new Field<InCategory>("EntityTime");
 		}
 	}
 }

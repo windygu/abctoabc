@@ -12,6 +12,8 @@ namespace YouTong
 	/// </summary>
 	public class CategoryService : BusinessBase, ICategoryService
 	{
+		public static readonly CategoryService Instance = new CategoryService();
+
 		/// <summary>
 		/// 添加分类
 		/// </summary>
@@ -70,6 +72,17 @@ namespace YouTong
 		public IList<Category> GetCategoriesByUser(Guid userId)
 		{
 			return dbCategory.GetCategoriesByUser(userId);
+		}
+
+		/// <summary>
+		/// 获取用户分类
+		/// </summary>
+		/// <param name="userId">用户编号</param>
+		/// <param name="entity">实体</param>
+		/// <returns></returns>
+		public IList<Category> GetCategoriesByUser(Guid userId, string entity)
+		{
+			return dbCategory.GetCategoriesByUser(userId, entity);
 		}
 	}
 }

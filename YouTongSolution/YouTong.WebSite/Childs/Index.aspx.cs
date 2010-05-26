@@ -18,7 +18,7 @@ namespace YouTong.WebSite.Childs
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			this.WorksCategories = WorksAction.GetWorksCategories();
-			this.MediaCategories = FamilyMediaAction.GetMediaCategories();
+			this.MediaCategories = FamilyMediaAction.GetOfficialCategories();
 
 			var tjWorks = xCmsFactory.AnyFileService.GetAnyFiles(UtConfig.WorksChannelID, true, 1, 5);
 			this.RepeaterTjWorks.DataSource = tjWorks;

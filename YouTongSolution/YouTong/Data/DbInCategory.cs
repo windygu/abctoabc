@@ -96,10 +96,28 @@ namespace YouTong.Data
 		/// </summary>
 		/// <param name="categoryId">分类编号</param>
 		/// <returns></returns>
-		public IList<InCategory> GetEntityIDs(Guid categoryId)
+		public IList<Guid> GetEntityIDs(Guid categoryId)
 		{
 			var where = NotDeleted && InCategory._.CategoryID == categoryId;
-			return dbSession.From<InCategory>().Where(where).ToList();
+			return dbSession.From<InCategory>().Select(InCategory._.EntityID)
+				.Where(where).OrderBy(InCategory._.EntityTime.Desc)
+				.ToListResult<Guid>();
+		}
+
+		/// <summary>
+		/// 获取实体编号集
+		/// </summary>
+		/// <param name="categoryId">分类编号</param>
+		/// <param name="pageIndex">页索引</param>
+		/// <param name="pageSize">页大小</param>
+		/// <returns></returns>
+		public IList<Guid> GetEntityIDs(Guid categoryId, int pageIndex, int pageSize)
+		{
+			var where = NotDeleted && InCategory._.CategoryID == categoryId;
+			return dbSession.From<InCategory>().Select(InCategory._.EntityID)
+				.Where(where).OrderBy(InCategory._.EntityTime.Desc)
+				.GetPage(pageSize)
+				.ToListResult<Guid>(pageIndex);
 		}
 	}
 }

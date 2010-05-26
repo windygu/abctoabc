@@ -30,7 +30,7 @@ namespace YouTong.WebSite.Member
 
 				try
 				{
-					var channels = FamilyMediaAction.GetMediaCategories();
+					var channels = FamilyMediaAction.GetOfficialCategories();
 
 					foreach (var channel in channels)
 					{

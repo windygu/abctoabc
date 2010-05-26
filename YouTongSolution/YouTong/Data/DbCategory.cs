@@ -101,5 +101,17 @@ namespace YouTong.Data
 			var where = NotDeleted && Category._.UserID == userId;
 			return dbSession.From<Category>().Where(where).ToList();
 		}
+
+		/// <summary>
+		/// 获取用户分类
+		/// </summary>
+		/// <param name="userId">用户编号</param>
+		/// <param name="entity">实体</param>
+		/// <returns></returns>
+		public IList<Category> GetCategoriesByUser(Guid userId, string entity)
+		{
+			var where = NotDeleted && Category._.UserID == userId && Category._.Entity == entity;
+			return dbSession.From<Category>().Where(where).ToList();
+		}
 	}
 }
