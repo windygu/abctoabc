@@ -5,7 +5,7 @@ using System.Text;
 
 namespace YouTong
 {
-	public class IInCategoryService
+	public class InCategoryService
 	{
 	}
 }

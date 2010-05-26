@@ -58,11 +58,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActivityJoinedService.cs" />
-    <Compile Include="ActivityService.cs" />
-    <Compile Include="CategoryService.cs" />
-    <Compile Include="ChildService.cs" />
-    <Compile Include="ActivityJoined2Service.cs" />
+    <Compile Include="Services\ActivityJoinedService.cs" />
+    <Compile Include="Services\ActivityService.cs" />
+    <Compile Include="Services\CategoryService.cs" />
+    <Compile Include="Services\ChildService.cs" />
+    <Compile Include="Services\ActivityJoined2Service.cs" />
     <Compile Include="Common\BusinessBase.cs" />
     <Compile Include="Common\IActivityJoined2Service.cs" />
     <Compile Include="Common\IActivityJoinedService.cs" />
@@ -83,7 +83,7 @@
     <Compile Include="Data\DbInCategory.cs" />
     <Compile Include="Data\DbSchool.cs" />
     <Compile Include="FamilyMediaAction.cs" />
-    <Compile Include="IInCategoryService.cs" />
+    <Compile Include="InCategoryService.cs" />
     <Compile Include="MemberAction.cs" />
     <Compile Include="Model\Activity.cs" />
     <Compile Include="Model\ActivityJoined.cs" />
@@ -95,7 +95,7 @@
     <Compile Include="Model\InCategory.cs" />
     <Compile Include="Model\School.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SchoolService.cs" />
+    <Compile Include="Services\SchoolService.cs" />
     <Compile Include="UtConfig.cs" />
     <Compile Include="UtException.cs" />
     <Compile Include="WorksAction.cs" />
