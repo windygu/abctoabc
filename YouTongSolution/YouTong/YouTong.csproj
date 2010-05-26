@@ -83,7 +83,7 @@
     <Compile Include="Data\DbInCategory.cs" />
     <Compile Include="Data\DbSchool.cs" />
     <Compile Include="FamilyMediaAction.cs" />
-    <Compile Include="InCategoryService.cs" />
+    <Compile Include="Services\InCategoryService.cs" />
     <Compile Include="MemberAction.cs" />
     <Compile Include="Model\Activity.cs" />
     <Compile Include="Model\ActivityJoined.cs" />
