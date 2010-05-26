@@ -24,7 +24,7 @@ namespace YouTong.WebSite
 		{
             registerCount = WebBasics.Member.UserService.Instance.GetUserCount();
 
-			this.WorksCategories = WorksAction.GetWorksCategories();
+			this.WorksCategories = WorksAction.GetOffiicalCategories();
 			this.MediaCategories = FamilyMediaAction.GetOfficialCategories();
 			this.StarChild = xUtFactory.ChildService.GetChild(UtConfig.StarChildID);
 

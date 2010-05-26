@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlogAction.cs" />
     <Compile Include="Services\ActivityJoinedService.cs" />
     <Compile Include="Services\ActivityService.cs" />
     <Compile Include="Services\CategoryService.cs" />

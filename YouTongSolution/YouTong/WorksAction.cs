@@ -9,7 +9,7 @@ namespace YouTong
 {
 	public class WorksAction
 	{
-		public static IList<Channel> GetWorksCategories()
+		public static IList<Channel> GetOffiicalCategories()
 		{
 			return CmsFactory.Instance.ChannelService.GetChildChannels(UtConfig.WorksChannelID);
 		}

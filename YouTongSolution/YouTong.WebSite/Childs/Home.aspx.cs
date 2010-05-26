@@ -26,7 +26,7 @@ namespace YouTong.WebSite.Childs
 		{
 			this.UserID = RequestObject.ToGuid("userid");
 			this.Child = xUtFactory.ChildService.GetFirstChild(UserID);
-			this.WorksCategories = WorksAction.GetWorksCategories();
+			this.WorksCategories = WorksAction.GetOffiicalCategories();
 			this.MediaCategories = FamilyMediaAction.GetOfficialCategories();
 
 			this.Workses = xCmsFactory.AnyFileService.GetAnyFiles(UtConfig.WorksChannelID, true, UserID, null, 1, 6);

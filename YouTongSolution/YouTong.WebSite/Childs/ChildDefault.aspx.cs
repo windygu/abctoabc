@@ -28,7 +28,7 @@ namespace YouTong.WebSite.Childs
             this.UserID = RequestObject.ToGuid("userid");
             this.Child = xUtFactory.ChildService.GetFirstChild(UserID);
 
-            this.WorksCategories = WorksAction.GetWorksCategories();
+            this.WorksCategories = WorksAction.GetOffiicalCategories();
         }
     }
 }

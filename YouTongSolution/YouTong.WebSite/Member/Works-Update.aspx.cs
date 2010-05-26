@@ -29,7 +29,7 @@ namespace YouTong.WebSite.Member
 
 				try
 				{
-					var channels = WorksAction.GetWorksCategories();
+					var channels = WorksAction.GetOffiicalCategories();
 
 					foreach (var channel in channels)
 					{
