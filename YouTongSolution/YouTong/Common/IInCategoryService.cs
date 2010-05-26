@@ -70,5 +70,12 @@ namespace YouTong.Common
 		/// <param name="pageSize">页大小</param>
 		/// <returns></returns>
 		IList<Guid> GetEntityIDs(Guid categoryId, int pageIndex, int pageSize);
+
+		/// <summary>
+		/// 获取实体数
+		/// </summary>
+		/// <param name="categoryId"></param>
+		/// <returns></returns>
+		int GetEntityCount(Guid categoryId);
 	}
 }

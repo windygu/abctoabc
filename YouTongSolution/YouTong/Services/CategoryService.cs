@@ -84,5 +84,16 @@ namespace YouTong
 		{
 			return dbCategory.GetCategoriesByUser(userId, entity);
 		}
+
+		public void ResetCount(Guid categoryId)
+		{
+			var category = dbCategory.GetCategory(categoryId);
+			if (category != null)
+			{
+				var count = dbInCategory.GetEntityCount(categoryId);
+				category.Count = count;
+				dbCategory.UpdateCategory(category);
+			}
+		}
 	}
 }

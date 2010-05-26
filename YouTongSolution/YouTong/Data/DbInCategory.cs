@@ -119,5 +119,16 @@ namespace YouTong.Data
 				.GetPage(pageSize)
 				.ToListResult<Guid>(pageIndex);
 		}
+
+		/// <summary>
+		/// 获取实体数
+		/// </summary>
+		/// <param name="categoryId"></param>
+		/// <returns></returns>
+		public int GetEntityCount(Guid categoryId)
+		{
+			var where = NotDeleted && InCategory._.CategoryID == categoryId;
+			return dbSession.Count<InCategory>(where);
+		}
 	}
 }

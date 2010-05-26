@@ -18,7 +18,9 @@ namespace YouTong
 		/// <returns>返回影响行数</returns>
 		public Int32 AddInCategory(InCategory inCategory)
 		{
-			return dbInCategory.AddInCategory(inCategory);
+			var result = dbInCategory.AddInCategory(inCategory);
+			CategoryService.Instance.ResetCount(inCategory.CategoryID);
+			return result;
 		}
 
 		/// <summary>
@@ -93,6 +95,16 @@ namespace YouTong
 		public IList<Guid> GetEntityIDs(Guid categoryId, int pageIndex, int pageSize)
 		{
 			return dbInCategory.GetEntityIDs(categoryId, pageIndex, pageSize);
+		}
+
+		/// <summary>
+		/// 获取实体数
+		/// </summary>
+		/// <param name="categoryId"></param>
+		/// <returns></returns>
+		public int GetEntityCount(Guid categoryId)
+		{
+			return dbInCategory.GetEntityCount(categoryId);
 		}
 	}
 }
