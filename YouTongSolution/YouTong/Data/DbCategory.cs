@@ -91,7 +91,6 @@ namespace YouTong.Data
 			return dbSession.Single<Category>(id);
 		}
 
-
 		/// <summary>
 		/// 获取用户分类
 		/// </summary>
