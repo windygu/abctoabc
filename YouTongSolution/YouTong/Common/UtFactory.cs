@@ -16,5 +16,11 @@ namespace YouTong.Common
 		public IActivityJoinedService ActivityJoinedService = new ActivityJoinedService();
 
 		public IActivityJoined2Service ActivityJoined2Service = new ActivityJoined2Service();
+
+		public ICategoryService CategoryService = new CategoryService();
+
+		public IInCategoryService InCategoryService = new InCategoryService();
+
+		public IResumeService ResumeService = new ResumeService();
 	}
 }
