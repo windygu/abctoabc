@@ -189,9 +189,8 @@
 								</div>
 								<div class="jieshao">
 									<a href="#">采访标题</a>
-									<p>
-										我三岁啦，是个爱说话的小八哥、爱表演的小精灵，大家来我的空间看看吧！</p>
-									<a href="#" class="ydqw">[阅读全文]</a>
+									<p><%=StarTitleArticle.Title%></p>
+									<a href="http://www.no1child.com/news/news-detail.aspx?id=<%=StarTitleArticle.ID %>" class="ydqw">[阅读全文]</a>
 								</div>
 								<div class="etzuopin">
 									<ul>
@@ -373,118 +372,26 @@
 											最后发表
 										</th>
 									</thead>
-									<tr>
-										<td>
-											<a href="http://www2.no1child.com/bbs/showtopic-1067.aspx" title="该如何防治小儿暑热的症状？                                               ">该如何防治小儿暑热的症状？ </a>
+									<tbody>
+									<asp:Repeater ID="rp_HotTopic" runat="server">
+									    <ItemTemplate>
+									    <tr>
+										<td><%#Eval("Title") %>
 										</td>
 										<td>
-											鱼儿游
+											<%#GetItemByObject(Eval("Summary"), 0)%>
 										</td>
 										<td align="center">
-											0/13
+											<%#GetItemByObject(Eval("Summary"), 1)%>
 										</td>
 										<td align="center">
-											鱼儿游
+											<%#GetItemByObject(Eval("Summary"), 2)%>
 										</td>
 									</tr>
-									<tr>
-										<td>
-											<a href="http://www2.no1child.com/bbs/showtopic-1066.aspx" title="中班小朋友，视力0.5和0.6，需不需要看医生啊？？                                  ">中班小朋友，视力0.5和0.6，需不需要看医生啊？？ </a>
-										</td>
-										<td>
-											铃语
-										</td>
-										<td align="center">
-											0/13
-										</td>
-										<td align="center">
-											铃语
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<a href="http://www2.no1child.com/bbs/showtopic-1065.aspx" title="汕头市童之梦龙禧幼儿园虐童案                                              ">汕头市童之梦龙禧幼儿园虐童案 </a>
-										</td>
-										<td>
-											虹猫的虹
-										</td>
-										<td align="center">
-											4/38
-										</td>
-										<td align="center">
-											鱼儿游
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<a href="http://www2.no1child.com/bbs/showtopic-1064.aspx" title="为什么孩子喜欢玩捉迷藏？                                                ">为什么孩子喜欢玩捉迷藏？ </a>
-										</td>
-										<td>
-											xiaohaqi
-										</td>
-										<td align="center">
-											0/38
-										</td>
-										<td align="center">
-											xiaohaqi
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<a href="http://www2.no1child.com/bbs/showtopic-1063.aspx" title="幼儿教育理念之4W1H                                                 ">幼儿教育理念之4W1H </a>
-										</td>
-										<td>
-											虹猫的虹
-										</td>
-										<td align="center">
-											0/21
-										</td>
-										<td align="center">
-											虹猫的虹
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<a href="http://www2.no1child.com/bbs/showtopic-1062.aspx" title="每日一歌，由今开始                                                   ">每日一歌，由今开始 </a>
-										</td>
-										<td>
-											鱼儿游
-										</td>
-										<td align="center">
-											1/47
-										</td>
-										<td align="center">
-											韬韬妈
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<a href="http://www2.no1child.com/bbs/showtopic-1061.aspx" title="听听于丹的育儿经                                                    ">听听于丹的育儿经 </a>
-										</td>
-										<td>
-											稚子
-										</td>
-										<td align="center">
-											0/40
-										</td>
-										<td align="center">
-											稚子
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<a href="http://www2.no1child.com/bbs/showtopic-1060.aspx" title="培养宝宝用餐好习惯5法则                                                ">培养宝宝用餐好习惯5法则 </a>
-										</td>
-										<td>
-											blue sky
-										</td>
-										<td align="center">
-											0/32
-										</td>
-										<td align="center">
-											blue sky
-										</td>
-									</tr>
+									    </ItemTemplate>
+									</asp:Repeater>
+									
+									</tbody>
 								</table>
 							</div>
 						</div>
@@ -755,6 +662,33 @@
 					<div class="youtongquanzi">
 						<div class="duanblock1">
 							<div class="kong">
+								<a href="#" class="title">最新博客</a>
+								<a href="/Blogs/Home.aspx" class="more">&gt;&gt;更多</a>
+							</div>
+							<div class="clear">
+							</div>
+						</div>
+						<div class="duanblock2">
+							<asp:Repeater ID="rp_Blogs" runat="server">
+								<HeaderTemplate>
+									<ul class="zuixin">
+								</HeaderTemplate>
+								<ItemTemplate>
+									<li>
+											<a href="/Blogs/Detail.aspx?id=<%#Eval("ID") %>" class="choose">
+												<%# Eval("Title") %></a></li>
+								</ItemTemplate>
+								<FooterTemplate>
+									</ul>
+								</FooterTemplate>
+							</asp:Repeater>
+						</div>
+						<div class="duanblock3">
+						</div>
+					</div>
+					<%--<div class="youtongquanzi">
+						<div class="duanblock1">
+							<div class="kong">
 								<a href="#" class="title">热门圈子</a>
 								<a href="#" class="more">&gt;&gt;更多</a>
 							</div>
@@ -940,7 +874,7 @@
 						<div class="duanblock3">
 						</div>
 					</div>
-				</div>
+				</div>--%>
 			</div>
 			<div class="clear">
 			</div>

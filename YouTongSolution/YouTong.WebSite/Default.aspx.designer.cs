@@ -68,6 +68,15 @@ namespace YouTong.WebSite {
         protected global::System.Web.UI.WebControls.Repeater RepeaterMedia;
         
         /// <summary>
+        /// rp_HotTopic 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rp_HotTopic;
+        
+        /// <summary>
         /// User_UserName 控件。
         /// </summary>
         /// <remarks>
@@ -129,6 +138,15 @@ namespace YouTong.WebSite {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater RepeaterTopChild;
+        
+        /// <summary>
+        /// rp_Blogs 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rp_Blogs;
         
         /// <summary>
         /// WebFooter 控件。

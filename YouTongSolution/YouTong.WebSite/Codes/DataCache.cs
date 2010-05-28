@@ -88,5 +88,23 @@ namespace YouTong.WebSite.Codes
 				return headPicture;
 			}
 		}
+
+        public static String GetHeadPicture(object headPicture)
+        {
+            string path = string.Empty;
+            if (headPicture == null)
+            {
+                path = "/images/headpic.gif";
+            }
+            else if (String.IsNullOrEmpty(headPicture.ToString()))
+            {
+                path = "/images/headpic.gif";
+            }
+            else
+            {
+                path = headPicture.ToString();
+            }
+            return path;
+        }
 	}
 }
