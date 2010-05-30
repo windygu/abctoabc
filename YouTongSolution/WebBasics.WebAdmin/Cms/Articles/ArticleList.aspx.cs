@@ -15,12 +15,14 @@ namespace WebBasics.WebAdmin.Cms.Articles
 		public Guid ChannelID { get; set; }
 		public Channel Channel { get; set; }
 		public int PageIndex, PageSize;
+		public int AuditStatus;
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			HtmlPager.GetPagerParmsFromRequest(out PageIndex, out PageSize);
 			this.ChannelID = RequestObject.ToGuid("ChannelID");
 			this.Channel = xChannelService.GetChannel(ChannelID);
+			this.AuditStatus = RequestObject.ToInt32("audit");
 
 			if (!this.IsPostBack)
 			{
@@ -37,6 +39,50 @@ namespace WebBasics.WebAdmin.Cms.Articles
 			this.BindUI();
 		}
 
+
+
+		void BindUI()
+		{
+			try
+			{
+				this.DdlAuditStatus.SelectedValue = this.AuditStatus.ToString();
+			}
+			catch { }
+
+			byte[] audits;
+			if (this.AuditStatus < 0)
+			{
+				audits = null;
+			}
+			else if (this.AuditStatus > 1)
+			{
+				audits = new byte[] { 2 };
+			}
+			else
+			{
+				audits = new byte[] { 0, 1 };
+			}
+
+			var list = xArticleService.GetArticles(ChannelID, false, audits, PageIndex, PageSize);
+
+			this.Repeater1.DataSource = list;
+			this.DataBind();
+
+			int articleCount = xArticleService.GetArticleCount(ChannelID, false);
+
+			String baseUrl = "ArticleList.aspx?ChannelID={0}&page={1}&size={2}&audit={3}";
+			baseUrl = String.Format(baseUrl, ChannelID, "($ID)", PageSize, this.AuditStatus);
+			HtmlPager hp = new HtmlPager(baseUrl, PageIndex, articleCount, PageSize, 10);
+
+			this.Hp.Text = hp.GetHtmlNoWrapper();
+		}
+
+		protected void BtnQuery_Click(object sender, EventArgs e)
+		{
+			this.AuditStatus = RequestObject.ToInt32("DdlAuditStatus");
+			this.DataBind();
+		}
+
 		protected void BtnBatchDelete_Click(object sender, EventArgs e)
 		{
 			var ids = RequestObject.ToGuidList("id");
@@ -46,20 +92,22 @@ namespace WebBasics.WebAdmin.Cms.Articles
 			this.BindUI();
 		}
 
-		void BindUI()
+		protected void BtnBatchAuditPass_Click(object sender, EventArgs e)
 		{
-			var list = xArticleService.GetArticles(ChannelID, false, PageIndex, PageSize);
+			var ids = RequestObject.ToGuidList("id");
+			xCmsFactory.ArticleService.AuditPass(ids.ToArray());
+			xCmsFactory.AnyFileService.AuditPass(ids.ToArray());
 
-			this.Repeater1.DataSource = list;
-			this.DataBind();
+			this.BindUI();
+		}
 
-			int articleCount = xArticleService.GetArticleCount(ChannelID, false);
+		protected void BtnBatchAuditRefuse_Click(object sender, EventArgs e)
+		{
+			var ids = RequestObject.ToGuidList("id");
+			xCmsFactory.ArticleService.AuditRefuse(ids.ToArray());
+			xCmsFactory.AnyFileService.AuditRefuse(ids.ToArray());
 
-			String baseUrl = "ArticleList.aspx?ChannelID={0}&page={1}&size={2}";
-			baseUrl = String.Format(baseUrl, ChannelID, "($ID)", PageSize);
-			HtmlPager hp = new HtmlPager(baseUrl, PageIndex, articleCount, PageSize, 10);
-
-			this.Hp.Text = hp.GetHtmlNoWrapper();
+			this.BindUI();
 		}
 	}
 }

@@ -46,7 +46,13 @@
 	<div class="seach">
 		<div class="seachleft">
 		</div>
-		关键字：<input name="" type="text" class="myinput" />&nbsp;&nbsp;&nbsp;<input name="" type="button" class="btn2word" value="查 询" />
+		审核状态：
+		<asp:DropDownList ID="DdlAuditStatus" runat="server">
+			<asp:ListItem Value="-1">未筛选</asp:ListItem>
+			<asp:ListItem Value="1" Selected="True">通过</asp:ListItem>
+			<asp:ListItem Value="2">未通过</asp:ListItem>
+		</asp:DropDownList>
+		&nbsp;&nbsp;<asp:Button ID="BtnQuery" runat="server" Text="查 询" CssClass="btn2word" OnClick="BtnQuery_Click" />
 	</div>
 	<div class="space">
 	</div>
@@ -91,6 +97,8 @@
 		<div class="seachleft">
 		</div>
 		<asp:Button ID="BtnBatchDelete" runat="server" CssClass="btn2word" OnClick="BtnBatchDelete_Click" Text="删除" />
+		&nbsp;<asp:Button ID="BtnBatchAuditPass" runat="server" Text="审核通过" CssClass="btn4word" onclick="BtnBatchAuditPass_Click" />
+		&nbsp;<asp:Button ID="BtnBatchAuditRefuse" runat="server" Text="拒绝通过" CssClass="btn4word" onclick="BtnBatchAuditRefuse_Click" />
 	</div>
 	<div class="page">
 		<asp:Literal ID="Hp" runat="server"></asp:Literal>

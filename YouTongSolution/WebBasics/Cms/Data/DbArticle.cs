@@ -119,6 +119,22 @@ namespace WebBasics.Cms.Data
 		}
 
 		/// <summary>
+		/// 更新审核状态
+		/// </summary>
+		/// <param name="ids">文章编号，一个数组</param>
+		/// <param name="auditStatus">审核状态</param>
+		/// <returns>返回影响行数</returns>
+		public int UpdateAuditStatus(Guid[] ids, byte auditStatus)
+		{
+			var where = Article._.ID.In(ids) && Article._.AuditStatus != auditStatus;
+
+			return dbSession.Update<Article>(
+				new Field[] { Article._.AuditStatus, Article._.UpdateTime },
+				new Object[] { auditStatus, DateTime.Now },
+				where);
+		}
+
+		/// <summary>
 		/// 获取文章
 		/// </summary>
 		/// <param name="id">文章编号</param>
@@ -138,22 +154,22 @@ namespace WebBasics.Cms.Data
 		/// <returns>返回文章实体列表</returns>
 		public IList<Article> GetArticles(Guid channelId, bool recursive, int pageIndex, int pageSize)
 		{
-			WhereClip where = this.NotDeleted;
+			return this.GetArticles(channelId, recursive, new byte[] { 0, 1 }, pageIndex, pageSize);
+		}
 
-			if (recursive)
-			{
-				var ids = DbChannel.Instance.GetChildChannelIDs(channelId, true);
-				ids.Add(channelId);
-				where = where && Article._.ChannelID.In(ids.ToArray());
-			}
-			else
-			{
-				where = where && Article._.ChannelID == channelId;
-			}
-
-			return dbSession.From<Article>()
-				.Where(where).OrderBy(Article._.AddTime.Desc)
-				.GetPage(pageSize).ToList(pageIndex);
+		/// <summary>
+		/// 获取文章列表
+		/// </summary>
+		/// <param name="channelId">频道编号</param>
+		/// <param name="recursive">递归选项，如果true则包括所有子频道，否则只从当前频道获取</param>
+		/// <param name="audits">审核状态</param>
+		/// <param name="pageIndex">当前索引页</param>
+		/// <param name="pageSize">每页记录数</param>
+		/// <returns>返回文章实体列表</returns>
+		public IList<Article> GetArticles(Guid channelId, bool recursive, byte[] audits, int pageIndex, int pageSize)
+		{
+			var where = this.GetWhereClip(channelId, recursive, audits, null);
+			return this.GetArticles(where, pageIndex, pageSize);
 		}
 
 		/// <summary>
@@ -167,22 +183,23 @@ namespace WebBasics.Cms.Data
 		/// <returns>返回文章实体列表</returns>
 		public IList<Article> GetArticles(Guid channelId, bool recursive, Guid userId, int pageIndex, int pageSize)
 		{
-			WhereClip where = this.NotDeleted && Article._.UserID == userId;
+			return this.GetArticles(channelId, recursive, new byte[] { 0, 1 }, userId, pageIndex, pageSize);
+		}
 
-			if (recursive)
-			{
-				var ids = DbChannel.Instance.GetChildChannelIDs(channelId, true);
-				ids.Add(channelId);
-				where = where && Article._.ChannelID.In(ids.ToArray());
-			}
-			else
-			{
-				where = where && Article._.ChannelID == channelId;
-			}
-
-			return dbSession.From<Article>()
-				.Where(where).OrderBy(Article._.AddTime.Desc)
-				.GetPage(pageSize).ToList(pageIndex);
+		/// <summary>
+		/// 获取文章列表
+		/// </summary>
+		/// <param name="channelId">频道编号</param>
+		/// <param name="recursive">递归选项，如果true则包括所有子频道，否则只从当前频道获取</param>
+		/// <param name="audits">审核状态</param>
+		/// <param name="userId">用户编号</param>
+		/// <param name="pageIndex">当前索引页</param>
+		/// <param name="pageSize">每页记录数</param>
+		/// <returns>返回文章实体列表</returns>
+		public IList<Article> GetArticles(Guid channelId, bool recursive, byte[] audits, Guid userId, int pageIndex, int pageSize)
+		{
+			var where = this.GetWhereClip(channelId, recursive, audits, userId);
+			return this.GetArticles(where, pageIndex, pageSize);
 		}
 
 		/// <summary>
@@ -239,6 +256,34 @@ namespace WebBasics.Cms.Data
 		}
 
 		/// <summary>
+		/// 获取文章记录条数
+		/// </summary>
+		/// <param name="channelId">频道编号</param>
+		/// <param name="recursive">递归选项，如果true则包括所有子频道，否则只从当前频道获取</param>
+		/// <param name="userId">用户编号</param>
+		/// <returns>返回文章记录条数</returns>
+		public int GetArticleCount(Guid channelId, bool recursive, Guid userId)
+		{
+			return this.GetArticleCount(channelId, recursive, new byte[] { 0, 1 }, userId);
+		}
+
+		/// <summary>
+		/// 获取文章记录条数
+		/// </summary>
+		/// <param name="channelId">频道编号</param>
+		/// <param name="recursive">递归选项，如果true则包括所有子频道，否则只从当前频道获取</param>
+		/// <param name="audits">审核状态</param>
+		/// <param name="userId">用户编号</param>
+		/// <returns>返回文章记录条数</returns>
+		public int GetArticleCount(Guid channelId, bool recursive, byte[] audits, Guid? userId)
+		{
+			var where = this.GetWhereClip(channelId, recursive, audits, userId);
+
+			return dbSession.From<Article>()
+				.Where(where).Count();
+		}
+
+		/// <summary>
 		/// 获取已删除文章记录条数
 		/// </summary>
 		/// <param name="channelId">频道编号</param>
@@ -261,6 +306,41 @@ namespace WebBasics.Cms.Data
 
 			return dbSession.From<Article>()
 				.Where(where).Count();
+		}
+
+		private IList<Article> GetArticles(WhereClip where, int pageIndex, int pageSize)
+		{
+			return dbSession.From<Article>()
+				.Where(where).OrderBy(Article._.AddTime.Desc)
+				.GetPage(pageSize).ToList(pageIndex);
+		}
+
+		private WhereClip GetWhereClip(Guid channelId, bool recursive, byte[] audits, Guid? userId)
+		{
+			WhereClip where = this.NotDeleted;
+
+			if (recursive)
+			{
+				var ids = DbChannel.Instance.GetChildChannelIDs(channelId, true);
+				ids.Add(channelId);
+				where = where && Article._.ChannelID.In(ids.ToArray());
+			}
+			else
+			{
+				where = where && Article._.ChannelID == channelId;
+			}
+
+			if (audits != null)
+			{
+				where = where && Article._.AuditStatus.In(audits);
+			}
+
+			if (userId != null)
+			{
+				where = where && Article._.UserID == userId.Value;
+			}
+
+			return where;
 		}
 	}
 }

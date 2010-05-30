@@ -72,9 +72,38 @@ namespace WebBasics.Cms
 			return dbArticle.GetArticles(channelId, recursive, pageIndex, pageSize);
 		}
 
+		/// <summary>
+		/// 获取文章列表
+		/// </summary>
+		/// <param name="channelId">频道编号</param>
+		/// <param name="recursive">递归选项，如果true则包括所有子频道，否则只从当前频道获取</param>
+		/// <param name="audits">审核状态</param>
+		/// <param name="pageIndex">当前索引页</param>
+		/// <param name="pageSize">每页记录数</param>
+		/// <returns>返回文章实体列表</returns>
+		public IList<Article> GetArticles(Guid channelId, bool recursive, byte[] audits, int pageIndex, int pageSize)
+		{
+			return dbArticle.GetArticles(channelId, recursive, audits, pageIndex, pageSize);
+		}
+
 		public IList<Article> GetArticles(Guid channelId, bool recursive, Guid userId, int pageIndex, int pageSize)
 		{
 			return dbArticle.GetArticles(channelId, recursive, userId, pageIndex, pageSize);
+		}
+
+		/// <summary>
+		/// 获取文章列表
+		/// </summary>
+		/// <param name="channelId">频道编号</param>
+		/// <param name="recursive">递归选项，如果true则包括所有子频道，否则只从当前频道获取</param>
+		/// <param name="audits">审核状态</param>
+		/// <param name="userId">用户编号</param>
+		/// <param name="pageIndex">当前索引页</param>
+		/// <param name="pageSize">每页记录数</param>
+		/// <returns>返回文章实体列表</returns>
+		public IList<Article> GetArticles(Guid channelId, bool recursive, byte[] audits, Guid userId, int pageIndex, int pageSize)
+		{
+			return dbArticle.GetArticles(channelId, recursive, audits, userId, pageIndex, pageSize);
 		}
 
 		public IList<Article> GetDeletedArticles(Guid channelId, bool recursive, int pageIndex, int pageSize)
@@ -87,11 +116,30 @@ namespace WebBasics.Cms
 			return dbArticle.GetArticleCount(channelId, recursive);
 		}
 
+		public int GetArticleCount(Guid channelId, bool recursive, Guid userId)
+		{
+			return this.dbArticle.GetArticleCount(channelId, recursive, userId);
+		}
+
+		public int GetArticleCount(Guid channelId, bool recursive, byte[] audits, Guid? userId)
+		{
+			return this.dbArticle.GetArticleCount(channelId, recursive, audits, userId);
+		}
+
 		public int GetDeletedArticleCount(Guid channelId, bool recursive)
 		{
 			return dbArticle.GetDeletedArticleCount(channelId, recursive);
 		}
 
+		public int AuditPass(Guid[] ids)
+		{
+			return dbArticle.UpdateAuditStatus(ids, 1);
+		}
+
+		public int AuditRefuse(Guid[] ids)
+		{
+			return dbArticle.UpdateAuditStatus(ids, 2);
+		}
 		#endregion
 	}
 }

@@ -9,7 +9,7 @@ using WebBasics.Utilities;
 namespace WebBasics.Cms.Data
 {
 	/// <summary>
-	/// 文章 数据操作
+	/// 文件 数据操作
 	/// </summary>
 	public class DbAnyFile
 	{
@@ -23,9 +23,9 @@ namespace WebBasics.Cms.Data
 		readonly WhereClip HasDeleted = AnyFile._.IsDeleted == true;
 
 		/// <summary>
-		/// 添加文章
+		/// 添加文件
 		/// </summary>
-		/// <param name="AnyFile">文章实体</param>
+		/// <param name="AnyFile">文件实体</param>
 		/// <returns>返回影响行数</returns>
 		public Int32 AddAnyFile(AnyFile file)
 		{
@@ -38,9 +38,9 @@ namespace WebBasics.Cms.Data
 		}
 
 		/// <summary>
-		/// 修改文章
+		/// 修改文件
 		/// </summary>
-		/// <param name="AnyFile">文章实体</param>
+		/// <param name="AnyFile">文件实体</param>
 		/// <returns>返回影响行数</returns>
 		public Int32 UpdateAnyFile(AnyFile file)
 		{
@@ -50,9 +50,9 @@ namespace WebBasics.Cms.Data
 		}
 
 		/// <summary>
-		/// 删除文章
+		/// 删除文件
 		/// </summary>
-		/// <param name="id">文章编号</param>
+		/// <param name="id">文件编号</param>
 		/// <returns>返回影响行数</returns>
 		public Int32 DeleteAnyFile(Guid id)
 		{
@@ -60,9 +60,9 @@ namespace WebBasics.Cms.Data
 		}
 
 		/// <summary>
-		/// 删除文章
+		/// 删除文件
 		/// </summary>
-		/// <param name="ids">文章编号</param>
+		/// <param name="ids">文件编号</param>
 		/// <returns>返回影响行数</returns>
 		public Int32 DeleteAnyFiles(params Guid[] ids)
 		{
@@ -75,7 +75,7 @@ namespace WebBasics.Cms.Data
 		/// 更新删除标志。
 		/// 如果删除标志值与需要设置的值相同，则不进行修改
 		/// </summary>
-		/// <param name="ids">文章编号，一个数组</param>
+		/// <param name="ids">文件编号，一个数组</param>
 		/// <param name="isDeleted">删除标志值</param>
 		/// <returns>返回影响行数</returns>
 		public Int32 UpdateIsDeleted(Guid[] ids, Boolean isDeleted)
@@ -89,7 +89,7 @@ namespace WebBasics.Cms.Data
 		}
 
 		/// <summary>
-		/// 更新指定频道下的所有文章删除标志。
+		/// 更新指定频道下的所有文件删除标志。
 		/// 如果删除标志值与需要设置的值相同，则不进行修改
 		/// </summary>
 		/// <param name="channelId">频道编号</param>
@@ -104,7 +104,7 @@ namespace WebBasics.Cms.Data
 		}
 
 		/// <summary>
-		/// 更新指定频道下的所有文章删除标志。
+		/// 更新指定频道下的所有文件删除标志。
 		/// 如果删除标志值与需要设置的值相同，则不进行修改
 		/// </summary>
 		/// <param name="channelds">频道编号，一个数组</param>
@@ -119,19 +119,35 @@ namespace WebBasics.Cms.Data
 		}
 
 		/// <summary>
-		/// 获取文章
+		/// 更新审核状态
 		/// </summary>
-		/// <param name="id">文章编号</param>
-		/// <returns>返回文章实体</returns>
+		/// <param name="ids">文件编号，一个数组</param>
+		/// <param name="auditStatus">审核状态</param>
+		/// <returns>返回影响行数</returns>
+		public int UpdateAuditStatus(Guid[] ids, byte auditStatus)
+		{
+			var where = AnyFile._.ID.In(ids) && AnyFile._.AuditStatus != auditStatus;
+
+			return dbSession.Update<AnyFile>(
+				new Field[] { AnyFile._.AuditStatus, AnyFile._.UpdateTime },
+				new Object[] { auditStatus, DateTime.Now },
+				where);
+		}
+
+		/// <summary>
+		/// 获取文件
+		/// </summary>
+		/// <param name="id">文件编号</param>
+		/// <returns>返回文件实体</returns>
 		public AnyFile GetAnyFile(Guid id)
 		{
 			return dbSession.Single<AnyFile>(id);
 		}
 
 		/// <summary>
-		/// 获取文章
+		/// 获取文件
 		/// </summary>
-		/// <param name="ids">文章编号</param>
+		/// <param name="ids">文件编号</param>
 		/// <returns></returns>
 		public IList<AnyFile> GetAnyFiles(Guid[] ids)
 		{
@@ -141,13 +157,13 @@ namespace WebBasics.Cms.Data
 		}
 
 		/// <summary>
-		/// 获取文章列表
+		/// 获取文件列表
 		/// </summary>
 		/// <param name="channelId">频道编号</param>
 		/// <param name="recursive">递归选项，如果true则包括所有子频道，否则只从当前频道获取</param>
 		/// <param name="pageIndex">当前索引页</param>
 		/// <param name="pageSize">每页记录数</param>
-		/// <returns>返回文章实体列表</returns>
+		/// <returns>返回文件实体列表</returns>
 		public IList<AnyFile> GetAnyFiles(Guid channelId, bool recursive, int pageIndex, int pageSize)
 		{
 			WhereClip where = this.NotDeleted;
@@ -169,14 +185,14 @@ namespace WebBasics.Cms.Data
 		}
 
 		/// <summary>
-		/// 获取文章列表
+		/// 获取文件列表
 		/// </summary>
 		/// <param name="channelId">频道编号</param>
 		/// <param name="recursive">递归选项，如果true则包括所有子频道，否则只从当前频道获取</param>
 		/// <param name="userId">用户编号</param>
 		/// <param name="pageIndex">当前索引页</param>
 		/// <param name="pageSize">每页记录数</param>
-		/// <returns>返回文章实体列表</returns>
+		/// <returns>返回文件实体列表</returns>
 		public IList<AnyFile> GetAnyFiles(Guid channelId, bool recursive, Guid? userId, Int32? fileType, int pageIndex, int pageSize)
 		{
 			WhereClip where = this.NotDeleted;
@@ -207,7 +223,7 @@ namespace WebBasics.Cms.Data
 		}
 
 		/// <summary>
-		/// 获取文章列表
+		/// 获取文件列表
 		/// </summary>
 		/// <param name="channelId">频道编号</param>
 		/// <param name="recursive">递归选项，如果true则包括所有子频道，否则只从当前频道获取</param>
@@ -216,10 +232,10 @@ namespace WebBasics.Cms.Data
 		/// <param name="from">文件来源</param>
 		/// <param name="pageIndex">当前索引页</param>
 		/// <param name="pageSize">每页记录数</param>
-		/// <returns>返回文章实体列表</returns>
+		/// <returns>返回文件实体列表</returns>
 		public IList<AnyFile> GetAnyFiles(Guid channelId, Boolean recursive, Guid? userId, Int32? fileType, String from, Int32 pageIndex, Int32 pageSize)
 		{
-			WhereClip where = this.GetWhere(channelId, recursive, userId, fileType, from);
+			WhereClip where = this.GetWhere(channelId, recursive, new byte[] { 0, 1 }, userId, fileType, from);
 
 			return dbSession.From<AnyFile>()
 				.Where(where).OrderBy(AnyFile._.AddTime.Desc)
@@ -227,13 +243,13 @@ namespace WebBasics.Cms.Data
 		}
 
 		/// <summary>
-		/// 获取已删除文章列表
+		/// 获取已删除文件列表
 		/// </summary>
 		/// <param name="channelId">频道编号</param>
 		/// <param name="recursive">递归选项，如果true则包括所有子频道，否则只从当前频道获取</param>
 		/// <param name="pageIndex">当前索引页</param>
 		/// <param name="pageSize">每页记录数</param>
-		/// <returns>返回已删除文章实体列表</returns>
+		/// <returns>返回已删除文件实体列表</returns>
 		public IList<AnyFile> GetDeletedAnyFiles(Guid channelId, bool recursive, int pageIndex, int pageSize)
 		{
 			WhereClip where = this.HasDeleted;
@@ -255,14 +271,14 @@ namespace WebBasics.Cms.Data
 		}
 
 		/// <summary>
-		/// 获取文章记录条数
+		/// 获取文件记录条数
 		/// </summary>
 		/// <param name="channelId">频道编号</param>
 		/// <param name="recursive">递归选项，如果true则包括所有子频道，否则只从当前频道获取</param>
-		/// <returns>返回文章记录条数</returns>
+		/// <returns>返回文件记录条数</returns>
 		public int GetAnyFileCount(Guid channelId, bool recursive)
 		{
-			var where = this.GetWhere(channelId, recursive, null, null, null);
+			var where = this.GetWhere(channelId, recursive, new byte[] { 0, 1 }, null, null, null);
 
 			return dbSession.From<AnyFile>()
 				.Where(where).Count();
@@ -270,18 +286,18 @@ namespace WebBasics.Cms.Data
 
 		public int GetAnyFileCount(Guid channelId, bool recursive, Guid? userId, int? fileType, string from)
 		{
-			var where = this.GetWhere(channelId, recursive, userId, fileType, from);
+			var where = this.GetWhere(channelId, recursive, new byte[] { 0, 1 }, userId, fileType, from);
 
 			return dbSession.From<AnyFile>()
 				.Where(where).Count();
 		}
 
 		/// <summary>
-		/// 获取已删除文章记录条数
+		/// 获取已删除文件记录条数
 		/// </summary>
 		/// <param name="channelId">频道编号</param>
 		/// <param name="recursive">递归选项，如果true则包括所有子频道，否则只从当前频道获取</param>
-		/// <returns>返回已删除文章记录条数</returns>
+		/// <returns>返回已删除文件记录条数</returns>
 		public int GetDeletedAnyFileCount(Guid channelId, bool recursive)
 		{
 			WhereClip where = this.HasDeleted;
@@ -308,21 +324,9 @@ namespace WebBasics.Cms.Data
 				.GetPage(pageSize).ToList(pageIndex);
 		}
 
-		public WhereClip GetWhere(Guid channelId, Boolean recursive, Guid? userId, Int32? fileType, String from)
+		public WhereClip GetWhere(Guid channelId, Boolean recursive, byte[] audits, Guid? userId, Int32? fileType, String from)
 		{
 			WhereClip where = this.NotDeleted;
-			if (userId.HasValue)
-			{
-				where = where && AnyFile._.UserID == userId;
-			}
-			if (fileType.HasValue)
-			{
-				where = where && AnyFile._.FileType == fileType.Value;
-			}
-			if (from != null)
-			{
-				where = where && AnyFile._.From == from;
-			}
 
 			if (recursive)
 			{
@@ -334,8 +338,27 @@ namespace WebBasics.Cms.Data
 			{
 				where = where && AnyFile._.ChannelID == channelId;
 			}
+
+			if (audits != null)
+			{
+				where = where && AnyFile._.AuditStatus.In(audits);
+			}
+
+			if (fileType.HasValue)
+			{
+				where = where && AnyFile._.FileType == fileType.Value;
+			}
+
+			if (from != null)
+			{
+				where = where && AnyFile._.From == from;
+			}
+
+			if (userId.HasValue)
+			{
+				where = where && AnyFile._.UserID == userId;
+			}
 			return where;
 		}
-
 	}
 }

@@ -32,6 +32,24 @@ namespace WebBasics.WebAdmin.Cms.Articles {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// DdlAuditStatus 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlAuditStatus;
+        
+        /// <summary>
+        /// BtnQuery 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnQuery;
+        
+        /// <summary>
         /// Repeater1 控件。
         /// </summary>
         /// <remarks>
@@ -48,6 +66,24 @@ namespace WebBasics.WebAdmin.Cms.Articles {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnBatchDelete;
+        
+        /// <summary>
+        /// BtnBatchAuditPass 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnBatchAuditPass;
+        
+        /// <summary>
+        /// BtnBatchAuditRefuse 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnBatchAuditRefuse;
         
         /// <summary>
         /// Hp 控件。

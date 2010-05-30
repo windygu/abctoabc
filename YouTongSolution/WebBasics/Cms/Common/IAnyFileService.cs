@@ -144,5 +144,18 @@ namespace WebBasics.Cms.Common
 		/// <returns>返回已删除文件记录条数</returns>
 		int GetDeletedAnyFileCount(Guid channelId, bool recursive);
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="ids"></param>
+		/// <returns></returns>
+		int AuditPass(Guid[] ids);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="ids"></param>
+		/// <returns></returns>
+		int AuditRefuse(Guid[] ids);
 	}
 }

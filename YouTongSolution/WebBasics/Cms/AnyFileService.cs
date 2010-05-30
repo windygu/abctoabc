@@ -130,6 +130,16 @@ namespace WebBasics.Cms
 			return dbAnyFile.GetDeletedAnyFileCount(channelId, recursive);
 		}
 
+		public int AuditPass(Guid[] ids)
+		{
+			return dbArticle.UpdateAuditStatus(ids, 1);
+		}
+
+		public int AuditRefuse(Guid[] ids)
+		{
+			return dbArticle.UpdateAuditStatus(ids, 2);
+		}
+
 		#endregion
 	}
 }
