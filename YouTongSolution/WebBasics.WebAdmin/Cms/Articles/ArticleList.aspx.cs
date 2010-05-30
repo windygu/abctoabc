@@ -47,7 +47,10 @@ namespace WebBasics.WebAdmin.Cms.Articles
 			{
 				this.DdlAuditStatus.SelectedValue = this.AuditStatus.ToString();
 			}
-			catch { }
+			catch
+			{
+				this.DdlAuditStatus.SelectedValue = "1";
+			}
 
 			byte[] audits;
 			if (this.AuditStatus < 0)
@@ -66,7 +69,7 @@ namespace WebBasics.WebAdmin.Cms.Articles
 			var list = xArticleService.GetArticles(ChannelID, false, audits, PageIndex, PageSize);
 
 			this.Repeater1.DataSource = list;
-			this.DataBind();
+			this.Repeater1.DataBind();
 
 			int articleCount = xArticleService.GetArticleCount(ChannelID, false);
 
@@ -80,7 +83,7 @@ namespace WebBasics.WebAdmin.Cms.Articles
 		protected void BtnQuery_Click(object sender, EventArgs e)
 		{
 			this.AuditStatus = RequestObject.ToInt32("DdlAuditStatus");
-			this.DataBind();
+			this.BindUI();
 		}
 
 		protected void BtnBatchDelete_Click(object sender, EventArgs e)
