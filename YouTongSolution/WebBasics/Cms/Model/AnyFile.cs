@@ -55,6 +55,8 @@ namespace WebBasics.Cms.Model
 
 		protected Byte _AuditStatus;
 
+		protected Byte _Recommend;
+
 		protected String _FileName;
 
 		protected String _FileExtension;
@@ -288,6 +290,19 @@ namespace WebBasics.Cms.Model
 			}
 		}
 
+		public Byte Recommend
+		{
+			get
+			{
+				return this._Recommend;
+			}
+			set
+			{
+				this.OnPropertyValueChange(_.Recommend, _Recommend, value);
+				this._Recommend = value;
+			}
+		}
+
 		public String FileName
 		{
 			get
@@ -406,6 +421,7 @@ namespace WebBasics.Cms.Model
                         _.AdminID,
                         _.OccurTime,
                         _.AuditStatus,
+                        _.Recommend,
                         _.FileName,
                         _.FileExtension,
                         _.FileSize,
@@ -437,6 +453,7 @@ namespace WebBasics.Cms.Model
                         this._AdminID,
                         this._OccurTime,
                         this._AuditStatus,
+                        this._Recommend,
                         this._FileName,
                         this._FileExtension,
                         this._FileSize,
@@ -517,6 +534,10 @@ namespace WebBasics.Cms.Model
 			if ((false == reader.IsDBNull(_.AuditStatus)))
 			{
 				this._AuditStatus = reader.GetByte(_.AuditStatus);
+			}
+			if ((false == reader.IsDBNull(_.Recommend)))
+			{
+				this._Recommend = reader.GetByte(_.Recommend);
 			}
 			if ((false == reader.IsDBNull(_.FileName)))
 			{
@@ -658,6 +679,11 @@ namespace WebBasics.Cms.Model
 			/// 字段名：AuditStatus - 数据类型：Byte
 			/// </summary>
 			public static Field AuditStatus = new Field<AnyFile>("AuditStatus");
+
+			/// <summary>
+			/// 字段名：Recommend - 数据类型：Byte
+			/// </summary>
+			public static Field Recommend = new Field<AnyFile>("Recommend");
 
 			/// <summary>
 			/// 字段名：FileName - 数据类型：String

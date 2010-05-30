@@ -41,6 +41,8 @@ namespace WebBasics.Cms.Model
 
 		protected String _Tags;
 
+		protected String _From;
+
 		protected String _Author;
 
 		protected String _Instructor;
@@ -52,6 +54,8 @@ namespace WebBasics.Cms.Model
 		protected DateTime _OccurTime;
 
 		protected Byte _AuditStatus;
+
+		protected Byte _Recommend;
 
 		protected Byte _RelationalModel;
 
@@ -185,6 +189,19 @@ namespace WebBasics.Cms.Model
 			}
 		}
 
+		public String From
+		{
+			get
+			{
+				return this._From;
+			}
+			set
+			{
+				this.OnPropertyValueChange(_.From, _From, value);
+				this._From = value;
+			}
+		}
+
 		public String Author
 		{
 			get
@@ -263,6 +280,19 @@ namespace WebBasics.Cms.Model
 			}
 		}
 
+		public Byte Recommend
+		{
+			get
+			{
+				return this._Recommend;
+			}
+			set
+			{
+				this.OnPropertyValueChange(_.Recommend, _Recommend, value);
+				this._Recommend = value;
+			}
+		}
+
 		public Byte RelationalModel
 		{
 			get
@@ -309,12 +339,14 @@ namespace WebBasics.Cms.Model
                         _.Summary,
                         _.Body,
                         _.Tags,
+                        _.From,
                         _.Author,
                         _.Instructor,
                         _.UserID,
                         _.AdminID,
                         _.OccurTime,
                         _.AuditStatus,
+                        _.Recommend,
                         _.RelationalModel};
 		}
 
@@ -334,12 +366,14 @@ namespace WebBasics.Cms.Model
                         this._Summary,
                         this._Body,
                         this._Tags,
+                        this._From,
                         this._Author,
                         this._Instructor,
                         this._UserID,
                         this._AdminID,
                         this._OccurTime,
                         this._AuditStatus,
+                        this._Recommend,
                         this._RelationalModel};
 		}
 
@@ -388,6 +422,10 @@ namespace WebBasics.Cms.Model
 			{
 				this._Tags = reader.GetString(_.Tags);
 			}
+			if ((false == reader.IsDBNull(_.From)))
+			{
+				this._From = reader.GetString(_.From);
+			}
 			if ((false == reader.IsDBNull(_.Author)))
 			{
 				this._Author = reader.GetString(_.Author);
@@ -411,6 +449,10 @@ namespace WebBasics.Cms.Model
 			if ((false == reader.IsDBNull(_.AuditStatus)))
 			{
 				this._AuditStatus = reader.GetByte(_.AuditStatus);
+			}
+			if ((false == reader.IsDBNull(_.Recommend)))
+			{
+				this._Recommend = reader.GetByte(_.Recommend);
 			}
 			if ((false == reader.IsDBNull(_.RelationalModel)))
 			{
@@ -499,6 +541,11 @@ namespace WebBasics.Cms.Model
 			public static Field Tags = new Field<Article>("Tags");
 
 			/// <summary>
+			/// 字段名：From - 数据类型：String
+			/// </summary>
+			public static Field From = new Field<Article>("From");
+
+			/// <summary>
 			/// 字段名：Author - 数据类型：String
 			/// </summary>
 			public static Field Author = new Field<Article>("Author");
@@ -527,6 +574,11 @@ namespace WebBasics.Cms.Model
 			/// 字段名：AuditStatus - 数据类型：Byte
 			/// </summary>
 			public static Field AuditStatus = new Field<Article>("AuditStatus");
+
+			/// <summary>
+			/// 字段名：Recommend - 数据类型：Byte
+			/// </summary>
+			public static Field Recommend = new Field<Article>("Recommend");
 
 			/// <summary>
 			/// 字段名：RelationalModel - 数据类型：Byte
