@@ -110,6 +110,19 @@ namespace WebBasics.Cms
 			return dbAnyFile.GetAnyFiles(channelId, true, userId, fileType, from, pageIndex, pageSize);
 		}
 
+		/// <summary>
+		/// 获取推荐文件列表
+		/// </summary>
+		/// <param name="channelId">频道编号</param>
+		/// <param name="recursive">递归选项，如果true则包括所有子频道，否则只从当前频道获取</param>
+		/// <param name="pageIndex">当前索引页</param>
+		/// <param name="pageSize">每页记录数</param>
+		/// <returns>返回文件实体列表</returns>
+		public IList<AnyFile> GetRecommendAnyFiles(Guid channelId, bool recursive, int pageIndex, int pageSize)
+		{
+			return dbAnyFile.GetRecommendAnyFiles(channelId, recursive, pageIndex, pageSize);
+		}
+
 		public IList<AnyFile> GetDeletedAnyFiles(Guid channelId, bool recursive, int pageIndex, int pageSize)
 		{
 			return dbAnyFile.GetDeletedAnyFiles(channelId, recursive, pageIndex, pageSize);
@@ -141,5 +154,6 @@ namespace WebBasics.Cms
 		}
 
 		#endregion
+
 	}
 }

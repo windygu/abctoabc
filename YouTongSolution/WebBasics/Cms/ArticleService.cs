@@ -106,6 +106,19 @@ namespace WebBasics.Cms
 			return dbArticle.GetArticles(channelId, recursive, audits, userId, pageIndex, pageSize);
 		}
 
+		/// <summary>
+		/// 获取推荐文章列表
+		/// </summary>
+		/// <param name="channelId">频道编号</param>
+		/// <param name="recursive">递归选项，如果true则包括所有子频道，否则只从当前频道获取</param>
+		/// <param name="pageIndex">当前索引页</param>
+		/// <param name="pageSize">每页记录数</param>
+		/// <returns>返回文章实体列表</returns>
+		public IList<Article> GetRecommendArticles(Guid channelId, bool recursive, int pageIndex, int pageSize)
+		{
+			return dbArticle.GetRecommendArticles(channelId, recursive, pageIndex, pageSize);
+		}
+
 		public IList<Article> GetDeletedArticles(Guid channelId, bool recursive, int pageIndex, int pageSize)
 		{
 			return dbArticle.GetDeletedArticles(channelId, recursive, pageIndex, pageSize);

@@ -235,11 +235,26 @@ namespace WebBasics.Cms.Data
 		/// <returns>返回文件实体列表</returns>
 		public IList<AnyFile> GetAnyFiles(Guid channelId, Boolean recursive, Guid? userId, Int32? fileType, String from, Int32 pageIndex, Int32 pageSize)
 		{
-			WhereClip where = this.GetWhere(channelId, recursive, new byte[] { 0, 1 }, userId, fileType, from);
+			WhereClip where = this.GetWhereClip(channelId, recursive, new byte[] { 0, 1 }, userId, fileType, from);
 
 			return dbSession.From<AnyFile>()
 				.Where(where).OrderBy(AnyFile._.AddTime.Desc)
 				.GetPage(pageSize).ToList(pageIndex);
+		}
+
+		/// <summary>
+		/// 获取推荐文件列表
+		/// </summary>
+		/// <param name="channelId">频道编号</param>
+		/// <param name="recursive">递归选项，如果true则包括所有子频道，否则只从当前频道获取</param>
+		/// <param name="pageIndex">当前索引页</param>
+		/// <param name="pageSize">每页记录数</param>
+		/// <returns>返回文件实体列表</returns>
+		public IList<AnyFile> GetRecommendAnyFiles(Guid channelId, bool recursive, int pageIndex, int pageSize)
+		{
+			var where = this.GetWhereClip(channelId, recursive, new byte[] { 0, 1 }, null, null, null);
+			where = where && AnyFile._.Recommend > 0;
+			return this.GetAnyFiles(where, pageIndex, pageSize);
 		}
 
 		/// <summary>
@@ -278,7 +293,7 @@ namespace WebBasics.Cms.Data
 		/// <returns>返回文件记录条数</returns>
 		public int GetAnyFileCount(Guid channelId, bool recursive)
 		{
-			var where = this.GetWhere(channelId, recursive, new byte[] { 0, 1 }, null, null, null);
+			var where = this.GetWhereClip(channelId, recursive, new byte[] { 0, 1 }, null, null, null);
 
 			return dbSession.From<AnyFile>()
 				.Where(where).Count();
@@ -286,7 +301,7 @@ namespace WebBasics.Cms.Data
 
 		public int GetAnyFileCount(Guid channelId, bool recursive, Guid? userId, int? fileType, string from)
 		{
-			var where = this.GetWhere(channelId, recursive, new byte[] { 0, 1 }, userId, fileType, from);
+			var where = this.GetWhereClip(channelId, recursive, new byte[] { 0, 1 }, userId, fileType, from);
 
 			return dbSession.From<AnyFile>()
 				.Where(where).Count();
@@ -317,6 +332,11 @@ namespace WebBasics.Cms.Data
 				.Where(where).Count();
 		}
 
+		public IList<AnyFile> GetAnyFiles(WhereClip where, int pageIndex, int pageSize)
+		{
+			return this.GetAnyFiles(where, AnyFile._.AddTime.Desc, pageIndex, pageSize);
+		}
+
 		public IList<AnyFile> GetAnyFiles(WhereClip where, OrderByClip orderBy, int pageIndex, int pageSize)
 		{
 			return dbSession.From<AnyFile>()
@@ -324,7 +344,7 @@ namespace WebBasics.Cms.Data
 				.GetPage(pageSize).ToList(pageIndex);
 		}
 
-		public WhereClip GetWhere(Guid channelId, Boolean recursive, byte[] audits, Guid? userId, Int32? fileType, String from)
+		public WhereClip GetWhereClip(Guid channelId, Boolean recursive, byte[] audits, Guid? userId, Int32? fileType, String from)
 		{
 			WhereClip where = this.NotDeleted;
 

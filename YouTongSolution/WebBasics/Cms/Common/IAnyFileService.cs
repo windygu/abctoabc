@@ -108,6 +108,16 @@ namespace WebBasics.Cms.Common
 		IList<AnyFile> GetAnyFiles(Guid channelId, Boolean recursive, Guid? userId, Int32? fileType, String from, Int32 pageIndex, Int32 pageSize);
 
 		/// <summary>
+		/// 获取已删除文章列表
+		/// </summary>
+		/// <param name="channelId">频道编号</param>
+		/// <param name="recursive">递归选项，如果true则包括所有子频道，否则只从当前频道获取</param>
+		/// <param name="pageIndex">当前索引页</param>
+		/// <param name="pageSize">每页记录数</param>
+		/// <returns>返回已删除文章实体列表</returns>
+		IList<AnyFile> GetDeletedAnyFiles(Guid channelId, bool recursive, int pageIndex, int pageSize);
+
+		/// <summary>
 		/// 获取已删除文件列表
 		/// </summary>
 		/// <param name="channelId">频道编号</param>
@@ -115,7 +125,7 @@ namespace WebBasics.Cms.Common
 		/// <param name="pageIndex">当前索引页</param>
 		/// <param name="pageSize">每页记录数</param>
 		/// <returns>返回已删除文件实体列表</returns>
-		IList<AnyFile> GetDeletedAnyFiles(Guid channelId, bool recursive, int pageIndex, int pageSize);
+		IList<AnyFile> GetRecommendAnyFiles(Guid channelId, bool recursive, int pageIndex, int pageSize);
 
 		/// <summary>
 		/// 获取文件记录条数
