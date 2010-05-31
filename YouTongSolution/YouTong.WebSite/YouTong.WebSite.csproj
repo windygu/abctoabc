@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{826F0698-C54E-45DD-8D05-82F269760234}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -812,6 +812,10 @@
     <Content Include="images\dl_btn.gif" />
     <Content Include="images\Image61.jpg" />
     <Content Include="Jianshezhong.aspx" />
+    <Content Include="js\走马灯\Document.htm" />
+    <Content Include="js\走马灯\jcarousellite-src.js" />
+    <Content Include="js\走马灯\jcarousellite.js" />
+    <Content Include="js\走马灯\Test\Test.htm" />
     <Content Include="Member\Info-Face.aspx" />
     <Content Include="Member\Register-Completed.aspx" />
     <Content Include="_Handlers\ValidateUnique.ashx" />
@@ -1156,6 +1160,9 @@
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://local.no1child.com</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
