@@ -26,7 +26,7 @@
 				<div class="leftblock">
 					<div class="zuopinzhanshi">
 						<div class="block1">
-							<a href="#" class="title">新闻展示</a>
+							<a href="#" class="title"><%=this.Channel.Name %></a>
 							<div class="clear">
 							</div>
 						</div>

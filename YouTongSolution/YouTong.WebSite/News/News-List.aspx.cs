@@ -14,12 +14,15 @@ namespace YouTong.WebSite.News
 	{
 		public Guid ChannelID;
 		public IList<Article> Articles;
+        public Channel Channel;
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			this.ChannelID = RequestObject.ToGuid("id");
 
-			this.Articles = xCmsFactory.ArticleService.GetArticles(UtConfig.BlogChannelID, true, 1, 100);
+            this.Channel = xCmsFactory.ChannelService.GetChannel(ChannelID);
+
+            this.Articles = xCmsFactory.ArticleService.GetArticles(this.ChannelID, true, 1, 100);
 			this.Repeater1.DataSource = this.Articles;
 
 			this.DataBind();

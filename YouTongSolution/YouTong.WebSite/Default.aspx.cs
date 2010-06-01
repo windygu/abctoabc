@@ -17,6 +17,7 @@ namespace YouTong.WebSite
         public IList<Channel> WorksCategories;
         public IList<Channel> MediaCategories;
         public IList<Article> list_Blogs;
+        public IList<Article> 网站动态;
         public Child StarChild;
         public Article StarTitleArticle;
         public int anyFilesCount;
@@ -25,6 +26,10 @@ namespace YouTong.WebSite
         protected void Page_Load(object sender, EventArgs e)
         {
             registerCount = WebBasics.Member.UserService.Instance.GetUserCount();
+
+            网站动态 = xCmsFactory.ArticleService.GetArticles(
+                    new Guid("7501879d-2af8-e66d-f089-29f46b4bab03"), true, 1, 5);
+            this.Repeater网站动态.DataSource = 网站动态;
 
             this.WorksCategories = WorksAction.GetOffiicalCategories();
             this.MediaCategories = FamilyMediaAction.GetOfficialCategories();

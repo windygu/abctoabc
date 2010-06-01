@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="YouTong.WebSite._Default" %>
+<%@ OutputCache Duration="60" VaryByParam="*"  %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -10,6 +11,7 @@
 	<link href="css/content.css" type="text/css" rel="stylesheet" />
 	<link href="css/default.css" type="text/css" rel="stylesheet" />
 	<script src="js/jquery-1.4.1.min.js" type="text/javascript"></script>
+	<script src="js/走马灯/jcarousellite.js"></script>
 	<script type="text/javascript">
 		var CMenu = "default";
 
@@ -51,7 +53,15 @@
 
 			$('.nav').each(function() {
 				$(this).find('li').eq(0).children('a').addClass('choose');
-			});
+            });
+
+            $(".jCarouselLite").jCarouselLite({
+                auto: 3000,
+                speed: 800,
+                vertical: "vertically",
+                visible: 1
+            });
+			
 		});
 
 		function getValue(target) {
@@ -61,6 +71,8 @@
 	</script>
 </head>
 <body>
+
+    
 	<form id="form1" runat="server">
 	<div id="container">
 		<ut:WebHeader ID="WebHeader" runat="server" />
@@ -83,8 +95,19 @@
 						<p>
 							网站动态:</p>
 						<ol>
+						
 							<li>
-								<a href="http://demo.no1child.com/news/news-detail.aspx?id=a2007d9d-0ca1-51a5-5152-22371743bfa0" target="_blank" style="color: Red;">新网站注册提示</a></li>
+							    <div class="jCarouselLite" style="visibility:hidden;">
+                                    <ul>
+                                        <asp:Repeater ID="Repeater网站动态" runat="server">
+                                            <ItemTemplate>
+                                                <li><a href="news/news-detail.aspx?id=<%# Eval("ID") %>" target="_blank" class="choose">
+											        <%# Eval("Title") %></a></li>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+                                    </ul>
+                                </div>
+								</li>
 						</ol>
 						<div class="ziti">
 							<p>
@@ -376,7 +399,7 @@
 									<asp:Repeater ID="rp_HotTopic" runat="server">
 									    <ItemTemplate>
 									    <tr>
-										<td><%#Eval("Title") %>
+										<td><a href="<%#GetItemByObject(Eval("Summary"), 3)%>" target="_blank"><%#Eval("Title") %></a>
 										</td>
 										<td>
 											<%#GetItemByObject(Eval("Summary"), 0)%>
@@ -663,7 +686,7 @@
 						<div class="duanblock1">
 							<div class="kong">
 								<a href="#" class="title">最新博客</a>
-								<a href="/Blogs/Home.aspx" class="more">&gt;&gt;更多</a>
+								<a href="news/news-list.aspx?id=<%= UtConfig.BlogChannelID %>" class="more">&gt;&gt;更多</a>
 							</div>
 							<div class="clear">
 							</div>
