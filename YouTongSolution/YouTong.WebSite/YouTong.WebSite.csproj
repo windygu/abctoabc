@@ -848,6 +848,7 @@
     <Content Include="bbs\config\trade.config" />
     <Content Include="bbs\config\upgradeini.config" />
     <Content Include="bbs\config\urls.config" />
+    <Content Include="cache.config" />
     <None Include="images\Thumbs.db" />
     <Content Include="Activities\Disney\Expo-File-List.aspx" />
     <Content Include="Activities\Disney\Expo-File-Upload.aspx" />
