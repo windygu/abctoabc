@@ -39,6 +39,8 @@ namespace YouTong.WebSite.Member
 			{
 				var xUserService = xMemberFactory.UserService;
 				xUserService.AddUser(user);
+
+				DNT.Regedit(user.UserName, user.Password);
 			}
 			catch (Exception ex)
 			{
