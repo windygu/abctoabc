@@ -41,6 +41,7 @@ namespace YouTong.WebSite.Member
 				xUserService.AddUser(user);
 
 				DNT.Regedit(user.UserName, user.Password);
+				DNT.Login(user.UserName, user.Password);
 			}
 			catch (Exception ex)
 			{
