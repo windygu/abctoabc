@@ -111,6 +111,8 @@ namespace YouTong.WebSite
 
                 this.SignIn(username, password, false);
 
+				DNT.Login(username, password);
+
                 Response.Redirect("Default.aspx");
             }
             catch

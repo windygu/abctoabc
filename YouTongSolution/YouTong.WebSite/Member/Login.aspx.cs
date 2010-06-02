@@ -27,6 +27,8 @@ namespace YouTong.WebSite.Member
 				var remember = RequestObject.ToBoolean("User_Remember");
 
 				this.SignIn(username, password, remember);
+
+				DNT.Login(username, password);
 			}
 			catch (Exception ex)
 			{

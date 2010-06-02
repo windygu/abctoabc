@@ -30,6 +30,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Discuz.Common, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Discuz.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Discuz.Config, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Discuz.Config.dll</HintPath>
+    </Reference>
+    <Reference Include="Discuz.Entity, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Discuz.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="Discuz.Forum, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Discuz.Forum.dll</HintPath>
+    </Reference>
     <Reference Include="Itfort, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Itfort.dll</HintPath>
@@ -496,6 +512,7 @@
     <Compile Include="Codes\HttpHandlerAuth.cs" />
     <Compile Include="Codes\HttpHandlerBase.cs" />
     <Compile Include="Codes\ImageHelper.cs" />
+    <Compile Include="Codes\DNT.cs" />
     <Compile Include="Codes\JavaScript.cs" />
     <Compile Include="Codes\PageAuth.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -788,6 +805,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Activities\Disney\images\images\vssver2.scc" />
+    <Content Include="DNT.config" />
     <None Include="images\Thumbs.db" />
     <Content Include="Activities\Disney\Expo-File-List.aspx" />
     <Content Include="Activities\Disney\Expo-File-Upload.aspx" />
