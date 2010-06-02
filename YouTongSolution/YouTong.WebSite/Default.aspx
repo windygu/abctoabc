@@ -538,8 +538,8 @@
 						</div>
 					</div>
 					<div class="douxiucang" style="text-align:right;">
-					    <a href="http://www2.no1child.com/bbs/showtopic-1073.aspx" target="_blank">
-					        <img src="/images/Image61.jpg" alt="绿光"  />
+					    <a href="http://www2.no1child.com/bbs/showtopic-1088.aspx" target="_blank">
+					        <img src="/images/rtaImage.gif" alt="绿光"  />
 					    </a>
 					</div>
 					
