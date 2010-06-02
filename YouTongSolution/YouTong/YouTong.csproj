@@ -59,8 +59,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlogAction.cs" />
+    <Compile Include="Common\ICommentService.cs" />
     <Compile Include="Common\IResumeService.cs" />
+    <Compile Include="Data\DbComment.cs" />
     <Compile Include="Data\DbResume.cs" />
+    <Compile Include="Model\Comment.cs" />
     <Compile Include="Model\Resume.cs" />
     <Compile Include="Services\ActivityJoinedService.cs" />
     <Compile Include="Services\ActivityService.cs" />
@@ -87,6 +90,7 @@
     <Compile Include="Data\DbInCategory.cs" />
     <Compile Include="Data\DbSchool.cs" />
     <Compile Include="FamilyMediaAction.cs" />
+    <Compile Include="Services\CommentService.cs" />
     <Compile Include="Services\InCategoryService.cs" />
     <Compile Include="MemberAction.cs" />
     <Compile Include="Model\Activity.cs" />
