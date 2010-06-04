@@ -45,7 +45,7 @@
 									</HeaderTemplate>
 									<ItemTemplate>
 										<li>
-											<a href="#" class="choose"><span>
+											<a href="Detail.aspx?id=<%#Eval("ID") %>" class="choose"><span>
 												<%# Eval("Title") %></span><em>
 													<%# Eval("AddTime") %></em></a><div class="clear">
 													</div>

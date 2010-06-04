@@ -135,7 +135,8 @@
 							<div class="tab">
 								<a style="cursor: pointer" id="left" class="zuosanjiao"></a>
 								<div style="width: 328px; overflow: hidden; float: left; height: 27px; padding: 0px; margin: 0px; position: relative;">
-									<div class="move" style="width: 800%; float: left; position: relative; left: 0px">
+									<div class="move" 
+                                        style="width: 800%; float: left; position: relative; left: 122px; top: 0px;">
 										<ul class="nav">
 											<% foreach (var channel in WorksCategories) %>
 											<% { %>

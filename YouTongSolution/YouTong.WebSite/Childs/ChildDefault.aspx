@@ -7,9 +7,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>个人主页|优童|越秀越优秀|中国儿童优秀展示平台</title>
 	<meta name="keywords" content="www.no1child.com, 优童，越秀越优秀，中国儿童优秀展示平台" />
-	<meta name="description" content="www.no1child.com, 优童，越秀越优秀，中国儿童优秀展示平台" />
+	<meta name="description" content="www.no1child.com, 优童，越秀越优秀，中国儿童优秀展示平台" />	
 	<link href="../css/content.css" type="text/css" rel="stylesheet" />
 	<link href="../css/default.css" type="text/css" rel="stylesheet" />
+	<script src="../js/jquery-1.4.1.min.js" type="text/javascript"></script>
+	<script src="../js/common.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		var CMenu = "child";
+		$(function() {
+			regCatMove()
+		});
+	</script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -166,7 +174,7 @@
 											<% foreach (var channel in WorksCategories) %>
 											<% { %>
 											<li>
-												<a href="works.aspx?userid=<%=UserID%>&cat=<%=channel.ID%>"><span>
+												<a href="javascript:void(0);" onclick="GetWords(this, '<%=UserID%>','<%=channel.ID%>');"><span>
 													<%= channel.Name %></span></a></li>
 											<% } %>
 										</ul>

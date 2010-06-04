@@ -10,6 +10,10 @@
 	<meta name="description" content="www.no1child.com, 优童，越秀越优秀，中国儿童优秀展示平台" />
 	<link href="../css/content.css" type="text/css" rel="stylesheet" />
 	<link href="../css/default.css" type="text/css" rel="stylesheet" />
+	<script src="../js/jquery-1.4.1.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		var CMenu = "child";
+	</script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -28,14 +32,14 @@
 							
 						  	<div class="gerendangan xinxiyuan">
 								<div class="xingming">
-									<h3><%=User.Name %></h3> <a href="<%=User.BlogUrl %>" class="zpshouye">[TA的博客]</a>
+									<h3><%=User.Name %></h3> <a href="/Blogs/Home.aspx?userid=<%=UserID %>" class="zpshouye">[TA的博客]</a>
 									<div class="clear"></div>
 								</div>
-								<p>城市：<span><%=User.City %></span></p>
+								<p>城市：<span><%=area.Name%></span></p>
 								<p>他的优童：<span><a href="#" class="ytmingzi"><%=Child.Name %></a> <a class="genduoytxx" href="#">更多优童>></a></span></p>
-								<p>活跃度：<span class="hongse">131</span></p>
+								<%--<p>活跃度：<span class="hongse">131</span></p>
 								<p>积分：<span class="hongse">1311</span></p>
-								<p>等级：<span class="hongse">13</span></p>
+								<p>等级：<span class="hongse">13</span></p>--%>
 							</div>
 							<div class="clear"></div>
 						  </div> 
@@ -99,17 +103,17 @@
 					
 					<div class="caiyixiu">
                         <div class="block1">
-						   <a href="#" class="title">TA的博客</a>
-						   <a href="#" class="genduoyx">全部11篇日记&gt;&gt;</a>
+						   <a href="/Blogs/Home.aspx?userid=<%=UserID %>" class="title">TA的博客</a>
+						   <a href="/Blogs/Home.aspx?userid=<%=UserID %>" class="genduoyx">全部<%=blogsCount %>篇日记&gt;&gt;</a>
 						   <div class="clear"></div>
                         </div>
                         <div class="block2">
                             <asp:Repeater ID="rp_Blogs" runat="server">
                                 <ItemTemplate><div class="dpneirong newplgao">
 								<div class="plneirong changdugao">
-									<div class="textboke"><p><span><em>标题名字</em></span><span class="people">[2010-02-25 22:55:11]</span> </p>
-										<p class="jieshaowenzi">春之声幼儿园创办于1989年，现为浦东新区一级一类幼儿园。幼儿园比邻曼趣公园，环境绿化优美。春之声幼儿园创办于1989年，现为浦东新区一级一类幼儿园。幼儿园比邻曼趣公园，环境绿化优美。</p>
-										<a href="#" class="chakanquanbu">[查看原文]</a></div>
+									<div class="textboke"><p><span><em><%#Eval("Title") %></em></span><span class="people">[<%#Eval("AddTime")%>]</span> </p>
+										<p class="jieshaowenzi"><%#Eval("Title")%></p>
+										<a href="/Blogs/Detail.aspx?id=<%#Eval("ID") %>" class="chakanquanbu">[查看原文]</a></div>
 									<div class="clear"></div>
 								 </div>
 							</div><div class="block3">

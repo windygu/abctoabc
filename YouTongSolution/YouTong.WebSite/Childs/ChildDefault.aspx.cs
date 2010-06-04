@@ -29,6 +29,17 @@ namespace YouTong.WebSite.Childs
             this.Child = xUtFactory.ChildService.GetFirstChild(UserID);
 
             this.WorksCategories = WorksAction.GetOffiicalCategories();
+
+            Guid workGuid = Guid.NewGuid();
+            if (WorksCategories.Count > 0)
+                workGuid = WorksCategories[0].ID;
+            else
+                workGuid = UtConfig.WorksChannelID;
+
+            IList<AnyFile> workList = xCmsFactory.AnyFileService.GetAnyFiles(workGuid, true, UserID, null, 1, 6);
+            this.rp_works.DataSource = workList;
+            this.rp_works.DataBind();
+
         }
     }
 }
