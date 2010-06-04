@@ -93,6 +93,16 @@ namespace YouTong.Data
 			return dbSession.Single<Area>(id);
 		}
 
+        /// <summary>
+        /// 获取学校
+        /// </summary>
+        /// <param name="id">学校编号</param>
+        /// <returns>返回学校实体</returns>
+        public Area GetArea(int id)
+        {
+            return dbSession.Single<Area>(id);
+        }
+
 		/// <summary>
 		/// 获取所有学校列表
 		/// </summary>
