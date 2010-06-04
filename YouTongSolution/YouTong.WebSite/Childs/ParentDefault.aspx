@@ -27,12 +27,12 @@
                        <div id="danganziliaoku">
                           <div class="pesonal">
 						  	<div class="yidenglv">
-								<a class="rentxin" href="#"><img width="84" height="90" border="0" src="<%= DataCache.GetHeadPicture(User.HeadPicture) %>"></a>
+								<a class="rentxin" href="#"><img width="84" height="90" border="0" src="<%= DataCache.GetHeadPicture(userB.HeadPicture) %>"></a>
 							</div>
 							
 						  	<div class="gerendangan xinxiyuan">
 								<div class="xingming">
-									<h3><%=User.Name %></h3> <a href="/Blogs/Home.aspx?userid=<%=UserID %>" class="zpshouye">[TA的博客]</a>
+									<h3><%=userB.Name%></h3> <a href="/Blogs/Home.aspx?userid=<%=UserID %>" class="zpshouye">[TA的博客]</a>
 									<div class="clear"></div>
 								</div>
 								<p>城市：<span><%=area.Name%></span></p>
@@ -111,7 +111,9 @@
                             <asp:Repeater ID="rp_Blogs" runat="server">
                                 <ItemTemplate><div class="dpneirong newplgao">
 								<div class="plneirong changdugao">
-									<div class="textboke"><p><span><em><%#Eval("Title") %></em></span><span class="people">[<%#Eval("AddTime")%>]</span> </p>
+									<div class="textboke"><p><span><em><%#Eval("Title") %></em></span><span class="people">[<%#Eval("AddTime")%>]</span>
+									<%if (!IsAnonymous && User.ID == UserID)
+           { %><span style="float: right;"><a href="ParentDefault.aspx?userid=<%=UserID %>&id=<%#Eval("ID") %>&action=delete">[删除]</a></span><span style="float: right;"><a href="/Member/Blog-Update.aspx?id=<%#Eval("ID") %>">[编辑]</a></span><%} %></p>
 										<p class="jieshaowenzi"><%#Eval("Title")%></p>
 										<a href="/Blogs/Detail.aspx?id=<%#Eval("ID") %>" class="chakanquanbu">[查看原文]</a></div>
 									<div class="clear"></div>

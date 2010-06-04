@@ -22,6 +22,7 @@ namespace YouTong.WebSite.Childs
     public partial class ParentDefault : PageBase
     {
         public Guid UserID;
+        public WebBasics.Member.Model.User userB;
         public Child Child;
         public IList<Article> Articles;
         public int blogsCount;
@@ -29,9 +30,18 @@ namespace YouTong.WebSite.Childs
         protected void Page_Load(object sender, EventArgs e)
         {
             this.UserID = RequestObject.ToGuid("userid");
-            this.Child = xUtFactory.ChildService.GetFirstChild(UserID);
+            string action = RequestObject.ToString("action");
+            Guid id = RequestObject.ToGuid("id");
+            if (!string.IsNullOrEmpty(action) && action.ToLower().CompareTo("delete") == 0)
+            {
+                xCmsFactory.ArticleService.DeleteArticle(id);
+            }
 
-            area = DbArea.Instance.GetArea(Child.City);
+            this.Child = xUtFactory.ChildService.GetFirstChild(UserID);
+            
+            userB = WebBasics.Member.Common.MemberFactory.Instance.UserService.GetUser(UserID);
+
+            area = DbArea.Instance.GetArea(userB.City);
             if (area == null)
                 area = new Area()
                 {
@@ -41,7 +51,7 @@ namespace YouTong.WebSite.Childs
             this.Articles = xCmsFactory.ArticleService.GetArticles(UtConfig.BlogChannelID, true, this.UserID, 1, 10);
             blogsCount = this.Articles.Count;
             this.rp_Blogs.DataSource = this.Articles;
-            this.rp_Blogs.DataBind();            
+            this.rp_Blogs.DataBind();
         }
     }
 }
