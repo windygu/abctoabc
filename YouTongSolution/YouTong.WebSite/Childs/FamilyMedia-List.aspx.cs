@@ -31,9 +31,26 @@ namespace YouTong.WebSite.Childs
             UserID = RequestObject.ToGuid("userid");
             ID = RequestObject.ToGuid("id");
             HtmlPager.GetPagerParmsFromRequest(out PageIndex, out PageSize, 20);
-            
+
             userB = WebBasics.Member.Common.MemberFactory.Instance.UserService.GetUser(UserID);
             category = CategoryService.Instance.GetCategory(ID);
+            if (category == null)
+            {
+                List<Channel> list = FamilyMediaAction.GetOfficialCategories() as List<Channel>;
+                Channel fChnnel = list.Find(item =>
+                {
+                    if (item.ID == ID)
+                        return true;
+                    else
+                        return false;
+                });
+                category = new Category()
+                {
+                    Name = fChnnel.Name,
+                    UserID = UserID,
+                    ID = fChnnel.ID
+                };
+            }
             #region 显示列表
             this.MediaType = RequestObject.ToInt32("type");
             if (this.MediaType != 2) this.MediaType = 1;

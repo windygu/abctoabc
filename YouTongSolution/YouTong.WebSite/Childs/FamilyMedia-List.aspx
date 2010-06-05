@@ -11,6 +11,7 @@
 	<link href="../css/content.css" type="text/css" rel="stylesheet" />
 	<link href="../css/default.css" type="text/css" rel="stylesheet" />
 	<script src="../js/jquery-1.4.1.min.js" type="text/javascript"></script>
+	<script src="/js/common.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		var CMenu = "child";
 		function switchTab(type) {
@@ -54,7 +55,7 @@
 								<%if (!IsAnonymous && User.ID == UserID)
           {%>
 								<a href="/Member/FamilyMedia-Update.aspx?id=<%#Eval("ID") %>" style="display:inline;">[编辑]</a>
-								<a href="javascript:void(0);" onclick="DeleteAnyFile('<%=UserID %>',<%#Eval("ID") %>);" style="display:inline;">[删除]</a><%} %>
+								<a href="javascript:void(0);" onclick="DeleteAnyFile('<%=UserID %>','<%#Eval("ID") %>');" style="display:inline;">[删除]</a><%} %>
 								<p class="renqisc0"><span>人气：<em>131</em></span></p> 
 								<p class="renqisc0"><span>收藏：<em>13</em></span></p>
 								<p class="renqisc0"><span>评论：<em>3</em></span></p>

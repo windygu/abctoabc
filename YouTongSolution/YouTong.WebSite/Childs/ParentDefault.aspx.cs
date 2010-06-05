@@ -31,8 +31,8 @@ namespace YouTong.WebSite.Childs
         protected void Page_Load(object sender, EventArgs e)
         {
             this.UserID = RequestObject.ToGuid("userid");
-            
-            
+
+
             this.Child = xUtFactory.ChildService.GetFirstChild(UserID);
 
             userB = WebBasics.Member.Common.MemberFactory.Instance.UserService.GetUser(UserID);
@@ -51,7 +51,21 @@ namespace YouTong.WebSite.Childs
 
             #region 亲子影像
             IList<Category> catList = CategoryService.Instance.GetCategoriesByUser(UserID, YouTong.FamilyMediaAction.EntityName);
-            categoryCount = catList.Count;
+            List<Category> officCateList = new List<Category>();
+            IList<Channel> officList = FamilyMediaAction.GetOfficialCategories();
+            foreach (Channel item in officList)
+            {
+                officCateList.Add(new Category()
+                {
+                    Name = item.Name,
+                    UserID = UserID,
+                    ID = item.ID
+                });
+            }
+            this.rp_OfficCategory.DataSource = officCateList;
+            this.rp_OfficCategory.DataBind();
+
+            categoryCount = catList.Count + officCateList.Count;
             this.rp_Categorys.DataSource = catList;
             this.rp_Categorys.DataBind();
             #endregion

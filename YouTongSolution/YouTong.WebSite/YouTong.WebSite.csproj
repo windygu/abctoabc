@@ -900,6 +900,7 @@
     <Content Include="Datas\SchoolJson.aspx" />
     <Content Include="Grow\images\mainbg.jpg" />
     <Content Include="Grow\images\menubg.jpg" />
+    <Content Include="Grow\images\navbg.gif" />
     <Content Include="Grow\images\navbghover.gif" />
     <Content Include="Grow\images\popwindow.gif" />
     <Content Include="Grow\images\touxiangbg.gif" />

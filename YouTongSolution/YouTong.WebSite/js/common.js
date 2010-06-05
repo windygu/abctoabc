@@ -119,9 +119,9 @@ function AddCategory(userid){
 }
 //删除相册中的照片或视频
 function DeleteAnyFile(userid, id){
-    if(confirm("是否删除相册")){
+    if(confirm("是否删除文件")){
         jQuery.ajax({
-            url : "/_Handlers/Category.ashx?action=delete&userid=" + userid + "&Id=" + id,
+            url : "/_Handlers/Category.ashx?action=deleteAnyFile&userid=" + userid + "&Id=" + id,
             async : false,
             success : function(){
                 window.location.reload();

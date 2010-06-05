@@ -32,12 +32,12 @@
         <div class="navcontent">
         	<ul class="">
             	<li class="first"><a href="/" title="首页"><span>首页</span></a></li>
-				<li><a class="choose" href="/Member/MyChild.aspx" title="我的优童"><span>我的优童</span></a></li>
+				<li><a class="choose" title="我的优童"><span>我的优童</span></a></li>
                 <li><a href="/childs/" title="优童秀"><span>优童秀</span></a></li>
-                <li><a href="../Jianshezhong.aspx" title="优童圈"><span>优童圈</span></a></li>
+                <li><a href="/Jianshezhong.aspx" title="优童圈"><span>优童圈</span></a></li>
                 <li><a href="http://www2.no1child.com/bbs/index.aspx" title="优童经"><span>优童经</span></a></li>
-                <li><a href="../Jianshezhong.aspx" title="优童in品"><span>优童in品</span></a></li>
-                <li><a href="../Jianshezhong.aspx" title="优童小铺"><span>优童小铺</span></a></li>
+                <li><a href="/Jianshezhong.aspx" title="优童in品"><span>优童in品</span></a></li>
+                <li><a href="/Jianshezhong.aspx" title="优童小铺"><span>优童小铺</span></a></li>
 			</ul>
         </div>
     </div>

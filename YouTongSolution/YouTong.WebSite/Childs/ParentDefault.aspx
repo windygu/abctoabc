@@ -133,6 +133,20 @@
                         </div>
                         <div class="block2">
                         	<div class="julipaixu00">
+                        	<asp:Repeater ID="rp_OfficCategory" runat="server">
+                        	    <ItemTemplate>
+                        	    <div class="xiangce_mk">
+									<a  href="FamilyMedia-List.aspx?userid=<%=UserID %>&id=<%#Eval("ID") %>" class="tuxiangkuang"><img src="/images/ertong03.gif" width="100" height="75" border="0" /></a>
+									<div class="xcxinxi00">
+										<a href="FamilyMedia-List.aspx?userid=<%=UserID %>&id=<%#Eval("ID") %>" class="lansewenzi"><%#Eval("Name") %></a>										
+										<%--<h3><span>5个照片</span><span>10个视频</span></h3>--%>
+										<p>创建于：<em><%#Convert.ToDateTime(Eval("AddTime")).ToString("yyyy/MM/dd")%></em></p>
+										<p>更新于：<em><%#Convert.ToDateTime(Eval("UpdateTime")).ToString("yyyy/MM/dd")%></em></p>
+									</div>
+									<div class="clear"></div>	
+								</div>
+                        	    </ItemTemplate>
+                        	</asp:Repeater>
                         	<asp:Repeater ID="rp_Categorys" runat="server">
                         	    <ItemTemplate>
                         	    <div class="xiangce_mk">

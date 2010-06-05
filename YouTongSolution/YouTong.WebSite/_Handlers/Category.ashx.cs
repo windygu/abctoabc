@@ -7,6 +7,7 @@ using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.Xml.Linq;
 using Itfort.Web;
+using WebBasics.Cms.Common;
 
 namespace YouTong.WebSite._Handlers
 {
@@ -54,8 +55,9 @@ namespace YouTong.WebSite._Handlers
                         ID = Guid.NewGuid()
                     });
                 }
-                else if (action.ToLower().CompareTo("deleteAnyFile") == 0)
+                else if (action.ToLower().CompareTo("deleteanyfile") == 0)
                 {
+                    CmsFactory.Instance.AnyFileService.DeleteAnyFile(ID);
                 }
             }
 
