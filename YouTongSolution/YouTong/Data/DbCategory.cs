@@ -73,7 +73,7 @@ namespace YouTong.Data
 		/// <returns>返回影响行数</returns>
 		public Int32 UpdateIsDeleted(Guid[] ids, Boolean isDeleted)
 		{
-			var where = Category._.IsDeleted.In(ids) && Category._.IsDeleted != isDeleted;
+			var where = Category._.ID.In(ids) && Category._.IsDeleted != isDeleted;
 
 			return dbSession.Update<Category>(
 				new Field[] { Category._.IsDeleted, Category._.UpdateTime },
