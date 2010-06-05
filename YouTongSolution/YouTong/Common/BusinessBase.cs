@@ -16,5 +16,6 @@ namespace YouTong.Common
 		public DbCategory dbCategory = DbCategory.Instance;
 		public DbInCategory dbInCategory = DbInCategory.Instance;
 		public DbResume dbResume = DbResume.Instance;
+		public DbComment dbComment = DbComment.Instance;
 	}
 }
