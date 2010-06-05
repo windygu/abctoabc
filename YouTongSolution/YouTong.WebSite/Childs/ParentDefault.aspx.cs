@@ -26,19 +26,15 @@ namespace YouTong.WebSite.Childs
         public Child Child;
         public IList<Article> Articles;
         public int blogsCount;
+        public int categoryCount;
         public Area area;
         protected void Page_Load(object sender, EventArgs e)
         {
             this.UserID = RequestObject.ToGuid("userid");
-            string action = RequestObject.ToString("action");
-            Guid id = RequestObject.ToGuid("id");
-            if (!string.IsNullOrEmpty(action) && action.ToLower().CompareTo("delete") == 0)
-            {
-                xCmsFactory.ArticleService.DeleteArticle(id);
-            }
-
-            this.Child = xUtFactory.ChildService.GetFirstChild(UserID);
             
+            
+            this.Child = xUtFactory.ChildService.GetFirstChild(UserID);
+
             userB = WebBasics.Member.Common.MemberFactory.Instance.UserService.GetUser(UserID);
 
             area = DbArea.Instance.GetArea(userB.City);
@@ -52,6 +48,13 @@ namespace YouTong.WebSite.Childs
             blogsCount = this.Articles.Count;
             this.rp_Blogs.DataSource = this.Articles;
             this.rp_Blogs.DataBind();
+
+            #region 亲子影像
+            IList<Category> catList = CategoryService.Instance.GetCategoriesByUser(UserID, YouTong.FamilyMediaAction.EntityName);
+            categoryCount = catList.Count;
+            this.rp_Categorys.DataSource = catList;
+            this.rp_Categorys.DataBind();
+            #endregion
         }
     }
 }

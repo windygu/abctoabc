@@ -205,7 +205,7 @@
 							<% { %>
 							<div class="waibu tongxing">
 								<div class="ertongtu">
-									<a href="/childs/home.aspx?userid=<%= StarChild.ParentID %>" title="" class="touxiang">
+									<a href="/childs/ChildDefault.aspx?userid=<%= StarChild.ParentID %>" title="" class="touxiang">
 										<img src="<%= DataCache.GetHeadPicture("/images/child(5).jpg") %>" alt="" />
 										<span>
 											<%= StarChild.Name %><em><%= StarChild.Age %>岁</em></span></a>
@@ -266,11 +266,11 @@
 										<% } %>
 										<div class="zuopin">
 											<div class="listleft">
-												<a href="/childs/home.aspx?userid=<%# Eval("ParentID") %>" class="zuopinbg youfloat">
+												<a href="/childs/ChildDefault.aspx?userid=<%# Eval("ParentID") %>" class="zuopinbg youfloat">
 													<img src='<%# DataCache.GetHeadPicture(String.Format("/images/child({0}).jpg",Container.ItemIndex+1)) %>' width="100" height="75" border="0" alt="" /></a>
 											</div>
 											<div class="zpxinxi">
-												<a href="/childs/home.aspx?userid=<%# Eval("ParentID") %>" title=" " class="zpmclan">
+												<a href="/childs/ChildDefault.aspx?userid=<%# Eval("ParentID") %>" title=" " class="zpmclan">
 													<%# Eval("Name") %></a>
 												<p class="zpzz">
 													学校： <span></span>
@@ -343,7 +343,7 @@
 													<%# Eval("Title") %></a>
 												<p class="zpzz">
 													作者： <span>
-														<%# DataCache.GetChildNameByUserID((Guid)Eval("UserID"))%></span></p>
+														<a href="/Childs/ParentDefault.aspx?userid=<%# Eval("UserID") %>"><%# DataCache.GetChildNameByUserID((Guid)Eval("UserID"))%></a></span></p>
 												<p class="zpzz">
 													学校： <span>
 														<%# DataCache.GetSchoolNameByUserID((Guid)Eval("UserID"))%>

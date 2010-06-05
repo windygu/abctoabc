@@ -23,7 +23,7 @@
 			<li id="default">
 				<a href="/" title="首页" class="choose"><span>首页</span></span></a></li>
 			<li id="child">
-				<a href="/Member/MyChild.aspx" title="我的优童"><span>我的优童</span></a></li>
+				<a href="/Grow/Grow.aspx" title="我的优童"><span>我的优童</span></a></li><%--<a href="/Member/MyChild.aspx" title="我的优童"><span>我的优童</span></a></li>--%>
 			<li id="show">
 				<a href="/childs/" title="优童秀"><span>优童秀</span></a></li>
 			<%--<li id="video"><a href="/Videos/" title="优童影像"><span>优童影像</span></a></li>--%>

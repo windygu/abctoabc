@@ -456,6 +456,20 @@
     <Compile Include="Childs\ChildDefault.aspx.designer.cs">
       <DependentUpon>ChildDefault.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Childs\FamilyMedia-List.aspx.cs">
+      <DependentUpon>FamilyMedia-List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Childs\FamilyMedia-List.aspx.designer.cs">
+      <DependentUpon>FamilyMedia-List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Childs\FamilyMedia-Catagory.aspx.cs">
+      <DependentUpon>FamilyMedia-Catagory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Childs\FamilyMedia-Catagory.aspx.designer.cs">
+      <DependentUpon>FamilyMedia-Catagory.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Childs\FamilyMedia-Detail.aspx.cs">
       <DependentUpon>FamilyMedia-Detail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -469,6 +483,13 @@
     </Compile>
     <Compile Include="Childs\FamilyMedia.aspx.designer.cs">
       <DependentUpon>FamilyMedia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Grow\Grow.aspx.cs">
+      <DependentUpon>Grow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Grow\Grow.aspx.designer.cs">
+      <DependentUpon>Grow.aspx</DependentUpon>
     </Compile>
     <Compile Include="Childs\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
@@ -774,6 +795,12 @@
     <Compile Include="Videos\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="_Handlers\Blog.ashx.cs">
+      <DependentUpon>Blog.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="_Handlers\Category.ashx.cs">
+      <DependentUpon>Category.ashx</DependentUpon>
+    </Compile>
     <Compile Include="_Handlers\CmsAnyFile-Upload.ashx.cs">
       <DependentUpon>CmsAnyFile-Upload.ashx</DependentUpon>
     </Compile>
@@ -808,6 +835,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Activities\Disney\images\images\vssver2.scc" />
+    <Content Include="Childs\FamilyMedia-List.aspx" />
+    <Content Include="Childs\FamilyMedia-Catagory.aspx" />
+    <Content Include="Grow\Grow.aspx" />
     <Content Include="DNT.config" />
     <Content Include="config\aggregation.config" />
     <Content Include="config\aggregationconfiginfo.config" />
@@ -868,6 +898,18 @@
     <Content Include="Childs\ParentDefault.aspx" />
     <Content Include="Datas\AreaJson.aspx" />
     <Content Include="Datas\SchoolJson.aspx" />
+    <Content Include="Grow\images\mainbg.jpg" />
+    <Content Include="Grow\images\menubg.jpg" />
+    <Content Include="Grow\images\navbghover.gif" />
+    <Content Include="Grow\images\popwindow.gif" />
+    <Content Include="Grow\images\touxiangbg.gif" />
+    <Content Include="Grow\images\zhucebtn.gif" />
+    <Content Include="Grow\images\zuopin_pic01.gif" />
+    <Content Include="Grow\images\zuopin_picbg.gif" />
+    <Content Include="Grow\scripts\blockUI.js" />
+    <Content Include="Grow\scripts\jquery.js" />
+    <Content Include="Grow\styles\main.css" />
+    <Content Include="Grow\styles\reset-fonts.css" />
     <Content Include="images\child%281%29.jpg" />
     <Content Include="images\child%282%29.jpg" />
     <Content Include="images\child%283%29.jpg" />
@@ -888,6 +930,8 @@
     <Content Include="_Handlers\GetSchools.ashx" />
     <Content Include="_Handlers\CmsAnyFile-Upload.ashx" />
     <Content Include="_Handlers\GetWorks.ashx" />
+    <Content Include="_Handlers\Category.ashx" />
+    <Content Include="_Handlers\Blog.ashx" />
     <None Include="_Resources\ckeditor\.htaccess" />
     <None Include="_Resources\ckeditor\ckeditor.pack" />
     <None Include="_Resources\ckeditor\ckeditor.php" />

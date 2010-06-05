@@ -11,6 +11,7 @@
 	<link href="../css/content.css" type="text/css" rel="stylesheet" />
 	<link href="../css/default.css" type="text/css" rel="stylesheet" />
 	<script src="../js/jquery-1.4.1.min.js" type="text/javascript"></script>
+	<script src="/js/common.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		var CMenu = "child";
 	</script>
@@ -104,7 +105,7 @@
 					<div class="caiyixiu">
                         <div class="block1">
 						   <a href="/Blogs/Home.aspx?userid=<%=UserID %>" class="title">TA的博客</a>
-						   <a href="/Blogs/Home.aspx?userid=<%=UserID %>" class="genduoyx">全部<%=blogsCount %>篇日记&gt;&gt;</a>
+						   <a href="/Blogs/Home.aspx?userid=<%=UserID %>" class="genduoyx">共<%=blogsCount %>篇博文&gt;&gt;</a>
 						   <div class="clear"></div>
                         </div>
                         <div class="block2">
@@ -113,7 +114,7 @@
 								<div class="plneirong changdugao">
 									<div class="textboke"><p><span><em><%#Eval("Title") %></em></span><span class="people">[<%#Eval("AddTime")%>]</span>
 									<%if (!IsAnonymous && User.ID == UserID)
-           { %><span style="float: right;"><a href="ParentDefault.aspx?userid=<%=UserID %>&id=<%#Eval("ID") %>&action=delete">[删除]</a></span><span style="float: right;"><a href="/Member/Blog-Update.aspx?id=<%#Eval("ID") %>">[编辑]</a></span><%} %></p>
+           { %><span style="float: right;"><a href="javascript:void(0);" onclick="DeltetBlog('<%=UserID %>', '<%#Eval("ID") %>');">[删除]</a></span><span style="float: right;"><a href="/Member/Blog-Update.aspx?id=<%#Eval("ID") %>">[编辑]</a></span><%} %></p>
 										<p class="jieshaowenzi"><%#Eval("Title")%></p>
 										<a href="/Blogs/Detail.aspx?id=<%#Eval("ID") %>" class="chakanquanbu">[查看原文]</a></div>
 									<div class="clear"></div>
@@ -126,39 +127,31 @@
 					  
 					<div class="caiyixiu">
                         <div class="block1">
-                           <a class="title" href="#">TA的亲子影像</a>
-                           <div class="tab noright">
-                                <ul class="nav">
-                                	<li><a class="choose" href="#"><span>相册</span></a></li>
-                                    <li><a href="#"><span>视频</span></a></li>
-                                </ul>
-                           </div>
-						   <a href="#" class="genduoyx">全部21个影像&gt;&gt;</a>
+                           <a class="title" href="/Childs/FamilyMedia-Catagory.aspx?userid=<%=UserID %>">TA的亲子影像</a>
+                           <a href="/Childs/FamilyMedia-Catagory.aspx?userid=<%=UserID %>" class="genduoyx">共<%=categoryCount%>个相册&gt;&gt;</a>
                            <div class="clear"></div>
                         </div>
                         <div class="block2">
                         	<div class="julipaixu00">
-								<div class="xiangce_mk">
-									<a  href="#" class="tuxiangkuang"></a>
+                        	<asp:Repeater ID="rp_Categorys" runat="server">
+                        	    <ItemTemplate>
+                        	    <div class="xiangce_mk">
+									<a  href="FamilyMedia-List.aspx?userid=<%=UserID %>&id=<%#Eval("ID") %>" class="tuxiangkuang"><img src="/images/ertong03.gif" width="100" height="75" border="0" /></a>
 									<div class="xcxinxi00">
-										<a href="#" class="lansewenzi">相册名字七个字</a>
-										<h3><span>5个照片</span><span>10个视频</span></h3>
-										<p>更新于：<em>2010年5月1日</em></p>
-										<p>更新于：<em>2010年5月1日</em></p>
+										<a href="FamilyMedia-List.aspx?userid=<%=UserID %>&id=<%#Eval("ID") %>" class="lansewenzi"><%#Eval("Name") %></a>
+										<%if (!IsAnonymous && User.ID == UserID)
+            {%>										
+										<span><a href="javascript:void(0);" onclick="UpdateCategory('<%=UserID %>','<%#Eval("ID") %>','<%#Eval("Name") %>');">[编辑]</a></span><span><a href="javascript:DeltetCategory('<%=UserID %>','<%#Eval("ID") %>');">[删除]</a></span>
+										<%} %>
+										<%--<h3><span>5个照片</span><span>10个视频</span></h3>--%>
+										<p>创建于：<em><%#Convert.ToDateTime(Eval("AddTime")).ToString("yyyy/MM/dd")%></em></p>
+										<p>更新于：<em><%#Convert.ToDateTime(Eval("UpdateTime")).ToString("yyyy/MM/dd")%></em></p>
 									</div>
 									<div class="clear"></div>	
 								</div>
+                        	    </ItemTemplate>
+                        	</asp:Repeater>
 								
-								<div class="xiangce_mk">
-									<a  href="#" class="tuxiangkuang"></a>
-									<div class="xcxinxi00">
-										<a href="#" class="lansewenzi">相册名字七个字</a>
-										<h3><span>5个照片</span><span>10个视频</span></h3>
-										<p>更新于：<em>2010年5月1日</em></p>
-										<p>更新于：<em>2010年5月1日</em></p>
-									</div>
-									<div class="clear"></div>	
-								</div>
 								<div class="clear"></div>
 							</div>		
                         </div>

@@ -8,6 +8,7 @@ using Itfort.Web;
 using Itfort.Web.Binder;
 using WebBasics.Cms.Model;
 using YouTong.WebSite.Codes;
+using YouTong.Model;
 
 namespace YouTong.WebSite.Member
 {
@@ -15,14 +16,24 @@ namespace YouTong.WebSite.Member
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+            Guid guid = RequestObject.ToGuid("id");
 			if (!this.IsPostBack)
 			{
 				var channels = xCmsFactory.ChannelService.GetChildChannels(UtConfig.FamilyMediaChannelID);
 
 				foreach (var channel in channels)
-				{
+				{   
 					this.Works_ChannelID.Items.Add(new ListItem(channel.Name, channel.ID.ToString()));
+                    if (channel.ID == guid)
+                        this.Works_ChannelID.SelectedIndex = this.Works_ChannelID.Items.Count - 1;
 				}
+                IList<Category> catList = CategoryService.Instance.GetCategoriesByUser(UserID, YouTong.FamilyMediaAction.EntityName);
+                foreach (var channel in catList)
+                {
+                    this.Works_ChannelID.Items.Add(new ListItem(channel.Name, channel.ID.ToString()));
+                    if (channel.ID == guid)
+                        this.Works_ChannelID.SelectedIndex = this.Works_ChannelID.Items.Count - 1;
+                }
 			}
 
 			if (RequestObject.ToString("action") == "video")

@@ -34,7 +34,7 @@ function getValue(target) {
 	var val = target.substring(0, target.length - 2);
 	return Number(val);
 }
-
+//得到作品
 function GetWords(a, userid, Cat){
     $('.nav li').find('a').each(function() {
         if ($(this).hasClass('choose')) {
@@ -61,4 +61,89 @@ function GetWords(a, userid, Cat){
 			fail : function(){
 			}
 		});
+}
+//删除相册
+function DeltetCategory(userid,id){
+    if(confirm("是否删除相册")){
+        jQuery.ajax({
+            url : "/_Handlers/Category.ashx?action=delete&userid=" + userid + "&Id=" + id,
+            async : false,
+            success : function(){
+                window.location.reload();
+            },
+            fail : function(){
+                window.location.reload();
+            }
+        });
+    }
+}
+//更新相册
+function UpdateCategory(userid, id, name){
+    var value = prompt("编辑相册", name);
+    if(value == null)
+        alert("编辑相册出错");
+    else if(value == "")
+        alert("请输入相册名");
+    else{
+        jQuery.ajax({
+            url : "/_Handlers/Category.ashx?action=update&userid=" + userid + "&Id=" + id + "&value=" + encodeURI(value),
+            async : false,
+            success : function(){
+                window.location.reload();
+            },
+            fail : function(){
+                window.location.reload();
+            }
+        });
+    }
+}
+//创建相册
+function AddCategory(userid){
+    var value = prompt("创建相册-输入相册名",'');
+    if(value == null)
+        alert("创建相册出错");
+    else if(value == "")
+        alert("请输入相册名");
+    else{
+        jQuery.ajax({
+            url : "/_Handlers/Category.ashx?action=add&userid=" + userid + "&value=" + encodeURI(value),
+            async : false,
+            success : function(){
+                window.location.reload();
+            },
+            fail : function(){
+                window.location.reload();
+            }
+        });
+    }
+}
+//删除相册中的照片或视频
+function DeleteAnyFile(userid, id){
+    if(confirm("是否删除相册")){
+        jQuery.ajax({
+            url : "/_Handlers/Category.ashx?action=delete&userid=" + userid + "&Id=" + id,
+            async : false,
+            success : function(){
+                window.location.reload();
+            },
+            fail : function(){
+                window.location.reload();
+            }
+        });
+    }
+}
+//删除博客
+function DeltetBlog(userid,id){
+    if(confirm("是否删除博客")){
+        jQuery.ajax({
+            url : "/_Handlers/Blog.ashx?action=deleteAnyFile&userid=" + userid + "&Id=" + id,
+            async : false,
+            success : function(){
+                window.location.reload();
+            },
+            fail : function(){
+                window.location.reload();
+            }
+        });
+    }
 }

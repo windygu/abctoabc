@@ -23,6 +23,7 @@ namespace YouTong.WebSite.Childs
         public Guid UserID;
         public Child Child;
         public IList<Channel> WorksCategories;
+        public Int32 PageIndex, PageSize;
         protected void Page_Load(object sender, EventArgs e)
         {
             this.UserID = RequestObject.ToGuid("userid");
@@ -40,6 +41,20 @@ namespace YouTong.WebSite.Childs
             this.rp_works.DataSource = workList;
             this.rp_works.DataBind();
 
+
+            #region 评论
+            CommentService commentS = new CommentService();
+            HtmlPager.GetPagerParmsFromRequest(out PageIndex, out PageSize, 10);
+            IList<Comment> commentList = commentS.GetComments("", Child.ID, PageIndex, PageSize);
+            this.rp_Comments.DataSource = commentList;
+            this.rp_Comments.DataBind();
+            #endregion
+        }
+
+        protected void imgComment_Click(object sender, ImageClickEventArgs e)
+        {
+            //Comment comment = new Comment();
+            //comment.
         }
     }
 }

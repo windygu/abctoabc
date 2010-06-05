@@ -11,16 +11,7 @@
 namespace YouTong.WebSite.Childs {
     
     
-    public partial class ChildDefault {
-        
-        /// <summary>
-        /// form1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+    public partial class FamilMedia_List {
         
         /// <summary>
         /// WebHeader 控件。
@@ -32,31 +23,22 @@ namespace YouTong.WebSite.Childs {
         protected global::YouTong.WebSite.Includes.WebHeader WebHeader;
         
         /// <summary>
-        /// rp_works 控件。
+        /// rp_AnyFiles 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rp_works;
+        protected global::System.Web.UI.WebControls.Repeater rp_AnyFiles;
         
         /// <summary>
-        /// rp_Comments 控件。
+        /// lt_Page 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rp_Comments;
-        
-        /// <summary>
-        /// imgComment 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgComment;
+        protected global::System.Web.UI.WebControls.Literal lt_Page;
         
         /// <summary>
         /// WebFooter 控件。
