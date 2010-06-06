@@ -13,7 +13,7 @@
 			<% else %>
 			<% { %><p>
 				优童网欢迎您：<b><%= this.User.UserName %></b></p>
-			<a href="/member/index.aspx">[用户控制面板]</a><a href="/Member/SignOut.aspx">[退出]</a>
+			<a href="/grow/grow.aspx">[成长档案]</a><a href="/Member/SignOut.aspx">[退出]</a>
 			<% } %></div>
 		<div class="clear">
 		</div>

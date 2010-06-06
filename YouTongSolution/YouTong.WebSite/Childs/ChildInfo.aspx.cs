@@ -28,6 +28,8 @@ namespace YouTong.WebSite.Childs
 
                 ShowResume();
             }
+            else
+                child = xUtFactory.ChildService.GetFirstChild(UserID);
         }
 
         protected void lb_Add_Click(object sender, EventArgs e)
@@ -35,7 +37,7 @@ namespace YouTong.WebSite.Childs
             Resume resume = ConverterFactory.ConvertTo<Resume>(Request.Form, "Resume_");
             resume.EndDate = Convert.ToDateTime(Resume_EndDate.Text);
             resume.ID = Guid.NewGuid();
-            resume.ChildID = child.ID;
+            resume.ChildID = FirstChild.ID;
             ResumeService resumeS = new ResumeService();
             resumeS.AddResume(resume);
 
@@ -79,7 +81,7 @@ namespace YouTong.WebSite.Childs
         {
             #region 绑定数据
             ResumeService resumeS = new ResumeService();
-            IList<Resume> resumeList = resumeS.GetResumesByChild(child.ID);
+            IList<Resume> resumeList = resumeS.GetResumesByChild(FirstChild.ID);
             this.rp_Resume.DataSource = resumeList;
             this.rp_Resume.DataBind();
             #endregion

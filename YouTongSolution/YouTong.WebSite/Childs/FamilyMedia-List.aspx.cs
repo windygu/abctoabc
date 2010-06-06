@@ -34,33 +34,22 @@ namespace YouTong.WebSite.Childs
 
             userB = WebBasics.Member.Common.MemberFactory.Instance.UserService.GetUser(UserID);
             category = CategoryService.Instance.GetCategory(ID);
-            if (category == null)
-            {
-                List<Channel> list = FamilyMediaAction.GetOfficialCategories() as List<Channel>;
-                Channel fChnnel = list.Find(item =>
-                {
-                    if (item.ID == ID)
-                        return true;
-                    else
-                        return false;
-                });
-                category = new Category()
-                {
-                    Name = fChnnel.Name,
-                    UserID = UserID,
-                    ID = fChnnel.ID
-                };
-            }
+
+            IList<Guid> guidList = InCategoryService.Instance.GetEntityIDs(ID, PageIndex, PageSize);
+            int rowCount = InCategoryService.Instance.GetEntityCount(ID);
+
             #region 显示列表
             this.MediaType = RequestObject.ToInt32("type");
             if (this.MediaType != 2) this.MediaType = 1;
 
-            IList<AnyFile> anyfileList = xCmsFactory.AnyFileService.GetAnyFiles(ID, true, this.UserID, MediaType, PageIndex, PageSize);
-            int rowCount = xCmsFactory.AnyFileService.GetAnyFileCount(ID, true, this.UserID, MediaType, null);
+            IList<AnyFile> anyfileList = xCmsFactory.AnyFileService.GetAnyFiles(guidList.ToArray());
+
+            //IList<AnyFile> anyfileList = xCmsFactory.AnyFileService.GetAnyFiles(ID, true, this.UserID, MediaType, PageIndex, PageSize);
+            //int rowCount = xCmsFactory.AnyFileService.GetAnyFileCount(ID, true, this.UserID, MediaType, null);
             this.rp_AnyFiles.DataSource = anyfileList;
             this.rp_AnyFiles.DataBind();
 
-            var baseUrl = "FamilyMedia-List.aspx?UserID=" + UserID + "&type=" + MediaType + "&id" + ID + "&Page=($ID)&Size=" + PageSize;
+            var baseUrl = "FamilyMedia-List.aspx?UserID=" + UserID + "&id" + ID + "&Page=($ID)&Size=" + PageSize;
             HtmlPager hp = new HtmlPager(baseUrl, PageIndex, rowCount, PageSize);
             this.lt_Page.Text = hp.GetHtml(rowCount, PageSize);
             #endregion

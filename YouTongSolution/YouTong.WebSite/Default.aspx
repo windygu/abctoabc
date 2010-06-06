@@ -476,7 +476,7 @@
 								<div class="clear">
 								</div>
 								<div class="jiekou">
-									<a class="jinru" href="member/index.aspx">[用户控制面板]</a><a class="jinru" href="Member/SignOut.aspx">[退出登录]</a>
+									<a class="jinru" href="/grow/grow.aspx">[成长档案]</a><a class="jinru" href="Member/SignOut.aspx">[退出登录]</a>
 								</div>
 							</div>
 						</div>

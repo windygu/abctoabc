@@ -14,9 +14,10 @@ namespace YouTong.WebSite.Member
 {
 	public partial class FamilyMedia_Upload : PageAuth
 	{
+        public Guid guid = RequestObject.ToGuid("id");
 		protected void Page_Load(object sender, EventArgs e)
 		{
-            Guid guid = RequestObject.ToGuid("id");
+             
 			if (!this.IsPostBack)
 			{
 				var channels = xCmsFactory.ChannelService.GetChildChannels(UtConfig.FamilyMediaChannelID);
@@ -24,16 +25,7 @@ namespace YouTong.WebSite.Member
 				foreach (var channel in channels)
 				{   
 					this.Works_ChannelID.Items.Add(new ListItem(channel.Name, channel.ID.ToString()));
-                    if (channel.ID == guid)
-                        this.Works_ChannelID.SelectedIndex = this.Works_ChannelID.Items.Count - 1;
 				}
-                IList<Category> catList = CategoryService.Instance.GetCategoriesByUser(UserID, YouTong.FamilyMediaAction.EntityName);
-                foreach (var channel in catList)
-                {
-                    this.Works_ChannelID.Items.Add(new ListItem(channel.Name, channel.ID.ToString()));
-                    if (channel.ID == guid)
-                        this.Works_ChannelID.SelectedIndex = this.Works_ChannelID.Items.Count - 1;
-                }
 			}
 
 			if (RequestObject.ToString("action") == "video")
@@ -42,6 +34,11 @@ namespace YouTong.WebSite.Member
 				file.UserID = this.UserID;
 				file.FileType = 2;		// 视频
 				xCmsFactory.AnyFileService.AddAnyFile(file);
+                InCategoryService.Instance.AddInCategory(new InCategory()
+                {
+                    CategoryID=guid,
+                    EntityID=file.ID
+                });
 
 				Response.Redirect("../Childs/Works-Detail.aspx?id=" + file.ID);
 			}

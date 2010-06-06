@@ -34,12 +34,12 @@
 					<%if (!IsAnonymous && User.ID == UserID)
        {%><h3><a href="/Member/FamilyMedia-Upload.aspx?id=<%=ID %>">上传照片/视频</a></h3><%} %>
 					</div>
-					<div class="tab tab00">
+					<%--<div class="tab tab00">
 						<ul class="nav">
 							<li><a class='<%=(MediaType==1?"choose":"")%>' href="javascript:switchTab(1)"><span>照片</span></a></li>
 							<li><a class='<%=(MediaType==2?"choose":"")%>' href="javascript:switchTab(2)"><span>视频</span></a></li>
 						</ul>
-					</div>
+					</div>--%>
 					<div class="clear"></div>
 				</div>
 				<div class="longblock02">

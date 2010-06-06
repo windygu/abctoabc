@@ -20,7 +20,7 @@
 		$(function() {
 			$("#BtnOK").click(function() {
 				if ($("#Works_Type_1").attr("checked")) {
-					uploadImage();
+					uploadImage('<%=guid %>');
 				}
 				else if ($("#Works_Type_2").attr("checked")) {
 					uploadVideo();
@@ -40,8 +40,8 @@
 		function imageUploadFailure(msg) {
 			alert(msg);
 		}
-		function uploadImage() {
-			var action = "/_handlers/photo-upload.ashx?successCallback=imageUploadSuccess&failureCallback=imageUploadFailure";
+		function uploadImage(id) {
+			var action = "/_handlers/photo-upload.ashx?id="+id+"&successCallback=imageUploadSuccess&failureCallback=imageUploadFailure";
 			var frm = $("#form1");
 			frm.attr("action", action);
 			frm.attr("target", "iframeUpload");
