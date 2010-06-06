@@ -14,14 +14,20 @@ using YouTong.WebSite.Codes;
 using Itfort.Web.Binder;
 using YouTong.Model;
 using System.Collections.Generic;
+using Itfort.Web;
 
 namespace YouTong.WebSite.Childs
 {
-    public partial class ChildInfo : PageAuth
+    public partial class ChildInfo : PageBase
     {
         public Child child;
+        public Guid UserID;
         protected void Page_Load(object sender, EventArgs e)
         {
+            UserID = RequestObject.ToGuid("userid");
+            child = xUtFactory.ChildService.GetFirstChild(UserID);
+            //User = WebBasics.Member.UserService.Instance.GetUser(UserID);
+
             if (!IsPostBack)
             {
                 ShowInfo();
@@ -37,7 +43,7 @@ namespace YouTong.WebSite.Childs
             Resume resume = ConverterFactory.ConvertTo<Resume>(Request.Form, "Resume_");
             resume.EndDate = Convert.ToDateTime(Resume_EndDate.Text);
             resume.ID = Guid.NewGuid();
-            resume.ChildID = FirstChild.ID;
+            resume.ChildID = UserID;
             ResumeService resumeS = new ResumeService();
             resumeS.AddResume(resume);
 
@@ -48,7 +54,7 @@ namespace YouTong.WebSite.Childs
         {
             var updateChild = ConverterFactory.ConvertTo<Child>(Request.Form, "Child_");
             updateChild.ParentID = this.UserID;
-            updateChild.ID = FirstChild.ID;
+            updateChild.ID = UserID;
             if (updateChild.Birthday == DateTime.MinValue) updateChild.Birthday = DateTime.Parse("1899-1-1");
 
 
@@ -59,12 +65,12 @@ namespace YouTong.WebSite.Childs
 
         void ShowInfo()
         {
-            child = xUtFactory.ChildService.GetFirstChild(UserID);
+            
             if (child != null)
             {
                 this.Child_Name.Text = child.Name;
                 this.Child_NikcName.Text = child.NikcName;
-                if (child.Gender == 0)
+                if (child.Gender == 1)
                     this.Child_Gender.SelectedIndex = 0;
                 else
                     this.Child_Gender.SelectedIndex = 1;
@@ -81,7 +87,7 @@ namespace YouTong.WebSite.Childs
         {
             #region 绑定数据
             ResumeService resumeS = new ResumeService();
-            IList<Resume> resumeList = resumeS.GetResumesByChild(FirstChild.ID);
+            IList<Resume> resumeList = resumeS.GetResumesByChild(child.ID);
             this.rp_Resume.DataSource = resumeList;
             this.rp_Resume.DataBind();
             #endregion

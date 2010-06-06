@@ -49,8 +49,8 @@
 												<td width="12%" class="textright">性别：</td>
 												<td width="48%">											 
                                                     <asp:RadioButtonList ID="Child_Gender" runat="server">
-                                                        <asp:ListItem Value="0">男</asp:ListItem>
-                                                        <asp:ListItem Value="1" Selected="True">女</asp:ListItem>
+                                                        <asp:ListItem Value="1">男</asp:ListItem>
+                                                        <asp:ListItem Value="2" Selected="True">女</asp:ListItem>
                                                     </asp:RadioButtonList>
 											</tr>
 											<tr>
@@ -140,8 +140,10 @@
 									<div class="clear"></div>
 								</div>
 								<div class="rightkuai">
+                                    <%if (!IsAnonymous && User.ID == UserID)
+                                      {%>
                                     <asp:LinkButton ID="lb_SaveInfo" runat="server" CssClass="baocunbtn" 
-                                        onclick="lb_SaveInfo_Click"><span>保存</span></asp:LinkButton>
+                                        onclick="lb_SaveInfo_Click"><span>保存</span></asp:LinkButton><%} %>
 									<div class="clear"></div>
 								</div>
 							</div>
@@ -181,8 +183,10 @@
 									<div class="clear"></div>
 								</div>
 								<div class="rightkuai">
+								<%if (!IsAnonymous && User.ID == UserID)
+          {%>
 									<%--<a href="#" class="baocunbtn"><span>保存</span></a>--%>
-									<a href="javascript:DeltetCategory('<%=UserID %>','<%=child.ID %>','<%#Eval("ID") %>');" class="shanchu_btn">[删除]</a>
+									<a href="javascript:DeltetCategory('<%=UserID %>','<%=child.ID %>','<%#Eval("ID") %>');" class="shanchu_btn">[删除]</a><%} %>
 								</div>
 							</div>
 							<div class="clear"></div>
@@ -223,7 +227,9 @@
 							</div>
 							<div class="clear"></div>
 						    </div>
-						    <input type="button" class="button002" value="继续添加" onclick="Add_Resume();"/>
+						    <%if (!IsAnonymous && User.ID == UserID)
+            {%>
+						    <input type="button" class="button002" value="继续添加" onclick="Add_Resume();"/><%} %>
 						</div>
 						<div class="gerenbg03">
 						</div>

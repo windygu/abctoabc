@@ -24,7 +24,7 @@
 		<ut:WebHeader ID="WebHeader" runat="server" />
 		<div class="content">
 			<div class="erjinav">
-				当前位置：<a href="#">娱乐影音</a><a>&gt;&gt;</a> <a href="#">亲子影像</a><a>&gt;&gt;</a><a href="#"><%=userB.Name %></a><a>&gt;&gt;</a><a class="choose" href="#"><%=category.Name%></a>
+				当前位置：<a href="/Grow/Grow.aspx">成长档案</a><a>&gt;&gt;</a> <a href="/Childs/FamilyMedia-Catagory.aspx?userid=<%=userB.ID  %>">亲子影像</a><a>&gt;&gt;</a><a href="/Childs/ChildInfo.aspx?userid=<%=userB.ID %>"><%=userB.Name %></a><a>&gt;&gt;</a><a class="choose" href="#"><%=category.Name%></a>
 			</div>
 			<div class="zuopinbianji">
 				<div class="longblock01">

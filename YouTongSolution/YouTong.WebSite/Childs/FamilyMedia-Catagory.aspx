@@ -21,7 +21,7 @@
     <ut:WebHeader ID="WebHeader" runat="server" />
     <div class="content">
 			<div class="erjinav">
-				当前位置：<a href="#">成长档案</a><a>&gt;&gt;</a> <a href="#">亲子影像</a><a>&gt;&gt;<a class="choose" href="#"><%=userB.Name%></a>
+				当前位置：<a href="/Grow/Grow.aspx">成长档案</a><a>&gt;&gt;</a> <a href="#">亲子影像</a><a>&gt;&gt;</a><a class="choose" href="ChildInfo.aspx?userid=<%=userB.ID %>"><%=userB.Name%></a>
 			</div>
 			<div class="zuopinbianji">
 				<div class="longblock01">
