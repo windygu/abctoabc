@@ -145,6 +145,17 @@ namespace WebBasics.Cms.Data
 		}
 
 		/// <summary>
+		/// 获取文章
+		/// </summary>
+		/// <param name="ids">文章编号</param>
+		/// <returns>返回文章实体</returns>
+		public IList<Article> GetArticles(Guid[] ids)
+		{
+			var where = Article._.ID.In(ids);
+			return dbSession.From<Article>().Where(where).ToList();
+		}
+
+		/// <summary>
 		/// 获取文章列表
 		/// </summary>
 		/// <param name="channelId">频道编号</param>

@@ -27,6 +27,8 @@
 					<a href="WBA/Cms/Channels/FrameLeft.aspx" target="leftFrame" xtarget="WBA/Cms/Channels/Index.aspx">频道管理</a></li>
 				<li>
 					<a href="Activities/Activity-Left.aspx" target="leftFrame" xtarget="Activities/Activity-List.aspx">活动管理</a></li>
+				<li>
+					<a href="Comments/Comment-Left.aspx" target="leftFrame" xtarget="Comments/Comment-List.aspx">评论管理</a></li>
 			</ul>
 		</div>
 	</div>

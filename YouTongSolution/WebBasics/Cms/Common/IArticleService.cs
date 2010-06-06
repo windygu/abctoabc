@@ -67,6 +67,13 @@ namespace WebBasics.Cms.Common
 		Article GetArticle(Guid id);
 
 		/// <summary>
+		/// 获取文章
+		/// </summary>
+		/// <param name="ids">文章编号</param>
+		/// <returns>返回文章实体</returns>
+		IList<Article> GetArticles(Guid[] ids);
+
+		/// <summary>
 		/// 获取文章列表
 		/// </summary>
 		/// <param name="channelId">频道编号</param>

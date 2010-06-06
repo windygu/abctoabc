@@ -70,10 +70,14 @@
 		</tr>
 		<tr>
 			<td>
-				&nbsp;
+				审核状态
 			</td>
 			<td>
-				&nbsp;
+				<asp:DropDownList ID="Article_AuditStatus" runat="server">
+					<asp:ListItem Value="0">未审核</asp:ListItem>
+					<asp:ListItem Value="1">通过</asp:ListItem>
+					<asp:ListItem Value="2">拒绝</asp:ListItem>
+				</asp:DropDownList>
 			</td>
 		</tr>
 		<tr>

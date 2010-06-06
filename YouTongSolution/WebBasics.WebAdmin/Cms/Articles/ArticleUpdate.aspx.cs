@@ -29,6 +29,11 @@ namespace WebBasics.WebAdmin.Cms.Articles
 				this.LblAddTime.Text = this.Article.AddTime.ToString("yyyy-MM-dd HH:mm:ss");
 				this.LblUpdateTime.Text = this.Article.UpdateTime.ToString("yyyy-MM-dd HH:mm:ss");
 
+				if (this.Article.AuditStatus >= 0 && this.Article.AuditStatus <= 2)
+				{
+					this.Article_AuditStatus.SelectedValue = this.Article.AuditStatus.ToString();
+				}
+
 				if (this.Article.ChannelID.HasValue)
 				{
 					this.Article_ChannelID.Value = this.Article.ChannelID.Value.ToString();
