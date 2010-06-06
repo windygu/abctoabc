@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{5E68F71A-EF77-4291-9F60-286B64C380DF}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -68,6 +68,9 @@
     <Content Include="Activities\Activity-List.aspx" />
     <Content Include="Activities\Joined-List.aspx" />
     <Content Include="Activities\Joined2-List.aspx" />
+    <Content Include="Comments\Comment-Left.aspx" />
+    <Content Include="Comments\Comment-List.aspx" />
+    <Content Include="Comments\Comment-View.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Frame-Top.aspx" />
     <Content Include="Resources\ckeditor\adapters\jquery.js" />
@@ -333,6 +336,27 @@
     <Compile Include="Codes\PageAuth.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Comments\Comment-Left.aspx.cs">
+      <DependentUpon>Comment-Left.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Comments\Comment-Left.aspx.designer.cs">
+      <DependentUpon>Comment-Left.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Comments\Comment-List.aspx.cs">
+      <DependentUpon>Comment-List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Comments\Comment-List.aspx.designer.cs">
+      <DependentUpon>Comment-List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Comments\Comment-View.aspx.cs">
+      <DependentUpon>Comment-View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Comments\Comment-View.aspx.designer.cs">
+      <DependentUpon>Comment-View.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -357,6 +381,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WebBasics\WebBasics.csproj">
+      <Project>{9FD4ECA5-B4B3-421C-9FCE-D1545AB530C2}</Project>
+      <Name>WebBasics</Name>
+    </ProjectReference>
     <ProjectReference Include="..\YouTong.WebCache\YouTong.WebCache.csproj">
       <Project>{50AC3217-9640-41F8-ADB9-C5AB42E7714B}</Project>
       <Name>YouTong.WebCache</Name>
@@ -396,6 +424,9 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
