@@ -35,7 +35,7 @@ namespace YouTong.Model
 
 		protected String _Entity;
 
-		protected Guid? _EntityID;
+		protected Guid _EntityID;
 
 		protected String _Title;
 
@@ -132,7 +132,7 @@ namespace YouTong.Model
 			}
 		}
 
-        public Guid? EntityID
+		public Guid EntityID
 		{
 			get
 			{
@@ -337,7 +337,7 @@ namespace YouTong.Model
 			public static Field Entity = new Field<Comment>("Entity");
 
 			/// <summary>
-			/// 字段名：EntityID - 数据类型：String
+			/// 字段名：EntityID - 数据类型：Guid
 			/// </summary>
 			public static Field EntityID = new Field<Comment>("EntityID");
 

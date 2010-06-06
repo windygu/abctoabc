@@ -9,6 +9,8 @@ namespace YouTong
 {
 	public class CommentService : BusinessBase, ICommentService
 	{
+		public static readonly CommentService Instance = new CommentService();
+
 		/// <summary>
 		/// 添加评论
 		/// </summary>
