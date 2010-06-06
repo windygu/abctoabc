@@ -80,8 +80,8 @@ function DeltetCategory(userid,id){
 //更新相册
 function UpdateCategory(userid, id, name){
     var value = prompt("编辑相册", name);
-    if(value == null)
-        alert("编辑相册出错");
+    if(value == null){
+        }
     else if(value == "")
         alert("请输入相册名");
     else{
@@ -100,8 +100,7 @@ function UpdateCategory(userid, id, name){
 //创建相册
 function AddCategory(userid){
     var value = prompt("创建相册-输入相册名",'');
-    if(value == null)
-        alert("创建相册出错");
+    if(value == null){}
     else if(value == "")
         alert("请输入相册名");
     else{

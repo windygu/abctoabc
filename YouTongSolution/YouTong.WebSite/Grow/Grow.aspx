@@ -46,7 +46,7 @@
         	<div class="displayornot">
                 <div class="transparent"></div>
                 <a class="transparentcontent" href="/Member/index.aspx">
-                	<table><tr><td>个人信息、履历</td></tr></table>
+                	<table><tr><td><a href="/Member/index.aspx">个人信息、履历</a></td></tr></table>
                 </a>
             </div>
         </div>
@@ -54,7 +54,7 @@
         	<div class="displayornot">
                 <div class="transparent"></div>
                 <a class="transparentcontent" href="/childs/FamilyMedia-Catagory.aspx?userid=<%=UserID %>">
-                	<table><tr><td>亲子影像</td></tr></table>
+                	<table><tr><td><a href="/childs/FamilyMedia-Catagory.aspx?userid=<%=UserID %>">亲子影像</a></td></tr></table>
                 </a>
 			</div>
         </div>
@@ -74,7 +74,7 @@
         	<div class="displayornot">
                 <div class="transparent"></div>
                 <a class="transparentcontent" href="/Member/Blog-Write.aspx">
-                	<table><tr><td>撰写博客</td></tr></table>
+                	<table><tr><td><a href="/Member/Blog-Write.aspx">撰写博客</a></td></tr></table>
                 </a>
 			</div>
         </div>
@@ -82,7 +82,7 @@
         	<div class="displayornot">
                 <div class="transparent"></div>
                 <a class="transparentcontent" href="/childs/FamilyMedia.aspx?userid=<%=UserID %>">
-                	<table><tr><td>作品集</td></tr></table>
+                	<table><tr><td><a href="/childs/FamilyMedia.aspx?userid=<%=UserID %>">作品集</a></td></tr></table>
                 </a>
 			</div>
         </div>
