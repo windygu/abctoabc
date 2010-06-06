@@ -45,8 +45,8 @@
         <div class="profile">
         	<div class="displayornot">
                 <div class="transparent"></div>
-                <a class="transparentcontent" href="/Member/index.aspx">
-                	<table><tr><td><a href="/Member/index.aspx">个人信息、履历</a></td></tr></table>
+                <a class="transparentcontent" href="/Childs/ChildInfo.aspx">
+                	<table><tr><td><a href="/Childs/ChildInfo.aspx">个人信息、履历</a></td></tr></table>
                 </a>
             </div>
         </div>
