@@ -35,7 +35,7 @@ namespace YouTong.Model
 
 		protected String _Entity;
 
-		protected String _EntityID;
+		protected Guid? _EntityID;
 
 		protected String _Title;
 
@@ -132,7 +132,7 @@ namespace YouTong.Model
 			}
 		}
 
-		public String EntityID
+        public Guid? EntityID
 		{
 			get
 			{
@@ -259,7 +259,7 @@ namespace YouTong.Model
 			}
 			if ((false == reader.IsDBNull(_.EntityID)))
 			{
-				this._EntityID = reader.GetString(_.EntityID);
+				this._EntityID = reader.GetGuid(_.EntityID);
 			}
 			if ((false == reader.IsDBNull(_.Title)))
 			{
