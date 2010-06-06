@@ -24,11 +24,13 @@ namespace YouTong.WebSite.Childs
         public Child Child;
         public IList<Channel> WorksCategories;
         public Int32 PageIndex, PageSize;
+        CommentService commentS = new CommentService();
+        public WebBasics.Member.Model.User reviewer;
         protected void Page_Load(object sender, EventArgs e)
         {
             this.UserID = RequestObject.ToGuid("userid");
             this.Child = xUtFactory.ChildService.GetFirstChild(UserID);
-
+            
             this.WorksCategories = WorksAction.GetOffiicalCategories();
 
             Guid workGuid = Guid.NewGuid();
@@ -41,20 +43,41 @@ namespace YouTong.WebSite.Childs
             this.rp_works.DataSource = workList;
             this.rp_works.DataBind();
 
-
-            #region 评论
-            CommentService commentS = new CommentService();
-            HtmlPager.GetPagerParmsFromRequest(out PageIndex, out PageSize, 10);
-            IList<Comment> commentList = commentS.GetComments("", Child.ID, PageIndex, PageSize);
-            this.rp_Comments.DataSource = commentList;
-            this.rp_Comments.DataBind();
-            #endregion
+            if (!IsPostBack)
+            {
+                #region 评论
+                HtmlPager.GetPagerParmsFromRequest(out PageIndex, out PageSize, 10);
+                IList<Comment> commentList = commentS.GetComments("优童", this.Child.ID, PageIndex, PageSize);
+                this.rp_Comments.DataSource = commentList;
+                this.rp_Comments.DataBind();
+                #endregion
+            }
         }
 
         protected void imgComment_Click(object sender, ImageClickEventArgs e)
         {
-            //Comment comment = new Comment();
-            //comment.
+            if (User != null)
+            {
+                Comment comment = new Comment();
+                comment.ID = Guid.NewGuid();
+                comment.Reviewer = User.ID;
+                comment.Title = Request["new_Title"];
+                comment.Body = comment.Title;
+                comment.Entity = "优童";
+                comment.EntityID = this.Child.ID;
+                commentS.AddComment(comment);
+
+                #region 评论
+                HtmlPager.GetPagerParmsFromRequest(out PageIndex, out PageSize, 10);
+                IList<Comment> commentList = commentS.GetComments("优童", this.Child.ID, PageIndex, PageSize);
+                this.rp_Comments.DataSource = commentList;
+                this.rp_Comments.DataBind();
+                #endregion
+            }
+            else
+            {
+                JsAlert("请先登录!");
+            }
         }
     }
 }

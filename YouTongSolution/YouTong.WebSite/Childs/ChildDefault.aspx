@@ -188,10 +188,10 @@
                         	<div class="waibu">
                         	    <asp:Repeater ID="rp_works" runat="server">
                         	        <HeaderTemplate>
-                        	            
+                        	        <div class="fenline">    
                                     </HeaderTemplate>
                         	        <ItemTemplate>
-                        	        <div class="fenline">
+                        	        
                                         <div class="zuopin">
                         	            <div class="listleft">
 											<a class="zuopinbg" title=" " href="Works-Detail.aspx?ID=<%# Eval("ID") %>">
@@ -206,15 +206,16 @@
 													<span>评分：<em>3</em></span></p>
 												<p class="renqisc0">
 													<span>收藏：<em>13</em></span></p>
-										</div><div class="clear"></div></div></div>
+										</div>
+										</div>
 									</ItemTemplate>
-                        	        <FooterTemplate></FooterTemplate>
+                        	        <FooterTemplate></div></FooterTemplate>
                         	    </asp:Repeater>                            	
                                </div>
 							   <div class="clear">
 							</div>
 							<div class="more">
-								<a href="Works.aspx">更多>></a></div>
+								<a href="Works.aspx?userid=<%=UserID %>">更多>></a></div>
                         </div>
                         <div class="block3">
                         </div>
@@ -232,7 +233,7 @@
 								    <div class="plneirong changdu">
 									    <img width="60" height="60" border="none" src="" class="toux0">
 									    <div class="textkp zhanshitext">
-										    <p><span class="people">[<%#Convert.ToDateTime(Eval("AddTime")).ToString("yyyy-MM-dd HH:mm:ss")%>]</span><span><em>某某某</em>说：</span> </p>
+										    <p><span class="people">[<%#Convert.ToDateTime(Eval("AddTime")).ToString("yyyy-MM-dd HH:mm:ss")%>]</span><span><em><%#WebBasics.Member.Common.MemberFactory.Instance.UserService.GetUser(new Guid(Eval("Reviewer").ToString())).Name%></em>说：</span> </p>
 										    <p class="jieshaowenzi"><%#Eval("Title") %></p>
 									    </div>
 									    <div class="clear"></div>
@@ -247,7 +248,7 @@
 							
 							<div class="fabiao_pinglun">
 								<h3><a name="one">我要评论</a></h3>
-								<textarea class="newscomment" name="new_comment" id="" rows="4" cols="70"></textarea>
+								<textarea class="newscomment" name="new_Title" id="" rows="4" cols="70"></textarea>
 								<div class="tijiaobtn">
 									<a href="#"><asp:ImageButton ID="imgComment" runat="server" 
                                         src="/images/tijiao_btn.gif" width="61" height="21" alt="提交" border="0" 
