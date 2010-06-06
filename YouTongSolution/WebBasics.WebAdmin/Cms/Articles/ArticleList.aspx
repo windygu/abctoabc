@@ -48,8 +48,9 @@
 		</div>
 		审核状态：
 		<asp:DropDownList ID="DdlAuditStatus" runat="server">
-			<asp:ListItem Value="-1">未筛选</asp:ListItem>
-			<asp:ListItem Value="1" Selected="True">通过</asp:ListItem>
+			<asp:ListItem Value="-1" Selected="True">未审核/通过</asp:ListItem>
+			<asp:ListItem Value="0">未审核</asp:ListItem>
+			<asp:ListItem Value="1">通过</asp:ListItem>
 			<asp:ListItem Value="2">未通过</asp:ListItem>
 		</asp:DropDownList>
 		&nbsp;&nbsp;<asp:Button ID="BtnQuery" runat="server" Text="查 询" CssClass="btn2word" OnClick="BtnQuery_Click" />
@@ -66,6 +67,12 @@
 			</td>
 			<td class="titab" style="width: 150px">
 				添加时间
+			</td>
+			<td class="titab" style="width: 50px">
+				审核
+			</td>
+			<td class="titab" style="width: 50px">
+				推荐
 			</td>
 			<td class="titab" style="width: 100px">
 				操作
@@ -84,6 +91,12 @@
 						<%# Eval("AddTime", "{0:yyyy:MM:dd HH:mm:ss}") %>
 					</td>
 					<td>
+						<%# this.AuditStatusText((byte)Eval("AuditStatus")) %>
+					</td>
+					<td>
+						<%# Eval("Recommend") %>
+					</td>
+					<td>
 						<a href="ArticleUpdate.aspx?id=<%# Eval("ID") %>">修改</a>
 						<a href="#" onclick="del('<%# Eval("ID") %>')">删除</a>
 					</td>
@@ -97,8 +110,10 @@
 		<div class="seachleft">
 		</div>
 		<asp:Button ID="BtnBatchDelete" runat="server" CssClass="btn2word" OnClick="BtnBatchDelete_Click" Text="删除" />
-		&nbsp;<asp:Button ID="BtnBatchAuditPass" runat="server" Text="审核通过" CssClass="btn4word" onclick="BtnBatchAuditPass_Click" />
-		&nbsp;<asp:Button ID="BtnBatchAuditRefuse" runat="server" Text="拒绝通过" CssClass="btn4word" onclick="BtnBatchAuditRefuse_Click" />
+		&nbsp;<asp:Button ID="BtnBatchAuditPass" runat="server" Text="审核通过" CssClass="btn4word" OnClick="BtnBatchAuditPass_Click" />
+		&nbsp;<asp:Button ID="BtnBatchAuditRefuse" runat="server" Text="拒绝通过" CssClass="btn4word" OnClick="BtnBatchAuditRefuse_Click" />
+		&nbsp;<asp:Button ID="BtnBatchRecommend" runat="server" Text="推荐" CssClass="btn2word" OnClick="BtnBatchRecommend_Click" />
+		&nbsp;<asp:Button ID="BtnBatchUnRecommend" runat="server" Text="取消推荐" CssClass="btn4word" OnClick="BtnBatchUnRecommend_Click" />
 	</div>
 	<div class="page">
 		<asp:Literal ID="Hp" runat="server"></asp:Literal>

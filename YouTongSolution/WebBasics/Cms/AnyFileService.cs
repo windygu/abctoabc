@@ -145,12 +145,17 @@ namespace WebBasics.Cms
 
 		public int AuditPass(Guid[] ids)
 		{
-			return dbArticle.UpdateAuditStatus(ids, 1);
+			return dbAnyFile.UpdateAuditStatus(ids, 1);
 		}
 
 		public int AuditRefuse(Guid[] ids)
 		{
-			return dbArticle.UpdateAuditStatus(ids, 2);
+			return dbAnyFile.UpdateAuditStatus(ids, 2);
+		}
+
+		public int Recommend(Guid[] ids, byte recommend)
+		{
+			return dbAnyFile.UpdateRecommend(ids, recommend);
 		}
 
 		#endregion

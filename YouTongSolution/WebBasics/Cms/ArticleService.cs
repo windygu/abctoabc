@@ -163,6 +163,12 @@ namespace WebBasics.Cms
 		{
 			return dbArticle.UpdateAuditStatus(ids, 2);
 		}
+
+		public int Recommend(Guid[] ids, byte recommend)
+		{
+			return dbArticle.UpdateRecommend(ids, recommend);
+		}
+
 		#endregion
 	}
 }

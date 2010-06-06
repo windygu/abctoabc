@@ -135,6 +135,22 @@ namespace WebBasics.Cms.Data
 		}
 
 		/// <summary>
+		/// 更新推荐值
+		/// </summary>
+		/// <param name="ids">文件编号，一个数组</param>
+		/// <param name="recommend">推荐值</param>
+		/// <returns></returns>
+		public int UpdateRecommend(Guid[] ids, byte recommend)
+		{
+			var where = AnyFile._.ID.In(ids) && AnyFile._.Recommend != recommend;
+
+			return dbSession.Update<AnyFile>(
+				new Field[] { AnyFile._.Recommend, AnyFile._.UpdateTime },
+				new Object[] { recommend, DateTime.Now },
+				where);
+		}
+
+		/// <summary>
 		/// 获取文件
 		/// </summary>
 		/// <param name="id">文件编号</param>

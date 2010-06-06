@@ -57,6 +57,7 @@ namespace WebBasics.WebAdmin.Cms.Articles
 			this.Article.Title = article.Title;
 			this.Article.Body = article.Body;
 			this.Article.Summary = article.Summary;
+			this.Article.AuditStatus = article.AuditStatus;
 
 			xArticleService.UpdateArticle(this.Article);
 			Response.Redirect("ArticleResult.aspx?action=2&id=" + this.Article.ID);

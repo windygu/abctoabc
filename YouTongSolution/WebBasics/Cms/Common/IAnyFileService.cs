@@ -167,5 +167,13 @@ namespace WebBasics.Cms.Common
 		/// <param name="ids"></param>
 		/// <returns></returns>
 		int AuditRefuse(Guid[] ids);
+
+		/// <summary>
+		/// 更新推荐值
+		/// </summary>
+		/// <param name="ids">文章编号，一个数组</param>
+		/// <param name="recommend">推荐值</param>
+		/// <returns></returns>
+		int Recommend(Guid[] ids, byte recommend);
 	}
 }
