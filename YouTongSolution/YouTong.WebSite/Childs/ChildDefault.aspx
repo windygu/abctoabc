@@ -242,7 +242,7 @@
                                 </ItemTemplate>
                             </asp:Repeater>					
 							<div class="fenye">
-							
+                                <asp:Literal ID="lt_Page" runat="server"></asp:Literal>
 							</div>
 							<div class="clear"></div>
 							

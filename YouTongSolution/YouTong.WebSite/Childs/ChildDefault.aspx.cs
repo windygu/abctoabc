@@ -48,8 +48,13 @@ namespace YouTong.WebSite.Childs
                 #region 评论
                 HtmlPager.GetPagerParmsFromRequest(out PageIndex, out PageSize, 10);
                 IList<Comment> commentList = commentS.GetComments("优童", this.Child.ID, PageIndex, PageSize);
+                int rowCount = commentS.GetCommentCount("优童", this.Child.ID);
                 this.rp_Comments.DataSource = commentList;
                 this.rp_Comments.DataBind();
+
+                var baseUrl = "ChildDefault.aspx?UserID=" + UserID + "&Page=($ID)&Size=" + PageSize;
+                HtmlPager hp = new HtmlPager(baseUrl, PageIndex, rowCount, PageSize);
+                //this.lt_Page.Text = hp.GetHtml(rowCount, PageSize);
                 #endregion
             }
         }
