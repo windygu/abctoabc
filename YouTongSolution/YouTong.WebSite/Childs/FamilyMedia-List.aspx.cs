@@ -42,16 +42,19 @@ namespace YouTong.WebSite.Childs
             this.MediaType = RequestObject.ToInt32("type");
             if (this.MediaType != 2) this.MediaType = 1;
 
-            IList<AnyFile> anyfileList = xCmsFactory.AnyFileService.GetAnyFiles(guidList.ToArray());
+            if (guidList.Count > 0)
+            {
+                IList<AnyFile> anyfileList = xCmsFactory.AnyFileService.GetAnyFiles(guidList.ToArray());
 
-            //IList<AnyFile> anyfileList = xCmsFactory.AnyFileService.GetAnyFiles(ID, true, this.UserID, MediaType, PageIndex, PageSize);
-            //int rowCount = xCmsFactory.AnyFileService.GetAnyFileCount(ID, true, this.UserID, MediaType, null);
-            this.rp_AnyFiles.DataSource = anyfileList;
-            this.rp_AnyFiles.DataBind();
+                //IList<AnyFile> anyfileList = xCmsFactory.AnyFileService.GetAnyFiles(ID, true, this.UserID, MediaType, PageIndex, PageSize);
+                //int rowCount = xCmsFactory.AnyFileService.GetAnyFileCount(ID, true, this.UserID, MediaType, null);
+                this.rp_AnyFiles.DataSource = anyfileList;
+                this.rp_AnyFiles.DataBind();
 
-            var baseUrl = "FamilyMedia-List.aspx?UserID=" + UserID + "&id" + ID + "&Page=($ID)&Size=" + PageSize;
-            HtmlPager hp = new HtmlPager(baseUrl, PageIndex, rowCount, PageSize);
-            this.lt_Page.Text = hp.GetHtml(rowCount, PageSize);
+                var baseUrl = "FamilyMedia-List.aspx?UserID=" + UserID + "&id" + ID + "&Page=($ID)&Size=" + PageSize;
+                HtmlPager hp = new HtmlPager(baseUrl, PageIndex, rowCount, PageSize);
+                this.lt_Page.Text = hp.GetHtml(rowCount, PageSize);
+            }
             #endregion
         }
     }
