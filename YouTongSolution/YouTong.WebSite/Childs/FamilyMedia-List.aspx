@@ -32,7 +32,7 @@
 					<div class="nianfen">
 					<h2>《<%=category.Name%>》</h2>
 					<%if (!IsAnonymous && User.ID == UserID)
-       {%><h3><a href="/Member/FamilyMedia-Upload.aspx?id=<%=ID %>">上传照片/视频</a></h3><%} %>
+       {%><h3><a href="/Member/FamilyMedia-Upload.aspx?id=<%=ID %>" target="_blank">上传照片/视频</a></h3><%} %>
 					</div>
 					<%--<div class="tab tab00">
 						<ul class="nav">

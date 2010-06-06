@@ -24,7 +24,7 @@
 		<ut:WebHeader ID="WebHeader" runat="server" />
 		<div class="content">
 			<div class="erjinav">
-				当前位置：<a href="/">首页</a>&gt;&gt;<a href="#">亲子影像</a>
+				当前位置：<a href="/">首页</a>&gt;&gt;<a href="#">优童作品</a>
 			</div>
 			<div class="zuopinbianji">
 				<div class="longblock01">
@@ -32,6 +32,7 @@
 					<div class="nianfen">
 						<h2>
 							<%= this.Category==null ? "": this.Category.Name %></h2>
+							<a target="_blank" href="/Member/Works-Upload.aspx">上传照片/视频</a>
 					</div>
 					<div class="tab tab00">
 						<ul class="nav">
