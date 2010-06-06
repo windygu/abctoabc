@@ -456,6 +456,13 @@
     <Compile Include="Childs\ChildDefault.aspx.designer.cs">
       <DependentUpon>ChildDefault.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Childs\ChildInfo.aspx.cs">
+      <DependentUpon>ChildInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Childs\ChildInfo.aspx.designer.cs">
+      <DependentUpon>ChildInfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Childs\FamilyMedia-List.aspx.cs">
       <DependentUpon>FamilyMedia-List.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -813,6 +820,9 @@
     <Compile Include="_Handlers\Head-Upload.ashx.cs">
       <DependentUpon>Head-Upload.ashx</DependentUpon>
     </Compile>
+    <Compile Include="_Handlers\Info.ashx.cs">
+      <DependentUpon>Info.ashx</DependentUpon>
+    </Compile>
     <Compile Include="_Handlers\Login.ashx.cs">
       <DependentUpon>Login.ashx</DependentUpon>
     </Compile>
@@ -835,6 +845,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Activities\Disney\images\images\vssver2.scc" />
+    <Content Include="Childs\ChildInfo.aspx" />
     <Content Include="Childs\FamilyMedia-List.aspx" />
     <Content Include="Childs\FamilyMedia-Catagory.aspx" />
     <Content Include="Grow\Grow.aspx" />
@@ -933,6 +944,7 @@
     <Content Include="_Handlers\GetWorks.ashx" />
     <Content Include="_Handlers\Category.ashx" />
     <Content Include="_Handlers\Blog.ashx" />
+    <Content Include="_Handlers\Info.ashx" />
     <None Include="_Resources\ckeditor\.htaccess" />
     <None Include="_Resources\ckeditor\ckeditor.pack" />
     <None Include="_Resources\ckeditor\ckeditor.php" />
