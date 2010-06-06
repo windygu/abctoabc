@@ -53,5 +53,30 @@ namespace YouTong.Common
 		/// <param name="pageSize">页大小</param>
 		/// <returns></returns>
 		IList<Comment> GetComments(string entity, Guid entityId, int pageIndex, int pageSize);
+
+		/// <summary>
+		/// 获取用户评论
+		/// </summary>
+		/// <param name="userId">用户编号</param>
+		/// <param name="entity">实体</param>
+		/// <param name="pageIndex">页索引</param>
+		/// <param name="pageSize">页大小</param>
+		/// <returns></returns>
+		IList<Comment> GetComments(string entity, int pageIndex, int pageSize);
+
+		/// <summary>
+		/// 获取评论记录条数
+		/// </summary>
+		/// <param name="entity">实体</param>
+		/// <param name="entityId">实体编号</param>
+		/// <returns></returns>
+		int GetCommentCount(string entity, Guid entityId);
+
+		/// <summary>
+		/// 获取评论记录条数
+		/// </summary>
+		/// <param name="entity">实体</param>
+		/// <returns></returns>
+		int GetCommentCount(string entity);
 	}
 }
