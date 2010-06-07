@@ -42,6 +42,7 @@
 									<asp:TextBox ID="Child_Name" runat="server" CssClass="input1" MaxLength="5"></asp:TextBox>
 								</td>
 								<td width="310" class="textleft">
+								    <label for="Child_Name" generated="true" class="error"></label>
 								</td>
 							</tr>
 							<tr>
@@ -54,7 +55,7 @@
 									<asp:TextBox ID="Child_NikcName" runat="server" CssClass="input1"></asp:TextBox>
 								</td>
 								<td class="textleft">
-									昵称长度1-5位，可由中英文、数字、字符组成
+									<label for="Child_NikcName" generated="true" class="error"><a style="color:#949494;">昵称长度1-5位，可由中英文、数字、字符组成</a></label>
 								</td>
 							</tr>
 							<tr>
@@ -78,9 +79,10 @@
 								<td class="textright">
 									<em>* </em>出生年月：
 								</td>
-								<td class="textleft" colspan="2">
+								<td class="textleft">
 									<asp:TextBox ID="Child_Birthday" runat="server" CssClass="input1" onclick="WdatePicker()"></asp:TextBox>
 								</td>
+								<td><label for="Child_Birthday" generated="true" class="error"></label></td>
 							</tr>
 							<tr>
 								<td>
@@ -253,16 +255,26 @@
 				return this.optional(element) || username.match(/^[\u4E00-\u9FA5]+\w*$/);
 			},
 			"只能使用中文");
+    
+    jQuery.validator.addMethod(
+			"schoolSelect",
+			function(username, element) {
+				username = username.replace(/\s+/g, "");
+				return username != "";
+			},
+			"请选择学校");
 
 	$(function() {
 		$("#form1").validate({
 			rules: {
 				Child_Name: { required: true, zhWord: true },
-				Child_Birthday: { required: true }
+				Child_Birthday: { required: true },
+				Child_SchoolID : { required : true, schoolSelect : true }
 			},
 			messages: {
 				Child_Name: { required: "必填(*)" },
-				Child_Birthday: { required: "必填(*)" }
+				Child_Birthday: { required: "必填(*)" },
+				Child_SchoolID : { required : "请选择学校" }
 			}
 		});
 

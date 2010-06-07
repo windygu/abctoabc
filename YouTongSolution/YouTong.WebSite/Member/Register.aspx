@@ -42,7 +42,7 @@
 									<asp:TextBox ID="User_UserName" runat="server" CssClass="input1"></asp:TextBox>
 								</td>
 								<td width="310" class="textleft" id="tipUserName">
-									登录名可以是英文或者数字
+									<label for="User_UserName" generated="true" class="error"><a style="color:#949494;">登录名可以是英文或者数字</a></label>
 								</td>
 							</tr>
 							<tr>
@@ -55,7 +55,7 @@
 									<asp:TextBox ID="User_Password" runat="server" TextMode="Password" CssClass="input1"></asp:TextBox>
 								</td>
 								<td class="textleft" id="tipPassword">
-									最少6个字符，请使用英文字母（不区分大小写）、符号或数字
+									<label for="User_Password" generated="true" class="error"><a style="color:#949494;">最少6个字符，请使用英文字母（不区分大小写）、符号或数字</a></label>
 								</td>
 							</tr>
 							<tr>
@@ -68,7 +68,7 @@
 									<asp:TextBox ID="User_Password2" runat="server" TextMode="Password" CssClass="input1"></asp:TextBox>
 								</td>
 								<td class="textleft" id="tipPassword2">
-									请再次输入密码
+									<label for="User_Password2" generated="true" class="error"><a style="color:#949494;">请再次输入密码</a></label>
 								</td>
 							</tr>
 							<tr>
@@ -81,7 +81,7 @@
 									<asp:TextBox ID="User_Name" runat="server" CssClass="input1" MaxLength="5"></asp:TextBox>
 								</td>
 								<td class="textleft" id="tipName">
-									请填写<b style="color: #a6ce39">家长</b>或<b style="color: #a6ce39">老师本人</b>的的真实姓名，作为参加活动、发送奖品时的重要核对信息
+									<label for="User_Name" generated="true" class="error"><a style="color:#949494;">请填写<b style="color: #a6ce39">家长</b>或<b style="color: #a6ce39">老师本人</b>的的真实姓名，作为参加活动、发送奖品时的重要核对信息</a></label>
 								</td>
 							</tr>
 							<tr>
@@ -94,7 +94,7 @@
 									<asp:TextBox ID="User_NickName" runat="server" CssClass="input1"></asp:TextBox>
 								</td>
 								<td class="textleft" id="tipNickName">
-									昵称长度1-5位，可由中英文、数字、字符组成
+									<label for="User_NickName" generated="true" class="error"><a style="color:#949494;">昵称长度1-5位，可由中英文、数字、字符组成</a></label>
 								</td>
 							</tr>
 							<tr>
@@ -107,7 +107,7 @@
 									<asp:TextBox ID="User_Mobile" runat="server" CssClass="input1" MaxLength="11"></asp:TextBox>
 								</td>
 								<td class="textleft" id="tipMobile">
-									请正确填写您的11位手机号码，我们会将最新教育考试信息发送给您
+									<label for="User_Mobile" generated="true" class="error"><a style="color:#949494;">请正确填写您的11位手机号码，我们会将最新教育考试信息发送给您</a></label>
 								</td>
 							</tr>
 							<tr>
@@ -120,7 +120,7 @@
 									<asp:TextBox ID="User_Email" runat="server" CssClass="input1"></asp:TextBox>
 								</td>
 								<td class="textleft" id="tipEmail">
-									请输入有效邮箱地址，方便日后找回密码
+									<label for="User_Email" generated="true" class="error"><a style="color:#949494;">请输入有效邮箱地址，方便日后找回密码</a></label>
 								</td>
 							</tr>
 							<tr>

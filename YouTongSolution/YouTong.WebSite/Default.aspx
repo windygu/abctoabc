@@ -482,9 +482,11 @@
 						</div>
 						<% } %>
 						<div class="kuaijie">
+						<% if (this.IsAnonymous)
+         {%>
 							<ul>
 								<li>
-									<a href="#">
+									<a href="/Member/Login.aspx">
 										<img src="images/czll.gif" width="63" height="63" border="0" alt="成长履历" /></a></li>
 								<li>
 									<a href="Member/Works-Upload.aspx">
@@ -502,6 +504,30 @@
 									<a href="#">
 										<img src="images/rchd.gif" width="63" height="63" border="0" alt="日程活动" /></a></li>
 							</ul>
+							<%}
+         else
+         {%>
+							<ul>
+								<li>
+									<a href="/Childs/ChildInfo.aspx?userid=<%=this.User.ID %>">
+										<img src="images/czll.gif" width="63" height="63" border="0" alt="成长履历" /></a></li>
+								<li>
+									<a href="Member/Works-Upload.aspx">
+										<img src="images/sccy.gif" width="63" height="63" border="0" alt="上传才艺" /></a></li>
+								<li>
+									<a href="/childs/FamilyMedia-Catagory.aspx?userid=<%=this.User.ID %>">
+										<img src="images/qzyx.gif" width="63" height="63" border="0" alt="亲子影像" /></a></li>
+								<li>
+									<a href="Member/Blog-Write.aspx">
+										<img src="images/zxbk.gif" width="63" height="63" border="0" alt="撰写博客" /></a></li>
+								<li>
+									<a href="#">
+										<img src="images/bjzy.gif" width="63" height="63" border="0" alt="班级主页" /></a></li>
+								<li>
+									<a href="#">
+										<img src="images/rchd.gif" width="63" height="63" border="0" alt="日程活动" /></a></li>
+							</ul>
+							<%} %>
 							<div class="clear">
 							</div>
 						</div>

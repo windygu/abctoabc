@@ -26,6 +26,8 @@ namespace YouTong.WebSite.Childs
         public Int32 PageIndex, PageSize;
         CommentService commentS = new CommentService();
         public WebBasics.Member.Model.User reviewer;
+        public const string EntityString = "优童";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             this.UserID = RequestObject.ToGuid("userid");
@@ -47,14 +49,14 @@ namespace YouTong.WebSite.Childs
             {
                 #region 评论
                 HtmlPager.GetPagerParmsFromRequest(out PageIndex, out PageSize, 10);
-                IList<Comment> commentList = commentS.GetComments("优童", this.Child.ID, PageIndex, PageSize);
-                int rowCount = commentS.GetCommentCount("优童", this.Child.ID);
+                IList<Comment> commentList = commentS.GetComments(EntityString, this.Child.ID, PageIndex, PageSize);
+                int rowCount = commentS.GetCommentCount(EntityString, this.Child.ID);
                 this.rp_Comments.DataSource = commentList;
                 this.rp_Comments.DataBind();
 
                 var baseUrl = "ChildDefault.aspx?UserID=" + UserID + "&Page=($ID)&Size=" + PageSize;
                 HtmlPager hp = new HtmlPager(baseUrl, PageIndex, rowCount, PageSize);
-                //this.lt_Page.Text = hp.GetHtml(rowCount, PageSize);
+                this.lt_Page.Text = hp.GetHtml(rowCount, PageSize);
                 #endregion
             }
         }
@@ -68,13 +70,13 @@ namespace YouTong.WebSite.Childs
                 comment.Reviewer = User.ID;
                 comment.Title = Request["new_Title"];
                 comment.Body = comment.Title;
-                comment.Entity = "优童";
+                comment.Entity = EntityString;
                 comment.EntityID = this.Child.ID;
                 commentS.AddComment(comment);
 
                 #region 评论
                 HtmlPager.GetPagerParmsFromRequest(out PageIndex, out PageSize, 10);
-                IList<Comment> commentList = commentS.GetComments("优童", this.Child.ID, PageIndex, PageSize);
+                IList<Comment> commentList = commentS.GetComments(EntityString, this.Child.ID, PageIndex, PageSize);
                 this.rp_Comments.DataSource = commentList;
                 this.rp_Comments.DataBind();
                 #endregion
