@@ -20,22 +20,27 @@ namespace YouTong.WebSite.Member
 
 		protected void BtnOK_Click(object sender, EventArgs e)
 		{
-			var child = ConverterFactory.ConvertTo<Child>(Request.Form, "Child_");
-			child.ParentID = this.UserID;
-			if (child.Birthday == DateTime.MinValue) child.Birthday = DateTime.Parse("1899-1-1");
+            int count = xUtFactory.ChildService.GetChildCountByParent(UserID);
+            if (count < 1)
+            {
+                var child = ConverterFactory.ConvertTo<Child>(Request.Form, "Child_");
+                child.ParentID = this.UserID;
+                if (child.Birthday == DateTime.MinValue) child.Birthday = DateTime.Parse("1899-1-1");
 
-			try
-			{
-				var xChildService = UtFactory.Instance.ChildService;
-				xChildService.AddChild(child);
-			}
-			catch (Exception ex)
-			{
-				this.JsAlert(ex.Message);
-				return;
-			}
-
-			Response.Redirect("RegisterSuccess.aspx");
+                try
+                {
+                    var xChildService = UtFactory.Instance.ChildService;
+                    xChildService.AddChild(child);
+                }
+                catch (Exception ex)
+                {
+                    this.JsAlert(ex.Message);
+                    return;
+                }
+                Response.Redirect("RegisterSuccess.aspx");
+            }
+            else
+                this.JsAlert("您已经注册了一个孩子!");
 		}
 	}
 }
