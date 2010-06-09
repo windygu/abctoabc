@@ -18,10 +18,12 @@ namespace YouTong.WebSite
         public IList<Channel> MediaCategories;
         public IList<Article> list_Blogs;
         public IList<Article> 网站动态;
+        public Article StarArticle;
         public Child StarChild;
         public Article StarTitleArticle;
         public int anyFilesCount;
         public int registerCount;
+        public IList<Comment> workComments;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,7 +36,7 @@ namespace YouTong.WebSite
             this.WorksCategories = WorksAction.GetOffiicalCategories();
             this.MediaCategories = FamilyMediaAction.GetOfficialCategories();
             //本月优童秀
-            Article StarArticle =
+            StarArticle =
                 xCmsFactory.ArticleService.GetArticle(new Guid("4301849d-e94a-b816-b469-7adfd24ea9fa"));
             this.StarChild = xUtFactory.ChildService.GetChild(new Guid(StarArticle.Summary));//faff0cdc-fc75-4cc9-8300-149a57fde995
             
@@ -55,11 +57,12 @@ namespace YouTong.WebSite
             this.RepeaterMedia.DataSource = medias;
 
             var childs = xUtFactory.ChildService.GetChilds(1, 6);
-
+            //斗秀场
             var douxiuNews = xCmsFactory.ArticleService.GetArticles(UtConfig.DouXiuChannelID, true, 1, 5);
             this.RepeaterDouXiu.DataSource = douxiuNews;
-
+            //优童新闻
             var huodongNews = xCmsFactory.ArticleService.GetArticles(UtConfig.HuoDongChannelID, true, 1, 5);
+            this.RepeaterHuoDong.DataSource = huodongNews;
 
             var topWorkses = workses;
             this.RepeaterTopWorks.DataSource = topWorkses;
@@ -82,10 +85,11 @@ namespace YouTong.WebSite
                 this.RepeaterStarChildWorks.DataSource = starChildWorkses;
             }
 
+            //才艺秀
             this.RepeaterWorks.DataSource = workses;
 
             this.RepeaterChild.DataSource = childs;
-            this.RepeaterHuoDong.DataSource = huodongNews;
+            
             #region 热门话题
             IList<Article> hotTopicList = xCmsFactory.ArticleService.GetArticles(new Guid("8401849d-ddb7-dab8-a033-4b7edc4c97f4 "), false, 1, 10);
             this.rp_HotTopic.DataSource = hotTopicList;
@@ -136,6 +140,17 @@ namespace YouTong.WebSite
                 if (strArray.Length > index)
                     result = strArray[index];
             }
+            return result;
+        }
+
+        protected string GetComment(object guid)
+        {
+            string result = string.Empty;
+
+            workComments =
+                CommentService.Instance.GetComments(Codes.EntityName.WorkCommentEntity, new Guid(guid.ToString()), 1, 1);
+            if (workComments != null && workComments.Count > 0)
+                result = workComments[0].Title;
             return result;
         }
     }

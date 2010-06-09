@@ -491,6 +491,7 @@
     <Compile Include="Childs\FamilyMedia.aspx.designer.cs">
       <DependentUpon>FamilyMedia.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Codes\EntityName.cs" />
     <Compile Include="Grow\Grow.aspx.cs">
       <DependentUpon>Grow.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1252,6 +1253,10 @@
     <Content Include="_Resources\images\Ad\绿光右侧广告.jpg" />
     <Content Include="_Resources\images\disneybj.jpg" />
     <Content Include="_Resources\images\disneysh.jpg" />
+    <Content Include="_Resources\images\image005.jpg" />
+    <Content Include="_Resources\images\image006.jpg" />
+    <Content Include="_Resources\images\image007.jpg" />
+    <Content Include="_Resources\images\image008.jpg" />
     <Content Include="_Resources\images\xiaomote.jpg" />
     <Content Include="_Resources\images\焦点图\3M.jpg" />
     <Content Include="_Resources\images\焦点图\580 206副本.jpg" />

@@ -23,15 +23,6 @@ namespace YouTong.WebSite.Childs {
         protected global::YouTong.WebSite.Includes.WebHeader WebHeader;
         
         /// <summary>
-        /// rp_OfficeCategory 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rp_OfficeCategory;
-        
-        /// <summary>
         /// rp_Categorys 控件。
         /// </summary>
         /// <remarks>

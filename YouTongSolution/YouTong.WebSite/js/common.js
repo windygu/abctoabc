@@ -62,6 +62,42 @@ function GetWords(a, userid, Cat){
 			}
 		});
 }
+//得到作品
+function GetWords(a, Cat){
+    $('.nav li').find('a').each(function() {
+        if ($(this).hasClass('choose')) {
+            $(this).removeClass('choose');
+        }
+    });
+    $(a).addClass('choose');
+    jQuery.ajax({
+			url: "/_Handlers/GetWorks.ashx?Cat=" + Cat,
+			async: true,
+			success : function(data){
+			    var json = eval(data);
+			    var html = [];
+			    html.push('<div class="fenline">');
+			    for(var i=0; i<json.length; i++){
+			        html.push('<div class="zuopin">');
+					html.push('<div class="listleft">');
+					html.push('<a href="/childs/works-detail.aspx?id='+json[i][0]+'" class="zuopinbg">');
+					html.push('<img src="'+json[i][1]+'" width="100" height="75" border="0" alt="" /></a></div>');
+					html.push('<div class="zpxinxi">');
+					html.push('<a href="/childs/works-detail.aspx?id='+json[i][0]+'" class="zpmclan">'+json[i][2]+'</a>');
+					html.push('<p class="zpzz">作者： <span>'+ json[i][3] + '</span></p>');
+					html.push('<p class="zpzz">学校： <span>' + json[i][4] + '</span></p>');
+					html.push('<div class="clear"></div></div><div class="clear"></div>');
+					html.push('<p class="renqisc"><span>人气：<em>131</em></span><span> 收藏：<em>131</em></span><span> 评分：<em>4.2分</em></span></p>');
+					html.push('<a href="#" class="dcpl"></a></div>');
+			    }
+			    html.push('</div>');
+			    $('.waibu').html(html.join(''));		    
+			    
+			},
+			fail : function(){
+			}
+		});
+}
 //删除相册
 function DeltetCategory(userid,id){
     if(confirm("是否删除相册")){
@@ -72,46 +108,43 @@ function DeltetCategory(userid,id){
                 window.location.reload();
             },
             fail : function(){
-                window.location.reload();
+                alert("删除相册出错!");
             }
         });
     }
 }
 //更新相册
 function UpdateCategory(userid, id, name){
-    var value = prompt("编辑相册", name);
-    if(value == null){
-        }
-    else if(value == "")
+    var name = document.getElementById("CatatoryName_Update").value;
+    if(name == "")
         alert("请输入相册名");
     else{
         jQuery.ajax({
-            url : "/_Handlers/Category.ashx?action=update&userid=" + userid + "&Id=" + id + "&value=" + encodeURI(value),
+            url : "/_Handlers/Category.ashx?action=update&userid=" + userid + "&Id=" + id + "&value=" + encodeURI(name),
             async : false,
             success : function(){
                 window.location.reload();
             },
             fail : function(){
-                window.location.reload();
+                alert("更新相册出错!");
             }
         });
     }
 }
 //创建相册
 function AddCategory(userid){
-    var value = prompt("创建相册-输入相册名",'');
-    if(value == null){}
-    else if(value == "")
+    var name = document.getElementById("CatatoryName").value;
+    if(name == "")
         alert("请输入相册名");
     else{
         jQuery.ajax({
-            url : "/_Handlers/Category.ashx?action=add&userid=" + userid + "&value=" + encodeURI(value),
+            url : "/_Handlers/Category.ashx?action=add&userid=" + userid + "&value=" + encodeURI(name),
             async : false,
             success : function(){
                 window.location.reload();
             },
             fail : function(){
-                window.location.reload();
+                alert("创建相册出错!");
             }
         });
     }

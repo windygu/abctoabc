@@ -24,7 +24,6 @@ namespace YouTong.WebSite.Childs
         public Child Child;
         public IList<Channel> WorksCategories;
         public Int32 PageIndex, PageSize;
-        CommentService commentS = new CommentService();
         public WebBasics.Member.Model.User reviewer;
         public const string EntityString = "优童";
 
@@ -49,8 +48,8 @@ namespace YouTong.WebSite.Childs
             {
                 #region 评论
                 HtmlPager.GetPagerParmsFromRequest(out PageIndex, out PageSize, 10);
-                IList<Comment> commentList = commentS.GetComments(EntityString, this.Child.ID, PageIndex, PageSize);
-                int rowCount = commentS.GetCommentCount(EntityString, this.Child.ID);
+                IList<Comment> commentList = CommentService.Instance.GetComments(EntityString, this.Child.ID, PageIndex, PageSize);
+                int rowCount = CommentService.Instance.GetCommentCount(EntityString, this.Child.ID);
                 this.rp_Comments.DataSource = commentList;
                 this.rp_Comments.DataBind();
 
@@ -72,11 +71,11 @@ namespace YouTong.WebSite.Childs
                 comment.Body = comment.Title;
                 comment.Entity = EntityString;
                 comment.EntityID = this.Child.ID;
-                commentS.AddComment(comment);
+                CommentService.Instance.AddComment(comment);
 
                 #region 评论
                 HtmlPager.GetPagerParmsFromRequest(out PageIndex, out PageSize, 10);
-                IList<Comment> commentList = commentS.GetComments(EntityString, this.Child.ID, PageIndex, PageSize);
+                IList<Comment> commentList = CommentService.Instance.GetComments(EntityString, this.Child.ID, PageIndex, PageSize);
                 this.rp_Comments.DataSource = commentList;
                 this.rp_Comments.DataBind();
                 #endregion

@@ -355,8 +355,8 @@ body {
 .ertongtu {
 }
 .ertongtu a.touxiang {
-	background: transparent url(../images/ertongbg.gif) scroll no-repeat 0 0;
-	width: 94px;
+	background: transparent url(../images/zuopink_bg.gif) scroll no-repeat 0 0;
+	width: 110px;
 	height: auto;
 	float: left;
 	margin-left: 10px;
@@ -364,8 +364,8 @@ body {
 }
 .ertongtu a.touxiang img {
 	padding: 5px;
-	width: 84px;
-	height: 120px;
+	width: 100px;
+	height: 75px;
 }
 .ertongtu a.touxiang span {
 	color: #E95069;

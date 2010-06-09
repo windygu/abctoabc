@@ -28,20 +28,6 @@ namespace YouTong.WebSite.Childs
 
             userB = WebBasics.Member.Common.MemberFactory.Instance.UserService.GetUser(UserID);
 
-            //List<Category> officCateList = new List<Category>();
-            //IList<Channel> officList = FamilyMediaAction.GetOfficialCategories();
-            //foreach (Channel item in officList)
-            //{
-            //    officCateList.Add(new Category()
-            //    {
-            //        Name = item.Name,
-            //        UserID = UserID,
-            //        ID = item.ID
-            //    });
-            //}
-            //this.rp_OfficeCategory.DataSource = officCateList;
-            //this.rp_OfficeCategory.DataBind();
-
             IList<Category> catList = CategoryService.Instance.GetCategoriesByUser(UserID);
             this.rp_Categorys.DataSource = catList;
             this.rp_Categorys.DataBind();

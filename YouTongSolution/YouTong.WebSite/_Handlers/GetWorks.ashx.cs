@@ -28,12 +28,27 @@ namespace YouTong.WebSite._Handlers
             Guid UserID = RequestObject.ToGuid("userid");
             Guid workGuid = RequestObject.ToGuid("Cat");
 
-            IList<AnyFile> workList = CmsFactory.Instance.AnyFileService.GetAnyFiles(workGuid, true, UserID, null, 1, 6);
+            IList<AnyFile> workList; 
+            
             StringBuilder sbJson = new StringBuilder();
 
-            foreach (AnyFile item in workList)
+            if (UserID == Guid.Empty)
             {
-                sbJson.AppendFormat("[\"{0}\",\"{1}\",\"{2}\"],", item.ID, item.ThumbnailUrl, item.Title);
+                workList = CmsFactory.Instance.AnyFileService.GetAnyFiles(workGuid, true, 1, 6);
+                foreach (AnyFile item in workList)
+                {
+                    sbJson.AppendFormat("[\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\"],", item.ID, item.ThumbnailUrl, item.Title,
+                        DataCache.GetChildNameByUserID(item.UserID.Value),
+                        DataCache.GetSchoolNameByUserID(item.UserID.Value),item.UserID.Value);
+                }
+            }
+            else
+            {
+                workList = CmsFactory.Instance.AnyFileService.GetAnyFiles(workGuid, true, UserID, null, 1, 6);
+                foreach (AnyFile item in workList)
+                {
+                    sbJson.AppendFormat("[\"{0}\",\"{1}\",\"{2}\"],", item.ID, item.ThumbnailUrl, item.Title);
+                }
             }
             if (sbJson.Length > 0)
                 sbJson.Remove(sbJson.Length - 1, 1);

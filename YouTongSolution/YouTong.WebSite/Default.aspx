@@ -11,7 +11,8 @@
 	<link href="css/content.css" type="text/css" rel="stylesheet" />
 	<link href="css/default.css" type="text/css" rel="stylesheet" />
 	<script src="js/jquery-1.4.1.min.js" type="text/javascript"></script>
-	<script src="js/走马灯/jcarousellite.js"></script>
+	<script src="js/走马灯/jcarousellite.js" type="text/javascript"></script>
+	<script src="js/common.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		var CMenu = "default";
 
@@ -57,7 +58,7 @@
 
             $(".jCarouselLite").jCarouselLite({
                 auto: 3000,
-                speed: 800,
+                speed: 100,
                 vertical: "vertically",
                 visible: 1
             });
@@ -129,7 +130,7 @@
 											<% foreach (var channel in WorksCategories) %>
 											<% { %>
 											<li>
-												<a href="/childs/works.aspx?cat=<%= channel.ID %>"><span>
+												<a href="javascript:void(0);" onclick="GetWords(this, '<%=channel.ID%>');"><span>
 													<%= channel.Name %></span></a></li>
 											<% } %>
 										</ul>
@@ -178,8 +179,7 @@
 											</div>
 											<p class="renqisc">
 												<span>人气：<em>131</em></span><span> 收藏：<em>131</em></span><span> 评分：<em>4.2分</em></span></p>
-											<a href="#" class="dcpl">
-												<%--对此作品的评论的评论的评论的评论[某某评论]--%></a>
+											<a href='/childs/works-detail.aspx?id=<%# Eval("ID") %>' class='dcpl'><%#GetComment(Eval("ID")) %></a>
 										</div>
 								</ItemTemplate>
 								<FooterTemplate>
@@ -193,8 +193,8 @@
 						</div>
 					</div>
 					<div class="lipin">
-						<a href="http://no1child.goodbaby.com" target="_blank">
-							<img src="_Resources/images/925-2403.jpg" width="583" height="86" border="0" alt="" /></a>
+						<a href="http://www2.no1child.com/3m/" target="_blank">
+							<img src="/_Resources/images/image007.jpg" width="583" height="86" border="0" alt="" /></a>
 					</div>
 					<div class="youtongxing">
 						<div class="block1">
@@ -208,7 +208,9 @@
 									<a href="/childs/ChildDefault.aspx?userid=<%= StarChild.ParentID %>" title="" class="touxiang">
 										<img src="<%= DataCache.GetHeadPicture("/images/child(5).jpg") %>" alt="" />
 										<span>
-											<%= StarChild.Name %><em><%= StarChild.Age %>岁</em></span></a>
+											<%= StarChild.Name %><em><%= StarChild.Age %>岁</em></span>
+									    <div style="padding:0 0 0 10px;color:#666666;">学校： <em style="color:#000000;"><%=DataCache.GetSchoolNameByUserID(new Guid(StarArticle.Summary))%></em></div>
+											</a>
 								</div>
 								<div class="jieshao">
 									<a href="#">采访标题</a>
@@ -273,7 +275,7 @@
 												<a href="/childs/ChildDefault.aspx?userid=<%# Eval("ParentID") %>" title=" " class="zpmclan">
 													<%# Eval("Name") %></a>
 												<p class="zpzz">
-													学校： <span></span>
+													学校： <span><%#DataCache.GetSchoolNameByUserID(new Guid(Eval("ParentID").ToString()))%></span>
 												</p>
 												<p class="zpzz">
 													最新寄语<span>4</span>条</p>
@@ -382,18 +384,13 @@
 							<div class="huatimain">
 								<table class="huati" cellpadding="0" cellspacing="0" border="0" width="100%">
 									<thead>
-										<th width="40%">
+										<th width="60%">
 											话题
 										</th>
-										<th width="10%">
+										<th width="15%">
 											作者
 										</th>
-										<th align="center" width="15%">
-											回复/查看数
-										</th>
-										<th align="center" width="15%">
-											最后发表
-										</th>
+										<th width="25%">发表日期</th>
 									</thead>
 									<tbody>
 									<asp:Repeater ID="rp_HotTopic" runat="server">
@@ -406,9 +403,6 @@
 										</td>
 										<td align="center">
 											<%#GetItemByObject(Eval("Summary"), 1)%>
-										</td>
-										<td align="center">
-											<%#GetItemByObject(Eval("Summary"), 2)%>
 										</td>
 									</tr>
 									    </ItemTemplate>
@@ -459,7 +453,7 @@
 								<% if (myChild != null) %>
 								<% { %>
 								<a class="rentx" href="/member/index.aspx">
-									<img width="59" height="59" border="0" src="<%= DataCache.GetHeadPicture(myChild.HeadPicture) %>"></a>
+									<img width="59" height="59" border="0" src="<%= DataCache.GetHeadPicture(User.HeadPicture) %>"></a>
 								<div class="wenzi01">
 									<a href="#">用户：<span><%= this.User.UserName %></span></a>
 									<a href="#">我的优童：<span class="hongse"><%= myChild.Name %></span><span class="hongse"><%= myChild.Age %>岁</span></a>
@@ -564,8 +558,8 @@
 						</div>
 					</div>
 					<div class="douxiucang" style="text-align:right;">
-					    <a href="http://www2.no1child.com/bbs/showtopic-1088.aspx" target="_blank">
-					        <img src="/images/rtaImage.gif" alt="绿光"  />
+					    <a href="http://www.no1child.com/health/" target="_blank">
+					        <img src="/_Resources/images/image008.jpg" alt="凯思立"  />
 					    </a>
 					</div>
 					
