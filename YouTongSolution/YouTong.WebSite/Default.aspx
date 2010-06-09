@@ -193,7 +193,7 @@
 						</div>
 					</div>
 					<div class="lipin">
-						<a href="http://www2.no1child.com/3m/" target="_blank">
+						<a href="http://www.no1child.com/3m/" target="_blank">
 							<img src="/_Resources/images/image007.jpg" width="583" height="86" border="0" alt="" /></a>
 					</div>
 					<div class="youtongxing">
