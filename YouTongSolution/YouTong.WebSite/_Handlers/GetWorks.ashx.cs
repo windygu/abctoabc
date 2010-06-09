@@ -12,6 +12,7 @@ using WebBasics.Cms.Model;
 using YouTong.WebSite.Codes;
 using WebBasics.Cms.Common;
 using System.Text;
+using YouTong.Model;
 
 namespace YouTong.WebSite._Handlers
 {
@@ -28,18 +29,30 @@ namespace YouTong.WebSite._Handlers
             Guid UserID = RequestObject.ToGuid("userid");
             Guid workGuid = RequestObject.ToGuid("Cat");
 
-            IList<AnyFile> workList; 
-            
+            IList<AnyFile> workList;
+            IList<Comment> workComments;
+            string title = string.Empty;
+            string name = string.Empty;
             StringBuilder sbJson = new StringBuilder();
-
             if (UserID == Guid.Empty)
             {
                 workList = CmsFactory.Instance.AnyFileService.GetAnyFiles(workGuid, true, 1, 6);
                 foreach (AnyFile item in workList)
                 {
-                    sbJson.AppendFormat("[\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\"],", item.ID, item.ThumbnailUrl, item.Title,
+                    workComments = CommentService.Instance.GetComments(Codes.EntityName.WorkCommentEntity, item.ID, 1, 1);
+                    if (workComments != null && workComments.Count > 0)
+                    {
+                        title = workComments[0].Title;
+                        if (workComments[0].Title.Length > 15)
+                            title = workComments[0].Title.Substring(0, 15);
+                        name = DataCache.GetChildNameByUserID(workComments[0].Reviewer.Value);
+                    }
+
+                    sbJson.AppendFormat("[\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\",\"{6}\"],", item.ID, item.ThumbnailUrl, item.Title,
                         DataCache.GetChildNameByUserID(item.UserID.Value),
-                        DataCache.GetSchoolNameByUserID(item.UserID.Value),item.UserID.Value);
+                        DataCache.GetSchoolNameByUserID(item.UserID.Value),
+                        title,
+                        name);
                 }
             }
             else

@@ -39,7 +39,7 @@ namespace YouTong.WebSite
             StarArticle =
                 xCmsFactory.ArticleService.GetArticle(new Guid("4301849d-e94a-b816-b469-7adfd24ea9fa"));
             this.StarChild = xUtFactory.ChildService.GetChild(new Guid(StarArticle.Summary));//faff0cdc-fc75-4cc9-8300-149a57fde995
-            
+
             this.StarTitleArticle = xCmsFactory.ArticleService.GetArticle(new Guid("4601849d-62de-0645-3f52-8c442745912f"));
 
 
@@ -89,7 +89,7 @@ namespace YouTong.WebSite
             this.RepeaterWorks.DataSource = workses;
 
             this.RepeaterChild.DataSource = childs;
-            
+
             #region 热门话题
             IList<Article> hotTopicList = xCmsFactory.ArticleService.GetArticles(new Guid("8401849d-ddb7-dab8-a033-4b7edc4c97f4 "), false, 1, 10);
             this.rp_HotTopic.DataSource = hotTopicList;
@@ -115,7 +115,7 @@ namespace YouTong.WebSite
 
                 this.SignIn(username, password, false);
 
-				DNT.Login(username, password);
+                DNT.Login(username, password);
 
                 Response.Redirect("Default.aspx");
             }
@@ -147,10 +147,16 @@ namespace YouTong.WebSite
         {
             string result = string.Empty;
 
+            string title = string.Empty;
             workComments =
                 CommentService.Instance.GetComments(Codes.EntityName.WorkCommentEntity, new Guid(guid.ToString()), 1, 1);
             if (workComments != null && workComments.Count > 0)
-                result = workComments[0].Title;
+            {
+                title = workComments[0].Title;
+                if (workComments[0].Title.Length > 15)
+                    title = workComments[0].Title.Substring(0, 15);
+                result = string.Format("{0}[{1}评论]", title, DataCache.GetChildNameByUserID(workComments[0].Reviewer.Value));
+            }
             return result;
         }
     }
