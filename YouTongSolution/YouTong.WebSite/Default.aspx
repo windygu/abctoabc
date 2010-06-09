@@ -194,7 +194,7 @@
 					</div>
 					<div class="lipin">
 						<a href="http://www.no1child.com/3m/" target="_blank">
-							<img src="/_Resources/images/image007.jpg" width="583" height="86" border="0" alt="" /></a>
+							<img src="/_Resources/images/思高大banner.jpg" width="583" height="86" border="0" alt="" /></a>
 					</div>
 					<div class="youtongxing">
 						<div class="block1">
@@ -559,7 +559,7 @@
 					</div>
 					<div class="douxiucang" style="text-align:right;">
 					    <a href="http://www.no1child.com/health/" target="_blank">
-					        <img src="/_Resources/images/image008.jpg" alt="凯思立"  />
+					        <img style="width:290px;" src="/_Resources/images/凯思立小banner.jpg" alt="凯思立"  />
 					    </a>
 					</div>
 					
