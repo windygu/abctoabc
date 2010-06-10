@@ -34,7 +34,6 @@
 			<div class="zuopinbianji">
 				<div class="longblock01">
 					<a class="title" href="#">优童个人信息</a>
-					<%--<a class="savebtn" href="#"><span>保存全部</span></a>--%>
 					<div class="clear"></div>
 				</div>
 				<div class="longblock02">
@@ -176,9 +175,9 @@
 										</tbody>
 									</table>
 									<div class="gerentouxiang">
-										<a class="rentx" href="#"><img width="84" height="90" border="0" align="" src="/images/gerenimg.gif"></a>
+										<a class="rentx" href="#"><img width="84" height="90" border="0" align="" src="<%=DataCache.GetHeadPicture(this.child.HeadPicture) %>"></a>
 										<%if (!IsAnonymous && User.ID == UserID)
-            {%><a href="#" class="bianjibtn">[编辑]</a><%} %>
+            {%><a href="/Member/ChildInfo-Face.aspx" class="bianjibtn">[编辑]</a><%} %>
 									</div>
 									<div class="clear"></div>
 								</div>

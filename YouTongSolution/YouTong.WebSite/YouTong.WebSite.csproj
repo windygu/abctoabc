@@ -627,6 +627,13 @@
     <Compile Include="Member\Blog-Write.aspx.designer.cs">
       <DependentUpon>Blog-Write.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Member\ChildInfo-Face.aspx.cs">
+      <DependentUpon>ChildInfo-Face.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\ChildInfo-Face.aspx.designer.cs">
+      <DependentUpon>ChildInfo-Face.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Member\FamilyMedia-List.aspx.cs">
       <DependentUpon>FamilyMedia-List.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -940,6 +947,7 @@
     <Content Include="js\走马灯\jcarousellite-src.js" />
     <Content Include="js\走马灯\jcarousellite.js" />
     <Content Include="js\走马灯\Test\Test.htm" />
+    <Content Include="Member\ChildInfo-Face.aspx" />
     <Content Include="Member\Info-Face.aspx" />
     <Content Include="Member\Register-Completed.aspx" />
     <Content Include="_Handlers\ValidateUnique.ashx" />
