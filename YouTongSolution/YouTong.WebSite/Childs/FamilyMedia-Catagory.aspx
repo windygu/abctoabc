@@ -113,7 +113,7 @@
         G_id = id;
         G_name = name;
     }
-    $("#UpdateCatagory_Btn").onclick(function(){
+    $("#UpdateCatagory_Btn").click(function(){
         UpdateCategory(G_UserID, G_id, G_name);
     });
 </script>
