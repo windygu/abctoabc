@@ -31,14 +31,16 @@ namespace YouTong.WebSite._Handlers
 
             IList<AnyFile> workList;
             IList<Comment> workComments;
-            string title = string.Empty;
-            string name = string.Empty;
+            string title;
+            string name;
             StringBuilder sbJson = new StringBuilder();
             if (UserID == Guid.Empty)
             {
                 workList = CmsFactory.Instance.AnyFileService.GetAnyFiles(workGuid, true, 1, 6);
                 foreach (AnyFile item in workList)
                 {
+                    title = string.Empty;
+                    name = string.Empty;
                     workComments = CommentService.Instance.GetComments(Codes.EntityName.WorkCommentEntity, item.ID, 1, 1);
                     if (workComments != null && workComments.Count > 0)
                     {

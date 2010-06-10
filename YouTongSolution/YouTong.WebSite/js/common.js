@@ -87,14 +87,14 @@ function GetWords(a, Cat){
 					html.push('<p class="zpzz">作者： <span>'+ json[i][3] + '</span></p>');
 					html.push('<p class="zpzz">学校： <span>' + json[i][4] + '</span></p>');
 					html.push('<div class="clear"></div></div><div class="clear"></div>');
-					html.push('<p class="renqisc"><span>人气：<em>131</em></span><span> 收藏：<em>131</em></span><span> 评分：<em>4.2分</em></span></p>');
+					html.push('<p class="renqisc"><span>人气：<em>131</em></span><span> 评分：<em>4.2分</em></span></p>');
 					if(json[i][5] == "")
-					    html.push('<a href="" class="dcpl"></a></div>');
+					    html.push('<a href="" class="dcpl">&nbsp;</a></div>');
 					else
-					    html.push('<a href="/childs/works-detail.aspx?id='+json[i][0]+'" class="dcpl">'+json[i][5]+'['+json[i][6]+']</a></div>');
+					    html.push('<a href="/childs/works-detail.aspx?id='+json[i][0]+'" class="dcpl">'+json[i][5]+'['+json[i][6]+'评论]</a></div>');
 			    }
 			    html.push('</div>');
-			    $('.waibu').html(html.join(''));		    
+			    $('#workContainer').html(html.join(''));		    
 			    
 			},
 			fail : function(){

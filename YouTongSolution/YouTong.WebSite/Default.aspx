@@ -144,7 +144,7 @@
 						<div class="block2">
 							<asp:Repeater ID="RepeaterWorks" runat="server">
 								<HeaderTemplate>
-									<div class="waibu">
+									<div class="waibu" id="workContainer">
 										<div class="fenline">
 								</HeaderTemplate>
 								<ItemTemplate>
@@ -178,7 +178,7 @@
 											<div class="clear">
 											</div>
 											<p class="renqisc">
-												<span>人气：<em>131</em></span><span> 收藏：<em>131</em></span><span> 评分：<em>4.2分</em></span></p>
+												<span>人气：<em>131</em></span><span> 评分：<em>4.2分</em></span></p>
 											<a href='/childs/works-detail.aspx?id=<%# Eval("ID") %>' class='dcpl'><%#GetComment(Eval("ID")) %></a>
 										</div>
 								</ItemTemplate>
@@ -285,7 +285,7 @@
 											<div class="clear">
 											</div>
 											<p class="renqisc">
-												<span>人气：<em>131</em></span><span> 关注：<em>131</em></span><span> 作品：<em>222</em></span></p>
+												<span>人气：<em>131</em></span><span> 关注：<em>131</em></span><span></span></p>
 										</div>
 								</ItemTemplate>
 								<FooterTemplate>
@@ -470,7 +470,7 @@
 								<div class="clear">
 								</div>
 								<div class="jiekou">
-									<a class="jinru" href="/grow/grow.aspx">[成长档案]</a><a class="jinru" href="Member/SignOut.aspx">[退出登录]</a>
+									<a class="jinru" href="/grow/grow.aspx">[用户管理中心]</a><a class="jinru" href="Member/SignOut.aspx">[退出登录]</a>
 								</div>
 							</div>
 						</div>
@@ -676,7 +676,7 @@
 						<div class="duanblock3">
 						</div>
 					</div>
-					<div class="ertongyule">
+					<%--<div class="ertongyule">
 						<div class="duanblock1">
 							<div class="kong">
 								<a href="javascript:void(0)" class="title">儿童娱乐</a>
@@ -701,7 +701,7 @@
 						</div>
 						<div class="duanblock3">
 						</div>
-					</div>
+					</div>--%>
 					<div class="youtongquanzi">
 						<div class="duanblock1">
 							<div class="kong">
