@@ -309,11 +309,11 @@
 
 		var roots = getRootAreas();
 		var len = roots.length;
-		if(Guest){
-		    var city = '<%=this.child.City %>';
-		    var region = '<%=this.child.Region %>';
-		    var level = '<%=this.school.Level %>';
-		    var school = '<%=this.school.Name %>';
+		var city = '<%=this.child.City %>';
+        var region = '<%=this.child.Region %>';
+        var level = '<%=this.school.Level %>';
+        var school = '<%=this.school.Name %>';
+		if(Guest){		    
 		    for (var i = 0; i < len; i++) {
 		        if(roots[i].ID == city)
 		        {
@@ -331,49 +331,63 @@
 		    $("#ShowSchool").html(city + region + school);
 		}
 		else{
+		    var cityIndex=0;
+		    var regionIndex=0;
+		    var schoolIndex=0;
 		    $("<option value='0'>请选择城市</option>").appendTo("#Child_City");
 		    for (var i = 0; i < len; i++) {
 			    $("<option value='" + roots[i].ID + "'>" + roots[i].Name + "</option>").appendTo("#Child_City");
+			    if(roots[i].ID == city)
+			        cityIndex = i + 1;
 		    }
-
 		    $("#Child_City").change(
 			    function() {
-				    var rootId = $(this).val();
+				    var rootId = roots[cityIndex - 1].ID;
 				    var childs = getChildAreas(rootId);
 
 				    $("#Child_Region").empty();
 
 				    $("<option value='0'>请选择地区</option>").appendTo("#Child_Region");
-				    for (var i = 0; i < childs.length; i++) {
-					    $("<option value='" + childs[i].ID + "'>" + childs[i].Name + "</option>").appendTo("#Child_Region");
+				    for (var j = 0; j < childs.length; j++) {
+					    $("<option value='" + childs[j].ID + "'>" + childs[j].Name + "</option>").appendTo("#Child_Region");
+					    if(childs[j].ID == region)
+					        regionIndex = j + 1;
 				    }
 
 				    $("#Child_Region").change();
 			    }
 		    );
 
-		    $("#Child_Region").change(function() { $("#Child_Level").change() });
+		    $("#Child_Region").change(function() { 
+		        document.getElementById("Child_Level").selectedIndex = level;
+		        $("#Child_Level").change() }
+		    );
 
 		    $("#Child_Level").change(
 			    function() {
-				    var id = $("#Child_Region").val();
-				    var level = $(this).val();
-
+				    var id = region
+				    
 				    $("#Child_SchoolID").empty();
 
 				    $.getJSON("/_Handlers/GetSchools.ashx", { region: id, level: level },
 					    function(data) {
-						    for (var i = 0; i < data.length; i++) {
-							    $("<option value='" + data[i].ID + "'>" + data[i].Name + "</option>").appendTo("#Child_SchoolID");
+						    for (var z = 0; z < data.length; z++) {
+							    $("<option value='" + data[z].ID + "'>" + data[z].Name + "</option>").appendTo("#Child_SchoolID");
+							    if(data[z].Name == school)
+							        document.getElementById("Child_SchoolID").selectedIndex = z;
 						    }
 					    }
 				     );
 			    }
 		    );
-
+            
+            
 		    $("#Child_City").change();
 		    $("#Child_Region").change();
 		    $("#Child_Level").change();
+		    
+		    document.getElementById("Child_City").selectedIndex = cityIndex;
+            document.getElementById("Child_Region").selectedIndex = regionIndex;            
 		}
 	});
 	function Add_Resume(){

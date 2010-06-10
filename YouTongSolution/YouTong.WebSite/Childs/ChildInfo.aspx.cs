@@ -36,10 +36,7 @@ namespace YouTong.WebSite.Childs
                 ShowResume();
             }
             else
-                child = xUtFactory.ChildService.GetFirstChild(UserID);
-
-            if (child != null)
-                school = YouTong.Data.DbSchool.Instance.GetSchool(child.SchoolID);
+                child = xUtFactory.ChildService.GetFirstChild(UserID);            
         }
 
         protected void lb_Add_Click(object sender, EventArgs e)
@@ -58,7 +55,7 @@ namespace YouTong.WebSite.Childs
         {
             var updateChild = ConverterFactory.ConvertTo<Child>(Request.Form, "Child_");
             updateChild.ParentID = this.UserID;
-            updateChild.ID = UserID;
+            updateChild.ID = child.ID;
             if (updateChild.Birthday == DateTime.MinValue) updateChild.Birthday = DateTime.Parse("1899-1-1");
 
 
@@ -84,6 +81,8 @@ namespace YouTong.WebSite.Childs
 
                 this.Child_CurrentGrade.Value = child.CurrentGrade.ToString();
                 this.Child_CurrentClass.Value = child.CurrentClass.ToString();
+
+                school = YouTong.Data.DbSchool.Instance.GetSchool(child.SchoolID);                
             }
         }
 
