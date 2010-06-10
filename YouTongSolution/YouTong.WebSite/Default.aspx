@@ -357,7 +357,7 @@
 											<div class="clear">
 											</div>
 											<p class="renqisc">
-												<span>人气：<em>131</em></span><span> 收藏：<em>131</em></span><span> 评分：<em>4.2分</em></span></p>
+												<span>人气：<em>131</em></span><span> 评分：<em>4.2分</em></span></p>
 											<a href="#" class="dcpl">
 												<%--对此作品的评论的评论的评论的评论[某某评论]--%></a>
 										</div>
@@ -486,7 +486,7 @@
 									<a href="Member/Works-Upload.aspx">
 										<img src="images/sccy.gif" width="63" height="63" border="0" alt="上传才艺" /></a></li>
 								<li>
-									<a href="Member/FamilyMedia-Upload.aspx">
+									<a href="/Member/Login.aspx">
 										<img src="images/qzyx.gif" width="63" height="63" border="0" alt="亲子影像" /></a></li>
 								<li>
 									<a href="Member/Blog-Write.aspx">
