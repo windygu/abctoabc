@@ -130,5 +130,15 @@ namespace YouTong.Data
 			var where = NotDeleted && InCategory._.CategoryID == categoryId;
 			return dbSession.Count<InCategory>(where);
 		}
+
+        /// <summary>
+        /// 得到亲子影像属于的相册
+        /// </summary>
+        /// <param name="ID">文件id</param>
+        /// <returns></returns>
+        public InCategory GetCatatoryIDByAnyFileID(Guid ID)
+        {
+            return dbSession.Single<InCategory>(InCategory._.EntityID == ID);
+        }
 	}
 }

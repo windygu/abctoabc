@@ -106,5 +106,15 @@ namespace YouTong
 		{
 			return dbInCategory.GetEntityCount(categoryId);
 		}
+
+        /// <summary>
+        /// 得到亲子影像属于的相册
+        /// </summary>
+        /// <param name="ID">文件id</param>
+        /// <returns></returns>
+        public InCategory GetCatatoryIDByAnyFileID(Guid ID)
+        {
+            return dbInCategory.GetCatatoryIDByAnyFileID(ID);
+        }
 	}
 }
