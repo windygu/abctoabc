@@ -102,6 +102,16 @@ namespace YouTong.Data
 			return dbSession.From<Category>().Where(where).ToList();
 		}
 
+        /// <summary>
+        /// 获取用户分类数
+        /// </summary>
+        /// <param name="userId">用户编号</param>
+        /// <returns></returns>
+        public int GetCategoryCountByUser(Guid userid)
+        {
+            return dbSession.Count<Category>(NotDeleted && Category._.UserID == userid);
+        }
+
 		/// <summary>
 		/// 获取用户分类
 		/// </summary>

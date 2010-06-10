@@ -85,6 +85,16 @@ namespace YouTong
 			return dbCategory.GetCategoriesByUser(userId, entity);
 		}
 
+        /// <summary>
+        /// 获取用户分类数
+        /// </summary>
+        /// <param name="userId">用户编号</param>
+        /// <returns></returns>
+        public int GetCategoryCountByUser(Guid userid)
+        {
+            return dbCategory.GetCategoryCountByUser(userid);
+        }
+
 		public void ResetCount(Guid categoryId)
 		{
 			var category = dbCategory.GetCategory(categoryId);
