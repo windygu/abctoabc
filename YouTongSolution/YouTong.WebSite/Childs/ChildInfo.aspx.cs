@@ -22,11 +22,12 @@ namespace YouTong.WebSite.Childs
     {
         public Child child;
         public Guid UserID;
+        public School school;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             UserID = RequestObject.ToGuid("userid");
             child = xUtFactory.ChildService.GetFirstChild(UserID);
-            //User = WebBasics.Member.UserService.Instance.GetUser(UserID);
 
             if (!IsPostBack)
             {
@@ -36,6 +37,9 @@ namespace YouTong.WebSite.Childs
             }
             else
                 child = xUtFactory.ChildService.GetFirstChild(UserID);
+
+            if (child != null)
+                school = YouTong.Data.DbSchool.Instance.GetSchool(child.SchoolID);
         }
 
         protected void lb_Add_Click(object sender, EventArgs e)
@@ -43,7 +47,7 @@ namespace YouTong.WebSite.Childs
             Resume resume = ConverterFactory.ConvertTo<Resume>(Request.Form, "Resume_");
             resume.EndDate = Convert.ToDateTime(Resume_EndDate.Text);
             resume.ID = Guid.NewGuid();
-            resume.ChildID = UserID;
+            resume.ChildID = child.ID;
             ResumeService resumeS = new ResumeService();
             resumeS.AddResume(resume);
 
@@ -71,9 +75,9 @@ namespace YouTong.WebSite.Childs
                 this.Child_Name.Text = child.Name;
                 this.Child_NikcName.Text = child.NikcName;
                 if (child.Gender == 1)
-                    this.Child_Gender.SelectedIndex = 0;
+                    this.Child_Gender.Items[0].Selected = true;
                 else
-                    this.Child_Gender.SelectedIndex = 1;
+                    this.Child_Gender.Items[1].Selected = true;
                 this.Child_Birthday.Text = child.Birthday.ToString("yyyy-MM-dd");
 
                 this.Child_SchoolID.Value = child.CurrentSchool;

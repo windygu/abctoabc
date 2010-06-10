@@ -147,9 +147,9 @@
 								<a href="#" class="rentx">
 									<img src="../images/zuozhe_renwu.gif" width="59" height="59" border="0" align="" /></a>
 								<div class="wenzi01">
-									<a href="#">作者名称：<span class="yonglan"><%= this.Child.Name %></span></a>
-									<a href="#">影像集：<span class="hongse">13个</span></a>
-									<a href="#" class="jinru">进入TA的个人主页 ></a>
+									<a>作者名称：<span class="yonglan"><%= this.Child.Name %></span></a>
+									<a>影像集：<span class="hongse"><%=CatagoryCount %>个</span></a>
+									<a href="ParentDefault.aspx?userid=<%=this.Child.ParentID %>" class="jinru">进入TA的个人主页 ></a>
 								</div>
 								<div class="clear">
 								</div>
@@ -158,15 +158,15 @@
 								影像信息</h3>
 							<div class="thing">
 								<p>
-									影像集：<span>名称名称</span></p>
+									影像集：<span><%=CatagoryName%></span></p>
 								<p>
-									类别：<span>酷宝宝</span></p>
+									类别：<span><%=TypeName%></span></p>
 								<p>
 									人气：<span class="shuzi">131</span></p>
-								<p>
-									收藏：<span class="shuzi">8</span></p>
-								<p>
-									介绍：<span>我们一家人周末去踏青郊游，大家围在 一起烧烤中...<a href="#">[全部]</a></span></p>
+								<%--<p>
+									收藏：<span class="shuzi">8</span></p>--%>
+								<%--<p>
+									介绍：<span>我们一家人周末去踏青郊游，大家围在 一起烧烤中...<a href="#">[全部]</a></span></p>--%>
 							</div>
 						</div>
 						<dl>

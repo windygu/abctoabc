@@ -17,6 +17,7 @@ namespace YouTong.WebSite.Childs
         public AnyFile Works;
         public Child Child;
         public Int32 PageIndex, PageSize;
+        public int CatagoryCount = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,6 +25,10 @@ namespace YouTong.WebSite.Childs
             Works = xCmsFactory.AnyFileService.GetAnyFile(WorksID);
             this.Child = xUtFactory.ChildService.GetFirstChild(Works.UserID.Value);
             if (this.Child == null) this.Child = new Child();
+            else
+            {
+                CatagoryCount = CategoryService.Instance.GetCategoryCountByUser(this.Child.ParentID.Value);
+            }
 
             if (!IsPostBack)
             {

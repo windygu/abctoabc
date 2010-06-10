@@ -8,6 +8,7 @@ using Itfort.Web;
 using WebBasics.Cms.Model;
 using YouTong.Model;
 using YouTong.WebSite.Codes;
+using WebBasics.Cms.Common;
 
 namespace YouTong.WebSite.Childs
 {
@@ -17,6 +18,9 @@ namespace YouTong.WebSite.Childs
 		public AnyFile Media;
 		public Child Child;
         public Int32 PageIndex, PageSize;
+        public int CatagoryCount = 0;
+        public string TypeName = string.Empty;
+        public string CatagoryName = string.Empty;
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
@@ -24,6 +28,23 @@ namespace YouTong.WebSite.Childs
 			Media = xCmsFactory.AnyFileService.GetAnyFile(MediaID);
 			this.Child = xUtFactory.ChildService.GetFirstChild(Media.UserID.Value);
 			if (this.Child == null) this.Child = new Child();
+            else
+            {
+                CatagoryCount = CategoryService.Instance.GetCategoryCountByUser(this.Child.ParentID.Value);
+
+                Channel channel = CmsFactory.Instance.ChannelService.GetChannel(Media.ChannelID.Value);
+                if (channel != null)
+                    TypeName = channel.Name;
+
+                InCategory inCategory = InCategoryService.Instance.GetCatatoryIDByAnyFileID(MediaID);
+                if (inCategory != null)
+                {
+                    Category category = CategoryService.Instance.GetCategory(inCategory.CategoryID);
+                    if (category != null)
+                        CatagoryName = category.Name;
+                }
+            }
+
             if (!IsPostBack)
             {
                 ShowComment();

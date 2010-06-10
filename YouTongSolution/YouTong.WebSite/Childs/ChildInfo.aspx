@@ -16,6 +16,10 @@
 	<script src="../js/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
 	<script src="../Datas/AreaJson.aspx" type="text/javascript"></script>
 	<script type="text/javascript">
+	    var Guest = false;
+	<%if (IsAnonymous || User.ID != UserID){%>
+	    Guest = true;	    
+	<%} %>
 		var CMenu = "child";
 	</script>
 </head>
@@ -45,25 +49,55 @@
 										<tbody>
 											<tr>
 												<td width="10%" class="textright">姓名：</td>
-												<td width="30%"><asp:TextBox ID="Child_Name" CssClass="qunziinput" runat="server" MaxLength="5"></asp:TextBox></td>
+												<td width="30%">
+												<%if (IsAnonymous || User.ID != UserID)
+              {%><%=this.child.Name %>
+												<%}
+              else
+              { %>
+												<asp:TextBox ID="Child_Name" CssClass="qunziinput" runat="server" MaxLength="5"></asp:TextBox>
+												<%} %></td>
 												<td width="12%" class="textright">性别：</td>
-												<td width="48%">											 
+												<td width="48%">
+												<%if (IsAnonymous || User.ID != UserID)
+              {
+                  if (this.child.Gender == 0)
+                  {
+                  %>男<%}
+                  else
+                  { %>女<%} %>
+              <%}
+              else
+              { %>
                                                     <asp:RadioButtonList ID="Child_Gender" runat="server">
                                                         <asp:ListItem Value="1">男</asp:ListItem>
                                                         <asp:ListItem Value="2" Selected="True">女</asp:ListItem>
-                                                    </asp:RadioButtonList>
+                                                    </asp:RadioButtonList><%} %>
 											</tr>
 											<tr>
 												<td class="textright">昵称：</td>
-												<td><asp:TextBox ID="Child_NikcName" runat="server" CssClass="qunziinput"></asp:TextBox></td>
+												<td>
+												<%if (IsAnonymous || User.ID != UserID)
+              {%><%=this.child.NikcName %><%}
+              else
+              { %>
+												<asp:TextBox ID="Child_NikcName" runat="server" CssClass="qunziinput"></asp:TextBox><%} %></td>
 												<td class="textright">出生年月：</td>
 												<td>
-													<asp:TextBox ID="Child_Birthday" runat="server" CssClass="qunziinput" onclick="WdatePicker()"></asp:TextBox>
+													<%if (IsAnonymous || User.ID != UserID)
+               {%><%=this.child.Birthday.ToString("yyyy-MM-dd")%><%}
+               else
+               { %>
+													<asp:TextBox ID="Child_Birthday" runat="server" CssClass="qunziinput" onclick="WdatePicker()"></asp:TextBox><%} %>
 												</td>
 											</tr>
 											<tr>
 												<td class="textright">目前就读学校：</td>
 												<td  colspan="3">
+												<%if (IsAnonymous || User.ID != UserID)
+              {%><div id="ShowSchool"></div><%}
+              else
+              { %>
 													<select runat="server" id="Child_City" name="Child_City" class="select1">
 									</select>
 									<select runat="server" id="Child_Region" name="Child_Region" class="select1">
@@ -74,7 +108,7 @@
 										<option value="2">小学</option>
 									</select>
 									<select runat="server" id="Child_SchoolID" name="Child_SchoolID" class="select1">
-									</select>
+									</select><%} %>
 												</td>
 											</tr>
 											<tr>
@@ -82,6 +116,10 @@
 									入学年份：
 								</td>
 								<td>
+								<%if (IsAnonymous || User.ID != UserID)
+          {%><%=this.child.CurrentGrade%><%}
+          else
+          { %>
                                     <select runat="server" id="Child_CurrentGrade" name="Child_CurrentGrade" class="select1">
 										<option value="1996">1996</option>
 										<option value="1997">1997</option>
@@ -99,7 +137,7 @@
 										<option value="2009">2009</option>
 										<option value="2010">2010</option>
 										<option value="2011">2011</option>
-									</select>
+									</select><%} %>
 								</td>
 							</tr>
 							<tr>
@@ -107,6 +145,10 @@
 									学校班级：
 								</td>
 								<td>
+								<%if (IsAnonymous || User.ID != UserID)
+          {%><%=this.child.CurrentClass%>班<%}
+          else
+          { %>
 									<select runat="server" id="Child_CurrentClass" name="Child_CurrentClass" class="select1">
 										<option value="1">一班</option>
 										<option value="2">二班</option>
@@ -119,7 +161,7 @@
 										<option value="9">九班</option>
 										<option value="10">十班</option>
 										<option value="11">其他</option>
-									</select>
+									</select><%} %>
 								</td>
 							</tr>
 											<tr>
@@ -135,7 +177,8 @@
 									</table>
 									<div class="gerentouxiang">
 										<a class="rentx" href="#"><img width="84" height="90" border="0" align="" src="/images/gerenimg.gif"></a>
-										<a href="#" class="bianjibtn">[编辑]</a>
+										<%if (!IsAnonymous && User.ID == UserID)
+            {%><a href="#" class="bianjibtn">[编辑]</a><%} %>
 									</div>
 									<div class="clear"></div>
 								</div>
@@ -185,8 +228,7 @@
 								<div class="rightkuai">
 								<%if (!IsAnonymous && User.ID == UserID)
           {%>
-									<%--<a href="#" class="baocunbtn"><span>保存</span></a>--%>
-									<a href="javascript:DeltetCategory('<%=UserID %>','<%=child.ID %>','<%#Eval("ID") %>');" class="shanchu_btn">[删除]</a><%} %>
+									<a href="javascript:void(0);" onclick="DeltetCategory('<%=UserID %>','<%=child.ID %>','<%#Eval("ID") %>');" class="shanchu_btn">[删除]</a><%} %>
 								</div>
 							</div>
 							<div class="clear"></div>
@@ -268,49 +310,72 @@
 
 		var roots = getRootAreas();
 		var len = roots.length;
-		$("<option value='0'>请选择城市</option>").appendTo("#Child_City");
-		for (var i = 0; i < len; i++) {
-			$("<option value='" + roots[i].ID + "'>" + roots[i].Name + "</option>").appendTo("#Child_City");
+		if(Guest){
+		    var city = '<%=this.child.City %>';
+		    var region = '<%=this.child.Region %>';
+		    var level = '<%=this.school.Level %>';
+		    var school = '<%=this.school.Name %>';
+		    for (var i = 0; i < len; i++) {
+		        if(roots[i].ID == city)
+		        {
+		            city = roots[i].Name;
+		            var childs = getChildAreas(roots[i].ID);
+		            for (var j = 0; j < childs.length; j++) {
+		                if(childs[j].ID == region){
+		                    region = childs[j].Name;
+		                    break;
+		                }
+		            }
+		            break;
+		        }
+		    }
+		    $("#ShowSchool").html(city + region + school);
 		}
+		else{
+		    $("<option value='0'>请选择城市</option>").appendTo("#Child_City");
+		    for (var i = 0; i < len; i++) {
+			    $("<option value='" + roots[i].ID + "'>" + roots[i].Name + "</option>").appendTo("#Child_City");
+		    }
 
-		$("#Child_City").change(
-			function() {
-				var rootId = $(this).val();
-				var childs = getChildAreas(rootId);
+		    $("#Child_City").change(
+			    function() {
+				    var rootId = $(this).val();
+				    var childs = getChildAreas(rootId);
 
-				$("#Child_Region").empty();
+				    $("#Child_Region").empty();
 
-				$("<option value='0'>请选择地区</option>").appendTo("#Child_Region");
-				for (var i = 0; i < childs.length; i++) {
-					$("<option value='" + childs[i].ID + "'>" + childs[i].Name + "</option>").appendTo("#Child_Region");
-				}
+				    $("<option value='0'>请选择地区</option>").appendTo("#Child_Region");
+				    for (var i = 0; i < childs.length; i++) {
+					    $("<option value='" + childs[i].ID + "'>" + childs[i].Name + "</option>").appendTo("#Child_Region");
+				    }
 
-				$("#Child_Region").change();
-			}
-		);
+				    $("#Child_Region").change();
+			    }
+		    );
 
-		$("#Child_Region").change(function() { $("#Child_Level").change() });
+		    $("#Child_Region").change(function() { $("#Child_Level").change() });
 
-		$("#Child_Level").change(
-			function() {
-				var id = $("#Child_Region").val();
-				var level = $(this).val();
+		    $("#Child_Level").change(
+			    function() {
+				    var id = $("#Child_Region").val();
+				    var level = $(this).val();
 
-				$("#Child_SchoolID").empty();
+				    $("#Child_SchoolID").empty();
 
-				$.getJSON("/_Handlers/GetSchools.ashx", { region: id, level: level },
-					function(data) {
-						for (var i = 0; i < data.length; i++) {
-							$("<option value='" + data[i].ID + "'>" + data[i].Name + "</option>").appendTo("#Child_SchoolID");
-						}
-					}
-				 );
-			}
-		);
+				    $.getJSON("/_Handlers/GetSchools.ashx", { region: id, level: level },
+					    function(data) {
+						    for (var i = 0; i < data.length; i++) {
+							    $("<option value='" + data[i].ID + "'>" + data[i].Name + "</option>").appendTo("#Child_SchoolID");
+						    }
+					    }
+				     );
+			    }
+		    );
 
-		$("#Child_City").change();
-		$("#Child_Region").change();
-		$("#Child_Level").change();
+		    $("#Child_City").change();
+		    $("#Child_Region").change();
+		    $("#Child_Level").change();
+		}
 	});
 	function Add_Resume(){
 	    document.getElementById("Add_Resume").style.display="";

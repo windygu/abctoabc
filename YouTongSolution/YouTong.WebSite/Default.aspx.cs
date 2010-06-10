@@ -40,6 +40,7 @@ namespace YouTong.WebSite
             //本月优童秀
             StarArticle =
                 xCmsFactory.ArticleService.GetArticle(new Guid("4301849d-e94a-b816-b469-7adfd24ea9fa"));
+
             this.StarChild = xUtFactory.ChildService.GetChild(new Guid(StarArticle.Summary));//faff0cdc-fc75-4cc9-8300-149a57fde995
 
             this.StarTitleArticle = xCmsFactory.ArticleService.GetArticle(new Guid("4601849d-62de-0645-3f52-8c442745912f"));

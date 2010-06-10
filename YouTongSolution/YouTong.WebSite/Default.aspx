@@ -209,7 +209,7 @@
 										<img src="<%= DataCache.GetHeadPicture("/images/child(5).jpg") %>" alt="" />
 										<span>
 											<%= StarChild.Name %><em><%= StarChild.Age %>岁</em></span>
-									    <div style="padding:0 0 0 10px;color:#666666;">学校： <em style="color:#000000;"><%=DataCache.GetSchoolNameByUserID(new Guid(StarArticle.Summary))%></em></div>
+									    <div style="padding:0 0 0 10px;color:#666666;">学校： <em style="color:#000000;"><%=DataCache.GetSchoolNameByUserID(StarChild.ParentID.Value)%></em></div>
 											</a>
 								</div>
 								<div class="jieshao">

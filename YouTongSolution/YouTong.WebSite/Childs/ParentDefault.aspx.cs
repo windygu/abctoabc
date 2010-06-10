@@ -50,22 +50,11 @@ namespace YouTong.WebSite.Childs
             this.rp_Blogs.DataBind();
 
             #region 亲子影像
-            IList<Category> catList = CategoryService.Instance.GetCategoriesByUser(UserID, YouTong.FamilyMediaAction.EntityName);
-            List<Category> officCateList = new List<Category>();
-            IList<Channel> officList = FamilyMediaAction.GetOfficialCategories();
-            foreach (Channel item in officList)
-            {
-                officCateList.Add(new Category()
-                {
-                    Name = item.Name,
-                    UserID = UserID,
-                    ID = item.ID
-                });
-            }
-            this.rp_OfficCategory.DataSource = officCateList;
-            this.rp_OfficCategory.DataBind();
-
-            categoryCount = catList.Count + officCateList.Count;
+            List<Category> catList = CategoryService.Instance.GetCategoriesByUser(UserID, YouTong.FamilyMediaAction.EntityName) as List<Category>;
+            categoryCount = catList.Count;
+            if (catList.Count > 4)
+                catList.GetRange(0, 4);
+            
             this.rp_Categorys.DataSource = catList;
             this.rp_Categorys.DataBind();
             #endregion
