@@ -25,7 +25,6 @@ namespace YouTong.WebSite.Childs
         public IList<Channel> WorksCategories;
         public Int32 PageIndex, PageSize;
         public WebBasics.Member.Model.User reviewer;
-        public const string EntityString = "优童";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -46,17 +45,7 @@ namespace YouTong.WebSite.Childs
 
             if (!IsPostBack)
             {
-                #region 评论
-                HtmlPager.GetPagerParmsFromRequest(out PageIndex, out PageSize, 10);
-                IList<Comment> commentList = CommentService.Instance.GetComments(EntityString, this.Child.ID, PageIndex, PageSize);
-                int rowCount = CommentService.Instance.GetCommentCount(EntityString, this.Child.ID);
-                this.rp_Comments.DataSource = commentList;
-                this.rp_Comments.DataBind();
-
-                var baseUrl = "ChildDefault.aspx?UserID=" + UserID + "&Page=($ID)&Size=" + PageSize;
-                HtmlPager hp = new HtmlPager(baseUrl, PageIndex, rowCount, PageSize);
-                this.lt_Page.Text = hp.GetHtml(rowCount, PageSize);
-                #endregion
+                ShowComment();
             }
         }
 
@@ -69,21 +58,31 @@ namespace YouTong.WebSite.Childs
                 comment.Reviewer = User.ID;
                 comment.Title = Request["new_Title"];
                 comment.Body = comment.Title;
-                comment.Entity = EntityString;
+                comment.Entity = Codes.EntityName.ChildCommentEntity;
                 comment.EntityID = this.Child.ID;
                 CommentService.Instance.AddComment(comment);
 
-                #region 评论
-                HtmlPager.GetPagerParmsFromRequest(out PageIndex, out PageSize, 10);
-                IList<Comment> commentList = CommentService.Instance.GetComments(EntityString, this.Child.ID, PageIndex, PageSize);
-                this.rp_Comments.DataSource = commentList;
-                this.rp_Comments.DataBind();
-                #endregion
+                ShowComment();
             }
             else
             {
                 JsAlert("请先登录!");
             }
+        }
+
+        void ShowComment()
+        {
+            #region 评论
+            HtmlPager.GetPagerParmsFromRequest(out PageIndex, out PageSize, 10);
+            IList<Comment> commentList = CommentService.Instance.GetComments(Codes.EntityName.ChildCommentEntity, this.Child.ID, PageIndex, PageSize);
+            int rowCount = CommentService.Instance.GetCommentCount(Codes.EntityName.ChildCommentEntity, this.Child.ID);
+            this.rp_Comments.DataSource = commentList;
+            this.rp_Comments.DataBind();
+
+            var baseUrl = "ChildDefault.aspx?UserID=" + UserID + "&Page=($ID)&Size=" + PageSize;
+            HtmlPager hp = new HtmlPager(baseUrl, PageIndex, rowCount, PageSize);
+            this.lt_Page.Text = hp.GetHtml(rowCount, PageSize);
+            #endregion
         }
     }
 }

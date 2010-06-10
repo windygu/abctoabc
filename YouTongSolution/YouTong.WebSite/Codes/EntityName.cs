@@ -15,5 +15,9 @@ namespace YouTong.WebSite.Codes
     public class EntityName
     {
         public const string WorkCommentEntity = "作品";
+
+        public const string MediaCommentEntity = "亲子影像";
+
+        public const string ChildCommentEntity = "优童";
     }
 }

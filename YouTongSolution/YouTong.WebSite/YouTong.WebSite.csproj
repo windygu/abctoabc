@@ -812,6 +812,9 @@
     <Compile Include="_Handlers\CmsAnyFile-Upload.ashx.cs">
       <DependentUpon>CmsAnyFile-Upload.ashx</DependentUpon>
     </Compile>
+    <Compile Include="_Handlers\GetMedias.ashx.cs">
+      <DependentUpon>GetMedias.ashx</DependentUpon>
+    </Compile>
     <Compile Include="_Handlers\GetSchools.ashx.cs">
       <DependentUpon>GetSchools.ashx</DependentUpon>
     </Compile>
@@ -946,6 +949,7 @@
     <Content Include="_Handlers\Category.ashx" />
     <Content Include="_Handlers\Blog.ashx" />
     <Content Include="_Handlers\Info.ashx" />
+    <Content Include="_Handlers\GetMedias.ashx" />
     <None Include="_Resources\ckeditor\.htaccess" />
     <None Include="_Resources\ckeditor\ckeditor.pack" />
     <None Include="_Resources\ckeditor\ckeditor.php" />

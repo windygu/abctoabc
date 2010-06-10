@@ -33,7 +33,9 @@ namespace YouTong.WebSite
                     new Guid("7501879d-2af8-e66d-f089-29f46b4bab03"), true, 1, 5);
             this.Repeater网站动态.DataSource = 网站动态;
 
+            //才艺
             this.WorksCategories = WorksAction.GetOffiicalCategories();
+            //亲子影像分类
             this.MediaCategories = FamilyMediaAction.GetOfficialCategories();
             //本月优童秀
             StarArticle =
@@ -52,8 +54,13 @@ namespace YouTong.WebSite
             var workses = xCmsFactory.AnyFileService.GetAnyFiles(workGuid, true, 1, 6);
             //得到所有作品
             anyFilesCount = xCmsFactory.AnyFileService.GetAnyFileCount(UtConfig.WorksChannelID, true);
-
-            var medias = xCmsFactory.AnyFileService.GetAnyFiles(UtConfig.FamilyMediaChannelID, true, 1, 6);
+            //亲子影像
+            Guid mediaID = Guid.Empty;
+            if (MediaCategories.Count > 0)
+                mediaID = MediaCategories[0].ID;
+            else
+                mediaID = UtConfig.FamilyMediaChannelID;
+            var medias = xCmsFactory.AnyFileService.GetAnyFiles(mediaID, true, 1, 6);
             this.RepeaterMedia.DataSource = medias;
 
             var childs = xUtFactory.ChildService.GetChilds(1, 6);
@@ -143,21 +150,28 @@ namespace YouTong.WebSite
             return result;
         }
 
-        protected string GetComment(object guid)
+        protected string GetComment(object guid, string name)
         {
             string result = string.Empty;
-
             string title = string.Empty;
-            workComments =
-                CommentService.Instance.GetComments(Codes.EntityName.WorkCommentEntity, new Guid(guid.ToString()), 1, 1);
+            string value = "评论";
+
+            if (name == Codes.EntityName.ChildCommentEntity)
+                value = "寄语";
+            workComments = CommentService.Instance.GetComments(name, new Guid(guid.ToString()), 1, 1);
             if (workComments != null && workComments.Count > 0)
             {
                 title = workComments[0].Title;
                 if (workComments[0].Title.Length > 15)
                     title = workComments[0].Title.Substring(0, 15);
-                result = string.Format("{0}[{1}评论]", title, DataCache.GetChildNameByUserID(workComments[0].Reviewer.Value));
+                result = string.Format("{0}[{1}{2}]", title, DataCache.GetChildNameByUserID(workComments[0].Reviewer.Value), value);
             }
             return result;
+        }
+
+        protected int GetCommentCounts(object guid, string name)
+        {
+            return CommentService.Instance.GetCommentCount(name, new Guid(guid.ToString()));
         }
     }
 }

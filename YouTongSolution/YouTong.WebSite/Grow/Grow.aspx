@@ -46,7 +46,8 @@
         	<div class="displayornot">
                 <div class="transparent"></div>
                 <a class="transparentcontent" href="/Childs/ChildInfo.aspx?userid=<%=UserID %>">
-                	<table><tr><td><a href="/Childs/ChildInfo.aspx?userid=<%=UserID %>">个人信息、履历</a></td></tr></table>
+                	<table><tr><td><a href="/Childs/ChildInfo.aspx?userid=<%=UserID %>">
+                	<%if(this.FirstChild == null){ %>优童成长档案<%}else{ %><%=this.FirstChild.Name%>的成长档案<%} %></a></td></tr></table>
                 </a>
             </div>
         </div>
@@ -54,27 +55,17 @@
         	<div class="displayornot">
                 <div class="transparent"></div>
                 <a class="transparentcontent" href="/childs/FamilyMedia-Catagory.aspx?userid=<%=UserID %>">
-                	<table><tr><td><a href="/childs/FamilyMedia-Catagory.aspx?userid=<%=UserID %>">亲子影像</a></td></tr></table>
+                	<table><tr><td><a href="/childs/FamilyMedia-Catagory.aspx?userid=<%=UserID %>">
+                	<%if(this.FirstChild == null){ %>亲子影像<%}else{ %><%=this.FirstChild.Name%>的亲子影像<%} %></a></td></tr></table>
                 </a>
 			</div>
         </div>
-        <%--<div class="circle">
-        	<div class="displayornot">
-                <div class="transparent"></div>
-                <a class="transparentcontent" href="./fetchCircle.aspx">
-                	<table><tr><td>我的圈子</td></tr></table>
-                </a>
-                <div class="popupcontent" style="width: 566px; height: 343px; display: none;background: transparent url(./images/popwindow.gif) no-repeat 0 0;">
-                    <div class="closebutton" style="float: right;margin: 4px 4px;"><a href="#"><img src="./images/popwindow_close.gif" /></a></div>
-                    ccc
-                </div>
-			</div>
-        </div>--%>
         <div class="blog">
         	<div class="displayornot">
                 <div class="transparent"></div>
                 <a class="transparentcontent" href="/Member/Blog-Write.aspx">
-                	<table><tr><td><a href="/Member/Blog-Write.aspx">撰写博客</a></td></tr></table>
+                	<table><tr><td><a href="/Member/Blog-Write.aspx">
+                	<%if(this.FirstChild == null){ %>我的博客<%}else{ %><%=this.FirstChild.Name%>的博客<%} %></a></td></tr></table>
                 </a>
 			</div>
         </div>
@@ -82,22 +73,11 @@
         	<div class="displayornot">
                 <div class="transparent"></div>
                 <a class="transparentcontent" href="/childs/FamilyMedia.aspx?userid=<%=UserID %>">
-                	<table><tr><td><a href="/childs/FamilyMedia.aspx?userid=<%=UserID %>">作品集</a></td></tr></table>
+                	<table><tr><td><a href="/childs/FamilyMedia.aspx?userid=<%=UserID %>">
+                	<%if(this.FirstChild == null){ %>作品集<%}else{ %><%=this.FirstChild.Name%>的作品集<%} %></a></td></tr></table>
                 </a>
 			</div>
         </div>
-        <%--<div class="calendar">
-        	<div class="displayornot">
-                <div class="transparent"></div>
-                <a class="transparentcontent" href="./fetchCalendar.aspx">
-                	<table><tr><td>日历</td></tr></table>
-                </a>
-                <div class="popupcontent" style="width: 566px; height: 343px; display: none;background: transparent url(./images/popwindow.gif) no-repeat 0 0;">
-                    <div class="closebutton" style="float: right;margin: 4px 4px;"><a href="#"><img src="./images/popwindow_close.gif" /></a></div>
-                    ffff
-                </div>
-			</div>
-        </div>--%>
     </div>
     </div>
     </form>

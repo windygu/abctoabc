@@ -179,7 +179,7 @@
 											</div>
 											<p class="renqisc">
 												<span>人气：<em>131</em></span><span> 评分：<em>4.2分</em></span></p>
-											<a href='/childs/works-detail.aspx?id=<%# Eval("ID") %>' class='dcpl'><%#GetComment(Eval("ID")) %></a>
+											<a href='/childs/works-detail.aspx?id=<%# Eval("ID") %>' class='dcpl'><%#GetComment(Eval("ID"),YouTong.WebSite.Codes.EntityName.WorkCommentEntity) %></a>
 										</div>
 								</ItemTemplate>
 								<FooterTemplate>
@@ -278,14 +278,15 @@
 													学校： <span><%#DataCache.GetSchoolNameByUserID(new Guid(Eval("ParentID").ToString()))%></span>
 												</p>
 												<p class="zpzz">
-													最新寄语<span>4</span>条</p>
+													最新寄语<span><%#GetCommentCounts(Eval("ID"), YouTong.WebSite.Codes.EntityName.ChildCommentEntity)%></span>条</p>
 												<div class="clear">
 												</div>
 											</div>
 											<div class="clear">
 											</div>
 											<p class="renqisc">
-												<span>人气：<em>131</em></span><span> 关注：<em>131</em></span><span></span></p>
+												<span>人气：<em>131</em></span><span> 关注：<em>131</em></span></p>
+										    <a href="/childs/ChildDefault.aspx?userid=<%# Eval("ParentID") %>" class="dcpl"><%#GetComment(Eval("ID"), YouTong.WebSite.Codes.EntityName.ChildCommentEntity) %></a>
 										</div>
 								</ItemTemplate>
 								<FooterTemplate>
@@ -305,11 +306,11 @@
 								<a style="cursor: pointer" class="zuosanjiao"></a>
 								<div style="width: 328px; overflow: hidden; float: left; height: 27px; padding: 0px; margin: 0px; position: relative;">
 									<div class="move" style="width: 800%; float: left; position: relative; left: 0px">
-										<ul class="nav">
+										<ul class="nav" id="mediaNav">
 											<% foreach (var channel in MediaCategories) %>
 											<% { %>
 											<li>
-												<a href="/childs/familymedia.aspx?cat=<%= channel.ID %>"><span>
+												<a href="javascript:void(0);" onclick="GetMedias(this,'<%=channel.ID %>');"><span>
 													<%= channel.Name %></span></a></li>
 											<% } %>
 										</ul>
@@ -324,7 +325,7 @@
 							<% i = 0; %>
 							<asp:Repeater ID="RepeaterMedia" runat="server">
 								<HeaderTemplate>
-									<div class="waibu">
+									<div class="waibu" id="mediaContainer">
 										<div class="fenline">
 								</HeaderTemplate>
 								<ItemTemplate>
@@ -358,8 +359,7 @@
 											</div>
 											<p class="renqisc">
 												<span>人气：<em>131</em></span><span> 评分：<em>4.2分</em></span></p>
-											<a href="#" class="dcpl">
-												<%--对此作品的评论的评论的评论的评论[某某评论]--%></a>
+											<a href='/childs/works-detail.aspx?id=<%# Eval("ID") %>' class='dcpl'><%#GetComment(Eval("ID"), YouTong.WebSite.Codes.EntityName.MediaCommentEntity) %></a>
 										</div>
 								</ItemTemplate>
 								<FooterTemplate>

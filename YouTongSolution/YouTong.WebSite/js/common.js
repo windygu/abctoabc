@@ -64,7 +64,7 @@ function GetWords(a, userid, Cat){
 }
 //得到作品
 function GetWords(a, Cat){
-    $('.nav li').find('a').each(function() {
+    $('#nav li').find('a').each(function() {
         if ($(this).hasClass('choose')) {
             $(this).removeClass('choose');
         }
@@ -95,6 +95,45 @@ function GetWords(a, Cat){
 			    }
 			    html.push('</div>');
 			    $('#workContainer').html(html.join(''));		    
+			    
+			},
+			fail : function(){
+			}
+		});
+}
+//得到亲子影像
+function GetMedias(a, id){
+    $('#mediaNav li').find('a').each(function() {
+        if ($(this).hasClass('choose')) {
+            $(this).removeClass('choose');
+        }
+    });
+    $(a).addClass('choose');
+    jQuery.ajax({
+			url: "/_Handlers/GetMedias.ashx?id=" + id,
+			async: true,
+			success : function(data){
+			    var json = eval(data);
+			    var html = [];
+			    html.push('<div class="fenline">');
+			    for(var i=0; i<json.length; i++){
+			        html.push('<div class="zuopin">');
+					html.push('<div class="listleft">');
+					html.push('<a href="/childs/familymedia-detail.aspx?id='+json[i][0]+'" class="zuopinbg">');
+					html.push('<img src="'+json[i][1]+'" width="100" height="75" border="0" alt="" /></a></div>');
+					html.push('<div class="zpxinxi">');
+					html.push('<a href="/childs/works-detail.aspx?id='+json[i][0]+'" class="zpmclan">'+json[i][2]+'</a>');
+					html.push('<p class="zpzz">作者： <span>'+ json[i][3] + '</span></p>');
+					html.push('<p class="zpzz">学校： <span>' + json[i][4] + '</span></p>');
+					html.push('<div class="clear"></div></div><div class="clear"></div>');
+					html.push('<p class="renqisc"><span>人气：<em>131</em></span><span> 评分：<em>4.2分</em></span></p>');
+					if(json[i][5] == "")
+					    html.push('<a href="" class="dcpl">&nbsp;</a></div>');
+					else
+					    html.push('<a href="/childs/familymedia-detail.aspx?id='+json[i][0]+'" class="dcpl">'+json[i][5]+'['+json[i][6]+'评论]</a></div>');
+			    }
+			    html.push('</div>');
+			    $('#mediaContainer').html(html.join(''));		    
 			    
 			},
 			fail : function(){

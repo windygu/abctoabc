@@ -27,17 +27,7 @@ namespace YouTong.WebSite.Childs
 
             if (!IsPostBack)
             {
-                #region 评论
-                HtmlPager.GetPagerParmsFromRequest(out PageIndex, out PageSize, 10);
-                IList<Comment> commentList = CommentService.Instance.GetComments(Codes.EntityName.WorkCommentEntity, WorksID, PageIndex, PageSize);
-                int rowCount = CommentService.Instance.GetCommentCount(Codes.EntityName.WorkCommentEntity, WorksID);
-                this.rp_Comments.DataSource = commentList;
-                this.rp_Comments.DataBind();
-
-                var baseUrl = "ChildDefault.aspx?id=" + WorksID + "&Page=($ID)&Size=" + PageSize;
-                HtmlPager hp = new HtmlPager(baseUrl, PageIndex, rowCount, PageSize);
-                this.lt_Page.Text = hp.GetHtml(rowCount, PageSize);
-                #endregion
+                ShowComment();
             }
         }
 
@@ -54,17 +44,27 @@ namespace YouTong.WebSite.Childs
                 comment.EntityID = WorksID;
                 CommentService.Instance.AddComment(comment);
 
-                #region 评论
-                HtmlPager.GetPagerParmsFromRequest(out PageIndex, out PageSize, 10);
-                IList<Comment> commentList = CommentService.Instance.GetComments(Codes.EntityName.WorkCommentEntity, WorksID, PageIndex, PageSize);
-                this.rp_Comments.DataSource = commentList;
-                this.rp_Comments.DataBind();
-                #endregion
+                ShowComment();
             }
             else
             {
                 JsAlert("请先登录!");
             }
+        }
+
+        void ShowComment()
+        {
+            #region 评论
+            HtmlPager.GetPagerParmsFromRequest(out PageIndex, out PageSize, 10);
+            IList<Comment> commentList = CommentService.Instance.GetComments(Codes.EntityName.WorkCommentEntity, WorksID, PageIndex, PageSize);
+            int rowCount = CommentService.Instance.GetCommentCount(Codes.EntityName.WorkCommentEntity, WorksID);
+            this.rp_Comments.DataSource = commentList;
+            this.rp_Comments.DataBind();
+
+            var baseUrl = "ChildDefault.aspx?id=" + WorksID + "&Page=($ID)&Size=" + PageSize;
+            HtmlPager hp = new HtmlPager(baseUrl, PageIndex, rowCount, PageSize);
+            this.lt_Page.Text = hp.GetHtml(rowCount, PageSize);
+            #endregion
         }
     }
 }
