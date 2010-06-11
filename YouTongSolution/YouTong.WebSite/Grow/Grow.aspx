@@ -24,7 +24,7 @@
 		var CMenu = "child";
 	</script>
 </head>
-<body>
+<body style="background:#A6CE39 none repeat scroll 0 0;">
     <form id="form1" runat="server">
     
     <div id="container" class="container">
