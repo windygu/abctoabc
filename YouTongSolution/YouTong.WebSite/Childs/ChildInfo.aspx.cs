@@ -58,8 +58,8 @@ namespace YouTong.WebSite.Childs
             updateChild.ID = child.ID;
             if (updateChild.Birthday == DateTime.MinValue) updateChild.Birthday = DateTime.Parse("1899-1-1");
 
-
             xUtFactory.ChildService.UpdateChild(updateChild);
+            child = updateChild;
 
             ShowInfo();
         }
@@ -82,7 +82,16 @@ namespace YouTong.WebSite.Childs
                 this.Child_CurrentGrade.Value = child.CurrentGrade.ToString();
                 this.Child_CurrentClass.Value = child.CurrentClass.ToString();
 
-                school = YouTong.Data.DbSchool.Instance.GetSchool(child.SchoolID);                
+                school = YouTong.Data.DbSchool.Instance.GetSchool(child.SchoolID);
+
+                System.Text.StringBuilder sbJS = new System.Text.StringBuilder();
+                sbJS.Append("<script type='text/javascript'>");
+                sbJS.AppendFormat("var city = '{0}';", this.child.City);
+                sbJS.AppendFormat("var region = '{0}';", this.child.Region);
+                sbJS.AppendFormat("var level = '{0}';", this.school.Level);
+                sbJS.AppendFormat("var school = '{0}';", this.school.Name);
+                sbJS.Append("</script>");
+                this.ltr_JS.Text = sbJS.ToString();
             }
         }
 

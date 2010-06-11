@@ -175,7 +175,7 @@
 										</tbody>
 									</table>
 									<div class="gerentouxiang">
-										<a class="rentx" href="#"><img width="84" height="90" border="0" align="" src="<%=DataCache.GetHeadPicture(this.child.HeadPicture) %>"></a>
+										<a class="rentx"><img width="84" height="90" border="0" align="" src="<%=DataCache.GetHeadPicture(this.child.HeadPicture) %>"></a>
 										<%if (!IsAnonymous && User.ID == UserID)
             {%><a href="/Member/ChildInfo-Face.aspx" class="bianjibtn">[编辑]</a><%} %>
 									</div>
@@ -282,6 +282,7 @@
         </div>
         <ut:WebFooter ID="WebFooter" runat="server" />
     </div>
+    <asp:Literal ID="ltr_JS" runat="server"></asp:Literal>
     </form>
 </body>
 </html>
@@ -309,10 +310,6 @@
 
 		var roots = getRootAreas();
 		var len = roots.length;
-		var city = '<%=this.child.City %>';
-        var region = '<%=this.child.Region %>';
-        var level = '<%=this.school.Level %>';
-        var school = '<%=this.school.Name %>';
 		if(Guest){		    
 		    for (var i = 0; i < len; i++) {
 		        if(roots[i].ID == city)
@@ -340,9 +337,11 @@
 			    if(roots[i].ID == city)
 			        cityIndex = i + 1;
 		    }
+		    document.getElementById("Child_Level").selectedIndex = level;
 		    $("#Child_City").change(
 			    function() {
-				    var rootId = roots[cityIndex - 1].ID;
+			        var citySelect = document.getElementById("Child_City");
+				    var rootId = citySelect.options[citySelect.selectedIndex].value;
 				    var childs = getChildAreas(rootId);
 
 				    $("#Child_Region").empty();
@@ -351,25 +350,27 @@
 				    for (var j = 0; j < childs.length; j++) {
 					    $("<option value='" + childs[j].ID + "'>" + childs[j].Name + "</option>").appendTo("#Child_Region");
 					    if(childs[j].ID == region)
-					        regionIndex = j + 1;
+					        document.getElementById("Child_Region").selectedIndex = j + 1; 
 				    }
 
 				    $("#Child_Region").change();
 			    }
 		    );
 
-		    $("#Child_Region").change(function() { 
-		        document.getElementById("Child_Level").selectedIndex = level;
+		    $("#Child_Region").change(function() {
 		        $("#Child_Level").change() }
 		    );
 
 		    $("#Child_Level").change(
 			    function() {
-				    var id = region
+			        var regionSelect = document.getElementById("Child_Region");
+				    var id = regionSelect.options[regionSelect.selectedIndex].value;
+				    var levelSelect = document.getElementById("Child_Level");
+				    var _level = levelSelect.options[levelSelect.selectedIndex].value;
 				    
 				    $("#Child_SchoolID").empty();
 
-				    $.getJSON("/_Handlers/GetSchools.ashx", { region: id, level: level },
+				    $.getJSON("/_Handlers/GetSchools.ashx", { region: id, level: _level },
 					    function(data) {
 						    for (var z = 0; z < data.length; z++) {
 							    $("<option value='" + data[z].ID + "'>" + data[z].Name + "</option>").appendTo("#Child_SchoolID");
@@ -381,13 +382,14 @@
 			    }
 		    );
             
+            document.getElementById("Child_City").selectedIndex = cityIndex;
+            
             
 		    $("#Child_City").change();
-		    $("#Child_Region").change();
-		    $("#Child_Level").change();
+		    //$("#Child_Region").change();
+		    //$("#Child_Level").change();
 		    
-		    document.getElementById("Child_City").selectedIndex = cityIndex;
-            document.getElementById("Child_Region").selectedIndex = regionIndex;            
+		               
 		}
 	});
 	function Add_Resume(){
