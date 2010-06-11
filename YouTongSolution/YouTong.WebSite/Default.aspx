@@ -455,10 +455,10 @@
 								<a class="rentx" href="/member/index.aspx">
 									<img width="59" height="59" border="0" src="<%= DataCache.GetHeadPicture(User.HeadPicture) %>"></a>
 								<div class="wenzi01">
-									<a href="#">用户：<span><%= this.User.UserName %></span></a>
-									<a href="#">我的优童：<span class="hongse"><%= myChild.Name %></span><span class="hongse"><%= myChild.Age %>岁</span></a>
-									<a href="#">消息：<span class="hongse">0条</span></a>
-									<a class="jinru" href="#" style="display: none;">[添加优童档案]</a>
+									<a href="/childs/parentdefault.aspx?userid=<%=User.ID %>">用户：<span><%= this.User.UserName %></span></a>
+									<a href="/childs/childdefault.aspx?userid=<%=User.ID %>">我的优童：<span class="hongse"><%= myChild.Name %></span><span class="hongse"><%= myChild.Age %>岁</span></a>
+									<%--<a href="#">消息：<span class="hongse">0条</span></a>--%>
+									<%--<a class="jinru" href="#" style="display: none;">[添加优童档案]</a>--%>
 								</div>
 								<% } %>
 								<% else %>
