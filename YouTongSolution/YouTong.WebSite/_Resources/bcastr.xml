@@ -2,14 +2,16 @@
 <bcaster autoPlayTime="10">
 	<item item_url="/_Resources/images/disneybj.jpg" link="http://www.no1child.com/disneybeijing/" itemtitle="">
 	</item>
-	<item item_url="/_Resources/images/disney2.jpg" link="http://www.no1child.com/disney/" itemtitle="">
+	<item item_url="/_Resources/images/乐高20100612.jpg" link="http://no1child.babytree.com/lego/" itemtitle="">
 	</item>
-	<item item_url="/_Resources/images/newave3.gif" link="http://www2.no1child.com/expo/newave" itemtitle="">
-	</item>
-	<item item_url="/_Resources/images/少儿模特大赛.jpg" link="http://no1child.goodbaby.com/" itemtitle="">
+	<item item_url="/_Resources/images/汉高焦点图.jpg" link="http://www.no1child.com/henkel/" itemtitle="">
 	</item>
 	<item item_url="/_Resources/images/20100517-奇异果.jpg" link="http://no1child.babytree.com/paint2010/" itemtitle="">
 	</item>
-	<item item_url="/_Resources/images/汉高焦点图.jpg" link="http://www.no1child.com/henkel/" itemtitle="">
+	<item item_url="/_Resources/images/少儿模特大赛.jpg" link="http://no1child.goodbaby.com/" itemtitle="">
+	</item>
+	<item item_url="/_Resources/images/newave3.gif" link="http://www2.no1child.com/expo/newave" itemtitle="">
+	</item>	
+	<item item_url="/_Resources/images/disney2.jpg" link="http://www.no1child.com/disney/" itemtitle="">
 	</item>
 </bcaster>
