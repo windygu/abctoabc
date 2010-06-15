@@ -18,12 +18,12 @@ namespace YouTong.WebSite.Blogs
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			this.UserID = RequestObject.ToGuid("userid");
+            this.UserID = RequestObject.ToGuid("userid");
 
-			this.Articles = xCmsFactory.ArticleService.GetArticles(UtConfig.BlogChannelID, true, this.UserID, 1, 100);
-			this.Repeater1.DataSource = this.Articles;
+            this.Articles = xCmsFactory.ArticleService.GetArticles(UtConfig.BlogChannelID, true, this.UserID, 1, 100);
+            this.rp_Blogs.DataSource = this.Articles;
 
-			this.DataBind();
+            this.DataBind();
 		}
 	}
 }

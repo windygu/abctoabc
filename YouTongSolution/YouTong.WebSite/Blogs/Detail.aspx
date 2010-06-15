@@ -28,12 +28,12 @@
 					<div class="zuopinzhanshi">
 						<div class="block1">
 							<a href="#" class="title">博文阅读</a>
-							<div class="zhanshiwenzi">
+							<%--<div class="zhanshiwenzi">
 								<div class="chakanbtn">
 									<a href="#" title="加入收藏">
 										<img src="../images/jiarusc_btn.gif" width="63" height="19" border="0" alt="加入收藏" /></a>
 								</div>
-							</div>
+							</div>--%>
 							<div class="clear">
 							</div>
 						</div>
@@ -42,8 +42,8 @@
 								<h3>
 									<%= Blog.Title %></h3>
 								<h4>
-									<%= Blog.AddTime.ToString("yyyy-MM-dd") %><a href="#">浏览（4）</a>
-									<a href="#">收藏（3）</a></h4>
+									<%= Blog.AddTime.ToString("yyyy-MM-dd") %><%--<a href="#">浏览（4）</a>
+									<a href="#">收藏（3）</a>--%></h4>
 								<%= Blog.Body %>
 							</div>
 						</div>

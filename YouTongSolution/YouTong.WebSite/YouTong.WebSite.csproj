@@ -428,6 +428,20 @@
     <Compile Include="Activities\Join.aspx.designer.cs">
       <DependentUpon>Join.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Blogs\Blog-Update.aspx.cs">
+      <DependentUpon>Blog-Update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Blogs\Blog-Update.aspx.designer.cs">
+      <DependentUpon>Blog-Update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Blogs\Blog-Write.aspx.cs">
+      <DependentUpon>Blog-Write.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Blogs\Blog-Write.aspx.designer.cs">
+      <DependentUpon>Blog-Write.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Blogs\Detail.aspx.cs">
       <DependentUpon>Detail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -856,6 +870,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Activities\Disney\images\images\vssver2.scc" />
+    <Content Include="Blogs\Blog-Update.aspx" />
+    <Content Include="Blogs\Blog-Write.aspx" />
     <Content Include="Childs\ChildInfo.aspx" />
     <Content Include="Childs\FamilyMedia-List.aspx" />
     <Content Include="Childs\FamilyMedia-Catagory.aspx" />

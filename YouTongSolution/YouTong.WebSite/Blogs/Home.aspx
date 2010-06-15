@@ -2,16 +2,19 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>个人主页|优童|越秀越优秀|中国儿童优秀展示平台</title>
+	<title>优童首页|越秀越优秀|中国儿童优秀展示平台</title>
 	<meta name="keywords" content="www.no1child.com, 优童，越秀越优秀，中国儿童优秀展示平台" />
 	<meta name="description" content="www.no1child.com, 优童，越秀越优秀，中国儿童优秀展示平台" />
 	<link href="../css/content.css" type="text/css" rel="stylesheet" />
-	<link href="../css/default.css" type="text/css" rel="stylesheet" />
+	<link href="../css/register.css" type="text/css" rel="stylesheet" />
 	<script src="../js/jquery-1.4.1.min.js" type="text/javascript"></script>
+	<script src="../js/jquery.form-2.24.js" type="text/javascript"></script>
+	<script src="../js/jquery.validate-1.5.2.min.js" type="text/javascript"></script>
+	<script src="../_Resources/ckeditor/ckeditor_basic.js" type="text/javascript"></script>
 	<script type="text/javascript">
-		var CMenu = "show";
+		var CMenu = "child";
 	</script>
 </head>
 <body>
@@ -19,77 +22,58 @@
 	<div id="container">
 		<ut:WebHeader ID="WebHeader" runat="server" />
 		<div class="content">
-			<div class="erjinav">
-				当前位置：<a href="/">首页</a>&gt;&gt;<a href="#">博客</a>
-			</div>
-			<div class="main">
-				<div class="leftblock">
-					<div class="zuopinzhanshi">
-						<div class="block1">
-							<a href="#" class="title">博文展示</a>
-							<div class="clear">
-							</div>
-						</div>
-						<div class="block2 datuzhanshi">
-							<div class="fenye">
-								<%--								
-								<a class="choose" title="[1]" href="#">[1]</a><a title="[2]" href="#">[2]</a><a title="[3]" href="#">[3]</a><a title="[4]" href="#">[4]</a><a title="[5]" href="#">[5]</a><a title="[6]" href="#">[6]</a><a title="[7]" href="#">[7]</a><a title="[8]" href="#">[8]</a><a title="[9]" href="#">[9]</a>
-								--%>
-							</div>
-							<div class="clear">
-							</div>
-							<div class="zixunxinxi">
-								<asp:Repeater ID="Repeater1" runat="server">
-									<HeaderTemplate>
-										<ul>
-									</HeaderTemplate>
-									<ItemTemplate>
-										<li>
-											<a href="Detail.aspx?id=<%#Eval("ID") %>" class="choose"><span>
-												<%# Eval("Title") %></span><em>
-													<%# Eval("AddTime") %></em></a><div class="clear">
-													</div>
-									</ItemTemplate>
-									<FooterTemplate>
-										</ul>
-									</FooterTemplate>
-								</asp:Repeater>
-							</div>
-							<div class="fenye">
-								<a class="choose" title="[1]" href="#">[1]</a><a title="[2]" href="#">[2]</a><a title="[3]" href="#">[3]</a><a title="[4]" href="#">[4]</a><a title="[5]" href="#">[5]</a><a title="[6]" href="#">[6]</a><a title="[7]" href="#">[7]</a><a title="[8]" href="#">[8]</a><a title="[9]" href="#">[9]</a>
-							</div>
-							<div class="clear">
-							</div>
-						</div>
-						<div class="block3">
-						</div>
+			<div class="register">
+				<div class="information_right" style="padding:0px 0px 0px 20px;width:100%;">
+					<div class="xxtitle">
+						当前位置：<a href="/">优童首页</a>&gt;&gt;
+						<a href="Index.aspx">管理中心</a>&gt;&gt;
+						<a href="Blog-List.aspx" class="choose">博客列表</a>
 					</div>
-				</div>
-				<div class="rightblock">
-					<div class="redianxinxi">
-						<div class="duanblock1">
-							<div class="kong">
-								<a class="title" href="#">热点信息</a>
-								<a href="#" class="more">&gt;&gt;更多</a>
-							</div>
-						</div>
-						<div class="duanblock2">
-							<ul class="zuixin">
-								<li>
-									<a href="#">优童最新动态优童最新动态优童优童最新动态</a></li>
-								<li>
-									<a href="#">优童最新动态优童最新动态优童优童最新动态</a></li>
-								<li>
-									<a href="#">优童最新动态优童最新动态优童优童最新动态</a></li>
-								<li>
-									<a href="#">优童最新动态优童最新动态优童优童最新动态</a></li>
-								<li>
-									<a href="#">优童最新动态优童最新动态优童优童最新动态</a></li>
-							</ul>
-						</div>
-						<div class="duanblock3">
-						</div>
+					<div class="gerenxin" style="width:100%;background:#549DBF none repeat-y scroll 0 0;">
+						<ul>
+							<li>
+								<a href="#" class="choose"><span class="choose">我的博文</span></a></li>
+							<li>
+								<a href="Blog-Write.aspx" class="choose"><span class="choose">发表博文</span></a></li>
+						</ul>
 					</div>
+					<table cellpadding="0" cellspacing="0" width="100%" border="0" class="zhanneixin" style="width:100%;">
+						<thead>
+						<%if (!IsAnonymous && User.ID == UserID)
+        {%>
+							<td>
+								&nbsp&nbsp操作
+							</td><%} %>
+							<td>
+								标题
+							</td>
+							<td>
+								时间
+							</td>
+						</thead>
+						<tr style="height: 5px;">
+							<td colspan="4" style="padding: 1px 0;">
+							</td>
+						</tr>
+						<asp:Repeater ID="rp_Blogs" runat="server">
+							<ItemTemplate>
+								<tr class="color">
+								<%if (!IsAnonymous && User.ID == UserID)
+          {%>
+									<td>
+										&nbsp&nbsp<a href="Blog-Update.aspx?id=<%# Eval("ID") %>" target="_blank">[修改]</a>
+										&nbsp&nbsp<a href="javascript:void(0);" onclick="">[删除]</a>
+									</td><%} %>
+									<td>
+										<a target="_blank" href="Detail.aspx?id=<%# Eval("ID") %>"><%# Eval("Title") %></a>
+									</td>
+									<td>
+										<%# Eval("AddTime") %>
+									</td>
+								</tr>
+							</ItemTemplate>
+						</asp:Repeater>
+					</table>
 				</div>
 				<div class="clear">
 				</div>

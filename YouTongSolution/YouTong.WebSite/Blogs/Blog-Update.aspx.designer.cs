@@ -8,19 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace YouTong.WebSite.Blogs {
+namespace YouTong.WebSite.Blogs
+{
     
     
-    public partial class Home {
-        
-        /// <summary>
-        /// Head1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
+    public partial class Blog_Update {
         
         /// <summary>
         /// form1 控件。
@@ -41,13 +33,31 @@ namespace YouTong.WebSite.Blogs {
         protected global::YouTong.WebSite.Includes.WebHeader WebHeader;
         
         /// <summary>
-        /// rp_Blogs 控件。
+        /// Blog_Title 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rp_Blogs;
+        protected global::System.Web.UI.WebControls.TextBox Blog_Title;
+        
+        /// <summary>
+        /// Blog_Body 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Blog_Body;
+        
+        /// <summary>
+        /// BtnOK 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnOK;
         
         /// <summary>
         /// WebFooter 控件。
