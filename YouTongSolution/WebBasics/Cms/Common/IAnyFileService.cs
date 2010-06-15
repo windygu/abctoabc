@@ -83,6 +83,8 @@ namespace WebBasics.Cms.Common
 		/// <returns>返回文件实体列表</returns>
 		IList<AnyFile> GetAnyFiles(Guid channelId, bool recursive, int pageIndex, int pageSize);
 
+        IList<AnyFile> GetAnyFiles(Guid channelId, string text, int pageIndex, int pageSize, out int rowTotal);
+
 		/// <summary>
 		/// 获取文件列表
 		/// </summary>
