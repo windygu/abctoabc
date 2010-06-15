@@ -8,6 +8,7 @@ using Itfort.Web;
 using WebBasics.Cms.Model;
 using YouTong.Model;
 using YouTong.WebSite.Codes;
+using MySoft.Data;
 
 namespace YouTong.WebSite.Childs
 {
@@ -60,15 +61,18 @@ namespace YouTong.WebSite.Childs
         void ShowComment()
         {
             #region 评论
-            HtmlPager.GetPagerParmsFromRequest(out PageIndex, out PageSize, 10);
             IList<Comment> commentList = CommentService.Instance.GetComments(Codes.EntityName.WorkCommentEntity, WorksID, PageIndex, PageSize);
             int rowCount = CommentService.Instance.GetCommentCount(Codes.EntityName.WorkCommentEntity, WorksID);
             this.rp_Comments.DataSource = commentList;
             this.rp_Comments.DataBind();
 
-            var baseUrl = "ChildDefault.aspx?id=" + WorksID + "&Page=($ID)&Size=" + PageSize;
-            HtmlPager hp = new HtmlPager(baseUrl, PageIndex, rowCount, PageSize);
-            this.lt_Page.Text = hp.GetHtml(rowCount, PageSize);
+            IDataPage page = new DataPage(PageSize);
+            page.CurrentPageIndex = PageIndex;
+            page.RowCount = rowCount;
+            MySoft.Data.HtmlPager hPager = new MySoft.Data.HtmlPager(page,
+                string.Format("Works-Detail.aspx?id={0}&pIndex=$Page", WorksID));
+            hPager.Style = HtmlPagerStyle.Custom;
+            this.lt_Page.Text = hPager.ToString();
             #endregion
         }
     }

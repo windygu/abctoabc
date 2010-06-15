@@ -32,6 +32,33 @@ namespace YouTong.WebSite.Blogs {
         protected global::YouTong.WebSite.Includes.WebHeader WebHeader;
         
         /// <summary>
+        /// rp_Comments 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rp_Comments;
+        
+        /// <summary>
+        /// lt_Page 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal lt_Page;
+        
+        /// <summary>
+        /// imgComment 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton imgComment;
+        
+        /// <summary>
         /// WebFooter 控件。
         /// </summary>
         /// <remarks>

@@ -506,6 +506,9 @@
       <DependentUpon>FamilyMedia.aspx</DependentUpon>
     </Compile>
     <Compile Include="Codes\EntityName.cs" />
+    <Compile Include="Codes\PagingBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Grow\Grow.aspx.cs">
       <DependentUpon>Grow.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

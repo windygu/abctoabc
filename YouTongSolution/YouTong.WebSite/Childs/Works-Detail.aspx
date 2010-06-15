@@ -28,7 +28,7 @@
 					<div class="zuopinzhanshi">
 						<div class="block1">
 							<a href="#" class="title">作品展示</a>
-							<div class="zhanshiwenzi">
+							<%--<div class="zhanshiwenzi">
 								<p>
 									<%= Works.Title %></p>
 								<div class="chakanbtn">
@@ -37,7 +37,7 @@
 									<a href="#" title="加入收藏">
 										<img src="../images/jiarusc_btn.gif" width="63" height="19" border="0" alt="加入收藏" /></a>
 								</div>
-							</div>
+							</div>--%>
 							<div class="clear">
 							</div>
 						</div>
@@ -67,7 +67,7 @@
 								<div class="clear">
 								</div>
 							</div>
-							<div class="zhanshiyingxiang">
+							<%--<div class="zhanshiyingxiang">
 								<a href="#" class="leftimages">
 									<img src="../images/leftimages.gif" width="14" height="77" border="0" /></a>
 								<ul>
@@ -88,7 +88,7 @@
 									<img src="../images/rightimages.gif" width="14" height="77" border="0" /></a>
 								<div class="clear">
 								</div>
-							</div>
+							</div>--%>
 						</div>
 						<div class="block3">
 						</div>
@@ -104,7 +104,6 @@
                                 <ItemTemplate>
                                 <div class="dpneirong newpl">
 								    <div class="plneirong changdu">
-									    <img width="60" height="60" border="none" src="" class="toux0">
 									    <div class="textkp zhanshitext">
 										    <p><span class="people">[<%#Convert.ToDateTime(Eval("AddTime")).ToString("yyyy-MM-dd HH:mm:ss")%>]</span><span><em><%#WebBasics.Member.Common.MemberFactory.Instance.UserService.GetUser(new Guid(Eval("Reviewer").ToString())).Name%></em>说：</span> </p>
 										    <p class="jieshaowenzi"><%#Eval("Title") %></p>
@@ -153,7 +152,7 @@
 								<div class="clear">
 								</div>
 							</div>
-							<h3>
+							<%--<h3>
 								影像信息</h3>
 							<div class="thing">
 								<p>
@@ -166,12 +165,12 @@
 									收藏：<span class="shuzi">8</span></p>
 								<p>
 									介绍：<span>我们一家人周末去踏青郊游，大家围在 一起烧烤中...<a href="#">[全部]</a></span></p>
-							</div>
+							</div>--%>
 						</div>
 						<dl>
 							<img src="../images/di_27.gif"></dl>
 					</div>
-					<div class="douxiucang">
+					<%--<div class="douxiucang">
 						<div class="zhuanjiablock1">
 							<div class="kong">
 								<a href="#" class="title">其他影像集</a>
@@ -202,7 +201,7 @@
 						</div>
 						<div class="zhuanjiablock3">
 						</div>
-					</div>
+					</div>--%>
 				</div>
 				<div class="clear">
 				</div>

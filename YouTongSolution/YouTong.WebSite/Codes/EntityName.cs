@@ -19,5 +19,7 @@ namespace YouTong.WebSite.Codes
         public const string MediaCommentEntity = "亲子影像";
 
         public const string ChildCommentEntity = "优童";
+
+        public const string BlogCommentEntity = "博客";
     }
 }

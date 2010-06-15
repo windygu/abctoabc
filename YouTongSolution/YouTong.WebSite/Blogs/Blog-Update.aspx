@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Blog-Update.aspx.cs" Inherits="YouTong.WebSite.Member.Blog_Update" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Blog-Update.aspx.cs" Inherits="YouTong.WebSite.Blogs.Blog_Update" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

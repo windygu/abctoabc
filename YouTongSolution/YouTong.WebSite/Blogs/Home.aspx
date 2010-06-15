@@ -15,6 +15,21 @@
 	<script src="../_Resources/ckeditor/ckeditor_basic.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		var CMenu = "child";
+		//删除相册
+        function DeltetBlogs(userid,id){
+            if(confirm("是否删除博客")){
+                jQuery.ajax({
+                    url : "/_Handlers/Blog.ashx?action=delete&userid=" + userid + "&Id=" + id,
+                    async : false,
+                    success : function(){
+                        window.location.reload();
+                    },
+                    fail : function(){
+                        alert("删除博客出错!");
+                    }
+                });
+            }
+        }
 	</script>
 </head>
 <body>
@@ -26,15 +41,17 @@
 				<div class="information_right" style="padding:0px 0px 0px 20px;width:100%;">
 					<div class="xxtitle">
 						当前位置：<a href="/">优童首页</a>&gt;&gt;
-						<a href="Index.aspx">管理中心</a>&gt;&gt;
+						<a href="/Grow/Grow.aspx">管理中心</a>&gt;&gt;
 						<a href="Blog-List.aspx" class="choose">博客列表</a>
 					</div>
 					<div class="gerenxin" style="width:100%;background:#549DBF none repeat-y scroll 0 0;">
 						<ul>
 							<li>
 								<a href="#" class="choose"><span class="choose">我的博文</span></a></li>
+								<%if (!IsAnonymous && User.ID == UserID)
+          {%>
 							<li>
-								<a href="Blog-Write.aspx" class="choose"><span class="choose">发表博文</span></a></li>
+								<a href="Blog-Write.aspx" target="_blank" class="choose"><span class="choose">发表博文</span></a></li><%} %>
 						</ul>
 					</div>
 					<table cellpadding="0" cellspacing="0" width="100%" border="0" class="zhanneixin" style="width:100%;">
@@ -62,7 +79,7 @@
           {%>
 									<td>
 										&nbsp&nbsp<a href="Blog-Update.aspx?id=<%# Eval("ID") %>" target="_blank">[修改]</a>
-										&nbsp&nbsp<a href="javascript:void(0);" onclick="">[删除]</a>
+										&nbsp&nbsp<a href="javascript:void(0);" onclick="DeltetBlogs('<%=UserID %>','<%# Eval("ID") %>');">[删除]</a>
 									</td><%} %>
 									<td>
 										<a target="_blank" href="Detail.aspx?id=<%# Eval("ID") %>"><%# Eval("Title") %></a>
@@ -74,6 +91,9 @@
 							</ItemTemplate>
 						</asp:Repeater>
 					</table>
+					<div class="fenye">
+                        <asp:Literal ID="lt_Page" runat="server"></asp:Literal>
+					</div>
 				</div>
 				<div class="clear">
 				</div>

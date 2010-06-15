@@ -63,8 +63,8 @@
         <div class="blog">
         	<div class="displayornot">
                 <div class="transparent"></div>
-                <a class="transparentcontent" href="/Member/Blog-Write.aspx">
-                	<table><tr><td><a href="/Member/Blog-Write.aspx">
+                <a class="transparentcontent" href="/Blogs/Home.aspx?userid=<%=UserID %>">
+                	<table><tr><td><a href="/Blogs/Home.aspx?userid=<%=UserID %>">
                 	<%if(this.FirstChild == null){ %>我的博客<%}else{ %><%=this.FirstChild.Name%>的博客<%} %></a></td></tr></table>
                 </a>
 			</div>

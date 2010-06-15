@@ -231,7 +231,6 @@
                                 <ItemTemplate>
                                 <div class="dpneirong newpl">
 								    <div class="plneirong changdu">
-									    <img width="60" height="60" border="none" src="" class="toux0">
 									    <div class="textkp zhanshitext">
 										    <p><span class="people">[<%#Convert.ToDateTime(Eval("AddTime")).ToString("yyyy-MM-dd HH:mm:ss")%>]</span><span><em><%#WebBasics.Member.Common.MemberFactory.Instance.UserService.GetUser(new Guid(Eval("Reviewer").ToString())).Name%></em>说：</span> </p>
 										    <p class="jieshaowenzi"><%#Eval("Title") %></p>
