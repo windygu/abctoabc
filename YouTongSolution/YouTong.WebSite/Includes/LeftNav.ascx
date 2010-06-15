@@ -11,12 +11,12 @@
 					<a href="Index.aspx"><span>个人中心</span></a></li>
 				<li>
 					<a href="ModifyPassword.aspx"><span>密码管理</span></a></li>
-				<li>
+				<%--<li>
 					<a href="Blog-List.aspx"><span>我的博文</span></a></li>
 				<li>
 					<a href="FamilyMedia-List.aspx"><span>亲子影像</span></a></li>
 				<li>
-					<a href="Works-List.aspx"><span>优童作品</span></a></li>
+					<a href="Works-List.aspx"><span>优童作品</span></a></li>--%>
 			</ul>
 		</div>
 		<div class="information03">

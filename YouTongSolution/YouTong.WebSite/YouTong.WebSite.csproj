@@ -505,6 +505,13 @@
     <Compile Include="Childs\FamilyMedia.aspx.designer.cs">
       <DependentUpon>FamilyMedia.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Childs\Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Childs\Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Codes\EntityName.cs" />
     <Compile Include="Codes\PagingBase.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -806,6 +813,13 @@
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Shops\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -878,6 +892,7 @@
     <Content Include="Childs\ChildInfo.aspx" />
     <Content Include="Childs\FamilyMedia-List.aspx" />
     <Content Include="Childs\FamilyMedia-Catagory.aspx" />
+    <Content Include="Childs\Search.aspx" />
     <Content Include="Grow\Grow.aspx" />
     <Content Include="DNT.config" />
     <Content Include="config\aggregation.config" />
@@ -969,6 +984,7 @@
     <Content Include="Member\ChildInfo-Face.aspx" />
     <Content Include="Member\Info-Face.aspx" />
     <Content Include="Member\Register-Completed.aspx" />
+    <Content Include="Search.aspx" />
     <Content Include="_Handlers\ValidateUnique.ashx" />
     <Content Include="_Handlers\GetSchools.ashx" />
     <Content Include="_Handlers\CmsAnyFile-Upload.ashx" />

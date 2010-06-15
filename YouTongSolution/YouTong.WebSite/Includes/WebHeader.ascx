@@ -44,22 +44,28 @@
 				
 		</ul>
 		<div class="seach">
-			<input type="text" class="input01" name="search_text" id="discover_text" value="从你感兴趣的东西开始" title="从你感兴趣的东西开始">
-			<select class="select01">
-				<option selected="" value="">请选择</option>
-				<option selected="" value="">作品名称</option>
-				<option selected="" value="">作者</option>
-				<option selected="" value="">学校</option>
+			<input type="text" class="input01" name="search_text" id="search_text" value="从你感兴趣的东西开始" title="从你感兴趣的东西开始">
+			<select class="select01" id="se_Type">
+				<option value="6901709d-63c5-b429-0253-241d6d45a036">才艺作品</option>
+				<option value="6901709d-9c94-6408-1bd6-151fb2409103">亲子影像</option>
 			</select>
-			<%--<input type="submit" class="button01" value="搜索">--%>
+			<input type="button" class="button01" value="搜索" style="height:24px;" onclick="ShowSearchPage();">
 		</div>
 	</div>
 </div>
 <script type="text/javascript">
-
 	$(".navgation li a").removeClass("choose");
 	if (CMenu) {
 		$("#" + CMenu + " a").addClass("choose");
 	}
-
+	function ShowSearchPage(){
+	    var dom = document.getElementById("se_Type");
+	    var type = dom.options[dom.selectedIndex].value;
+	    var text = document.getElementById("search_text").value;
+	    var pathname = location.pathname
+	    if(pathname =="/Search.aspx")
+	        location.href = "/Search.aspx?text=" + escape(text) + "&type=" + type;
+	    else
+	        window.open("/Search.aspx?text=" + escape(text) + "&type=" + type);
+	}
 </script>
