@@ -37,14 +37,16 @@ namespace YouTong.WebSite.Blogs
             int rowCount = CommentService.Instance.GetCommentCount(Codes.EntityName.BlogCommentEntity, BlogID);
             this.rp_Comments.DataSource = commentList;
             this.rp_Comments.DataBind();
-
-            IDataPage page = new DataPage(PageSize);
-            page.CurrentPageIndex = PageIndex;
-            page.RowCount = rowCount;
-            MySoft.Data.HtmlPager hPager = new MySoft.Data.HtmlPager(page,
-                string.Format("Detail.aspx?id={0}&pIndex=$Page", BlogID));
-            hPager.Style = HtmlPagerStyle.Custom;
-            this.lt_Page.Text = hPager.ToString();
+            if (rowCount > 0)
+            {
+                IDataPage page = new DataPage(PageSize);
+                page.CurrentPageIndex = PageIndex;
+                page.RowCount = rowCount;
+                MySoft.Data.HtmlPager hPager = new MySoft.Data.HtmlPager(page,
+                    string.Format("Detail.aspx?id={0}&pIndex=$Page", BlogID));
+                hPager.Style = HtmlPagerStyle.Custom;
+                this.lt_Page.Text = hPager.ToString();
+            }
             #endregion
         }
 

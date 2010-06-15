@@ -18,7 +18,6 @@ namespace YouTong.WebSite.Childs
 		public Guid MediaID;
 		public AnyFile Media;
 		public Child Child;
-        public Int32 PageIndex, PageSize;
         public int CatagoryCount = 0;
         public string TypeName = string.Empty;
         public string CatagoryName = string.Empty;
@@ -59,14 +58,16 @@ namespace YouTong.WebSite.Childs
             int rowCount = CommentService.Instance.GetCommentCount(Codes.EntityName.MediaCommentEntity, MediaID);
             this.rp_Comments.DataSource = commentList;
             this.rp_Comments.DataBind();
-
-            IDataPage page = new DataPage(PageSize);
-            page.CurrentPageIndex = PageIndex;
-            page.RowCount = rowCount;
-            MySoft.Data.HtmlPager hPager = new MySoft.Data.HtmlPager(page,
-                string.Format("FamilyMedia-Detail.aspx?id={0}&pIndex=$Page", MediaID));
-            hPager.Style = HtmlPagerStyle.Custom;
-            this.lt_Page.Text = hPager.ToString();
+            if (rowCount > 0)
+            {
+                IDataPage page = new DataPage(PageSize);
+                page.CurrentPageIndex = PageIndex;
+                page.RowCount = rowCount;
+                MySoft.Data.HtmlPager hPager = new MySoft.Data.HtmlPager(page,
+                    string.Format("FamilyMedia-Detail.aspx?id={0}&pIndex=$Page", MediaID));
+                hPager.Style = HtmlPagerStyle.Custom;
+                this.lt_Page.Text = hPager.ToString();
+            }
             #endregion
         }
 

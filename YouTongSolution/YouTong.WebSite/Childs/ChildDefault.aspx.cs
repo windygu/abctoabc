@@ -78,14 +78,16 @@ namespace YouTong.WebSite.Childs
             int rowCount = CommentService.Instance.GetCommentCount(Codes.EntityName.ChildCommentEntity, this.Child.ID);
             this.rp_Comments.DataSource = commentList;
             this.rp_Comments.DataBind();
-
-            IDataPage page = new DataPage(PageSize);
-            page.CurrentPageIndex = PageIndex;
-            page.RowCount = rowCount;
-            MySoft.Data.HtmlPager hPager = new MySoft.Data.HtmlPager(page,
-                string.Format("ChildDefault-Detail.aspx?UserID={0}&pIndex=$Page", UserID));
-            hPager.Style = HtmlPagerStyle.Custom;
-            this.lt_Page.Text = hPager.ToString();
+            if (rowCount > 0)
+            {
+                IDataPage page = new DataPage(PageSize);
+                page.CurrentPageIndex = PageIndex;
+                page.RowCount = rowCount;
+                MySoft.Data.HtmlPager hPager = new MySoft.Data.HtmlPager(page,
+                    string.Format("ChildDefault-Detail.aspx?UserID={0}&pIndex=$Page", UserID));
+                hPager.Style = HtmlPagerStyle.Custom;
+                this.lt_Page.Text = hPager.ToString();
+            }
             #endregion
         }
     }

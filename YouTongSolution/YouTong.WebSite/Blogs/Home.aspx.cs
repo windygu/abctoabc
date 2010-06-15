@@ -25,14 +25,16 @@ namespace YouTong.WebSite.Blogs
             int rowCount = xCmsFactory.ArticleService.GetArticleCount(UtConfig.BlogChannelID, true, this.UserID);
             this.rp_Blogs.DataSource = this.Articles;
 
-
-            IDataPage page = new DataPage(PageSize);
-            page.CurrentPageIndex = PageIndex;
-            page.RowCount = rowCount;
-            MySoft.Data.HtmlPager hPager = new MySoft.Data.HtmlPager(page,
-                string.Format("Home.aspx?userid={0}&pIndex=$Page", UserID));
-            hPager.Style = HtmlPagerStyle.Custom;
-            this.lt_Page.Text = hPager.ToString();
+            if (rowCount > 0)
+            {
+                IDataPage page = new DataPage(PageSize);
+                page.CurrentPageIndex = PageIndex;
+                page.RowCount = rowCount;
+                MySoft.Data.HtmlPager hPager = new MySoft.Data.HtmlPager(page,
+                    string.Format("Home.aspx?userid={0}&pIndex=$Page", UserID));
+                hPager.Style = HtmlPagerStyle.Custom;
+                this.lt_Page.Text = hPager.ToString();
+            }
 
 
             this.DataBind();

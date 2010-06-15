@@ -34,7 +34,7 @@
 					</div>
 				</div>
 				<div class="longblock02">
-					<asp:Repeater ID="Repeater1" runat="server">
+					<asp:Repeater ID="rp_Search" runat="server">
 						<HeaderTemplate>
 							<div class="longblock02">
 								<div class="haveline">
@@ -50,11 +50,11 @@
 									<% } %>
 									<div class="zuopin">
 										<div class="listleft">
-											<a href="FamilyMedia-Detail.aspx?id=<%# Eval("ID") %>" class="zuopinbg">
+											<a href="/childs/FamilyMedia-Detail.aspx?id=<%# Eval("ID") %>" class="zuopinbg" target="_blank">
 												<img width="100" height="75" border="0" src="<%# Eval("ThumbnailUrl") %>" alt=""></a>
 										</div>
 										<div class="zpxinxi">
-											<a href='Media-Detail.aspx?id=<%# Eval("ID") %>' class="zpmclan">
+											<a href='/childs/FamilyMedia-Detail.aspx?id=<%# Eval("ID") %>' class="zpmclan" target="_blank">
 												<%# Eval("Title") %></a>
 											<p class="renqisc0">
 												<span>人气：<em>131</em></span></p>
@@ -74,8 +74,8 @@
 						</FooterTemplate>
 					</asp:Repeater>
 					<div class="fenye">
-<%--						<a class="choose" title="[1]" href="#">[1]</a><a title="[2]" href="#">[2]</a><a title="[3]" href="#">[3]</a><a title="[4]" href="#">[4]</a><a title="[5]" href="#">[5]</a><a title="[6]" href="#">[6]</a><a title="[7]" href="#">[7]</a><a title="[8]" href="#">[8]</a><a title="[9]" href="#">[9]</a>
---%>					</div>
+                        <asp:Literal ID="lt_Page" runat="server"></asp:Literal>
+					</div>
 					<div class="clear">
 					</div>
 				</div>

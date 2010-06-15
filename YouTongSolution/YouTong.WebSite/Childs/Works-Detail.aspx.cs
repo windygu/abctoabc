@@ -12,12 +12,11 @@ using MySoft.Data;
 
 namespace YouTong.WebSite.Childs
 {
-    public partial class Works_Detail : PageBase
+    public partial class Works_Detail : PagingBase
     {
         public Guid WorksID;
         public AnyFile Works;
         public Child Child;
-        public Int32 PageIndex, PageSize;
         public int CatagoryCount = 0;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -66,13 +65,16 @@ namespace YouTong.WebSite.Childs
             this.rp_Comments.DataSource = commentList;
             this.rp_Comments.DataBind();
 
-            IDataPage page = new DataPage(PageSize);
-            page.CurrentPageIndex = PageIndex;
-            page.RowCount = rowCount;
-            MySoft.Data.HtmlPager hPager = new MySoft.Data.HtmlPager(page,
-                string.Format("Works-Detail.aspx?id={0}&pIndex=$Page", WorksID));
-            hPager.Style = HtmlPagerStyle.Custom;
-            this.lt_Page.Text = hPager.ToString();
+            if (rowCount > 0)
+            {
+                IDataPage page = new DataPage(PageSize);
+                page.CurrentPageIndex = PageIndex;
+                page.RowCount = rowCount;
+                MySoft.Data.HtmlPager hPager = new MySoft.Data.HtmlPager(page,
+                    string.Format("Works-Detail.aspx?id={0}&pIndex=$Page", WorksID));
+                hPager.Style = HtmlPagerStyle.Custom;
+                this.lt_Page.Text = hPager.ToString();
+            }
             #endregion
         }
     }
