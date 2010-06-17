@@ -515,7 +515,7 @@
 				var level = $(this).val();
 
 				$("#SchoolID").empty();
-
+				$("<option value='0'>请选择学校</option>").appendTo("#SchoolID");
 				$.getJSON("/_Handlers/GetSchools.ashx", { region: id, level: level },
 					function(data) {
 						for (var i = 0; i < data.length; i++) {
