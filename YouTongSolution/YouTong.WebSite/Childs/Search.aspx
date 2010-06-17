@@ -28,17 +28,20 @@
 				<div class="longblock01">
 					<a class="title" href="#">搜索列表</a>
 					<div style="float:right; margin:10px 30px 0px 0px;">
-					    <select id="City" name="City" class="select1">
-					    </select>
-					    <select id="Region" name="Region" class="select1">
-					    </select>
-					    <select id="Level" class="select1" name="Level">
-						    <option value="0">学校类型</option>
-						    <option value="1">幼儿园</option>
-						    <option value="2">小学</option>
-					    </select>
-					    <select id="SchoolID" name="SchoolID" class="select1">
-					    </select>
+					    <select id="City" name="City" class="xuanze">
+						<option value='0'>请选择城市</option>
+			            </select>
+			            <select id="Region" name="Region" class="xuanze">
+			            <option value='0'>请选择地区</option>
+			            </select>
+			            <select id="Level" class="xuanze" name="Level">
+				            <option value="0">学校类型</option>
+				            <option value="1">幼儿园</option>
+				            <option value="2">小学</option>
+			            </select>
+			            <select id="SchoolID" name="SchoolID" class="xuanze">
+			            <option value='0'>请选择学校</option>
+			            </select>
 					    <input type="button" value="搜索" class="button001" style="margin:4px 0 0 5px;height:22px;" onclick="SearchChild();" />
 					</div>
 					<div class="clear">
@@ -103,6 +106,7 @@
 <script type="text/javascript">
 		var roots = getRootAreas();
 		var len = roots.length;
+		$("#City").empty();
 		$("<option value='0'>请选择城市</option>").appendTo("#City");
 		    for (var i = 0; i < len; i++) {
 			    $("<option value='" + roots[i].ID + "'>" + roots[i].Name + "</option>").appendTo("#City");

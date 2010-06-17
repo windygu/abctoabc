@@ -66,7 +66,7 @@
 													<img src="<%# Eval("ThumbnailUrl") %>" width="80" height="60" border="0" alt="" /></a>
 												<a href="works-detail.aspx?id=<%# Eval("ID") %>" class="tuijianmc"><em>
 													<%= ++i %>.</em><span><%# Eval("Title") %></span></a>
-												<div class="xingji">
+												<%--<div class="xingji">
 													<a>
 														<img src="../images/huang_star.jpg" width="16" height="16" border="0" alt="" /></a>
 													<a>
@@ -77,7 +77,7 @@
 														<img src="../images/gray_star.jpg" width="16" height="16" border="0" alt="" /></a>
 													<a>
 														<img src="../images/gray_star.jpg" width="16" height="16" border="0" alt="" /></a>
-												</div>
+												</div>--%>
 												<div class="clear">
 												</div>
 											</li>
@@ -96,8 +96,10 @@
 							<a href="#" class="title">所有作品分类</a>
 							<div class="jiansuo" style="padding:10px 0 0 0;">
 								<select id="City" name="City" class="xuanze">
+								<option value='0'>请选择城市</option>
 					            </select>
 					            <select id="Region" name="Region" class="xuanze">
+					            <option value='0'>请选择地区</option>
 					            </select>
 					            <select id="Level" class="xuanze" name="Level">
 						            <option value="0">学校类型</option>
@@ -105,6 +107,7 @@
 						            <option value="2">小学</option>
 					            </select>
 					            <select id="SchoolID" name="SchoolID" class="xuanze">
+					            <option value='0'>请选择学校</option>
 					            </select>
 					            <input type="button" value="搜索" class="button001" style="width:30px;height:22px;" onclick="SearchChild();" />
 							</div>
@@ -132,16 +135,16 @@
 								<ul class="leibie">
 									<asp:Repeater ID="RepeaterWorks" runat="server">
 										<ItemTemplate>
-											<li style="height: 150px">
+											<li style="height: 100px">
 												<a class="zuopinbg" href="works-detail.aspx?id=<%# Eval("ID") %>">
 													<img width="100" height="75" border="0" alt="" src="<%# Eval("ThumbnailUrl") %>"></a>
 												<a href="works-detail.aspx?id=<%# Eval("ID") %>" class="fenleizp">
 													<div style="text-align: center">
 														<%# Itfort.Utils.CutRight((String)Eval("Title"), 16) %>
-														<br />
-														<em>(131)浏览</em></div>
+														<%--<br />
+														<em>(131)浏览</em>--%></div>
 												</a>
-												<div class="xingji">
+												<%--<div class="xingji">
 													<a>
 														<img src="../images/huang_star.jpg" width="16" height="16" border="0" alt="" /></a>
 													<a>
@@ -152,7 +155,7 @@
 														<img src="../images/gray_star.jpg" width="16" height="16" border="0" alt="" /></a>
 													<a>
 														<img src="../images/gray_star.jpg" width="16" height="16" border="0" alt="" /></a>
-												</div>
+												</div>--%>
 												<div class="clear">
 												</div>
 											</li>
@@ -236,9 +239,9 @@
 									<asp:Repeater ID="RepeaterTjChild" runat="server">
 										<ItemTemplate>
 											<li>
-												<a href="/childs/home.aspx?userid=<%# Eval("ParentID") %>" title=" " class="zuopinjibg">
+												<a target="_blank" href="/childs/ChildDefault.aspx?userid=<%# Eval("ParentID") %>" title=" " class="zuopinjibg">
 													<img src="<%# DataCache.GetHeadPicture((String)Eval("HeadPicture")) %>" width="80" height="60" border="0" alt="" /></a>
-												<a href="/childs/home.aspx?userid=<%# Eval("ParentID") %>" class="tuijianmc"><em>
+												<a target="_blank" href="/childs/ChildDefault.aspx?userid=<%# Eval("ParentID") %>" class="tuijianmc"><em>
 													<%= ++i %>.</em><span><%# Eval("Name") %></span></a>
 											</li>
 										</ItemTemplate>
@@ -301,7 +304,7 @@
 												<a class="zuopinbg" title=" " href="familymedia-detail.aspx?id=<%# Eval("ID") %>">
 													<img width="100" height="75" border="0" alt="" src="<%# Eval("ThumbnailUrl") %>"></a>
 												<a href="familymedia-detail.aspx?id=<%# Eval("ID") %>" class="fenleizp"><span>
-													<%# Eval("Title") %></span> <em>(131)关注</em></a>
+													<%# Eval("Title") %></span><%-- <em>(131)关注</em>--%></a>
 											</li>
 										</ItemTemplate>
 									</asp:Repeater>
@@ -389,7 +392,7 @@
 						<div class="pinkblock01">
 							<div class="kong">
 								<a class="title" href="#">作品榜</a>
-								<div class="tab cyshow">
+								<%--<div class="tab cyshow">
 									<ul class="nav">
 										<li>
 											<a href="#" class="choose"><span>评分</span></a></li>
@@ -398,7 +401,7 @@
 										<li>
 											<a href="#"><span>评论</span></a></li>
 									</ul>
-								</div>
+								</div>--%>
 								<div class="clear">
 								</div>
 							</div>
@@ -410,9 +413,9 @@
 									<ItemTemplate>
 										<div class="caiyi01 wutu">
 											<img src="../images/icon<%= (++i).ToString("D2") %>.gif" width="21" height="21" border="0" alt="1" class="paixu" />
-											<a href="works-detail.aspx?id=<%# Eval("ID") %>" class="mingc">
+											<a target="_blank" href="works-detail.aspx?id=<%# Eval("ID") %>" class="mingc">
 												<%# Eval("Title") %></a>
-											<div class="xingji cyxj">
+											<%--<div class="xingji cyxj">
 												<a>
 													<img width="16" height="16" border="0" alt="" src="../images/huang_star.jpg"></a>
 												<a>
@@ -425,7 +428,7 @@
 													<img width="16" height="16" border="0" alt="" src="../images/gray_star.jpg"></a>
 												<div class="clear">
 												</div>
-											</div>
+											</div>--%>
 											<div class="clear">
 											</div>
 										</div>
@@ -440,14 +443,14 @@
 						<div class="pinkblock01">
 							<div class="kong">
 								<a class="title" href="#">优童榜</a>
-								<div class="tab cyshow">
+								<%--<div class="tab cyshow">
 									<ul class="nav">
 										<li>
 											<a href="#" class="choose"><span>人气</span></a></li>
 										<li>
 											<a href="#"><span>活跃度</span></a></li>
 									</ul>
-								</div>
+								</div>--%>
 								<div class="clear">
 								</div>
 							</div>
@@ -459,10 +462,10 @@
 									<ItemTemplate>
 										<div class="caiyi01 wutu">
 											<img src="../images/icon<%= (++i).ToString("D2") %>.gif" width="21" height="21" border="0" alt="1" class="paixu" />
-											<a href="/childs/home.aspx?userid=<%# Eval("ParentID") %>" class="mingc">
+											<a target="_blank" href="/childs/ChildDefault.aspx?userid=<%# Eval("ParentID") %>" class="mingc">
 												<%# Eval("Name") %></a>
-											<p class="renqi">
-												人气<span></span></p>
+											<%--<p class="renqi">
+												人气<span></span></p>--%>
 											<div class="clear">
 											</div>
 										</div>
@@ -486,6 +489,7 @@
 <script type="text/javascript">
 		var roots = getRootAreas();
 		var len = roots.length;
+		$("#City").empty();
 		$("<option value='0'>请选择城市</option>").appendTo("#City");
 		for (var i = 0; i < len; i++) {
 			$("<option value='" + roots[i].ID + "'>" + roots[i].Name + "</option>").appendTo("#City");
