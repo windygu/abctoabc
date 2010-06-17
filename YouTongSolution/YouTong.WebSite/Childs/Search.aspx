@@ -10,12 +10,9 @@
 	<link href="../css/content.css" type="text/css" rel="stylesheet" />
 	<link href="../css/default.css" type="text/css" rel="stylesheet" />
 	<script src="../js/jquery-1.4.1.min.js" type="text/javascript"></script>
+	<script src="/Datas/AreaJson.aspx" type="text/javascript"></script>
 	<script type="text/javascript">
 		var CMenu = "show";
-
-		function switchTab(type) {
-			location = "FamilyMedia.aspx?type=" + type;
-		}
 	</script>
 </head>
 <body>
@@ -30,11 +27,25 @@
 			    
 				<div class="longblock01">
 					<a class="title" href="#">搜索列表</a>
+					<div style="float:right; margin:10px 30px 0px 0px;">
+					    <select id="City" name="City" class="select1">
+					    </select>
+					    <select id="Region" name="Region" class="select1">
+					    </select>
+					    <select id="Level" class="select1" name="Level">
+						    <option value="0">学校类型</option>
+						    <option value="1">幼儿园</option>
+						    <option value="2">小学</option>
+					    </select>
+					    <select id="SchoolID" name="SchoolID" class="select1">
+					    </select>
+					    <input type="button" value="搜索" class="button001" style="margin:4px 0 0 5px;height:22px;" onclick="SearchChild();" />
+					</div>
 					<div class="clear">
 					</div>
 				</div>
 				<div class="longblock02">
-					<asp:Repeater ID="Repeater1" runat="server">
+					<asp:Repeater ID="rp_Search" runat="server">
 						<HeaderTemplate>
 							<div class="longblock02">
 								<div class="haveline">
@@ -50,18 +61,18 @@
 									<% } %>
 									<div class="zuopin">
 										<div class="listleft">
-											<a href="FamilyMedia-Detail.aspx?id=<%# Eval("ID") %>" class="zuopinbg">
-												<img width="100" height="75" border="0" src="<%# Eval("ThumbnailUrl") %>" alt=""></a>
+											<a target="_blank" href="ChildDefault.aspx?userid=<%# Eval("ParentID") %>" class="zuopinbg">
+												<img width="100" height="75" border="0" src="<%# DataCache.GetHeadPicture(Eval("HeadPicture")) %>" alt=""></a>
 										</div>
 										<div class="zpxinxi">
-											<a href='Media-Detail.aspx?id=<%# Eval("ID") %>' class="zpmclan">
-												<%# Eval("Title") %></a>
-											<p class="renqisc0">
-												<span>人气：<em>131</em></span></p>
-											<p class="renqisc0">
-												<span>收藏：<em>13</em></span></p>
-											<p class="renqisc0">
-												<span>评论：<em>3</em></span></p>
+											<a target="_blank" href='ChildDefault.aspx?userid=<%# Eval("ParentID") %>' class="zpmclan">
+												<%# Eval("Name") %></a>
+											<p class="zpzz">年龄：<span><%#Eval("AGE") %></span>岁</p>
+											<p class="zpzz">
+													学校： <span><%#DataCache.GetSchoolNameByUserID(new Guid(Eval("ParentID").ToString()))%></span>
+											</p>
+											<p class="zpzz">
+													最新寄语<span><%#GetCommentCounts(Eval("ID"), YouTong.WebSite.Codes.EntityName.ChildCommentEntity)%></span>条</p>
 										</div>
 										<div class="clear">
 										</div>
@@ -74,8 +85,8 @@
 						</FooterTemplate>
 					</asp:Repeater>
 					<div class="fenye">
-<%--						<a class="choose" title="[1]" href="#">[1]</a><a title="[2]" href="#">[2]</a><a title="[3]" href="#">[3]</a><a title="[4]" href="#">[4]</a><a title="[5]" href="#">[5]</a><a title="[6]" href="#">[6]</a><a title="[7]" href="#">[7]</a><a title="[8]" href="#">[8]</a><a title="[9]" href="#">[9]</a>
---%>					</div>
+                        <asp:Literal ID="lt_Page" runat="server"></asp:Literal>
+					</div>
 					<div class="clear">
 					</div>
 				</div>
@@ -85,6 +96,76 @@
 		</div>
 		<ut:WebFooter ID="WebFooter" runat="server" />
 	</div>
+	<asp:Literal ID="ltr_JS" runat="server"></asp:Literal>
 	</form>
 </body>
 </html>
+<script type="text/javascript">
+		var roots = getRootAreas();
+		var len = roots.length;
+		$("<option value='0'>请选择城市</option>").appendTo("#City");
+		    for (var i = 0; i < len; i++) {
+			    $("<option value='" + roots[i].ID + "'>" + roots[i].Name + "</option>").appendTo("#City");
+			    if(roots[i].ID == city)
+			        cityIndex = i + 1;
+		    }
+		    document.getElementById("Level").selectedIndex = level;
+		    $("#City").change(
+			    function() {
+			        var citySelect = document.getElementById("City");
+				    var rootId = citySelect.options[citySelect.selectedIndex].value;
+				    var childs = getChildAreas(rootId);
+
+				    $("#Region").empty();
+
+				    $("<option value='0'>请选择地区</option>").appendTo("#Region");
+				    for (var j = 0; j < childs.length; j++) {
+					    $("<option value='" + childs[j].ID + "'>" + childs[j].Name + "</option>").appendTo("#Region");
+					    if(childs[j].ID == region)
+					        document.getElementById("Region").selectedIndex = j + 1; 
+				    }
+
+				    $("#Region").change();
+			    }
+		    );
+
+		    $("#Region").change(function() {
+		        $("#Level").change() }
+		    );
+
+		    $("#Level").change(
+			    function() {
+			        var regionSelect = document.getElementById("Region");
+				    var id = regionSelect.options[regionSelect.selectedIndex].value;
+				    var levelSelect = document.getElementById("Level");
+				    var _level = levelSelect.options[levelSelect.selectedIndex].value;
+				    
+				    $("#SchoolID").empty();
+				    $("<option value='0'>请选择学校</option>").appendTo("#SchoolID");
+				    $.getJSON("/_Handlers/GetSchools.ashx", { region: id, level: _level },
+					    function(data) {
+						    for (var z = 0; z < data.length; z++) {
+							    $("<option value='" + data[z].ID + "'>" + data[z].Name + "</option>").appendTo("#SchoolID");
+							    if(data[z].ID == school)
+							        document.getElementById("SchoolID").selectedIndex = z + 1;
+						    }
+					    }
+				     );
+			    }
+		    );
+            
+            document.getElementById("City").selectedIndex = cityIndex;
+
+		$("#City").change();
+		function SearchChild(){
+		    var citySelect = document.getElementById("City");
+			var city = citySelect.options[citySelect.selectedIndex].value;
+		    var regionSelect = document.getElementById("Region");
+			var region = regionSelect.options[regionSelect.selectedIndex].value;
+			var levelSelect = document.getElementById("Level");
+			var level = levelSelect.options[levelSelect.selectedIndex].value;
+			var schoolSelect = document.getElementById("SchoolID");
+			var school = schoolSelect.options[schoolSelect.selectedIndex].value;
+			location.href = "/childs/Search.aspx?City=" + city + "&Region=" + region + "&Level=" + level + "&SchoolID=" + school;
+		}
+</script>

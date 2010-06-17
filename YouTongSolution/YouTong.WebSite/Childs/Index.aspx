@@ -10,6 +10,7 @@
 	<link href="../css/content.css" type="text/css" rel="stylesheet" />
 	<link href="../css/default.css" type="text/css" rel="stylesheet" />
 	<script src="../js/jquery-1.4.1.min.js" type="text/javascript"></script>
+	<script src="../Datas/AreaJson.aspx" type="text/javascript"></script>
 	<script src="../js/common.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		var CMenu = "show";
@@ -93,24 +94,19 @@
 					<div class="allzuopin">
 						<div class="blockcy1">
 							<a href="#" class="title">所有作品分类</a>
-							<div class="jiansuo">
-								快速检索
-								<select class="xuanze" name="select">
-									<option>所有兴趣</option>
-									<option>所有兴趣</option>
-									<option>所有兴趣</option>
-								</select>
-								<select class="xuanze" name="select">
-									<option>所有年龄</option>
-									<option>所有年龄</option>
-									<option>所有年龄</option>
-								</select>
-								<select class="xuanze" name="select">
-									<option>所有学校地区</option>
-									<option>所有学校地区</option>
-									<option>所有学校地区</option>
-								</select>
-								<input type="submit" value="搜索" class="button01">
+							<div class="jiansuo" style="padding:10px 0 0 0;">
+								<select id="City" name="City" class="xuanze">
+					            </select>
+					            <select id="Region" name="Region" class="xuanze">
+					            </select>
+					            <select id="Level" class="xuanze" name="Level">
+						            <option value="0">学校类型</option>
+						            <option value="1">幼儿园</option>
+						            <option value="2">小学</option>
+					            </select>
+					            <select id="SchoolID" name="SchoolID" class="xuanze">
+					            </select>
+					            <input type="button" value="搜索" class="button001" style="width:30px;height:22px;" onclick="SearchChild();" />
 							</div>
 							<div class="tab wujuli">
 								<a style="cursor: pointer" id="left" class="zuosanjiao"></a>
@@ -487,3 +483,60 @@
 	</form>
 </body>
 </html>
+<script type="text/javascript">
+		var roots = getRootAreas();
+		var len = roots.length;
+		$("<option value='0'>请选择城市</option>").appendTo("#City");
+		for (var i = 0; i < len; i++) {
+			$("<option value='" + roots[i].ID + "'>" + roots[i].Name + "</option>").appendTo("#City");
+		}
+
+		$("#City").change(
+			function() {
+				var rootId = $(this).val();
+				var childs = getChildAreas(rootId);
+
+				$("#Region").empty();
+
+				$("<option value='0'>请选择地区</option>").appendTo("#Region");
+				for (var i = 0; i < childs.length; i++) {
+					$("<option value='" + childs[i].ID + "'>" + childs[i].Name + "</option>").appendTo("#Region");
+				}
+
+				$("#Region").change();
+			}
+		);
+
+		$("#Region").change(function() { $("#Level").change() });
+
+		$("#Level").change(
+			function() {
+				var id = $("#Region").val();
+				var level = $(this).val();
+
+				$("#SchoolID").empty();
+
+				$.getJSON("/_Handlers/GetSchools.ashx", { region: id, level: level },
+					function(data) {
+						for (var i = 0; i < data.length; i++) {
+							$("<option value='" + data[i].ID + "'>" + data[i].Name.replace("&nbsp","") + "</option>").appendTo("#SchoolID");
+						}
+					}
+				 );
+			}
+		);
+
+		$("#City").change();
+		
+		function SearchChild(){
+		    var citySelect = document.getElementById("City");
+			var city = citySelect.options[citySelect.selectedIndex].value;
+		    var regionSelect = document.getElementById("Region");
+			var region = regionSelect.options[regionSelect.selectedIndex].value;
+			var levelSelect = document.getElementById("Level");
+			var level = levelSelect.options[levelSelect.selectedIndex].value;
+			var schoolSelect = document.getElementById("SchoolID");
+			var school = schoolSelect.options[schoolSelect.selectedIndex].value;
+			window.open("/childs/Search.aspx?City=" + city + "&Region=" + region + "&Level=" + level + "&SchoolID=" + school);
+		}
+</script>
