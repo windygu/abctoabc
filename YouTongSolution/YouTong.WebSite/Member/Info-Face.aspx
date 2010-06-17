@@ -13,7 +13,7 @@
 	<script src="../js/jquery.form-2.24.js" type="text/javascript"></script>
 	<script src="../js/jquery.validate-1.5.2.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
-		var CMenu = "default";
+		var CMenu = "child";
 
 		$(function() {
 			var frm = $("#form1");
@@ -49,7 +49,8 @@
 				<div class="information_right">
 					<div class="xxtitle">
 						当前位置：<a href="/">优童首页</a>&gt;&gt;
-						<a href="Index.aspx">管理中心</a>
+						<a href="/Grow/Grow.aspx">管理中心</a>&gt;&gt;
+						<a class="choose">上传头像</a>
 					</div>
 					<div class="gerenxin">
 						<ul>

@@ -13,7 +13,7 @@
 	<script src="../js/jquery.form-2.24.js" type="text/javascript"></script>
 	<script src="../js/jquery.validate-1.5.2.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
-		var CMenu = "default";
+		var CMenu = "child";
 	</script>
 </head>
 <body>
@@ -26,8 +26,8 @@
 				<div class="information_right">
 					<div class="xxtitle">
 						当前位置：<a href="/">优童首页</a>&gt;&gt;
-						<a href="Index.aspx">管理中心</a>&gt;&gt;
-						<a href="FamilyMedia-List.aspx" class="choose">修改密码</a>
+						<a href="/Grow/Grow.aspx">管理中心</a>&gt;&gt;
+						<a href="" class="choose">修改密码</a>&gt;&gt;
 					</div>
 					<div class="xxmain">
 						<table class="eventmain" cellspacing="0" cellpadding="0" border="0" width="100%">

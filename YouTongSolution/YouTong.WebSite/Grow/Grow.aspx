@@ -78,6 +78,15 @@
                 </a>
 			</div>
         </div>
+        <div class="circle">
+        	<div class="displayornot">
+                <div class="transparent"></div>
+                <a class="transparentcontent" href="/member/index.aspx">
+                	<table><tr><td><a href="/member/index.aspx">
+                	<%if(this.FirstChild == null){ %>个人中心和密码管理<%}else{ %><%=this.FirstChild.Name%>的中心和密码管理<%} %></a></td></tr></table>
+                </a>
+            </div>
+        </div>
     </div>
     </div>
     </form>
