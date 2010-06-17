@@ -868,6 +868,9 @@
     <Compile Include="_Handlers\Login.ashx.cs">
       <DependentUpon>Login.ashx</DependentUpon>
     </Compile>
+    <Compile Include="_Handlers\Media_Works.ashx.cs">
+      <DependentUpon>Media_Works.ashx</DependentUpon>
+    </Compile>
     <Compile Include="_Handlers\Photo-Upload.ashx.cs">
       <DependentUpon>Photo-Upload.ashx</DependentUpon>
     </Compile>
@@ -993,6 +996,7 @@
     <Content Include="_Handlers\Blog.ashx" />
     <Content Include="_Handlers\Info.ashx" />
     <Content Include="_Handlers\GetMedias.ashx" />
+    <Content Include="_Handlers\Media_Works.ashx" />
     <None Include="_Resources\ckeditor\.htaccess" />
     <None Include="_Resources\ckeditor\ckeditor.pack" />
     <None Include="_Resources\ckeditor\ckeditor.php" />

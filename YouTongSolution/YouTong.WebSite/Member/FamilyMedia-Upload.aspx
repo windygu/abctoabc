@@ -108,8 +108,8 @@
 		<div class="content">
 			<div class="erjinav">
 				当前位置：<a href="/">优童首页</a>&gt;&gt;
-				<a href="Index.aspx">管理中心</a>&gt;&gt;
-				<a href="FamilyMedia-List.aspx" class="choose">影像列表</a>&gt;&gt;
+				<a href="/Grow/Grow.aspx">管理中心</a>&gt;&gt;
+				<a href="/childs/FamilyMedia-List.aspx?userid=<%=UserID %>&id=<%=CatagoryID %>">影像列表</a>&gt;&gt;
 				<a href="#" class="choose">上传影像</a>
 			</div>
 			<div class="jindu">

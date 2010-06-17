@@ -32,7 +32,7 @@
 					<div class="nianfen">
 					<h2>《<%=category.Name%>》</h2>
 					<%if (!IsAnonymous && User.ID == UserID)
-       {%><h3><a href="/Member/FamilyMedia-Upload.aspx?id=<%=ID %>" target="_blank">上传照片/视频</a></h3><%} %>
+       {%><h3><a href="/Member/FamilyMedia-Upload.aspx?id=<%=ID %>&cid=<%=ID %>" target="_blank">上传照片/视频</a></h3><%} %>
 					</div>
 					<%--<div class="tab tab00">
 						<ul class="nav">
@@ -54,11 +54,11 @@
 								<a href="FamilyMedia-Detail.aspx?id=<%#Eval("ID") %>" title=" " class="zpmclan"><%#Eval("Title")%></a>
 								<%if (!IsAnonymous && User.ID == UserID)
           {%>
-								<a href="/Member/FamilyMedia-Update.aspx?id=<%#Eval("ID") %>" style="display:inline;">[编辑]</a>
+								<a href="/Member/FamilyMedia-Update.aspx?id=<%#Eval("ID") %>&cid=<%=ID %>" style="display:inline;" target="_blank">[编辑]</a>
 								<a href="javascript:void(0);" onclick="DeleteAnyFile('<%=UserID %>','<%#Eval("ID") %>');" style="display:inline;">[删除]</a><%} %>
-								<p class="renqisc0"><span>人气：<em>131</em></span></p> 
+								<%--<p class="renqisc0"><span>人气：<em>131</em></span></p> 
 								<p class="renqisc0"><span>收藏：<em>13</em></span></p>
-								<p class="renqisc0"><span>评论：<em>3</em></span></p>
+								<p class="renqisc0"><span>评论：<em>3</em></span></p>--%>
 							</div>
 							<div class="clear"></div>
 						</div>

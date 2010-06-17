@@ -15,22 +15,22 @@ using YouTong.WebSite.Codes;
 using YouTong.Model;
 using System.Collections.Generic;
 using WebBasics.Cms.Model;
+using MySoft.Data;
 
 namespace YouTong.WebSite.Childs
 {
-    public partial class FamilMedia_List : PageBase
+    public partial class FamilMedia_List : PagingBase
     {
         public Guid UserID;
         public Guid ID;
         public WebBasics.Member.Model.User userB;
-        public Int32 PageIndex, PageSize;
+        public new Int32 PageSize = 30;
         public Category category;
         public int MediaType;
         protected void Page_Load(object sender, EventArgs e)
         {
             UserID = RequestObject.ToGuid("userid");
             ID = RequestObject.ToGuid("id");
-            HtmlPager.GetPagerParmsFromRequest(out PageIndex, out PageSize, 20);
 
             userB = WebBasics.Member.Common.MemberFactory.Instance.UserService.GetUser(UserID);
             category = CategoryService.Instance.GetCategory(ID);
@@ -45,15 +45,17 @@ namespace YouTong.WebSite.Childs
             if (guidList.Count > 0)
             {
                 IList<AnyFile> anyfileList = xCmsFactory.AnyFileService.GetAnyFiles(guidList.ToArray());
-
-                //IList<AnyFile> anyfileList = xCmsFactory.AnyFileService.GetAnyFiles(ID, true, this.UserID, MediaType, PageIndex, PageSize);
-                //int rowCount = xCmsFactory.AnyFileService.GetAnyFileCount(ID, true, this.UserID, MediaType, null);
                 this.rp_AnyFiles.DataSource = anyfileList;
                 this.rp_AnyFiles.DataBind();
 
-                var baseUrl = "FamilyMedia-List.aspx?UserID=" + UserID + "&id" + ID + "&Page=($ID)&Size=" + PageSize;
-                HtmlPager hp = new HtmlPager(baseUrl, PageIndex, rowCount, PageSize);
-                this.lt_Page.Text = hp.GetHtml(rowCount, PageSize);
+
+                IDataPage page = new DataPage(PageSize);
+                page.CurrentPageIndex = PageIndex;
+                page.RowCount = rowCount;
+                MySoft.Data.HtmlPager hPager = new MySoft.Data.HtmlPager(page,
+                    string.Format("FamilyMedia-List.aspx?userid={0}&id={1}&pIndex=$Page", UserID, ID));
+                hPager.Style = HtmlPagerStyle.Custom;
+                this.lt_Page.Text = hPager.ToString();
             }
             #endregion
         }

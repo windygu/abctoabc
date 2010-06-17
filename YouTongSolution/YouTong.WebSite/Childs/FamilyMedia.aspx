@@ -13,8 +13,8 @@
 	<script type="text/javascript">
 		var CMenu = "show";
 
-		function switchTab(type) {
-			location = "FamilyMedia.aspx?userid=<%=UserID%>&type=" + type;
+		function switchTab(type,cat) {
+			location = "FamilyMedia.aspx?userid=<%=UserID%>&type=" + type+"&cat="+cat;
 		}
 	</script>
 </head>
@@ -36,8 +36,8 @@
 					</div>
 					<div class="tab tab00">
 						<ul class="nav">
-							<li><a class='<%=(MediaType==1?"choose":"")%>' href="javascript:switchTab(1)"><span>照片</span></a></li>
-							<li><a class='<%=(MediaType==2?"choose":"")%>' href="javascript:switchTab(2)"><span>视频</span></a></li>
+							<li><a class='<%=(MediaType==1?"choose":"")%>' href="javascript:switchTab(1,'<%=CategoryID %>')"><span>照片</span></a></li>
+							<li><a class='<%=(MediaType==2?"choose":"")%>' href="javascript:switchTab(2,'<%=CategoryID %>')"><span>视频</span></a></li>
 						</ul>
 					</div>
 					<div class="clear">
@@ -64,7 +64,7 @@
 												<img width="100" height="75" border="0" src="<%# Eval("ThumbnailUrl") %>" alt=""></a>
 										</div>
 										<div class="zpxinxi">
-											<a href='Media-Detail.aspx?id=<%# Eval("ID") %>' class="zpmclan">
+											<a href='FamilyMedia-Detail.aspx?id=<%# Eval("ID") %>' class="zpmclan">
 												<%# Eval("Title") %></a>
 											<p class="renqisc0">
 												<span>人气：<em>131</em></span></p>
@@ -84,8 +84,8 @@
 						</FooterTemplate>
 					</asp:Repeater>
 					<div class="fenye">
-<%--						<a class="choose" title="[1]" href="#">[1]</a><a title="[2]" href="#">[2]</a><a title="[3]" href="#">[3]</a><a title="[4]" href="#">[4]</a><a title="[5]" href="#">[5]</a><a title="[6]" href="#">[6]</a><a title="[7]" href="#">[7]</a><a title="[8]" href="#">[8]</a><a title="[9]" href="#">[9]</a>
---%>					</div>
+                        <asp:Literal ID="lt_Page" runat="server"></asp:Literal>
+					</div>
 					<div class="clear">
 					</div>
 				</div>

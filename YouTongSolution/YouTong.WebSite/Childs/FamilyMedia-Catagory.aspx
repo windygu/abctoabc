@@ -39,7 +39,7 @@
 						    <div class="xiangce_mk">
 								<a  href="FamilyMedia-List.aspx?userid=<%=UserID %>&id=<%#Eval("ID") %>" class="tuxiangkuang"><img src="/images/ertong03.gif" width="100" height="75" border="0" /></a>
 								<div class="xcxinxi00">
-									<a href="FamilyMedia.aspx?userid=<%=UserID %>&id=<%#Eval("ID") %>" class="lansewenzi"><%#Eval("Name") %></a>
+									<a href="FamilyMedia-List.aspx?userid=<%=UserID %>&id=<%#Eval("ID") %>" class="lansewenzi"><%#Eval("Name") %></a>
 									<%if (!IsAnonymous && User.ID == UserID)
             {%>										
 										<span><a href="javascript:Update_Category('<%=UserID %>','<%#Eval("ID") %>','<%#Eval("Name") %>');">[编辑]</a></span><span><a href="javascript:DeltetCategory('<%=UserID %>','<%#Eval("ID") %>');">[删除]</a></span>

@@ -24,8 +24,8 @@
 		<div class="content">
 			<div class="erjinav">
 				当前位置：<a href="/">优童首页</a>&gt;&gt;
-				<a href="Index.aspx">管理中心</a>&gt;&gt;
-				<a href="Works-List.aspx" class="choose">作品列表</a>&gt;&gt;
+				<a href="/Grow/Grow.aspx">管理中心</a>&gt;&gt;
+				<a href="/childs/Works.aspx?userid=<%=UserID %>&type=<%=WorksType %>&cat=<%=CategoryID %>">作品列表</a>&gt;&gt;
 				<a href="#" class="choose">修改作品</a>
 			</div>
 			<div class="jindu">

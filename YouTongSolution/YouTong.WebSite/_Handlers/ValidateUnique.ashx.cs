@@ -22,22 +22,31 @@ namespace YouTong.WebSite._Handlers
 		public override void ProcessRequest(HttpContext context)
 		{
 			base.ProcessRequest(context);
-
+            String result = "false";
+            string action = RequestObject.ToString("action");
 			var user = ConverterFactory.ConvertTo<User>(Request.Params, "User_");
 
-			String result = "false";
-			if (!String.IsNullOrEmpty(user.UserName))
-			{
-				result = (!MemberFactory.Instance.UserService.ExistUserName(user.UserName)).ToString();
-			}
-			else if (!String.IsNullOrEmpty(user.Email))
-			{
-				result = (!MemberFactory.Instance.UserService.ExistEmail(user.Email)).ToString();
-			}
-			else if (!String.IsNullOrEmpty(user.Mobile))
-			{
-				result = (!MemberFactory.Instance.UserService.ExistMobile(user.Mobile)).ToString();
-			}
+            switch (action)
+            {
+                case "name":
+                    if (!String.IsNullOrEmpty(user.UserName))
+                    {
+                        result = (!MemberFactory.Instance.UserService.ExistUserName(user.UserName)).ToString();
+                    }
+                    break;
+                case "mobile":
+                    if (!String.IsNullOrEmpty(user.Email))
+                    {
+                        result = (!MemberFactory.Instance.UserService.ExistEmail(user.Email)).ToString();
+                    }
+                    break;
+                case "email":
+                    if (!String.IsNullOrEmpty(user.Mobile))
+                    {
+                        result = (!MemberFactory.Instance.UserService.ExistMobile(user.Mobile)).ToString();
+                    }
+                    break;
+            }
 
 			Response.Write(result.ToLower());
 		}

@@ -7,17 +7,23 @@ using System.Web.UI.WebControls;
 using Itfort.Web;
 using WebBasics.Cms.Model;
 using YouTong.WebSite.Codes;
+using Itfort.Web.Binder;
 
 namespace YouTong.WebSite.Member
 {
 	public partial class Works_Update : PageAuth
 	{
 		public Guid WorksID;
+        public Guid CategoryID;
+        public Int32 WorksType;
 		public AnyFile Works;
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			this.WorksID = RequestObject.ToGuid("id");
+            this.WorksType = RequestObject.ToInt32("type");
+            if (this.WorksType != 2) this.WorksType = 1;
+            this.CategoryID = RequestObject.ToGuid("cat");
 			this.Works = xCmsFactory.AnyFileService.GetAnyFile(this.WorksID);
 
 			if (!this.IsPostBack)
@@ -44,7 +50,20 @@ namespace YouTong.WebSite.Member
 
 		protected void BtnOK_Click(object sender, EventArgs e)
 		{
+            var xWorks = ConverterFactory.ConvertTo<AnyFile>(Request.Params, "Works_");
 
+            this.Works.Title = xWorks.Title;
+            this.Works.OccurTime = xWorks.OccurTime;
+            this.Works.Tags = xWorks.Tags;
+            this.Works.Summary = xWorks.Summary;
+            this.Works.ChannelID = xWorks.ChannelID;
+
+            try
+            {
+                xCmsFactory.AnyFileService.UpdateAnyFile(Works);
+                JsAlert("修改作品成功");
+            }
+            catch { JsAlert("修改作品失败"); }
 		}
 	}
 }

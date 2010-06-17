@@ -72,8 +72,8 @@
         <div class="works">
         	<div class="displayornot">
                 <div class="transparent"></div>
-                <a class="transparentcontent" href="/childs/FamilyMedia.aspx?userid=<%=UserID %>">
-                	<table><tr><td><a href="/childs/FamilyMedia.aspx?userid=<%=UserID %>">
+                <a class="transparentcontent" href="/childs/Works.aspx?userid=<%=UserID %>">
+                	<table><tr><td><a href="/childs/Works.aspx?userid=<%=UserID %>">
                 	<%if(this.FirstChild == null){ %>作品集<%}else{ %><%=this.FirstChild.Name%>的作品集<%} %></a></td></tr></table>
                 </a>
 			</div>

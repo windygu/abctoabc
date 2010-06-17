@@ -12,15 +12,17 @@ using YouTong.Model;
 
 namespace YouTong.WebSite.Member
 {
-	public partial class FamilyMedia_Update : PageAuth
-	{
-		public Guid MediaID;
-		public AnyFile Media;
+    public partial class FamilyMedia_Update : PageAuth
+    {
+        public Guid MediaID;
+        public Guid CatagoryID;
+        public AnyFile Media;
 
-		protected void Page_Load(object sender, EventArgs e)
-		{
-			this.MediaID = RequestObject.ToGuid("id");
-			this.Media = xCmsFactory.AnyFileService.GetAnyFile(this.MediaID);
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            this.MediaID = RequestObject.ToGuid("id");
+            this.CatagoryID = RequestObject.ToGuid("cid");
+            this.Media = xCmsFactory.AnyFileService.GetAnyFile(this.MediaID);
 
             if (!this.IsPostBack)
             {
@@ -29,30 +31,20 @@ namespace YouTong.WebSite.Member
                 this.Media_Tags.Text = this.Media.Tags;
                 this.Media_Summary.Text = this.Media.Summary;
 
-                try
+
+                var channels = FamilyMediaAction.GetOfficialCategories();
+
+                foreach (var channel in channels)
                 {
-                    var channels = FamilyMediaAction.GetOfficialCategories();
-
-                    foreach (var channel in channels)
-                    {
-                        this.Media_ChannelID.Items.Add(new ListItem(channel.Name, channel.ID.ToString()));
-                        if (channel.ID == this.Media.ChannelID)
-                            this.Media_ChannelID.SelectedIndex = this.Media_ChannelID.Items.Count - 1;
-                    }
-                    IList<Category> catList = CategoryService.Instance.GetCategoriesByUser(UserID, YouTong.FamilyMediaAction.EntityName);
-                    foreach (var channel in catList)
-                    {
-                        this.Media_ChannelID.Items.Add(new ListItem(channel.Name, channel.ID.ToString()));
-                        if (channel.ID == this.Media.ChannelID)
-                            this.Media_ChannelID.SelectedIndex = this.Media_ChannelID.Items.Count - 1;
-                    }
+                    this.Media_ChannelID.Items.Add(new ListItem(channel.Name, channel.ID.ToString()));
+                    if (channel.ID == this.Media.ChannelID)
+                        this.Media_ChannelID.SelectedIndex = this.Media_ChannelID.Items.Count - 1;
                 }
-                catch { }
             }
-		}
+        }
 
-		protected void BtnOK_Click(object sender, EventArgs e)
-		{
+        protected void BtnOK_Click(object sender, EventArgs e)
+        {
             var xMedia = ConverterFactory.ConvertTo<AnyFile>(Request.Params, "Media_");
 
             this.Media.Title = xMedia.Title;
@@ -61,9 +53,12 @@ namespace YouTong.WebSite.Member
             this.Media.Summary = xMedia.Summary;
             this.Media.ChannelID = xMedia.ChannelID;
 
-            xCmsFactory.AnyFileService.UpdateAnyFile(this.Media);
-
-            Response.Redirect("http://local.no1child.com/childs/familymedia-detail.aspx?id=" + Media.ID);
-		}
-	}
+            try
+            {
+                xCmsFactory.AnyFileService.UpdateAnyFile(this.Media);
+                JsAlert("修改亲子影像成功");
+            }
+            catch { JsAlert("修改亲子影像失败"); }
+        }
+    }
 }

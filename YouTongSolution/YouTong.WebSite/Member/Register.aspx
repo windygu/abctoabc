@@ -294,16 +294,16 @@
 			rules: {
 				User_UserName: { letterAndNumber: true, required: true,
 					minlength: 2, maxlength: 15,
-					remote: "/_Handlers/ValidateUnique.ashx"
+					remote: "/_Handlers/ValidateUnique.ashx?action=name"
 				},
 				User_Password: { required: true, minlength: 6, maxlength: 20 },
 				User_Password2: { required: true, equalTo: "#User_Password" },
 				User_Name: { required: true, zhWord: true },
 				User_Mobile: { required: true, number: true, minlength: 11, maxlength: 11,
-					remote: "/_Handlers/ValidateUnique.ashx"
+					remote: "/_Handlers/ValidateUnique.ashx?action=mobile"
 				},
 				User_Email: { required: true, email: true,
-					remote: "/_Handlers/ValidateUnique.ashx"
+					remote: "/_Handlers/ValidateUnique.ashx?action=email"
 				},
 				VerifyCode: { required: true },
 				AcceptAgreement: { required: true }

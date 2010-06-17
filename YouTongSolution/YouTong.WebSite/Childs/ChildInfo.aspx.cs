@@ -90,6 +90,7 @@ namespace YouTong.WebSite.Childs
                 sbJS.AppendFormat("var region = '{0}';", this.child.Region);
                 sbJS.AppendFormat("var level = '{0}';", this.school.Level);
                 sbJS.AppendFormat("var school = '{0}';", this.school.Name);
+                sbJS.AppendFormat("var talents = '{0}';", this.child.Talent);
                 sbJS.Append("</script>");
                 this.ltr_JS.Text = sbJS.ToString();
             }

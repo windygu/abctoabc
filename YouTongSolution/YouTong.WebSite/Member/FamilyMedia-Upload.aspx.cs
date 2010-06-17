@@ -15,6 +15,8 @@ namespace YouTong.WebSite.Member
 	public partial class FamilyMedia_Upload : PageAuth
 	{
         public Guid guid = RequestObject.ToGuid("id");
+        public Guid CatagoryID = RequestObject.ToGuid("cid");
+
 		protected void Page_Load(object sender, EventArgs e)
 		{
              

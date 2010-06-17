@@ -37,7 +37,7 @@
 									<div class="clear"></div>
 								</div>
 								<p>城市：<span><%=area.Name%></span></p>
-								<p>他的优童：<span><a href="#" class="ytmingzi"><%=Child.Name %></a> <a class="genduoytxx" href="#">更多优童>></a></span></p>
+								<p>他的优童：<span><a href="/childs/childdefault.aspx?userid=<%=UserID %>" class="ytmingzi"><%=Child.Name %></a><%-- <a class="genduoytxx" href="#">更多优童>></a>--%></span></p>
 								<%--<p>活跃度：<span class="hongse">131</span></p>
 								<p>积分：<span class="hongse">1311</span></p>
 								<p>等级：<span class="hongse">13</span></p>--%>

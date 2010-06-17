@@ -13,9 +13,24 @@
 	<script type="text/javascript">
 		var CMenu = "show";
 
-		function switchTab(type) {
-			location = "Works.aspx?userid=<%=UserID%>&type=" + type;
+		function switchTab(type,cat) {
+			location = "Works.aspx?userid=<%=UserID%>&type=" + type+"&cat="+cat;
 		}
+		//删除相册
+        function DeltetWorks(userid,id){
+            if(confirm("是否删除作品")){
+                jQuery.ajax({
+                    url : "/_Handlers/Media_Works.ashx?userid=" + userid + "&id=" + id,
+                    async : false,
+                    success : function(){
+                        window.location.reload();
+                    },
+                    fail : function(){
+                        alert("删除作品出错!");
+                    }
+                });
+            }
+        }
 	</script>
 </head>
 <body>
@@ -32,11 +47,13 @@
 					<div class="nianfen">
 						<h2>
 							<%= this.Category==null ? "": this.Category.Name %></h2>
+						<%if (!IsAnonymous && User.ID == UserID)
+       {%><h3><a href="/Member/Works-Upload.aspx" target="_blank">上传照片/视频</a></h3><%} %>
 					</div>
 					<div class="tab tab00">
 						<ul class="nav">
-							<li><a class='<%=(WorksType==1?"choose":"")%>' href="javascript:switchTab(1)"><span>照片</span></a></li>
-							<li><a class='<%=(WorksType==2?"choose":"")%>' href="javascript:switchTab(2)"><span>视频</span></a></li>
+							<li><a class='<%=(WorksType==1?"choose":"")%>' href="javascript:switchTab(1,'<%=CategoryID %>')"><span>照片</span></a></li>
+							<li><a class='<%=(WorksType==2?"choose":"")%>' href="javascript:switchTab(2,'<%=CategoryID %>')"><span>视频</span></a></li>
 						</ul>
 					</div>
 					<div class="clear">
@@ -65,12 +82,9 @@
 										<div class="zpxinxi">
 											<a href='Works-Detail.aspx?id=<%# Eval("ID") %>' class="zpmclan">
 												<%# Eval("Title") %></a>
-											<p class="renqisc0">
-												<span>人气：<em>131</em></span></p>
-											<p class="renqisc0">
-												<span>收藏：<em>13</em></span></p>
-											<p class="renqisc0">
-												<span>评论：<em>3</em></span></p>
+												<%if (!IsAnonymous && User.ID == UserID){%>
+											<a href="/Member/Works-Update.aspx?id=<%#Eval("ID") %>&type=<%=WorksType %>&cat=<%=CategoryID %>" target="_blank" style="display:inline;">[编辑]</a>
+											<a href="javascript:void(0);" onclick="DeltetWorks('<%=UserID %>','<%# Eval("ID") %>');" style="display:inline;">[删除]</a><%} %>
 										</div>
 										<div class="clear">
 										</div>
@@ -83,8 +97,8 @@
 						</FooterTemplate>
 					</asp:Repeater>
 					<div class="fenye">
-<%--						<a class="choose" title="[1]" href="#">[1]</a><a title="[2]" href="#">[2]</a><a title="[3]" href="#">[3]</a><a title="[4]" href="#">[4]</a><a title="[5]" href="#">[5]</a><a title="[6]" href="#">[6]</a><a title="[7]" href="#">[7]</a><a title="[8]" href="#">[8]</a><a title="[9]" href="#">[9]</a>
---%>					</div>
+                        <asp:Literal ID="lt_Page" runat="server"></asp:Literal>
+					</div>
 					<div class="clear">
 					</div>
 				</div>

@@ -145,8 +145,8 @@
 								<a href="#" class="rentx">
 									<img src="../images/zuozhe_renwu.gif" width="59" height="59" border="0" align="" /></a>
 								<div class="wenzi01">
-									<a href="#">作者名称：<span class="yonglan"><%= this.Child.Name %></span></a>
-									<a href="#">影像集：<span class="hongse"><%=CatagoryCount%>个</span></a>
+									<a href="ChildDefault.aspx?userid=<%=this.Child.ParentID %>">作者名称：<span class="yonglan"><%= this.Child.Name %></span></a>
+									<%--<a href="#">影像集：<span class="hongse"><%=CatagoryCount%>个</span></a>--%>
 									<a href="ChildDefault.aspx?userid=<%=this.Child.ParentID %>" class="jinru">进入TA的个人主页 ></a>
 								</div>
 								<div class="clear">
