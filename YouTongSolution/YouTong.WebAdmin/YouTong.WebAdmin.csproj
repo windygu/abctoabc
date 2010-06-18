@@ -295,6 +295,8 @@
     <Content Include="Resources\js\jquery.form-2.24.js" />
     <Content Include="Resources\js\jquery.validate-1.5.2.min.js" />
     <Content Include="SignIn.aspx" />
+    <Content Include="User\UserLeft.aspx" />
+    <Content Include="User\UserList.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -379,6 +381,20 @@
     <Compile Include="SignIn.aspx.designer.cs">
       <DependentUpon>SignIn.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\UserLeft.aspx.cs">
+      <DependentUpon>UserLeft.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\UserLeft.aspx.designer.cs">
+      <DependentUpon>UserLeft.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserList.aspx.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\UserList.aspx.designer.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WebBasics\WebBasics.csproj">
@@ -388,6 +404,10 @@
     <ProjectReference Include="..\YouTong.WebCache\YouTong.WebCache.csproj">
       <Project>{50AC3217-9640-41F8-ADB9-C5AB42E7714B}</Project>
       <Name>YouTong.WebCache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YouTong.WebSite\YouTong.WebSite.csproj">
+      <Project>{826F0698-C54E-45DD-8D05-82F269760234}</Project>
+      <Name>YouTong.WebSite</Name>
     </ProjectReference>
     <ProjectReference Include="..\YouTong\YouTong.csproj">
       <Project>{9B4E4B7D-480B-4A2C-A084-139BD6428BEC}</Project>

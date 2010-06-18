@@ -29,6 +29,8 @@
 					<a href="Activities/Activity-Left.aspx" target="leftFrame" xtarget="Activities/Activity-List.aspx">活动管理</a></li>
 				<li>
 					<a href="Comments/Comment-Left.aspx" target="leftFrame" xtarget="Comments/Comment-List.aspx">评论管理</a></li>
+				<li>
+					<a href="User/UserLeft.aspx" target="leftFrame" xtarget="User/UserList.aspx">用户管理</a></li>
 			</ul>
 		</div>
 	</div>
