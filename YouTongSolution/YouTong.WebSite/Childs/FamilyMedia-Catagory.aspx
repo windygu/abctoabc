@@ -28,7 +28,7 @@
 				<div class="longblock01">
 					<a class="title" href="#">亲子影像集</a>
 					<%if (!IsAnonymous && User.ID == UserID){%>
-					<input type="button" value="创建相册" style="margin: 20px 10px 0px;" onclick="ShowCatagory();" /><%} %>
+					<input type="button" value="创建相册" class="button0001" style="margin: 20px 10px 0px;" onclick="ShowCatagory();" /><%} %>
 					<div class="clear"></div>
 				</div>
 				<div class="longblock02">

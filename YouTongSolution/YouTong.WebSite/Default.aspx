@@ -489,7 +489,7 @@
 									<a href="/Member/Login.aspx">
 										<img src="images/qzyx.gif" width="63" height="63" border="0" alt="亲子影像" /></a></li>
 								<li>
-									<a href="Member/Blog-Write.aspx">
+									<a href="/Blogs/Blog-Write.aspx">
 										<img src="images/zxbk.gif" width="63" height="63" border="0" alt="撰写博客" /></a></li>
 								<li>
 									<a href="#">

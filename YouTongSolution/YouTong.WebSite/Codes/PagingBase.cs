@@ -16,7 +16,7 @@ namespace YouTong.WebSite.Codes
     public class PagingBase : PageBase
     {
         public Int32 PageIndex;
-        public Int32 PageSize = 2;
+        public Int32 PageSize = 10;
 
         protected override void OnPreInit(EventArgs e)
         {
