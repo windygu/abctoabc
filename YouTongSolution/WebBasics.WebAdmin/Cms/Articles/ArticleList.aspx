@@ -99,6 +99,7 @@
 					<td>
 						<a href="ArticleUpdate.aspx?id=<%# Eval("ID") %>">修改</a>
 						<a href="#" onclick="del('<%# Eval("ID") %>')">删除</a>
+						<a href="ArticleDetail.aspx" target="_blank">图片|视频</a>
 					</td>
 				</tr>
 			</ItemTemplate>
