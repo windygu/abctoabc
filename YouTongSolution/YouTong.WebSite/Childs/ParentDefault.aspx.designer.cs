@@ -50,6 +50,15 @@ namespace YouTong.WebSite.Childs {
         protected global::System.Web.UI.WebControls.Repeater rp_Categorys;
         
         /// <summary>
+        /// cn 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::YouTong.WebSite.Includes.ChildNews cn;
+        
+        /// <summary>
         /// WebFooter 控件。
         /// </summary>
         /// <remarks>

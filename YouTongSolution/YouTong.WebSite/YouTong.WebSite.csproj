@@ -602,6 +602,13 @@
     <Compile Include="Exp\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Includes\ChildNews.ascx.cs">
+      <DependentUpon>ChildNews.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Includes\ChildNews.ascx.designer.cs">
+      <DependentUpon>ChildNews.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Includes\LeftMenu.ascx.cs">
       <DependentUpon>LeftMenu.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -979,6 +986,7 @@
     <Content Include="images\dl_btn.gif" />
     <Content Include="images\Image61.jpg" />
     <Content Include="images\rtaImage.gif" />
+    <Content Include="Includes\ChildNews.ascx" />
     <Content Include="Jianshezhong.aspx" />
     <Content Include="js\走马灯\Document.htm" />
     <Content Include="js\走马灯\jcarousellite-src.js" />

@@ -33,7 +33,8 @@
 							
 						  	<div class="gerendangan xinxiyuan">
 								<div class="xingming">
-									<h3><%=userB.Name%></h3> <a href="/Blogs/Home.aspx?userid=<%=UserID %>" class="zpshouye">[TA的博客]</a>
+									<h3><%=userB.Name%></h3> <a href="/Blogs/Home.aspx?userid=<%=UserID %>" class="zpshouye">
+                                    [TA的博客]</a>
 									<div class="clear"></div>
 								</div>
 								<p>城市：<span><%=area.Name%></span></p>
@@ -46,7 +47,8 @@
 						  </div> 
 						  <div class="guanxi">
 						  	<h4>TA的状态：</h4>
-							<p>全家度假归来，带孩子去了香港迪斯尼玩 ...全家度假归来，带孩子去了香港迪斯尼玩 ...全家度假归来，带孩子去了香港迪斯尼玩 ...全家度假归来，带孩子去了香港迪斯尼玩 ...</p>
+							<p>全家度假归来，带孩子去了香港迪斯尼玩 ...全家度假归来，带孩子去了香港迪斯尼玩 ...全家度假归来，带孩子去了香港迪斯尼玩 
+                                ...全家度假归来，带孩子去了香港迪斯尼玩 ...</p>
 						  </div>
                        </div>
                        <dl><img src="/images/block102.gif"></dl>
@@ -127,8 +129,10 @@
 					  
 					<div class="caiyixiu">
                         <div class="block1">
-                           <a class="title" href="/Childs/FamilyMedia-Catagory.aspx?userid=<%=UserID %>">TA的亲子影像</a>
-                           <a href="/Childs/FamilyMedia-Catagory.aspx?userid=<%=UserID %>" class="genduoyx">共<%=categoryCount%>个相册&gt;&gt;</a>
+                           <a class="title" href="/Childs/FamilyMedia-Catagory.aspx?userid=<%=UserID %>">
+                            TA的亲子影像</a>
+                           <a href="/Childs/FamilyMedia-Catagory.aspx?userid=<%=UserID %>" class="genduoyx">
+                            共<%=categoryCount%>个相册&gt;&gt;</a>
                            <div class="clear"></div>
                         </div>
                         <div class="block2">
@@ -141,7 +145,8 @@
 										<a href="FamilyMedia-List.aspx?userid=<%=UserID %>&id=<%#Eval("ID") %>" class="lansewenzi"><%#Eval("Name") %></a>
 										<%if (!IsAnonymous && User.ID == UserID)
             {%>										
-										<span><a href="javascript:void(0);" onclick="UpdateCategory('<%=UserID %>','<%#Eval("ID") %>','<%#Eval("Name") %>');">[编辑]</a></span><span><a href="javascript:DeltetCategory('<%=UserID %>','<%#Eval("ID") %>');">[删除]</a></span>
+										<span><a href="javascript:void(0);" onclick="UpdateCategory('<%=UserID %>','<%#Eval("ID") %>','<%#Eval("Name") %>');">
+                                        [编辑]</a></span><span><a href="javascript:DeltetCategory('<%=UserID %>','<%#Eval("ID") %>');">[删除]</a></span>
 										<%} %>
 										<%--<h3><span>5个照片</span><span>10个视频</span></h3>--%>
 										<p>创建于：<em><%#Convert.ToDateTime(Eval("AddTime")).ToString("yyyy/MM/dd")%></em></p>
@@ -162,6 +167,7 @@
 				</div>
 				
                 <div class="rightblock">
+                <ut:ChildNews ID="cn" runat="server" />
 					<%--<div class="jiatingchengyuan">
                    		 <div class="zhuanjiablock1">
                              	<div class="kong">

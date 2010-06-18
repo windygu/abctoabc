@@ -66,30 +66,7 @@
 					</div>
 				</div>
 				<div class="rightblock">
-					<div class="redianxinxi">
-						<div class="duanblock1">
-							<div class="kong">
-								<a class="title" href="#">热点信息</a>
-								<a href="#" class="more">&gt;&gt;更多</a>
-							</div>
-						</div>
-						<div class="duanblock2">
-							<ul class="zuixin">
-								<li>
-									<a href="#">优童最新动态优童最新动态优童优童最新动态</a></li>
-								<li>
-									<a href="#">优童最新动态优童最新动态优童优童最新动态</a></li>
-								<li>
-									<a href="#">优童最新动态优童最新动态优童优童最新动态</a></li>
-								<li>
-									<a href="#">优童最新动态优童最新动态优童优童最新动态</a></li>
-								<li>
-									<a href="#">优童最新动态优童最新动态优童优童最新动态</a></li>
-							</ul>
-						</div>
-						<div class="duanblock3">
-						</div>
-					</div>
+					<ut:ChildNews ID="cn" runat="server" />
 				</div>
 				<div class="clear">
 				</div>
