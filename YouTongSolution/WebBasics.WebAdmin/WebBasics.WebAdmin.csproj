@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{D7EC9549-5377-4FC3-A30C-931E174B5971}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -56,6 +56,7 @@
     <Reference Include="System.Web.Services" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Cms\Articles\ArticleDetail.aspx" />
     <Content Include="Cms\Articles\ArticleInsert.aspx" />
     <Content Include="Cms\Articles\ArticleList.aspx" />
     <Content Include="Cms\Articles\ArticleResult.aspx" />
@@ -515,6 +516,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cms\Articles\ArticleDetail.aspx.cs">
+      <DependentUpon>ArticleDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cms\Articles\ArticleDetail.aspx.designer.cs">
+      <DependentUpon>ArticleDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Cms\Articles\ArticleInsert.aspx.cs">
       <DependentUpon>ArticleInsert.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -652,6 +660,14 @@
       <Project>{9FD4ECA5-B4B3-421C-9FCE-D1545AB530C2}</Project>
       <Name>WebBasics</Name>
     </ProjectReference>
+    <ProjectReference Include="..\YouTong.WebSite\YouTong.WebSite.csproj">
+      <Project>{826F0698-C54E-45DD-8D05-82F269760234}</Project>
+      <Name>YouTong.WebSite</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YouTong\YouTong.csproj">
+      <Project>{9B4E4B7D-480B-4A2C-A084-139BD6428BEC}</Project>
+      <Name>YouTong</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -739,15 +755,12 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>5419</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/WebBasics.WebAdmin</IISUrl>
+          <IISUrl>http://local.no1child.com/Admin</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
