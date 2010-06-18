@@ -35,15 +35,15 @@ namespace YouTong.WebSite._Handlers
                     }
                     break;
                 case "mobile":
-                    if (!String.IsNullOrEmpty(user.Email))
-                    {
-                        result = (!MemberFactory.Instance.UserService.ExistEmail(user.Email)).ToString();
-                    }
-                    break;
-                case "email":
                     if (!String.IsNullOrEmpty(user.Mobile))
                     {
                         result = (!MemberFactory.Instance.UserService.ExistMobile(user.Mobile)).ToString();
+                    }
+                    break;
+                case "email":
+                    if (!String.IsNullOrEmpty(user.Email))
+                    {
+                        result = (!MemberFactory.Instance.UserService.ExistEmail(user.Email)).ToString();
                     }
                     break;
             }
