@@ -62,6 +62,12 @@ namespace YouTong.WebSite.Codes
             return (Child)obj;
         }
 
+        public static string GetUserNameByUserID(Guid userId)
+        {
+            var user = GetUser(userId);
+            return user == null ? string.Empty : user.Name;
+        }
+
         public static String GetChildNameByUserID(Guid userId)
         {
             var child = GetChild(userId);

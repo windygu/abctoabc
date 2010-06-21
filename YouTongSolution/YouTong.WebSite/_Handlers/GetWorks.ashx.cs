@@ -47,7 +47,7 @@ namespace YouTong.WebSite._Handlers
                         title = workComments[0].Title;
                         if (workComments[0].Title.Length > 15)
                             title = workComments[0].Title.Substring(0, 15);
-                        name = DataCache.GetChildNameByUserID(workComments[0].Reviewer.Value);
+                        name = DataCache.GetUserNameByUserID(workComments[0].Reviewer.Value);
                     }
 
                     sbJson.AppendFormat("[\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\",\"{6}\"],", item.ID, item.ThumbnailUrl, item.Title,

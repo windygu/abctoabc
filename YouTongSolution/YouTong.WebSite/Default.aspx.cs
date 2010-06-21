@@ -165,7 +165,7 @@ namespace YouTong.WebSite
                 title = workComments[0].Title;
                 if (workComments[0].Title.Length > 15)
                     title = workComments[0].Title.Substring(0, 15);
-                result = string.Format("{0}[{1}{2}]", title, DataCache.GetChildNameByUserID(workComments[0].Reviewer.Value), value);
+                result = string.Format("{0}[{1}{2}]", title, DataCache.GetUserNameByUserID(workComments[0].Reviewer.Value), value);
             }
             return result;
         }
