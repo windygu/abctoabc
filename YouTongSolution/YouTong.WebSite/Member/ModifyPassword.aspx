@@ -38,7 +38,7 @@
 									原密码：
 								</td>
 								<td class="textleft">
-									<input type="password" class="input1" name="OldPassword" id="OldPassword" />
+									<input type="text" class="input1" name="OldPassword" id="OldPassword" />
 								</td>
 								<td class="textleft">
 								</td>
