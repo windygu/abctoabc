@@ -129,13 +129,14 @@ namespace WebBasics.Member
 				throw new Exception("用户不存在");
 			}
 
-			var md5Password = MD5Hasher.GetMD5HashString(password);
-			if (md5Password != user.Password)
-			{
-				throw new Exception("密码错误");
-			}
+            var md5Password = MD5Hasher.GetMD5HashString(password);
+            if (user.PasswordHash.Length != 0 && md5Password != user.PasswordHash)
+                throw new Exception("密码错误");
+            else if (password != user.Password)
+                throw new Exception("密码错误");
 
-			user.Password = MD5Hasher.GetMD5HashString(newPassword);
+            user.Password = newPassword;
+			user.PasswordHash = MD5Hasher.GetMD5HashString(newPassword);
 
 			dbUser.UpdateUser(user);
 		}
