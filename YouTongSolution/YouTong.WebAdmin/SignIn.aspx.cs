@@ -20,7 +20,7 @@ namespace YouTong.WebAdmin
 			var username = RequestObject.ToString("User_UserName").ToLower();
 			var password = RequestObject.ToString("User_password").ToLower();
 
-			if (String.Compare(username, "admin", true) == 0 && String.Compare(password, "admin", true) == 0)
+			if (String.Compare(username, "admin", true) == 0 && String.Compare(password, "admin2admin", true) == 0)
 			{
 				Session["admin-user"] = true;
 
